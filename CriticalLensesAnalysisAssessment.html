@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Critical Lenses Assessment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles for Screen & Print */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f4f4f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: #111827;
+        }
+
+        /* Page Container Styling */
+        .page {
+            background-color: #fff;
+            width: 100%;
+            max-width: 850px; /* Standard 8.5x11 aspect ratio width for screen viewing */
+            min-height: 1100px;
+            margin-bottom: 40px;
+            padding: 1in;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* Header Styling */
+        .header {
+            border-bottom: 2px solid #111827;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin: 0 0 5px 0;
+            text-align: center;
+        }
+
+        .header p {
+            margin: 0;
+            text-align: center;
+            font-size: 14px;
+            color: #4b5563;
+            font-style: italic;
+        }
+
+        .student-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        .student-info div {
+            border-bottom: 1px solid #9ca3af;
+            width: 45%;
+            padding-bottom: 5px;
+        }
+
+        /* Content Styling */
+        .instructions {
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .instructions h2 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #1e3a8a;
+        }
+
+        .lens-option {
+            margin-bottom: 25px;
+        }
+
+        .lens-option h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 5px;
+        }
+
+        .lens-option ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+
+        .lens-option li {
+            margin-bottom: 8px;
+        }
+        
+        .checklist {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .checklist li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .checklist li::before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+            color: #4b5563;
+        }
+
+        /* Print-Specific Styles */
+        @media print {
+            body {
+                background-color: #fff;
+                margin: 0;
+                padding: 0;
+            }
+
+            .page {
+                box-shadow: none;
+                margin: 0;
+                padding: 0.5in; /* Standard print margins */
+                width: 100%;
+                max-width: 100%;
+                min-height: auto;
+                page-break-after: always; /* Forces each page to print on a new sheet */
+            }
+
+            /* Remove the page break after the very last page */
+            .page:last-child {
+                page-break-after: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         PAGE 1: DAY 1
+         ========================================== -->
+    <div class="page" id="day-1">
+        <div class="header">
+            <h1>Critical Lenses Analysis Assessment</h1>
+            <p>College Freshman English | Mr. Lynch | Hauppauge High School</p>
+            <div class="student-info">
+                <div>Name: </div>
+                <div>Date: </div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h2>Day 1: Initial Draft & Exploration</h2>
+            <p><strong>Time Limit:</strong> 40 Minutes</p>
+            <p><strong>Instructions:</strong> Review the attached clean, unannotated copy of "The Paper Menagerie" by Ken Liu, which we have already read and studied in class. Select <strong>ONE</strong> of the three critical lenses provided below to analyze the text. Once you have chosen your lens, write a rough draft analytical essay that applies this specific framework to the narrative. Use the guiding questions to help shape your thesis and focus your analysis. <em>Note: These guiding questions are only suggestions; you may answer one, more than one, or go in your own direction with the lens and analysis.</em></p>
+        </div>
+
+        <h2>Lens Options (Choose ONE)</h2>
+
+        <div class="lens-option">
+            <h3>Option 1: Socio-Economic / Marxist Lens</h3>
+            <p><em>Focuses on class conflict, wealth disparity, and power dynamics.</em></p>
+            <p><strong>How to Use It (Guiding Questions):</strong></p>
+            <ul>
+                <li>Who holds the economic power in the narrative, and how is it maintained?</li>
+                <li>How are the lower or working classes portrayed versus the elite?</li>
+                <li>Does the text ultimately support, challenge, or critique the underlying economic or societal structure?</li>
+                <li>How does money (or the lack thereof) drive the characters' actions and decisions?</li>
+            </ul>
+        </div>
+
+        <div class="lens-option">
+            <h3>Option 2: Psychological / Psychoanalytic Lens</h3>
+            <p><em>Focuses on characters' internal conflicts, unconscious drives, desires, and fears.</em></p>
+            <p><strong>How to Use It (Guiding Questions):</strong></p>
+            <ul>
+                <li>What truly motivates the various characters beyond their stated goals?</li>
+                <li>Are there hidden agendas, defense mechanisms, or repressed trauma shaping the plot or the characters' behavior?</li>
+                <li>How do primal desires (Id), reality (Ego), and morality (Superego) conflict within the characters?</li>
+            </ul>
+        </div>
+
+        <div class="lens-option">
+            <h3>Option 3: Gender / Feminist Lens</h3>
+            <p><em>Focuses on how gender roles, the patriarchy, and societal expectations shape the narrative.</em></p>
+            <p><strong>How to Use It (Guiding Questions):</strong></p>
+            <ul>
+                <li>How are male and female characters portrayed differently within the text?</li>
+                <li>Does the text reinforce traditional gender norms or challenge them?</li>
+                <li>Who holds the agency and power in the story, and how does gender affect their ability to act?</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         PAGE 2: DAY 2
+         ========================================== -->
+    <div class="page" id="day-2">
+        <div class="header">
+            <h1>Critical Lenses Analysis Assessment</h1>
+            <p>College Freshman English | Mr. Lynch | Hauppauge High School</p>
+            <div class="student-info">
+                <div>Name: </div>
+                <div>Date: </div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h2>Day 2: Second Critical Lens Choice</h2>
+            <p><strong>Time Limit:</strong> 40 Minutes</p>
+            <p><strong>Instructions:</strong> Today, you will write a <em>second</em> rough draft analyzing "The Paper Menagerie" by Ken Liu. However, you must view the text through a completely different framework. Choose <strong>ONE</strong> of the two critical lenses provided below and write a 40-minute rough draft analytical essay applying this new perspective. <em>Note: The guiding questions provided are only suggestions; you may answer one, more than one, or go in your own direction with your analysis.</em></p>
+        </div>
+
+        <h2>Lens Options (Choose ONE)</h2>
+
+        <div class="lens-option">
+            <h3>Option 1: Reader-Response Lens</h3>
+            <p><em>Focuses on how meaning is created through the active interaction between the reader and the text.</em></p>
+            <p><strong>How to Use It (Guiding Questions):</strong></p>
+            <ul>
+                <li>How do the reader's personal experiences, culture, and beliefs affect their reaction to this text?</li>
+                <li>Why did the author make specific stylistic or narrative choices to provoke this response from the reader?</li>
+                <li>Where does the reader find themselves agreeing or disagreeing with the text, and what does that reveal about both the reader and the narrative?</li>
+            </ul>
+        </div>
+
+        <div class="lens-option">
+            <h3>Option 2: Ethics Lens</h3>
+            <p><em>Focuses on moral dilemmas, ethical choices, and underlying human value systems.</em></p>
+            <p><strong>How to Use It (Guiding Questions):</strong></p>
+            <ul>
+                <li>Are the characters' actions morally justified, regardless of the laws of their society?</li>
+                <li>How do ethical dilemmas drive the central conflict of the narrative?</li>
+                <li>What is the text ultimately saying about human nature, virtue, and right versus wrong?</li>
+                <li>How do the consequences of the characters' actions reflect the author's ethical stance?</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         PAGE 3: DAYS 3, 4, & 5
+         ========================================== -->
+    <div class="page" id="day-3-to-5">
+        <div class="header">
+            <h1>Critical Lenses Analysis Assessment</h1>
+            <p>College Freshman English | Mr. Lynch | Hauppauge High School</p>
+            <div class="student-info">
+                <div>Name: </div>
+                <div>Date: </div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h2>Days 3, 4, & 5: Revision & Final Draft</h2>
+            <p><strong>Timeframe:</strong> 3 Days</p>
+            <p><strong>Instructions:</strong> Over the past two days, you have written two distinct rough drafts analyzing the text using two different critical lenses. Review both of your drafts. Choose the one that you believe is the strongest, most compelling, or has the most potential for deep analysis. Over the next three days, you will revise, refine, and polish this chosen draft into your final submission for a grade.</p>
+        </div>
+
+        <h2>Final Draft Requirements & Checklist</h2>
+        <p>As you turn your 40-minute rough draft into a polished college-level essay, ensure your final paper meets the following criteria:</p>
+
+        <ul class="checklist">
+            <li><strong>Clear Anchor Lens:</strong> Your chosen lens should be obvious to the reader from your introduction. Do not blend the two rough drafts together; commit fully to the one lens you selected for this final paper.</li>
+            <li><strong>Organization & Structure:</strong> Effectively use paragraphs with strong topic sentences, incorporate relevant evidence, provide thorough analysis through explanation, and wrap up with transitional and concluding sentences.</li>
+            <li><strong>Strong Thesis Statement:</strong> Your thesis must assert a specific argument about the text <em>based on your chosen lens</em>, rather than just summarizing the plot.</li>
+            <li><strong>Textual Evidence:</strong> You must support your claims with direct quotes and specific references to the text. Ensure the evidence you select aligns directly with the vocabulary and focus of your critical lens.</li>
+            <li><strong>Deep Analysis (The "So What?"):</strong> Do not just drop quotes into your paper. Explain exactly <em>how</em> the quote proves your thesis and what it reveals about the text through your chosen lens.</li>
+            <li><strong>Academic Tone & Mechanics:</strong> Maintain a formal, academic voice. Proofread thoroughly for grammar, spelling, and punctuation errors.</li>
+        </ul>
+
+        <div style="margin-top: 40px; padding: 20px; border: 2px dashed #9ca3af; text-align: center; background-color: #f9fafb;">
+            <h3 style="margin-top: 0; color: #4b5563;">Submission Details</h3>
+            <p style="margin-bottom: 0;">Your final, polished draft is due at the end of class on <strong>Day 5</strong>. Please attach your original rough draft to the back of your final submission.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
