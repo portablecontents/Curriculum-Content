@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Active Reader's Guide to Annotation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Modern Tech Fonts: Space Grotesk for headers, Inter for supreme readability -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* 1. CYBERPUNK / EXTERNAL BRAIN SETUP */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #050507; /* Pitch black surround */
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Prevents scrolling */
+        }
+
+        .slide-container {
+            align-items: center;
+            background-color: #0d0e15; /* Deep midnight void */
+            border-radius: 16px;
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            box-shadow: 
+                0 0 40px rgba(0, 229, 255, 0.05), 
+                inset 0 0 60px rgba(255, 0, 122, 0.03);
+            display: none; /* Hidden by default for slideshow */
+            flex-direction: column;
+            height: 720px;
+            justify-content: center;
+            overflow: hidden;
+            padding: 50px 60px;
+            position: absolute;
+            width: 1280px;
+            transform: scale(var(--scale, 1));
+            transform-origin: center center;
+        }
+
+        /* Active Slide Animation */
+        .slide-container.active {
+            display: flex;
+            animation: fadeIn 0.4s ease-out forwards;
+            z-index: 10;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(var(--scale, 1)) translateY(15px); }
+            to { opacity: 1; transform: scale(var(--scale, 1)) translateY(0); }
+        }
+
+        /* BACKGROUND STYLING: Tech Grid & Glowing Nodes */
+        .slide-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(rgba(0, 229, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 0;
+        }
+
+        .slide-container::after {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255,0,122,0.08) 0%, rgba(0,229,255,0.05) 40%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .slide-container > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 2. TYPOGRAPHY & NEON ACCENTS */
+        h1, h2, h3, .number, .tech-font {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #ffffff;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+        
+        p, li, .subtitle, cite, span {
+            font-family: 'Inter', sans-serif;
+            color: #b4c5d6; /* Soft cool gray for easy reading */
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        p { margin-bottom: 15px; }
+
+        h1 { 
+            font-size: 56px; 
+            font-weight: 700; 
+            line-height: 1.2; 
+            text-align: center; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+        }
+        .slide-title { 
+            font-size: 36px; 
+            font-weight: 700; 
+            margin-bottom: 25px; 
+            text-align: left; 
+            width: 100%; 
+            color: #00E5FF; /* Neon Cyan */
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(0, 229, 255, 0.3);
+            padding-bottom: 10px;
+        }
+        h3 { font-size: 22px; font-weight: 600; margin-bottom: 12px; color: #FF007A; /* Hot Pink */ }
+        p, li { font-size: 18px; }
+        
+        .subtitle { font-size: 22px; font-weight: 400; margin-top: 15px; color: #00E5FF; text-align: center; letter-spacing: 4px; text-transform: uppercase;}
+
+        .accent-cyan { color: #00E5FF; }
+        .accent-pink { color: #FF007A; }
+
+        strong, em { color: #ffffff; font-weight: 600; }
+
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* 3. GLASSMORPHISM PANELS & LAYOUTS */
+        .glass-panel {
+            background: rgba(20, 22, 35, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 25px 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-panel::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: #00E5FF;
+            box-shadow: 0 0 15px #00E5FF;
+        }
+
+        .glass-panel.pink-accent::before {
+            background: #FF007A;
+            box-shadow: 0 0 15px #FF007A;
+        }
+
+        /* Title Slide */
+        .title-layout { max-width: 1000px; margin: 0 auto; text-align: center; }
+
+        /* Section Title */
+        .section-title-layout { text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; width: 100%;}
+        .section-title-layout h2 { font-size: 64px; margin-bottom: 20px; color: #ffffff; text-shadow: 0 0 20px rgba(255, 0, 122, 0.5); text-transform: uppercase; letter-spacing: 2px;}
+        .section-title-layout p { font-size: 24px; max-width: 900px; margin: 0 auto; color: #b4c5d6;}
+        .section-title-layout .glow-bar { background: linear-gradient(90deg, transparent, #FF007A, transparent); border: none; height: 2px; margin: 30px auto; width: 300px; }
+
+        /* Two Column Layouts */
+        .two-column { display: flex; gap: 30px; width: 100%; align-items: stretch; height: 100%; }
+        .two-column > div { flex: 1; display: flex; flex-direction: column; }
+        
+        .three-column { display: flex; gap: 20px; width: 100%; align-items: stretch; height: 100%; }
+        .three-column > div { flex: 1; display: flex; flex-direction: column; }
+
+        /* Lists */
+        ul { list-style: none; padding: 0; margin: 0; }
+        li { margin-bottom: 12px; padding-left: 25px; position: relative; }
+        li::before {
+            content: '>'; 
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            color: #00E5FF;
+            position: absolute;
+            left: 0;
+            top: 0;
+            text-shadow: 0 0 5px rgba(0, 229, 255, 0.5);
+        }
+        
+        ul ul { margin-top: 8px; margin-bottom: 12px; }
+        ul ul li { padding-left: 25px; margin-bottom: 8px; font-size: 16px;}
+        ul ul li::before { content: '-'; color: #FF007A; text-shadow: none;}
+
+        /* Icons */
+        .tech-icon { font-size: 32px; color: #00E5FF; margin-bottom: 15px; text-shadow: 0 0 15px rgba(0,229,255,0.4); }
+
+        /* Quote/Example Layout */
+        .example-panel { border-left: 4px solid #FF007A; padding: 20px 30px; background: rgba(255, 0, 122, 0.05); border-radius: 0 12px 12px 0; margin-top: 15px;}
+        .example-panel p { margin-bottom: 10px; }
+
+        /* 3-Tier List specifically for Example Slide */
+        .example-tiers { list-style: none; padding: 0; margin: 0; }
+        .example-tiers li { padding-left: 35px; margin-bottom: 20px; position: relative; }
+        .example-tiers > li { font-size: 32px; font-family: 'Space Grotesk', sans-serif; color: #00E5FF; font-weight: bold; }
+        .example-tiers > li::before { content: '>'; font-family: 'Space Grotesk', sans-serif; color: #00E5FF; position: absolute; left: 0; top: 0; font-weight: 900; text-shadow: 0 0 5px rgba(0, 229, 255, 0.5); }
+        
+        .example-tiers ul { margin-top: 20px; list-style: none; padding: 0; }
+        .example-tiers ul > li { font-size: 24px; font-family: 'Inter', sans-serif; color: #ffffff; font-style: italic; font-weight: normal; }
+        .example-tiers ul > li::before { content: '-'; font-family: 'Space Grotesk', sans-serif; color: #FF007A; position: absolute; left: 0; top: 0; font-weight: 900; text-shadow: none; }
+        
+        .example-tiers ul ul { margin-top: 20px; }
+        .example-tiers ul ul > li { font-size: 20px; color: #b4c5d6; font-style: normal; line-height: 1.5; }
+        .example-tiers ul ul > li::before { content: '•'; font-family: 'Space Grotesk', sans-serif; color: #00E5FF; position: absolute; left: 0; top: 0; font-weight: 900; text-shadow: 0 0 5px rgba(0, 229, 255, 0.5); }
+
+        /* 4. ANIMATIONS FOR ICONS */
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.1); filter: brightness(1.3); text-shadow: 0 0 30px currentColor; }
+        }
+        .animate-pulse-glow { animation: pulseGlow 3s ease-in-out infinite; display: inline-block; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        .animate-float { animation: float 4s ease-in-out infinite; display: inline-block; }
+
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow { animation: spinSlow 15s linear infinite; display: inline-block; }
+
+        @keyframes launchFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-5px) rotate(3deg); }
+            50% { transform: translateY(-15px) rotate(0deg); filter: brightness(1.4); }
+            75% { transform: translateY(-5px) rotate(-3deg); }
+        }
+        .animate-launch { animation: launchFloat 2.5s ease-in-out infinite; display: inline-block; }
+        
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; text-shadow: 0 0 15px currentColor; }
+            20%, 22%, 24%, 55% { opacity: 0.4; text-shadow: none; }
+        }
+        .animate-flicker { animation: flicker 6s infinite; display: inline-block; }
+
+        /* 5. PRESENTATION NAVIGATION CONTROLS */
+        #controls {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            z-index: 100;
+            background: rgba(20, 22, 35, 0.85);
+            padding: 12px 25px;
+            border-radius: 40px;
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            opacity: 0.3;
+            transition: opacity 0.3s;
+        }
+        
+        #controls:hover {
+            opacity: 1;
+        }
+
+        #controls button {
+            background: none;
+            border: none;
+            color: #00E5FF;
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.2s, text-shadow 0.2s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #controls button:hover {
+            color: #FF007A;
+            text-shadow: 0 0 10px #FF007A;
+            transform: scale(1.2);
+        }
+
+        #controls button:active {
+            transform: scale(0.9);
+        }
+
+        #counter {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Title Slide -->
+<div class="slide-container" id="slide1">
+    <div class="title-layout">
+        <h1>The Active Reader’s Guide<br>to Annotation</h1>
+        <p class="subtitle">From Raw Notes to Original Ideas</p>
+    </div>
+</div>
+
+<!-- Slide 2: Golden Rule -->
+<div class="slide-container" id="slide2">
+    <h2 class="slide-title">System Override: The Golden Rule</h2>
+    <div class="content-area" style="justify-content: center;">
+        <div class="glass-panel pink-accent" style="max-width: 900px; margin: 0 auto; padding: 50px;">
+            <i class="fa-solid fa-brain tech-icon animate-pulse-glow" style="font-size: 48px; color: #FF007A; display: block; text-align: center; margin-bottom: 20px;"></i>
+            <h3 style="text-align: center; font-size: 28px; margin-bottom: 25px;">Read actively to generate your <em>own</em> thoughts.</h3>
+            <p style="text-align: center; font-size: 22px;">Do not write down what you expect the teacher wants to hear.</p>
+            <p style="text-align: center; font-size: 22px;">If you have a genuine thought, reaction, or question, write it down.</p>
+            <p style="text-align: center; font-size: 22px; color: #ffffff;"><strong>Make your thoughts permanent so you can actually play and work with them as tangible things.</strong></p>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 3: Phase 1 Title -->
+<div class="slide-container" id="slide3">
+    <div class="section-title-layout">
+        <h2>Phase 1</h2>
+        <div class="glow-bar"></div>
+        <p style="color: #00E5FF; font-family: 'Space Grotesk'; font-size: 32px; letter-spacing: 2px;">CAPTURING THE RAW MATERIAL</p>
+        <p style="margin-top: 30px;">Great analysis starts with an interactive reading process. Your book should look like a dialogue between you and the author.</p>
+    </div>
+</div>
+
+<!-- Slide 4: Phase 1 - Micro -->
+<div class="slide-container" id="slide4">
+    <h2 class="slide-title">1. Track the "Micro" (The Words on the Page)</h2>
+    <p style="margin-bottom: 25px; font-size: 20px; color: #fff;">Keep your pencil/pen ready for the small details:</p>
+    <div class="content-area">
+        <div class="three-column">
+            <div class="glass-panel">
+                <i class="fa-solid fa-microscope tech-icon animate-float"></i>
+                <h3>Diction (Word Choice)</h3>
+                <p>Circle words that stand out. Why did the author use <em>this</em> specific word?</p>
+                <p>Look up definitions often, exercising the meaning and its use in context.</p>
+            </div>
+            <div class="glass-panel">
+                <i class="fa-solid fa-eye tech-icon animate-flicker"></i>
+                <h3>Imagery & Figurative Language</h3>
+                <p>Bracket metaphors and vivid descriptions. How do they set the mood?</p>
+                <p>How do they communicate and recreate images and information in the readers mind. How does the author subtly influence what reader’s are thinking/seeing?</p>
+            </div>
+            <div class="glass-panel">
+                <i class="fa-solid fa-network-wired tech-icon animate-pulse-glow"></i>
+                <h3>Syntax & Structure</h3>
+                <p>Notice sentence structure. Are they short and choppy to build tension?</p>
+                <p>How does it <em>feel</em> to read the text? How does reading the text <em>make</em> you feel?</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 5: Phase 1 - Macro -->
+<div class="slide-container" id="slide5">
+    <h2 class="slide-title">2. Connect to the "Macro" (The Big Picture)</h2>
+    <p style="margin-bottom: 25px; font-size: 20px; color: #fff;">Build a bridge from the small details to the larger meaning.</p>
+    <div class="content-area">
+        <div class="three-column">
+            <div class="glass-panel pink-accent">
+                <i class="fa-solid fa-globe tech-icon animate-spin-slow" style="color: #FF007A;"></i>
+                <h3 style="color: #00E5FF;">Identify Themes</h3>
+                <p>How do the small details connect to big ideas like ambition, justice, or isolation?</p>
+                <ul>
+                    <li>Because human psychology and the fundamental struggles of life haven't changed much over millennia, writers across different cultures and eras tend to explore the exact same core categories.</li>
+                </ul>
+            </div>
+            <div class="glass-panel pink-accent">
+                <i class="fa-solid fa-fingerprint tech-icon animate-pulse-glow" style="color: #FF007A;"></i>
+                <h3 style="color: #00E5FF;">Track Motifs</h3>
+                <p>Look for repeating elements (colors, objects, phrases, ideas, things, etc.) and track them.</p>
+                <ul>
+                    <li>Two is a coincidence; three is a pattern. If <em>something</em> keeps popping up and <em>seems</em> important, trust your instincts and track that thing through the entire text. See if it fits into a <em>category</em> of <em>things</em> in the text.</li>
+                </ul>
+            </div>
+            <div class="glass-panel pink-accent">
+                <i class="fa-solid fa-code-compare tech-icon animate-float" style="color: #FF007A;"></i>
+                <h3 style="color: #00E5FF;">Spot Juxtaposition</h3>
+                <p>Where does the author place opposites side-by-side (e.g., dreams vs. reality)?</p>
+                <ul>
+                    <li>Once you start noticing juxtaposition, you will see it everywhere. Comparison is one of the oldest tools humans use to develop understanding and intelligence.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 6: Phase 1 - Conversation -->
+<div class="slide-container" id="slide6">
+    <h2 class="slide-title">3. Have a Conversation with the Text</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div class="glass-panel">
+                <i class="fa-solid fa-clipboard-question tech-icon animate-float"></i>
+                <h3>Ask Tough Questions</h3>
+                <p>Don't just accept what the narrator tells you. Write questions in the margins.</p>
+                <div class="example-panel" style="border-left-color: #00E5FF; background: rgba(0, 229, 255, 0.05);">
+                    <p style="font-style: italic; color: #ffffff;">"Is this narrator reliable? From what perspective or circumstances are they narrating?"</p>
+                </div>
+            </div>
+            <div class="glass-panel">
+                <i class="fa-solid fa-bolt tech-icon animate-flicker"></i>
+                <h3>React Authentically</h3>
+                <p>Call out characters in the margins. Cheer for them or criticize their hypocrisy.</p>
+                <p>Your real reaction to what you are reading is what generates and creates original thought. <strong>Original thought is one of the most valuable substances in the known universe.</strong></p>
+                <p>The more you practice, the more you create. This is the whole point: harness, train, and build your creation engine.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 7: Phase 2 Title & Step 1 -->
+<div class="slide-container" id="slide7">
+    <div class="section-title-layout" style="height: auto; margin-bottom: 40px;">
+        <h2>Phase 2</h2>
+        <div class="glow-bar"></div>
+        <p style="color: #00E5FF; font-family: 'Space Grotesk'; font-size: 32px; letter-spacing: 2px;">THE EXTRACTION PROCESS</p>
+        <p style="margin-top: 15px;">Once you have annotated a text, you have generated <strong>raw material</strong>. Now you must <em>process it</em> into an organized format.</p>
+    </div>
+    
+    <div class="content-area">
+        <div class="glass-panel pink-accent" style="width: 100%;">
+            <h3>1. Create a "Raw Materials" Outline</h3>
+            <ul>
+                <li>Open and title a new document (Google Doc best so everything is searchable later).</li>
+                <li>Thoughtfully review everything you captured in your book—every underline, every highlight, every question, every reaction, every idea.
+                    <ul>
+                        <li>Reviewing the information in waves creates repetition that aids internalization and understanding.</li>
+                        <li>I like to underline first, then go back and highlight with color coding the most important information into categories, and then create the notes document.</li>
+                        <li>Applied focus builds understanding and generates big ideas.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 8: Phase 2 - Step 2 -->
+<div class="slide-container" id="slide8">
+    <h2 class="slide-title">2. Build the Structure</h2>
+    <p style="font-size: 20px; color: #fff; margin-bottom: 20px;">For every important annotation, type out an entry with three components:</p>
+    <div class="content-area">
+        <div class="three-column">
+            <div class="glass-panel">
+                <h3>Page Number</h3>
+                <p>For easy reference later.</p>
+                <ul>
+                    <li>I tend to put the page number as the first bullet point and then drop and indent to the next level for the direct quote. While opposite of typical citation format, it allows the notes document to be easily visually accessible with ample yet organized spacing.</li>
+                </ul>
+            </div>
+            <div class="glass-panel">
+                <h3>The Text</h3>
+                <p>Retype the exact quote or phrase.</p>
+                <ul>
+                    <li>The action of retyping is important. Do NOT copy and paste. Typing out each letter of each word of each sentence will help internalize the information you are studying. Spend the time applying your focus and processing the information. This practice firmly roots the information into your conscious and subconscious mind.</li>
+                </ul>
+            </div>
+            <div class="glass-panel">
+                <h3>Your Original Thought</h3>
+                <p>Retype your annotation, or add information if you had just underlined or highlighted.</p>
+                <ul>
+                    <li>Expand on why this quote is interesting, important, curious, confusing, etc.</li>
+                    <li>Explain <em>why</em> it matters.</li>
+                    <li>What other thoughts, references, examples, patterns, etc. come to mind?</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 9: Phase 2 - Example -->
+<div class="slide-container" id="slide9">
+    <h2 class="slide-title">Outline Entry Example</h2>
+    <div class="content-area" style="justify-content: center;">
+        <div class="glass-panel pink-accent" style="width: 100%; max-width: 900px; margin: 0 auto; padding: 40px 50px;">
+            <ul class="example-tiers">
+                <li>24
+                    <ul>
+                        <li>"...the whole man is made, and the whole man is destroyed."
+                            <ul>
+                                <li>This system doesn’t just control people; it tries to fundamentally break their entire being. It operates like a totalitarian state destroying an old identity to build a compliant new one.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 10: Phase 3 Title & Step 1 -->
+<div class="slide-container" id="slide10">
+    <div class="section-title-layout" style="height: auto; margin-bottom: 40px;">
+        <h2>Phase 3</h2>
+        <div class="glow-bar"></div>
+        <p style="color: #FF007A; font-family: 'Space Grotesk'; font-size: 32px; letter-spacing: 2px;">THE "EXTERNAL BRAIN" SYNTHESIS</p>
+        <p style="margin-top: 15px;">This is where the <strong>magic</strong> happens. You are going to take your outline and turn it into a physical or digital workspace to build your final project or original creation.</p>
+    </div>
+
+    <div class="content-area">
+        <div class="glass-panel" style="width: 100%;">
+            <i class="fa-solid fa-print tech-icon animate-float"></i>
+            <h3>1. Print and Re-Annotate</h3>
+            <ul>
+                <li>Print out your "Raw Materials" outline.</li>
+                <li>Sit down with a pen and physically review it. Annotate your own annotations. Really work over the source material and your original writing.
+                    <ul>
+                        <li><strong style="color: #00E5FF;">The Key:</strong> As you read through your own thoughts on the original text, connections and larger patterns will start to reveal larger categories of information within the original text.</li>
+                        <li>Start organizing your notes into those patterns and categories.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 11: Phase 3 - Steps 2 & 3 -->
+<div class="slide-container" id="slide11">
+    <h2 class="slide-title">Constructing the Interface</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div class="glass-panel pink-accent">
+                <i class="fa-solid fa-palette tech-icon animate-float" style="color: #FF007A;"></i>
+                <h3 style="color: #00E5FF;">2. Color-Code Your Categories</h3>
+                <p>As you spot patterns (e.g., "Narrator's Lies," "Animal Imagery," "Social Class Divisions"), assign a specific color to each pattern.</p>
+                <p>Go through your printed outline with highlighters or colored markers and code your notes into these newly discovered categories.</p>
+            </div>
+            <div class="glass-panel pink-accent">
+                <i class="fa-solid fa-vr-cardboard tech-icon animate-pulse-glow" style="color: #FF007A;"></i>
+                <h3 style="color: #00E5FF;">3. Create Your "External Brain Bubble"</h3>
+                <p>Choose if you will create a physical or digital space to organize all your newly generated material.</p>
+                <ul>
+                    <li><strong>For a physical space:</strong> Take scissors, cut your outline into strips, group by color, and tape/pin them to a wall, whiteboard, or table.</li>
+                    <li><strong>For a digital space:</strong> Use a Canva infinite whiteboard.</li>
+                </ul>
+                <div class="example-panel" style="border-left-color: #00E5FF; margin-top: 10px;">
+                    <p style="color: #fff; margin: 0;">You have just created an external brain bubble! You now have a way to physically move around inside your own thoughts.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 12: Phase 3 - Step 4 & Conclusion -->
+<div class="slide-container" id="slide12">
+    <h2 class="slide-title">4. Build the Machine</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div class="glass-panel">
+                <i class="fa-solid fa-gears tech-icon animate-spin-slow"></i>
+                <h3>Rearrange the Hardware</h3>
+                <p>Because your notes are now tangible, movable, and manipulable, you can physically rearrange the pieces of your project.</p>
+                <ul>
+                    <li>Move categories around. Which idea should come first? How does Category A cause Category B?</li>
+                    <li>Step back and look at the wall or whiteboard. Start to think about how the individual moving pieces of the text contribute to how the <em>whole</em> text works as a machine to create meaning.</li>
+                    <li>Look for how the categories themselves fit into a bigger moving picture.</li>
+                </ul>
+            </div>
+            
+            <div class="glass-panel pink-accent" style="justify-content: center; align-items: center; text-align: center;">
+                <i class="fa-solid fa-rocket tech-icon animate-launch" style="font-size: 56px; color: #FF007A; margin-bottom: 20px;"></i>
+                <h3 style="font-size: 28px; color: #ffffff;">Final Output Generated</h3>
+                <p style="font-size: 20px; margin-top: 15px;">Once your external brain is organized, you have found the structure for your essay or creative project.</p>
+                <p style="font-size: 20px; color: #00E5FF; font-weight: bold; margin-top: 15px;">You aren't just summarizing a book anymore; you are using the author's parts to build your own original textual production.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Presentation Controls -->
+<div id="controls">
+    <button id="prevBtn" title="Previous Slide (Left Arrow)"><i class="fa-solid fa-chevron-left"></i></button>
+    <span id="counter">1 / 12</span>
+    <button id="nextBtn" title="Next Slide (Right Arrow or Space)"><i class="fa-solid fa-chevron-right"></i></button>
+</div>
+
+<!-- Presentation Engine Scripts -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const slides = document.querySelectorAll('.slide-container');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const counter = document.getElementById('counter');
+        let currentSlide = 0;
+
+        // Display the specific slide
+        function showSlide(index) {
+            // Boundaries
+            if (index < 0) currentSlide = 0;
+            else if (index >= slides.length) currentSlide = slides.length - 1;
+            else currentSlide = index;
+
+            // Toggle active classes
+            slides.forEach((slide, i) => {
+                if (i === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            // Update counter
+            counter.textContent = `${currentSlide + 1} / ${slides.length}`;
+        }
+
+        // Auto-scale to fit the screen
+        function resize() {
+            // Target layout is 1280x720, add small padding
+            const scale = Math.min(window.innerWidth / 1350, window.innerHeight / 780);
+            document.documentElement.style.setProperty('--scale', scale);
+        }
+
+        // Button Listeners
+        prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+        nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+
+        // Keyboard Navigation (Arrows & Spacebar)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'Space' || e.key === ' ') {
+                showSlide(currentSlide + 1);
+            } else if (e.key === 'ArrowLeft') {
+                showSlide(currentSlide - 1);
+            }
+        });
+
+        // Initialize Window Resizing & First Slide
+        window.addEventListener('resize', resize);
+        resize();
+        showSlide(0);
+    });
+</script>
+
+</body>
+</html>
