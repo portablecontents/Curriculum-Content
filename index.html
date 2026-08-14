@@ -3,18 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Curriculum Content & Tools</title>
+  <title>Arcane Codex & Techno-Library Dashboard</title>
+
+  <!-- Google Fonts: Share Tech Mono, MedievalSharp, and Orbitron for retro-techno-wizardry vibe -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=MedievalSharp&family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --text: #0f172a;
-      --text-muted: #64748b;
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
-      --border: #e2e8f0;
-      --tag-bg: #eff6ff;
-      --tag-text: #1d4ed8;
+      --bg-dark: #070913;
+      --panel-bg: rgba(18, 22, 38, 0.85);
+      --card-bg: rgba(28, 21, 38, 0.9);
+      
+      --brass-gold: #e5a93c;
+      --brass-dark: #784e1b;
+      --copper-glow: #ff6a00;
+      
+      --neon-cyan: #00f3ff;
+      --neon-violet: #d926ff;
+      --neon-amber: #ffaa00;
+      --neon-green: #00ff66;
+      
+      --text-bright: #e2f1ff;
+      --text-muted: #8ba2c0;
+      --text-rune: #52719c;
+      
+      --border-brass: #b8860b;
+      --border-dark: #2a1f3d;
     }
 
     * {
@@ -22,211 +38,425 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
       margin: 0;
-      padding: 40px 20px;
+      padding: 0;
+      background-color: var(--bg-dark);
+      color: var(--text-bright);
+      font-family: 'Share Tech Mono', monospace;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 50% 10%, rgba(217, 38, 255, 0.15), transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(0, 243, 255, 0.1), transparent 50%),
+        linear-gradient(rgba(7, 9, 19, 0.92), rgba(7, 9, 19, 0.92)),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 243, 255, 0.03) 3px, rgba(0, 243, 255, 0.03) 4px);
+      background-attachment: fixed;
+      overflow-x: hidden;
+      padding-bottom: 90px;
+    }
+
+    /* Background Canvas for Arcane Runes Particles */
+    #rune-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.35;
     }
 
     .container {
-      max-width: 900px;
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
       margin: 0 auto;
+      padding: 30px 20px;
     }
 
     header {
-      margin-bottom: 28px;
+      text-align: center;
+      margin-bottom: 35px;
+      position: relative;
     }
+
+    .brass-plaque {
+      display: inline-block;
+      background: linear-gradient(180deg, #3d2b1f 0%, #1a120c 50%, #2a1d13 100%);
+      border: 3px solid var(--brass-gold);
+      border-radius: 12px;
+      padding: 20px 40px;
+      box-shadow: 
+        0 0 20px rgba(229, 169, 60, 0.3),
+        inset 0 0 15px rgba(0, 0, 0, 0.8),
+        0 0 0 6px #0d0a14;
+      position: relative;
+    }
+
+    /* Rivet Accents on the plaque corners */
+    .brass-plaque::before, .brass-plaque::after {
+      content: '⚙';
+      position: absolute;
+      color: var(--brass-gold);
+      font-size: 1.2rem;
+      top: 8px;
+    }
+    .brass-plaque::before { left: 12px; }
+    .brass-plaque::after { right: 12px; }
 
     h1 {
-      margin: 0 0 6px 0;
-      font-size: 2rem;
-      letter-spacing: -0.02em;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin: 0 0 8px 0;
+      background: linear-gradient(90deg, var(--neon-cyan), var(--text-bright), var(--neon-violet));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
     }
 
-    p.subtitle {
+    .subtitle {
+      font-family: 'MedievalSharp', cursive;
+      font-size: 1.15rem;
+      color: var(--brass-gold);
       margin: 0;
-      color: var(--text-muted);
-      font-size: 1.05rem;
+      letter-spacing: 0.05em;
     }
 
-    /* Live Search Bar */
-    .search-wrapper {
-      margin-bottom: 32px;
+    .terminal-search-box {
+      background: rgba(10, 14, 26, 0.9);
+      border: 2px solid var(--neon-cyan);
+      border-radius: 8px;
+      padding: 12px 20px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 15px rgba(0, 243, 255, 0.2), inset 0 0 10px rgba(0, 243, 255, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .terminal-prompt {
+      color: var(--neon-cyan);
+      font-weight: bold;
+      font-size: 1.2rem;
+      font-family: 'Orbitron', sans-serif;
     }
 
     .search-input {
       width: 100%;
-      padding: 12px 16px;
-      font-size: 1rem;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background-color: var(--card-bg);
-      color: var(--text);
+      background: transparent;
+      border: none;
       outline: none;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      color: var(--neon-green);
+      font-family: 'Fira Code', monospace;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
     }
 
-    .search-input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    .search-input::placeholder {
+      color: rgba(0, 255, 102, 0.4);
+      font-style: italic;
     }
 
-    /* Category Layout */
     .category-section {
-      margin-bottom: 40px;
+      margin-bottom: 45px;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid rgba(229, 169, 60, 0.3);
+      padding-bottom: 8px;
     }
 
     .category-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin: 0 0 16px 0;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--border);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.3rem;
+      color: var(--neon-amber);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 0;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+    }
+
+    .rune-divider {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, var(--neon-amber), transparent);
+      opacity: 0.5;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 22px;
     }
 
-    /* Project Cards */
     .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
+      background: linear-gradient(145deg, rgba(20, 16, 30, 0.95), rgba(12, 18, 32, 0.95));
+      border: 2px solid var(--brass-dark);
       border-radius: 10px;
-      padding: 18px 20px;
+      padding: 22px;
       text-decoration: none;
       color: inherit;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+      transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* Circuit aesthetic overlay on cards */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--neon-cyan), var(--neon-violet));
+      opacity: 0.6;
+      transition: opacity 0.25s ease;
     }
 
     .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-      border-color: var(--primary);
+      transform: translateY(-6px) scale(1.02);
+      border-color: var(--neon-cyan);
+      box-shadow: 
+        0 10px 25px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(0, 243, 255, 0.3);
     }
 
-    .card-top {
-      margin-bottom: 12px;
+    .card:hover::before {
+      opacity: 1;
+      height: 4px;
     }
 
-    .tag {
+    /* Leather Tome & Techno Badge Styling */
+    .card-badge {
       display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
+      align-self: flex-start;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      padding: 3px 8px;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
       border-radius: 4px;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
+      border: 1px solid currentColor;
+    }
+
+    .badge-guide {
+      color: var(--neon-cyan);
+      background: rgba(0, 243, 255, 0.1);
+      border-color: rgba(0, 243, 255, 0.4);
+    }
+
+    .badge-assessment {
+      color: var(--neon-amber);
+      background: rgba(255, 170, 0, 0.1);
+      border-color: rgba(255, 170, 0, 0.4);
+    }
+
+    .badge-utility {
+      color: var(--neon-violet);
+      background: rgba(217, 38, 255, 0.1);
+      border-color: rgba(217, 38, 255, 0.4);
     }
 
     .card h3 {
-      margin: 0 0 6px 0;
-      font-size: 1.1rem;
-      color: var(--primary);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.15rem;
+      margin: 0 0 8px 0;
+      color: var(--text-bright);
+      transition: color 0.2s ease;
+    }
+
+    .card:hover h3 {
+      color: var(--neon-cyan);
     }
 
     .card p {
-      margin: 0;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin: 0 0 16px 0;
+      line-height: 1.5;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--brass-gold);
+      border-top: 1px dashed rgba(184, 134, 11, 0.3);
+      padding-top: 10px;
+      margin-top: auto;
+    }
+
+    .card-action {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--neon-cyan);
+      font-weight: bold;
+    }
+
+    .status-hud {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background: linear-gradient(180deg, #120e1a 0%, #06040a 100%);
+      border-top: 2px solid var(--brass-gold);
+      box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 25px;
+      z-index: 10;
+      font-size: 0.85rem;
+    }
+
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       color: var(--text-muted);
     }
 
-    /* Empty Search State */
+    .status-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--neon-green);
+      box-shadow: 0 0 8px var(--neon-green);
+    }
+
+    .hud-clock {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      color: var(--neon-cyan);
+      background: rgba(0, 243, 255, 0.1);
+      padding: 4px 12px;
+      border: 1px solid rgba(0, 243, 255, 0.3);
+      border-radius: 4px;
+      box-shadow: inset 0 0 6px rgba(0, 243, 255, 0.2);
+    }
+
     #no-results {
       display: none;
       text-align: center;
-      padding: 40px 0;
-      color: var(--text-muted);
-      font-size: 1rem;
+      padding: 50px 0;
+      color: var(--neon-violet);
+      font-size: 1.2rem;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 600px) {
+      .brass-plaque {
+        padding: 15px 20px;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- Canvas for background ambient magic glyphs -->
+  <canvas id="rune-canvas"></canvas>
+
   <div class="container">
     <header>
-      <h1>Curriculum & Web Tools</h1>
-      <p class="subtitle">Interactive instructional modules, assessments, and utilities.</p>
+      <div class="brass-plaque">
+        <h1>CONTENT DASHBOARD</h1>
+        <p class="subtitle">📜 Central Repository of Arcane Tools, Curricula, & Web Apps 🔮</p>
+      </div>
     </header>
 
-    <!-- Real-time Filter -->
-    <div class="search-wrapper">
+    <div class="terminal-search-box">
+      <span class="terminal-prompt">SEARCH_INDEX&gt;</span>
       <input 
         type="text" 
         id="search" 
         class="search-input" 
-        placeholder="Search tools, topics, or keywords..." 
+        placeholder="Search codices, tools, assessments..." 
         onkeyup="filterCards()"
+        autocomplete="off"
       />
     </div>
 
     <main id="content-container">
       
-      <!-- Section: Literature & Critical Analysis -->
+      <!-- Category 1: Literature -->
       <section class="category-section">
-        <h2 class="category-title">📚 Literature & Critical Analysis</h2>
+        <div class="category-header">
+          <h2 class="category-title">📜 Literature</h2>
+          <div class="rune-divider"></div>
+        </div>
+
         <div class="grid">
           
+          <!-- Card 1: Active Reader's Guide -->
           <a href="active-readers-guide.html" class="card">
-            <div class="card-top">
-              <span class="tag">Guide</span>
-              <h3>Active Reader's Guide</h3>
-              <p>Interactive scaffolding and reading strategies framework.</p>
+            <div>
+              <span class="card-badge badge-guide">Literature</span>
+              <h3>ACTIVE READER'S GUIDE</h3>
+              <p>Interactive guide and reading framework tool for active analysis and annotation scaffolding.</p>
+            </div>
+            <div class="card-footer">
+              <span>STATUS: ONLINE</span>
+              <span class="card-action">OPEN CODEX ➔</span>
             </div>
           </a>
 
+          <!-- Card 2: Critical Lenses Assessment -->
           <a href="CriticalLensesAssessment.html" class="card">
-            <div class="card-top">
-              <span class="tag">Assessment</span>
-              <h3>Critical Lenses Analysis</h3>
-              <p>Literary theory evaluation and critical lens assessment tool.</p>
+            <div>
+              <span class="card-badge badge-assessment">Analysis</span>
+              <h3>CRITICAL LENS ASSESSMENT</h3>
+              <p>Literary criticism and theory assessment matrix for evaluating analytical perspectives.</p>
+            </div>
+            <div class="card-footer">
+              <span>STATUS: ONLINE</span>
+              <span class="card-action">OPEN CODEX ➔</span>
             </div>
           </a>
 
         </div>
       </section>
 
-      <!-- Section: Writing & Composition (Add your future tools here) -->
+      <!-- Category 2: Future Additions Placeholder -->
       <section class="category-section">
-        <h2 class="category-title">✍️ Writing & Composition</h2>
-        <div class="grid">
-
-          <!-- Example Card (Replace or remove when ready) -->
-          <a href="#" class="card">
-            <div class="card-top">
-              <span class="tag">Workshop</span>
-              <h3>Argumentation & Claims</h3>
-              <p>Scaffolded claim, evidence, and reasoning builder.</p>
-            </div>
-          </a>
-
+        <div class="category-header">
+          <h2 class="category-title">🔮 Analysis</h2>
+          <div class="rune-divider"></div>
         </div>
-      </section>
 
-      <!-- Section: Utilities & Classroom Tools -->
-      <section class="category-section">
-        <h2 class="category-title">⚙️ Classroom Utilities</h2>
         <div class="grid">
 
-          <!-- Example Card (Replace or remove when ready) -->
-          <a href="#" class="card">
-            <div class="card-top">
-              <span class="tag">Utility</span>
-              <h3>Discussion Timer</h3>
-              <p>Configurable pacing timer for structured seminars.</p>
+          <a href="#" class="card" style="opacity: 0.7;">
+            <div>
+              <span class="card-badge badge-utility">Arcane Utility</span>
+              <h3>ALCHEMICAL TIMER</h3>
+              <p>Upcoming time-management and seminar pacing utility for classroom workshops.</p>
+            </div>
+            <div class="card-footer">
+              <span>STATUS: STANDBY</span>
+              <span class="card-action">IN DEV ⚙</span>
             </div>
           </a>
 
@@ -235,10 +465,19 @@
 
     </main>
 
-    <div id="no-results">No matching tools or materials found.</div>
+    <div id="no-results">⚡ NO ARCANE RECORDS FOUND MATCHING QUERY ⚡</div>
+  </div>
+
+  <div class="status-hud">
+    <div class="status-item">
+      <div class="status-indicator"></div>
+      <span>SYSTEM: ONLINE | REPO: portablecontents/Curriculum-Content</span>
+    </div>
+    <div id="hud-time" class="hud-clock">00:00:00 PM</div>
   </div>
 
   <script>
+    // Live Search Filter Logic
     function filterCards() {
       const query = document.getElementById('search').value.toLowerCase();
       const sections = document.querySelectorAll('.category-section');
@@ -259,13 +498,63 @@
           }
         });
 
-        // Hide empty category headings during a search
+        // Hide section headers if all cards inside are hidden
         section.style.display = sectionVisibleCount > 0 ? 'block' : 'none';
       });
 
-      // Show 'no results' notice if everything is filtered out
       document.getElementById('no-results').style.display = totalVisible === 0 ? 'block' : 'none';
     }
+
+    // Live HUD Clock Display
+    function updateClock() {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      document.getElementById('hud-time').innerText = timeStr;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Background Arcane Rune Particles Canvas
+    const canvas = document.getElementById('rune-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const runes = 'ᚠᚢᚦᚨᚱᚲᚷᚹᚺᚾᛁᛃᛇᛈᛉᛋᛏᛒᛖᛗᛚᛝᛟᛞ⚡⚙✦✧';
+    const particles = Array.from({ length: 35 }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      char: runes[Math.floor(Math.random() * runes.length)],
+      size: Math.random() * 14 + 10,
+      speedY: -(Math.random() * 0.5 + 0.2),
+      opacity: Math.random() * 0.7 + 0.2
+    }));
+
+    function animateRunes() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = '#00f3ff';
+      
+      particles.forEach(p => {
+        ctx.font = `${p.size}px 'Share Tech Mono', monospace`;
+        ctx.globalAlpha = p.opacity;
+        ctx.fillText(p.char, p.x, p.y);
+        
+        p.y += p.speedY;
+        if (p.y < -20) {
+          p.y = height + 20;
+          p.x = Math.random() * width;
+        }
+      });
+
+      requestAnimationFrame(animateRunes);
+    }
+    animateRunes();
   </script>
 
 </body>
