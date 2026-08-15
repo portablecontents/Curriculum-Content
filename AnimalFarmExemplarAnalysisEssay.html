@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploded Exemplar Essay: Animal Farm</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .highlight {
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            border-bottom: 2px solid transparent;
+        }
+        .highlight:hover {
+            opacity: 0.8;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .hl-thesis { background-color: #fef08a; border-color: #eab308; } /* Yellow */
+        .hl-topic { background-color: #e9d5ff; border-color: #a855f7; } /* Purple */
+        .hl-evidence { background-color: #bfdbfe; border-color: #3b82f6; } /* Blue */
+        .hl-analysis { background-color: #bbf7d0; border-color: #22c55e; } /* Green */
+        .hl-transition { background-color: #ffedd5; border-color: #f97316; } /* Orange */
+        .hl-counter { background-color: #fecaca; border-color: #ef4444; } /* Red */
+        
+        .active-highlight {
+            box-shadow: 0 0 0 2px #000;
+            z-index: 10;
+            position: relative;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans h-screen flex flex-col overflow-hidden">
+
+    <!-- Header -->
+    <header class="bg-slate-800 text-white p-4 shadow-md flex justify-between items-center shrink-0">
+        <div>
+            <h1 class="text-xl font-bold">Animal Farm: Exploded Exemplar Essay</h1>
+            <p class="text-sm text-slate-300">10th Grade ELA | NYS Regents Argument Structure</p>
+        </div>
+        <div class="text-sm bg-slate-700 px-4 py-2 rounded-lg">
+            <strong>Motif:</strong> Rhetoric & Propaganda
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex overflow-hidden">
+        
+        <!-- Left Panel: The Essay -->
+        <div class="w-2/3 p-8 overflow-y-auto bg-white border-r border-gray-200">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-2xl font-serif font-bold text-center mb-6">The Weaponization of Words in Animal Farm</h2>
+                
+                <!-- Introduction -->
+                <div class="mb-6 leading-relaxed font-serif text-lg">
+                    <p class="indent-8 mb-4">After a revolution, the biggest threat to freedom is often not physical force, but the manipulation of the truth. George Orwell’s allegorical novel <em>Animal Farm</em> shows how a hopeful animal rebellion turns into a brutal dictatorship under the pig, Napoleon. While the pigs eventually use violence to keep their power, their first and most effective tool for controlling the other animals is language. <span class="highlight hl-thesis rounded px-1" id="thesis" onclick="showAnalysis('thesis')">Orwell uses the motif of rhetoric to demonstrate how the pigs take over the farm; through Squealer’s manipulation of logic, his rewriting of history, and his use of fear, the pigs successfully override the animals' own memories and create an unfair society.</span></p>
+                </div>
+
+                <!-- Body Paragraph 1 -->
+                <div class="mb-6 leading-relaxed font-serif text-lg">
+                    <p class="indent-8 mb-4"><span class="highlight hl-topic rounded px-1" id="topic1" onclick="showAnalysis('topic1')">First, the pigs establish their control by using confusing rhetoric to manipulate logic and excuse their own greed.</span> Shortly after the rebellion, the animals notice the milk and apples are missing, only to discover the pigs have taken them. Squealer is sent to justify this unfairness. <span class="highlight hl-evidence rounded px-1" id="ev1" onclick="showAnalysis('ev1')">Squealer argues, "Milk and apples (this has been proved by Science, comrades) contain substances absolutely necessary to the well-being of a pig. We pigs are brainworkers" (Orwell 28).</span> <span class="highlight hl-analysis rounded px-1" id="an1" onclick="showAnalysis('an1')">Here, Squealer uses fake science to confuse the less educated animals. By deliberately using the specific label "brainworkers," he creates an artificial class divide that completely goes against the core rule that "All animals are equal." This shows that the animals are not controlled by force at first, but by their inability to untangle Squealer's tricky logic.</span> <span class="highlight hl-transition rounded px-1" id="trans1" onclick="showAnalysis('trans1')">With their logical defenses broken down by this fake science, the animals are now perfectly vulnerable to the pigs' next weapon: the erasure of the past.</span></p>
+                </div>
+
+                <!-- Body Paragraph 2 -->
+                <div class="mb-6 leading-relaxed font-serif text-lg">
+                    <p class="indent-8 mb-4"><span class="highlight hl-topic rounded px-1" id="topic2" onclick="showAnalysis('topic2')">Building on this initial confusion, the pigs further their control by deliberately rewriting history to make the animals doubt their own memories.</span> When Napoleon decides to trade with humans, the animals vaguely remember a rule against this. Squealer immediately gaslights them. <span class="highlight hl-evidence rounded px-1" id="ev2" onclick="showAnalysis('ev2')">He challenges them, asking, "Are you certain that this is not something that you have dreamed, comrades? Have you any record of such a resolution? Is it written down anywhere?" (Orwell 51).</span> <span class="highlight hl-analysis rounded px-1" id="an2" onclick="showAnalysis('an2')">Because the working animals cannot read or write well, they cannot rely on written records. Squealer exploits this weakness, turning the phrase "written down anywhere" into a trap. By forcing the animals to doubt the validity of their own "dreams" and memories without paper proof, the pigs become the sole owners of the truth, allowing them to break the rules without a fight.</span></p>
+                </div>
+
+                <!-- Body Paragraph 3 (Counterclaim) -->
+                <div class="mb-6 leading-relaxed font-serif text-lg">
+                    <p class="indent-8 mb-4"><span class="highlight hl-counter rounded px-1" id="counter" onclick="showAnalysis('counter')">Critics might argue that physical violence, not rhetoric, is the main way the pigs control Animal Farm. After all, Napoleon raises nine fierce dogs to attack his enemies and silence anyone who disagrees with him through pure terror.</span> <span class="highlight hl-analysis rounded px-1" id="rebuttal" onclick="showAnalysis('rebuttal')">However, this perspective ignores the fact that violence is only used as a backup plan; rhetoric is the shield that stops the animals from rebelling in the first place.</span> <span class="highlight hl-evidence rounded px-1" id="ev3" onclick="showAnalysis('ev3')">Whenever the animals begin to question the pigs' authority, Squealer ends his speeches with a rhetorical question: "Surely, comrades, you do not want Jones back?" (Orwell 44).</span> <span class="highlight hl-analysis rounded px-1" id="an3" onclick="showAnalysis('an3')">This question is not a logical argument, but an emotional threat. By constantly bringing up the specific fear of "Jones," Squealer paralyzes the animals' critical thinking. The dogs might enforce the rules, but it is the rhetoric of fear that makes the animals accept the rules voluntarily.</span></p>
+                </div>
+
+                <!-- Conclusion -->
+                <div class="mb-12 leading-relaxed font-serif text-lg">
+                    <p class="indent-8 mb-4">Ultimately, George Orwell’s novel serves as a stark warning about what happens when an uneducated public faces persuasive lies. The tragedy of <em>Animal Farm</em> is not just that the pigs become dictators, but that they do so using the language of equality. Through tricky logic, erasing history, and manipulating fear, Squealer’s rhetoric proves to be far more dangerous than Mr. Jones’s whip. The novel demonstrates that without the ability to critically analyze what leaders say, citizens are doomed to participate in their own oppression.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel: The Analysis -->
+        <div class="w-1/3 bg-slate-100 p-6 shadow-inner flex flex-col border-l border-gray-300">
+            <h3 class="text-lg font-bold text-slate-800 mb-4 uppercase tracking-wider border-b-2 border-slate-300 pb-2">Analysis Panel</h3>
+            
+            <div id="default-panel" class="flex-1 flex flex-col items-center justify-center text-slate-500 text-center p-8">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                </svg>
+                <p class="text-lg">Click on any highlighted text in the essay to "explode" it and analyze why it works.</p>
+                <div class="mt-8 flex flex-wrap gap-2 justify-center">
+                    <span class="px-2 py-1 bg-yellow-200 text-yellow-800 text-xs rounded font-bold">Thesis</span>
+                    <span class="px-2 py-1 bg-purple-200 text-purple-800 text-xs rounded font-bold">Topic Sentences</span>
+                    <span class="px-2 py-1 bg-blue-200 text-blue-800 text-xs rounded font-bold">Evidence</span>
+                    <span class="px-2 py-1 bg-green-200 text-green-800 text-xs rounded font-bold">Analysis</span>
+                    <span class="px-2 py-1 bg-orange-200 text-orange-800 text-xs rounded font-bold">Transitions</span>
+                    <span class="px-2 py-1 bg-red-200 text-red-800 text-xs rounded font-bold">Counterclaim</span>
+                </div>
+            </div>
+
+            <!-- Dynamic Content Container -->
+            <div id="dynamic-panel" class="hidden flex-1 flex-col overflow-y-auto">
+                <div class="mb-4 inline-block px-3 py-1 text-sm font-bold rounded-full text-white" id="tag-label"></div>
+                <h4 class="text-2xl font-bold text-slate-900 mb-2" id="panel-title">Title</h4>
+                <p class="text-slate-700 italic mb-6 border-l-4 pl-4 border-slate-400 bg-white p-3 rounded" id="panel-quote">"Quote goes here"</p>
+                
+                <h5 class="font-bold text-slate-800 uppercase text-sm mb-1">Teacher's Note:</h5>
+                <p class="text-slate-800 leading-relaxed mb-4" id="panel-teacher"></p>
+
+                <h5 class="font-bold text-slate-800 uppercase text-sm mb-1">Why this is Exemplar:</h5>
+                <p class="text-slate-800 leading-relaxed" id="panel-exemplar"></p>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const analysisData = {
+            'thesis': {
+                tag: 'Thesis Statement',
+                color: 'bg-yellow-500',
+                title: 'The Roadmap of the Essay',
+                quote: 'Orwell uses the motif of rhetoric to demonstrate how the pigs take over the farm; through Squealer’s manipulation of logic, his rewriting of history, and his use of fear...',
+                teacher: 'Your thesis is the most important sentence in your paper. It cannot just be a fact (e.g., "Squealer talks a lot"). It must be an arguable claim.',
+                exemplar: 'This is an exemplar thesis because it provides a specific claim ("demonstrate how the pigs take over the farm") AND lists the three distinct reasons (logic, history, fear) that will become the three body paragraphs. It acts as a perfect roadmap for the reader.'
+            },
+            'topic1': {
+                tag: 'Topic Sentence',
+                color: 'bg-purple-500',
+                title: 'Setting up the Paragraph',
+                quote: 'First, the pigs establish their control by using confusing rhetoric to manipulate logic and excuse their own greed.',
+                teacher: 'A great topic sentence does two things: it states the main idea of the paragraph (your specific reason) AND connects directly back to your overall thesis statement.',
+                exemplar: 'This sentence clearly introduces "manipulating logic" as the specific focus of this body paragraph. It acts as an umbrella for all the evidence and analysis that will follow.'
+            },
+            'ev1': {
+                tag: 'Textual Evidence',
+                color: 'bg-blue-500',
+                title: 'Embedding Quotes',
+                quote: 'Squealer argues, "Milk and apples (this has been proved by Science, comrades) contain substances absolutely necessary..." (Orwell 28).',
+                teacher: 'Never drop a quote all by itself. Always introduce it with context so the reader knows who is speaking and what is happening.',
+                exemplar: 'The author seamlessly integrates the quote into their own sentence. They also properly cite the evidence using MLA format with the author\'s last name and page number in parentheses at the end of the sentence.'
+            },
+            'an1': {
+                tag: 'Deep Analysis',
+                color: 'bg-green-500',
+                title: 'Unpacking Specific Words',
+                quote: 'By deliberately using the specific label "brainworkers," he creates an artificial class divide that completely goes against the core rule...',
+                teacher: 'This is where you earn your grade. Do not just summarize what the quote says. Good analysis pulls out *specific words or phrases* from the quote and explains in detail how they prove your reason.',
+                exemplar: 'The writer deliberately isolates the word "brainworkers" from the quote and unpacks it. They explain that this single word creates an "artificial class divide," directly proving *how* Squealer\'s words manipulate the animals.'
+            },
+            'trans1': {
+                tag: 'Transition Sentence',
+                color: 'bg-orange-500',
+                title: 'Building a Bridge',
+                quote: 'With their logical defenses broken down by this fake science, the animals are now perfectly vulnerable to the pigs\' next weapon: the erasure of the past.',
+                teacher: 'Don\'t just jump abruptly from one paragraph to the next. A strong concluding sentence wraps up the current idea and builds a "bridge" to the next paragraph, creating flow for your reader.',
+                exemplar: 'Notice how this sentence summarizes the previous point ("logical defenses broken down") and hints at the next paragraph\'s focus ("erasure of the past"). It pulls the reader smoothly along the argument.'
+            },
+            'topic2': {
+                tag: 'Topic Sentence',
+                color: 'bg-purple-500',
+                title: 'Continuing the Thread',
+                quote: 'Building on this initial confusion, the pigs further their control by deliberately rewriting history to make the animals doubt their own memories.',
+                teacher: 'Each topic sentence should feel like the next step on a staircase. Use transitional phrases to show how this new reason builds on the last one.',
+                exemplar: 'The phrase "Building on this initial confusion" connects this paragraph back to Body Paragraph 1, while "rewriting history" introduces the new specific reason this paragraph will cover.'
+            },
+            'ev2': {
+                tag: 'Textual Evidence',
+                color: 'bg-blue-500',
+                title: 'Selecting the Best Evidence',
+                quote: 'He challenges them, asking, "Are you certain that this is not something that you have dreamed, comrades? Have you any record of such a resolution?" (Orwell 51).',
+                teacher: 'Look at your Notes Document! You probably have 20 quotes about Squealer lying. You have to pick the one that best proves your specific point.',
+                exemplar: 'The writer chose this specific quote because it perfectly illustrates the concept of "gaslighting" and rewriting history mentioned in the topic sentence. It highlights the exact moment Squealer uses their lack of writing against them.'
+            },
+            'an2': {
+                tag: 'Deep Analysis',
+                color: 'bg-green-500',
+                title: 'Explaining the "How"',
+                quote: 'Squealer exploits this weakness, turning the phrase "written down anywhere" into a trap. By forcing the animals to doubt the validity of their own "dreams"...',
+                teacher: 'Great essays connect different ideas. Make sure you explain the mechanism of *how* the quote functions. Why does this quote matter to the whole argument?',
+                exemplar: 'The analysis goes beyond the quote to explain the underlying power dynamic. By isolating the phrases "written down anywhere" and "dreams," the writer proves *how* Squealer turns their lack of education into a weapon.'
+            },
+            'counter': {
+                tag: 'Counterclaim',
+                color: 'bg-red-500',
+                title: 'Addressing the Other Side',
+                quote: 'Critics might argue that physical violence, not rhetoric, is the main way the pigs control Animal Farm.',
+                teacher: 'A strong argument acknowledges that other opinions exist. If you don\'t address the obvious counter-argument (the violent dogs), your essay looks weak.',
+                exemplar: 'The writer clearly signals a shift in perspective using the phrase "Critics might argue." They state a valid, logical opposing viewpoint without agreeing with it.'
+            },
+            'rebuttal': {
+                tag: 'Rebuttal',
+                color: 'bg-green-600',
+                title: 'Crushing the Counterclaim',
+                quote: 'However, this perspective ignores the fact that violence is only used as a backup plan; rhetoric is the shield that stops the animals from rebelling...',
+                teacher: 'Once you bring up the other side, you have to immediately prove why they are wrong using your own reasoning.',
+                exemplar: 'The writer uses transition words ("However") to pivot back to their own argument. They diminish the counterclaim by logically proving that rhetoric is actually the *first* line of defense, making it the primary mechanism of control.'
+            },
+             'ev3': {
+                tag: 'Textual Evidence',
+                color: 'bg-blue-500',
+                title: 'Evidence for the Rebuttal',
+                quote: 'Whenever the animals begin to question the pigs\' authority, Squealer ends his speeches with a rhetorical question: "Surely, comrades, you do not want Jones back?" (Orwell 44).',
+                teacher: 'Your rebuttal needs proof just like your main body paragraphs do.',
+                exemplar: 'The writer pulls an excellent, repeating quote from the text that shows Squealer bypassing logic and going straight for an emotional, fear-based response.'
+            },
+             'an3': {
+                tag: 'Deep Analysis',
+                color: 'bg-green-500',
+                title: 'Synthesizing the Argument',
+                quote: 'By constantly bringing up the specific fear of "Jones," Squealer paralyzes the animals\' critical thinking.',
+                teacher: 'Your final analysis should tie a bow on your entire argument, ensuring you have completely dismantled the counterclaim.',
+                exemplar: 'This analysis perfectly proves the rebuttal. It isolates the specific fear-tactic ("Jones") and explains that while dogs (violence) might enforce rules, it is the rhetoric of fear that makes the animals accept those rules in the first place.'
+            }
+        };
+
+        function showAnalysis(id) {
+            // Remove active class from all
+            document.querySelectorAll('.highlight').forEach(el => {
+                el.classList.remove('active-highlight');
+            });
+            
+            // Add active class to clicked
+            document.getElementById(id).classList.add('active-highlight');
+
+            // Toggle panels
+            document.getElementById('default-panel').classList.add('hidden');
+            const dynPanel = document.getElementById('dynamic-panel');
+            dynPanel.classList.remove('hidden');
+            dynPanel.classList.add('flex');
+
+            // Populate data
+            const data = analysisData[id];
+            
+            const tagLabel = document.getElementById('tag-label');
+            tagLabel.textContent = data.tag;
+            tagLabel.className = `mb-4 inline-block px-3 py-1 text-sm font-bold rounded-full text-white ${data.color}`;
+            
+            document.getElementById('panel-title').textContent = data.title;
+            document.getElementById('panel-quote').textContent = data.quote;
+            document.getElementById('panel-teacher').textContent = data.teacher;
+            document.getElementById('panel-exemplar').textContent = data.exemplar;
+        }
+    </script>
+</body>
+</html>
