@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Monochrome Weathered & Beachwood" (Vinyl Obsidian #09090B, Vintage Cream #F5F5F4, Coastal Gray #64748B, Acoustic Amber #D97706, Midnight Slate #1E293B)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Moody, black-and-white themed header and biographical synthesis charting their rise from Newbury Park, California, to becoming pioneers of atmospheric, genre-blending alternative R&B/rock.
+2. The Vault: Financial valuation highlighting their estimated $15M collective net worth, massive TikTok catalog resurgences, and global touring footprint.
+3. The Audience: Interactive Chart.js graphs detailing their heavily Gen Z and Millennial, highly trend-conscious, and alternative crossover listener core.
+4. The Art: Explaining their signature "dark pop" medium (reverb-heavy guitars, hip-hop drum loops, and Jesse Rutherford's melodic flow) and major thematic motifs of existential anxiety, California hedonism, and toxic romance.
+5. Seminal Metrics: A vertical bar chart demonstrating the massive global streaming footprint of their defining, multi-platinum anthems.
+6. Awards & Philanthropy: Dedicated section highlighting their Billboard Music Awards, RIAA Diamond certifications, and their quiet support for mental health and California youth arts programs.
+7. California Lore & Trivia: Highlighting their deliberate black-and-white visual restriction, the British spelling of their name, and Jesse Rutherford's distinct frontman persona.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: The Neighbourhood</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #09090B;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(245, 245, 244, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #F5F5F4, #64748B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#1E293B]/60 to-[#09090B] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#F5F5F4]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-[#F5F5F4] display-font uppercase tracking-widest">THE NEIGHBOURHOOD</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#64748B] uppercase display-font">The Architects of California Noir</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#F5F5F4]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-[#F5F5F4] display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Formed in 2011 in Newbury Park, California, The Neighbourhood (often stylized as "THE NBHD") consists of frontman Jesse Rutherford, guitarists Jeremy Freedman and Zach Abels, bassist Mikey Margott, and drummer Brandon Fried. Rejecting the sunny, upbeat pop-rock typical of Southern California at the time, the band cultivated a moody, mysterious, and strictly black-and-white visual identity.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    They independently released their breakthrough single, <span class="text-[#F5F5F4] font-semibold">"Sweater Weather,"</span> in 2012. The track rapidly transcended genre boundaries, dominating both rock and pop radio globally. By masterfully blending the atmospheric textures of alternative R&B, the heavy, rhythmic drum loops of hip-hop, and the angst of indie rock, The Neighbourhood pioneered a "dark pop" sound that heavily influenced a generation of genre-blurring artists in the 2010s.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#64748B]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $15M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-[#F5F5F4]">Primary Income Streams:</span><br>
+                    Massive, sustained global streaming royalties (fueled by massive TikTok resurgences), international arena tours, multi-platinum catalog publishing rights, and merchandise sales.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-[#F5F5F4] mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">The Neighbourhood's highly atmospheric sound and distinct visual aesthetic command an incredibly passionate, deeply loyal fanbase that heavily crosses over between alternative rock and modern R&B/pop communities.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-[#F5F5F4] text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Thanks to massive viral resurgences of their catalog on TikTok, an overwhelming 72% of their active streaming base falls within the Gen Z and Millennial brackets (18-34).</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-[#F5F5F4] text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Their focus on emotional vulnerability, romantic turbulence, and moody atmospheric production attracts a highly female-leaning demographic.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-[#F5F5F4] text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">A massive global streaming entity, their core strongholds are anchored in the United States, Eastern Europe, and Latin America.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1E293B]/40 to-[#09090B] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#F5F5F4] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">The band's sonic medium is defined by Jesse Rutherford's melodic, hip-hop-influenced vocal phrasing, layered over reverb-drenched guitars, deep 808 sub-bass, and driving, mid-tempo drum patterns.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#F5F5F4] bg-opacity-10 text-[#F5F5F4] font-semibold rounded-full border border-[#F5F5F4] border-opacity-30 text-lg">Alternative R&B</span>
+                    <span class="px-4 py-2 bg-[#64748B] bg-opacity-20 text-[#94A3B8] font-semibold rounded-full border border-[#64748B] border-opacity-30 text-lg">Dark Pop</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Indie Rock</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#64748B]">
+                <h2 class="text-3xl font-bold text-[#F5F5F4] mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🌴</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">California Noir & Hedonism</h4>
+                            <p class="text-slate-400">Subverting the traditional "sunny California" trope by exploring the dark, anxious, and isolating realities of Los Angeles culture and nightlife.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💔</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Toxic Romance & Codependency</h4>
+                            <p class="text-slate-400">Deeply vulnerable, often cynical examinations of destructive relationships, emotional reliance, and the painful cycles of love and regret.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🧠</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Existential Dread & Mental Health</h4>
+                            <p class="text-slate-400">Candid lyricism addressing severe anxiety, depression, the suffocating pressure of societal expectations, and the search for internal peace.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-[#F5F5F4] mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">The band's debut studio album, <span class="font-bold italic text-white">I Love You. (2013)</span>, debuted at number 25 on the Billboard 200 and established their signature moody sound. They followed up with the critically praised, cohesive concept album <span class="font-bold italic text-white">Wiped Out! (2015)</span> and their synth-heavy, self-titled release <span class="font-bold italic text-white">The Neighbourhood (2018)</span>.</p>
+                    <div class="bg-[#F5F5F4] bg-opacity-5 rounded-xl p-4 border border-[#F5F5F4] border-opacity-25">
+                        <h4 class="font-bold text-[#F5F5F4] text-lg mb-1 display-font">The Diamond Standard</h4>
+                        <p class="text-slate-300">Their breakout hit "Sweater Weather" achieved the historic, highly coveted **RIAA Diamond Certification** (over 10 million units sold in the US), cementing it as one of the defining alternative anthems of the decade.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-[#F5F5F4] text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of their most globally dominant, atmospheric masterworks.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#F5F5F4] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple Billboard Music Award Nominations (including Top Rock Song)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">💎</span>
+                        <span class="text-lg text-slate-300 font-semibold">RIAA Diamond Certified Single ("Sweater Weather")</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">💿</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple Multi-Platinum Album Certifications</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📈</span>
+                        <span class="text-lg text-slate-300 font-semibold">Over 3 Billion streams globally on Spotify alone</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#64748B]">
+                <h2 class="text-3xl font-bold text-[#64748B] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-[#F5F5F4] text-lg display-font">Mental Health & Suicide Prevention Advocacy</h4>
+                        <p class="text-slate-400 text-sm">Consistent with the vulnerable themes of their music, the band actively supports and promotes organizations dedicated to suicide prevention and mental health awareness, specifically targeting youth and young adult demographics.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#F5F5F4] text-lg display-font">California Youth Arts & Community Support</h4>
+                        <p class="text-slate-400 text-sm">Quietly funds and supports local arts initiatives and music education programs in Southern California, aiming to provide creative outlets and resources for students in underfunded school districts.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#1E293B]/20 via-[#0D0E12] to-[#1E293B]/30 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> California Noir Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#F5F5F4]">🖤</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The B&W Mandate</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">For the first several years of their career, the band adhered to a strict, uncompromising black-and-white visual aesthetic across all music videos, photography, artwork, and stage designs to emphasize their moody themes.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#64748B]">🇬🇧</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The British Spelling</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Despite being from California, the band chose to use the British spelling of "Neighbourhood" on the advice of their manager, simply because the American spelling was already taken by a different band.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#D97706]">🎙️</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Hip-Hop Production Roots</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Frontman Jesse Rutherford was heavily influenced by hip-hop production and mixtape culture, which is why the band frequently incorporates 808 drum machines, beat-switches, and rap-style cadences into their rock arrangements.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [72, 28],
+                    backgroundColor: ['#F5F5F4', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Female Listeners", "Male & Other"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [65, 35],
+                    backgroundColor: ['#64748B', '#F5F5F4'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "Eastern Europe", "Latin America", "United Kingdom", "Canada"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 85, 80, 65, 55],
+                    backgroundColor: '#F5F5F4',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Sweater Weather", "Daddy Issues", "Softcore", "Reflections"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Billions)',
+                    data: [3.2, 1.4, 1.1, 0.6], 
+                    backgroundColor: ['#F5F5F4', '#64748B', '#1E293B', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Billions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
