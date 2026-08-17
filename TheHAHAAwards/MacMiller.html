@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Divine Swimming & Velvet Blue" (Vinyl Obsidian #0A0F1D, Swimming Blue #3B82F6, Warm Soul Gold #F59E0B, Celestial Pearl #F8FAFC, Muted Slate #334155)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Atmospheric, jazz-themed header and biographical synthesis charting his rise from Pittsburgh, PA, from a backpack rapper to a visionary, multi-instrumental studio auteur.
+2. The Vault: Financial valuation highlighting his $9M estate net worth, the continuing growth of his streaming catalog, and his independent REMember Music imprint.
+3. The Audience: Interactive Chart.js graphs detailing his fiercely devoted, emotionally connected Gen Z and Millennial listener core.
+4. The Art: Explaining his genre-blending medium (jazz rap, neo-soul, self-taught instrumentation) and his major thematic motifs of existential anxiety, spiritual swimming, and finding inner peace.
+5. Seminal Metrics: A vertical bar chart demonstrating the massive global streaming footprint of his most defining, soul-baring anthems.
+6. Awards & Philanthropy: A dedicated ELA block highlighting his Grammy nomination for "Swimming" and the life-saving work of The Mac Miller Fund supporting youth arts in Pittsburgh.
+7. Mac Lore & Trivia: Highlighting his Larry Fisherman alter-ego, the legendary Sanctuary recording studio, and his profound impact on his musical peers.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Mac Miller</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A0F1D;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #3B82F6, #F59E0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#1E293B] to-[#0A0F1D] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#3B82F6]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">MAC MILLER</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#3B82F6] uppercase display-font">The Visionary of Jazz Rap • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#3B82F6]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born Malcolm James McCormick on January 19, 1992, in Pittsburgh, Pennsylvania, he grew up teaching himself to play piano, guitar, drums, and bass. Operating under the name <span class="text-[#3B82F6] font-semibold">Mac Miller</span>, he rose to prominence in 2010 through the independent label Rostrum Records, initially hailed as the energetic poster boy for the "backpack rap" and college-touring era.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    However, his artistic trajectory underwent a profound evolution. Transitioning from party anthems to deeply introspective, self-produced studio masterworks, Mac transformed into a jazz-infused auteur. His albums <span class="italic font-semibold text-white">Watching Movies with the Sound Off</span> and the Grammy-nominated <span class="text-[#F59E0B] font-semibold">Swimming</span> revealed a vulnerable, complex artist wrestling with fame, addiction, and spiritual longing, cementing his legacy as one of his generation's most beloved musical minds before his tragic passing in 2018.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#F59E0B]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Estate Value</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $9M+
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Estate Engines:</span><br>
+                    Massive, continuously growing global streaming royalties across his expansive catalog, posthumous merchandise and physical vinyl sales, and his independent imprint <span class="text-white italic">REMember Music</span>.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Mac Miller's emotional transparency and organic, live-instrumentation production have cultivated a profoundly dedicated, multi-generational audience spanning alternative hip-hop and indie soul communities.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His vulnerability and explorations of young adult struggles resonate heavily with Gen Z and Millennials, capturing 72% of his streaming base.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His transition from traditional rap to deeply melodic, soul-baring R&B and jazz created an incredibly balanced universal gender demographic.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While deeply connected to his US roots, his introspective albums command massive, loyal streaming hubs across Europe and Australia.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1E293B]/40 to-[#0A0F1D] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#3B82F6] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Operating as his own primary producer (often under the alias Larry Fisherman), Mac's later work is defined by lush live instrumentation, warm analog synth chords, complex jazz basslines, and his signature conversational, raspy vocal delivery.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#3B82F6] bg-opacity-10 text-[#60A5FA] font-semibold rounded-full border border-[#3B82F6] border-opacity-30 text-lg">Jazz Rap</span>
+                    <span class="px-4 py-2 bg-[#F59E0B] bg-opacity-10 text-[#FBBF24] font-semibold rounded-full border border-[#F59E0B] border-opacity-30 text-lg">Alternative Hip-Hop</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Neo-Soul</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#F59E0B]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🌊</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Swimming & Existential Peace</h4>
+                            <p class="text-slate-400">Using the metaphor of "swimming" to describe navigating depression, resisting drowning in addiction, and finding tranquility.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💔</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Vulnerability & Romantic Devotion</h4>
+                            <p class="text-slate-400">Deeply honest, soul-baring explorations of love, feminine energy, heartbreak, and recognizing personal flaws in relationships (pivotal in *The Divine Feminine*).</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">⏳</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Mortality & The Price of Fame</h4>
+                            <p class="text-slate-400">Poetic, often prophetic reflections on the isolation of sudden wealth, the fleeting nature of time, and the pressure of public expectations.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Mac's discography tracks a profound artistic evolution. From the frat-rap anthems of <span class="font-bold italic text-white">Blue Slide Park (2011)</span>, to the dark introspection of <span class="font-bold italic text-white">Faces (2014)</span>, to the critically adored jazz masterpieces <span class="font-bold italic text-white">Swimming (2018)</span> and the posthumous triumph <span class="font-bold italic text-white">Circles (2020)</span>.</p>
+                    <div class="bg-[#3B82F6] bg-opacity-5 rounded-xl p-4 border border-[#3B82F6] border-opacity-25">
+                        <h4 class="font-bold text-[#3B82F6] text-lg mb-1 display-font">Posthumous Commercial Peak</h4>
+                        <p class="text-slate-300">His final projects, *Swimming* and *Circles*, experienced massive, sustained streaming growth, with *Swimming* re-entering the Billboard 200 Top 10 long after its release.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of his definitive, soul-baring anthems.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#3B82F6] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">Grammy Award Nomination (Best Rap Album - *Swimming*)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📈</span>
+                        <span class="text-lg text-slate-300 font-semibold">First Independent Debut Album to reach #1 on Billboard 200 since 1995 (*Blue Slide Park*)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🥇</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple RIAA Multi-Platinum Album Certifications</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🌟</span>
+                        <span class="text-lg text-slate-300 font-semibold">Widespread, unanimous praise from industry peers and critics for his artistic evolution</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#F59E0B]">
+                <h2 class="text-3xl font-bold text-[#F59E0B] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">The Mac Miller Fund</h4>
+                        <p class="text-slate-400 text-sm">Established by his family following his passing, The Mac Miller Fund provides programming, resources, and opportunities to youth from underserved communities in his hometown of Pittsburgh, focusing on music and arts education.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Substance Abuse Support Initiatives</h4>
+                        <p class="text-slate-400 text-sm">The foundation also actively supports programs that assist young adults dealing with substance abuse, aiming to provide the resources and community support systems that Mac deeply cared about.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#111827] via-[#0A0F1D] to-[#1E293B] text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Cultural Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#3B82F6]">🎛️</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Larry Fisherman</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Mac frequently produced complex instrumental and beat-tape projects under the pseudonym "Larry Fisherman," showcasing his deep mastery of jazz sampling and analog hardware production.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#F59E0B]">🏠</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Sanctuary</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">He famously converted his Los Angeles home into "The Sanctuary," a legendary recording studio and creative hub where dozens of the industry's biggest artists would drop in unannounced to jam and create.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#94A3B8]">🤝</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Peer Mentorship</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Mac was universally renowned in the hip-hop community for his generosity, frequently inviting young, unsigned artists to tour with him or record in his studio for free, heavily boosting their early careers.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [72, 28],
+                    backgroundColor: ['#3B82F6', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [50, 50],
+                    backgroundColor: ['#1E293B', '#F59E0B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "United Kingdom", "Canada", "Australia", "Western Europe"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 80, 75, 60, 50],
+                    backgroundColor: '#F59E0B',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Self Care", "The Spins", "Good News", "Weekend (feat. Miguel)"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Billions)',
+                    data: [1.3, 1.1, 0.8, 0.7], 
+                    backgroundColor: ['#3B82F6', '#F59E0B', '#1E293B', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Billions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
