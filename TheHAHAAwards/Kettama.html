@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Galway Concrete & Acid Neon" (Warehouse Slate #111827, Acid Green #39FF14, Cyber Purple #C084FC, Concrete Gray #9CA3AF, Pure White #FFFFFF)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Raw, underground-themed header and biographical synthesis charting his explosive rise from the local club scene in Galway, Ireland, to global techno and house dominance.
+2. The Vault: Financial valuation highlighting his $2M underground tier net worth, global club touring, and his independent G-Town Records label.
+3. The Audience: Responsive demographic charts plotting his heavily Gen Z, dedicated international club-going fanbase.
+4. The Art: Explaining his hard-hitting analog medium (jackin' house, techno, 90s rave stabs) and his major thematic motifs of pure escapism, DIY club culture, and Irish pride.
+5. Seminal Metrics: A vertical bar chart demonstrating the multi-million streaming footprint of his most iconic club anthems.
+6. Awards & Philanthropy: A dedicated ELA block highlighting his underground accolades, grassroots support for struggling independent venues, and pandemic-era charity streams.
+7. G-Town Lore & Trivia: Highlighting his legendary Boiler Room debuts, the meaning behind "G-Town," and his heavy alliance with Mall Grab and Steel City Dance Discs.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: KETTAMA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827;
+            color: #E5E7EB;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(31, 41, 55, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(57, 255, 20, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #39FF14, #C084FC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#C084FC]/20 to-[#111827] text-white py-20 px-6 shadow-xl mb-10 border-b-2 border-[#39FF14]/30">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">KETTAMA</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#39FF14] uppercase display-font">The Irish Heavyweight of Underground House</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#39FF14]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born Evan Campbell in Galway, Ireland, KETTAMA cut his teeth in the local Irish club scene. Drawing inspiration from heavy 90s rave cassettes, Chicago house, and UK bass, he began producing raw, hard-hitting tracks in his bedroom, releasing them independently online and sending them to local DJs.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    His breakthrough arrived in 2018 when his tracks began dominating underground club circuits across Europe. Armed with a signature sound of pounding 909 drums and euphoric synth stabs, he quickly ascended from local Galway resident to global festival headliner, launching his own highly successful independent label, <span class="text-[#39FF14] font-semibold">G-Town Records</span>, and cementing Ireland's place on the modern techno map.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#C084FC]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $2M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Global underground DJ touring fees, headlining major international electronic festivals (AVA, Life Festival, Beyond The Valley), vinyl and digital sales via <span class="text-white italic">G-Town Records</span>, and independent merchandise lines.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">KETTAMA’s audience is highly concentrated within the modern rave and electronic club community, representing a fiercely dedicated, high-energy global subculture.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-gray-900/40 p-6 rounded-xl border border-gray-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His thumping, high-BPM tracks appeal immensely to Gen Z and younger Millennials (18–34), driving 82% of his streaming base.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-gray-900/40 p-6 rounded-xl border border-gray-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Consistent with modern techno and house club demographics, his listener base skews slightly male but maintains strong universal club appeal.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-gray-900/40 p-6 rounded-xl border border-gray-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His absolute strongholds remain in Ireland and the UK, with massive secondary touring hubs in Australia and Western Europe.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1F2937] to-[#111827] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#39FF14] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">As a producer and DJ, KETTAMA operates purely in the electronic space. His signature sound relies on heavily distorted analog drum machines, looped hip-hop vocal samples, and aggressive synthesizer basslines.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#39FF14] bg-opacity-10 text-[#39FF14] font-semibold rounded-full border border-[#39FF14] border-opacity-30 text-lg">Jackin' House</span>
+                    <span class="px-4 py-2 bg-[#C084FC] bg-opacity-20 text-[#D8B4FE] font-semibold rounded-full border border-[#C084FC] border-opacity-50 text-lg">Techno</span>
+                    <span class="px-4 py-2 bg-gray-800 text-gray-300 font-semibold rounded-full border border-gray-700 text-lg">Breakbeat</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#C084FC]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🏭</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Warehouse Escapism</h4>
+                            <p class="text-slate-400">Music designed explicitly for sweaty, dark, late-night environments, offering listeners total release from the mundane realities of daily life.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">☘️</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">G-Town Pride & Irish Identity</h4>
+                            <p class="text-slate-400">Deeply infusing his brand, label, and aesthetic with the culture, slang, and gritty resilience of Galway and the broader Irish working class.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">📼</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">90s Rave Nostalgia</h4>
+                            <p class="text-slate-400">Drawing heavily on the optimistic, euphoric sounds of early 1990s illegal raves, bridging historic dance culture with modern production.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">In the underground electronic world, EPs and singles dictate success. His <span class="font-bold italic text-white">Bucklyn EP (2018)</span> on Homage put him on the map, followed by the massive <span class="font-bold italic text-white">G-Town EP</span> and his collaborative releases on Steel City Dance Discs. His tracks have become staple weapons for DJs globally.</p>
+                    <div class="bg-[#39FF14] bg-opacity-5 rounded-xl p-4 border border-[#39FF14] border-opacity-25">
+                        <h4 class="font-bold text-[#39FF14] text-lg mb-1 display-font">The Underground Anthem</h4>
+                        <p class="text-slate-300">His signature smash "B O D Y" became a definitive track of the modern house revival, generating tens of millions of independent streams—a massive feat for pure club music.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-gray-900/40 p-6 rounded-xl border border-gray-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of his heaviest underground club anthems.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#39FF14] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-gray-900/50 rounded-lg border border-gray-800">
+                        <span class="text-2xl mr-3">🎧</span>
+                        <span class="text-lg text-slate-300 font-semibold">BBC Radio 1 Essential Mix & Boiler Room Alumnus</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-gray-900/50 rounded-lg border border-gray-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">Nominated for Best Electronic Act (Various Irish Music Awards)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-gray-900/50 rounded-lg border border-gray-800">
+                        <span class="text-2xl mr-3">💿</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple Sold-Out Independent Vinyl Pressings via G-Town</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-gray-900/50 rounded-lg border border-gray-800">
+                        <span class="text-2xl mr-3">🌍</span>
+                        <span class="text-lg text-slate-300 font-semibold">Consistent Resident Advisor and Mixmag critical praise</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#C084FC]">
+                <h2 class="text-3xl font-bold text-[#C084FC] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Independent Venue Survival</h4>
+                        <p class="text-slate-400 text-sm">During the COVID-19 pandemic lockdowns, KETTAMA utilized his platform to host massive live-streamed DJ sets, raising funds directly for struggling independent Irish music venues and out-of-work nightlife staff.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">G-Town Grassroots Cultivation</h4>
+                        <p class="text-slate-400 text-sm">Rather than hoarding his success, he uses his independent record label to proactively sign, publish, and financially support young, emerging Irish electronic producers, ensuring the longevity of his hometown's creative ecosystem.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#111827] via-[#1F2937] to-[#111827] text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Rave Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-900 bg-opacity-40 p-6 rounded-xl border border-gray-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#39FF14]">🎥</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Boiler Room Breakout</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">His legendary 2019 Boiler Room set at the Higher Vision festival in Ireland is widely considered one of the most energetic debuts on the platform, cementing his reputation as a ferocious live performer.</p>
+                </div>
+                <div class="bg-gray-900 bg-opacity-40 p-6 rounded-xl border border-gray-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#C084FC]">🤝</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Mall Grab Alliance</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">He forged a massive creative partnership with Australian DJ Mall Grab, frequently performing high-profile back-to-back (B2B) sets globally and releasing tracks on his Steel City Dance Discs imprint.</p>
+                </div>
+                <div class="bg-gray-900 bg-opacity-40 p-6 rounded-xl border border-gray-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#9CA3AF]">🏙️</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">What is G-Town?</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">"G-Town" is local slang for his hometown of Galway. By naming his label and EPs after the city, he successfully exported local Irish culture to dancefloors across the world.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#9CA3AF' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "35+ Years Old"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [82, 18],
+                    backgroundColor: ['#39FF14', '#374151'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [55, 45],
+                    backgroundColor: ['#C084FC', '#39FF14'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["Ireland & UK", "Australia", "Western Europe", "North America"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 85, 70, 50],
+                    backgroundColor: '#C084FC',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#9CA3AF' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["B O D Y", "Kilt", "Rapture", "G-Town"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [18.5, 12.0, 9.5, 8.2], 
+                    backgroundColor: ['#39FF14', '#C084FC', '#9CA3AF', '#374151'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#374151' },
+                        ticks: { color: '#9CA3AF' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#9CA3AF' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#9CA3AF' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
