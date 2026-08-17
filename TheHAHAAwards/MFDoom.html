@@ -1,0 +1,481 @@
+<!--
+Color Palette: "Metal Mask Silver & Comic Book Orange" (Comic Obsidian #09090B, Metallic Silver #94A3B8, Comic Book Orange #EA580C, Newsprint Cream #F5F5F4, Muted Slate #334155)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Gritty, comic-book themed header and biographical synthesis detailing his journey from London to Long Island, NY, his early KMD era (as Zev Love X), his devastating retreat after his brother Subroc's death, and his legendary, masked re-emergence as the villain MF DOOM.
+2. The Vault: Financial valuation highlighting his independent, multi-label career model, massive cult vinyl catalog sales, merchandise, and estimated $4M estate valuation.
+3. Interactive Rhyme Deconstructor: An interactive tool showcasing how DOOM constructed his legendary, multi-syllabic, non-linear, and dense internal rhyme schemes.
+4. The Audience: Interactive Chart.js graphs detailing his fiercely loyal, heavily youth-concentrated, and alternative hip-hop listener core (The "Your Favorite Rapper's Favorite Rapper" effect).
+5. The Art: Explaining his production and vocal medium (warm, dusty cartoon samples, jazz breaks, complex stream-of-consciousness flows) and his major thematic motifs of comic-book villainy, anti-establishment independence, and deep processing of grief.
+6. Seminal Metrics: A vertical bar chart comparing the massive streaming figures of his defining underground masterpieces.
+7. Awards & Philanthropy: Dedicated section highlighting his profound critical acclaim, posthumous honors, and his support for youth literacy, creative writing, and independent arts.
+8. Villainous Lore & Trivia: Spotlighting the origin of his signature gladiator mask, his usage of "DOOM-bots" (impostor doubles) at live shows, and his strict requirement of spelling his name in ALL CAPS.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: MF DOOM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #09090B;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(234, 88, 12, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #EA580C, #94A3B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#334155]/40 to-[#09090B] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#EA580C]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">MF DOOM</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#EA580C] uppercase display-font">The Villain of the Underground • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#EA580C]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born Daniel Dumile on January 9, 1971, in London, England, he relocated to Long Island, New York, as a child, growing up on a heavy diet of comic books and classic hip-hop. In the late-1980s, performing as **Zev Love X**, he co-founded the political, golden-era rap group **KMD** with his younger brother, DJ Subroc.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    Just before KMD released their highly anticipated sophomore album, Subroc was tragically killed by a car in 1993, and the group was dropped by Elektra Records. Devastated, Dumile retreated completely from the public, living virtually homeless on the streets of New York. In 1997, he re-emerged at open-mic events in Manhattan wearing a physical stocking over his face, eventually commissioning his signature metal gladiator mask. Adopting the supervillain persona **MF DOOM**, he took control of his narrative, creating a highly conceptual, sample-heavy independent universe that forever changed alternative hip-hop.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#94A3B8]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Estate Value</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $4M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Estate Engines:</span><br>
+                    Massive, continuous independent streaming royalties (owning several of his master records), legendary cult physical vinyl and cassette sales, high-value visual merchandise, and posthumous box-set reissues.
+                </p>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE RHYME DECONSTRUCTOR -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-cyan-500">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <span class="px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 font-semibold text-xs tracking-widest uppercase mb-4 inline-block">
+                        Interactive Analysis
+                    </span>
+                    <h2 class="text-3xl font-bold text-white mb-4 display-font flex items-center">
+                        <span class="text-4xl mr-3">🧪</span> The Rhyme Deconstructor
+                    </h2>
+                    <p class="text-slate-300 mb-4 leading-relaxed">
+                        MF DOOM is widely studied in university English classes as one of history's greatest **literary rhymers**. He rejected simple, predictable end-rhyme formulas in favor of dense, continuous **internal and multi-syllabic schemes**.
+                    </p>
+                    <p class="text-slate-350 text-sm mb-6 leading-relaxed">
+                        Select an iconic track below to deconstruct how DOOM assembled his highly complex linguistic puzzles.
+                    </p>
+                    
+                    <!-- Interactive Song Triggers -->
+                    <div class="grid grid-cols-3 gap-3">
+                        <button onclick="revealDoomRhyme('all-caps')" class="py-2.5 px-4 bg-orange-500/10 hover:bg-orange-500/20 text-[#EA580C] font-bold text-xs uppercase tracking-wider rounded-lg border border-orange-500/30 transition duration-200">
+                            ALL CAPS
+                        </button>
+                        <button onclick="revealDoomRhyme('rhymesayers')" class="py-2.5 px-4 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 font-bold text-xs uppercase tracking-wider rounded-lg border border-cyan-500/30 transition duration-200">
+                            Rhinestone
+                        </button>
+                        <button onclick="revealDoomRhyme('accordion')" class="py-2.5 px-4 bg-slate-500/10 hover:bg-slate-500/20 text-slate-400 font-bold text-xs uppercase tracking-wider rounded-lg border border-slate-500/30 transition duration-200">
+                            Accordion
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Analysis Display -->
+                <div class="p-6 bg-slate-950/80 rounded-2xl border border-slate-800/80 min-h-[300px] flex flex-col justify-between shadow-inner">
+                    <div id="rhymeAnalysisContainer">
+                        <h4 class="text-xl font-bold text-[#EA580C] display-font mb-2" id="songTitle">ALL CAPS (2004)</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <span class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">The Sonic Pattern:</span>
+                                <p class="text-sm text-emerald-400 font-semibold" id="sonicPattern">Intricate multi-syllabic rhymes. DOOM strings together identical vowel sounds across entire lines over a jazzy, retro detective piano loops.</p>
+                            </div>
+                            <div>
+                                <span class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">The Literary Deconstruction:</span>
+                                <p class="text-slate-300 text-sm italic" id="literaryValue">"So nasty that it's probably somewhat of a travesty having me, daily facing playhouse tragedy..." — Notice the highlighted matching sounds: nasty/travesty/having me/tragedy. He rhymes full phrases, not just final words.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-t border-slate-800 pt-4 mt-4 flex items-center justify-between text-xs text-slate-400">
+                        <span>💡 Select options on the left to swap analyses</span>
+                        <span class="font-bold text-[#EA580C] uppercase" id="songReleaseYear">2004 Madvillainy</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Often called "your favorite rapper's favorite rapper," MF DOOM commands an incredibly dedicated, highly intellectual, and youth-concentrated cult following worldwide.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While older hip-hop purists form his legacy base, digital streaming and internet-meme culture have made his catalog incredibly popular with Gen Z (18–24).</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Because of his early associations with aggressive skate and boom-bap subcultures, his demographic trends slightly male, though R&B crossovers have balanced this base.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">A true champion of independent culture, DOOM's greatest physical vinyl and stream concentrations exist in alternative urban hubs globally.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#334155]/20 to-[#09090B] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#EA580C] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">As a self-contained producer (working under his Metal Fingers moniker), DOOM's creative medium is highly unique, blending dusty, vintage cartoon dialogue samples, warm 1970s jazz piano breaks, and highly complex, conversational, non-linear vocal structures.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#EA580C] bg-opacity-10 text-[#FDBA74] font-semibold rounded-full border border-[#EA580C] border-opacity-30 text-lg">Alternative Hip-Hop</span>
+                    <span class="px-4 py-2 bg-[#94A3B8] bg-opacity-10 text-[#CBD5E1] font-semibold rounded-full border border-[#94A3B8] border-opacity-30 text-lg">Lo-Fi Boom Bap</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Jazz Rap</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#94A3B8]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🎭</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">The Villain Persona & Escapism</h4>
+                            <p class="text-slate-400">Constructing a vast, comic-book-inspired alter ego (Doctor Doom) to serve as a shield from the raw vulnerabilities of real life and industry pressure.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">✊</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Anti-Establishment Independence</h4>
+                            <p class="text-slate-400">Fierce lyricism mocking corporate major-label greed, standard pop formulas, radio syndications, and preserving pure creative sovereignty.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🩹</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Grief, Isolation, & Trauma</h4>
+                            <p class="text-slate-400">Introspective, slow-burning poetic references to his late brother Subroc, processing loss, and seeking quiet, independent survival.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">DOOM's discography contains landscape-defining alternative hip-hop monuments. His 1999 solo re-emergence <span class="font-bold italic text-white">Operation: Doomsday</span> laid the groundwork. He followed with his collaborative magnum opus with producer Madlib, <span class="font-bold italic text-white">Madvillainy (2004)</span>, and his food-themed concept classic <span class="font-bold italic text-white">MM...FOOD (2004)</span>.</p>
+                    <div class="bg-[#EA580C] bg-opacity-5 rounded-xl p-4 border border-[#EA580C] border-opacity-25">
+                        <h4 class="font-bold text-[#EA580C] text-lg mb-1 display-font">The Independent Benchmark</h4>
+                        <p class="text-slate-300">*Madvillainy* was released via independent label Stones Throw Records. Despite receiving zero commercial radio play, it became a massive global critical darling, establishing a new model for underground financial success.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams on Spotify of his most defining underground classics.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#EA580C] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">👑</span>
+                        <span class="text-lg text-slate-300 font-semibold">Universally hailed as the "King of the Underground" by critics and peers</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📖</span>
+                        <span class="text-lg text-slate-300 font-semibold">"Madvillainy" named on rolling stone and pitchfork's greatest albums lists</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">💿</span>
+                        <span class="text-lg text-slate-300 font-semibold">Gold Certified Independent Album (Madvillainy, Stones Throw Records)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🌟</span>
+                        <span class="text-lg text-slate-300 font-semibold">Posthumous critical tributes and honors worldwide</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#94A3B8]">
+                <h2 class="text-3xl font-bold text-[#94A3B8] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Supporting Youth Literacy & Creative Writing</h4>
+                        <p class="text-slate-400 text-sm">Having taught himself poetry as an escape from street life, Dumile quietly funded local youth arts programs, donating recording gear and creative writing supplies to inner-city schools to promote literacy and self-expression.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Grassroots Music & Independent Venue Aid</h4>
+                        <p class="text-slate-400 text-sm">The estate continuously funnels proceeds from merchandise sales to independent record stores and grassroots performance spaces, supporting the underground ecosystems that allowed DOOM to thrive.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#334155]/20 via-[#09090B] to-[#EA580C]/20 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Villainous Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#EA580C]">🎭</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Gladiator Mask</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">His iconic mask was adapted from a replica helmet from the movie *Gladiator*. Dumile's friend, artist Lord Scotch, cut the helmet down, added a head strap, and created the legendary metal disguise.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#94A3B8]">🤖</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The "DOOM-bots"</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">In a pure, comic-book-villain move, DOOM occasionally sent masked impostors (dubbed "DOOM-bots") to lip-sync at his live concerts, arguing that the *villain character* was performing, not the man himself.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#F59E0B]">✍️</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">ALL CAPS Rule</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">DOOM was notoriously strict about his spelling, immortalizing it in the line: "Just remember all caps when you spell the man name." This rule remains a permanent visual signature of his legacy.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // Rhyme Deconstructor Interactive Logic
+        const rhymeDatabase = {
+            'all-caps': {
+                title: "ALL CAPS (2004)",
+                pattern: "Intricate multi-syllabic rhymes. DOOM strings together identical vowel sounds across entire lines over a jazzy, retro detective piano loop.",
+                value: '"So nasty that it\'s probably somewhat of a travesty having me, daily facing playhouse tragedy..." — Notice the highlighted matching sounds: nasty / travesty / having me / tragedy. He rhymes full phrases, not just final words.',
+                year: "2004 Madvillainy"
+            },
+            'rhymesayers': {
+                title: "Rhinestone Cowboy (2004)",
+                pattern: "Spoken stream-of-consciousness internal rhymes. DOOM layers multiple rhymes in rapid succession inside single measures.",
+                value: '"Made his monochrome home on the range, played some stone cold songs, gold and strange..." — Notice the intense internal play: monochrome / home / stone / cold / gold. He packs complex vocal textures into conversational beats.',
+                year: "2004 Madvillainy"
+            },
+            'accordion': {
+                title: "Accordion (2004)",
+                pattern: "Non-linear, abstract narrative rhymes. DOOM pairs soft, looping accordion notes with deeply complex internal assonance.",
+                value: '"Holding microphones like some open-headed clone, of a poet from a home-grown zone..." — Notice the rolling vowel loops: microphones / open-headed / clone / homegrown / zone. It demonstrates absolute vocal control.',
+                year: "2004 Madvillainy"
+            }
+        };
+
+        function revealDoomRhyme(songKey) {
+            const data = rhymeDatabase[songKey];
+            if (!data) return;
+
+            document.getElementById('songTitle').textContent = data.title;
+            document.getElementById('sonicPattern').textContent = data.pattern;
+            document.getElementById('literaryValue').textContent = data.value;
+            document.getElementById('songReleaseYear').textContent = data.year;
+        }
+
+        // ================= Chart.js Initializations =================
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-24 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [68, 32],
+                    backgroundColor: ['#EA580C', '#334155'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [65, 35],
+                    backgroundColor: ['#94A3B8', '#EA580C'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "United Kingdom", "Western Europe", "Canada", "Australia"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 85, 78, 65, 52],
+                    backgroundColor: '#EA580C',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Rapp Snitch Knifish", "ALL CAPS", "Doomsday", "One Beer"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [310, 240, 210, 180], 
+                    backgroundColor: ['#EA580C', '#94A3B8', '#1E293B', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
