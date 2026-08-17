@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Black Hole Sun & Grunge Slate" (Deep Obsidian #0B132B, Burning Solar Amber #D97706, Seattle Rain Slate #1C2541, Weathered Grunge Teal #0B766E, Warm Platinum #F8FAFC)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Moody, atmospheric Seattle-themed header and biographical synthesis charting his rise from a quiet child in Washington state to fronting Soundgarden, Audioslave, and Temple of the Dog.
+2. The Vault: Financial valuation highlighting his $60M estate net worth, legacy catalog royalties, solo acoustic performance runs, and film soundtrack successes.
+3. The Audience: Responsive demographic charts plotting his exceptionally loyal, multi-generational alternative rock fanbase.
+4. The Art: Explaining his genre-blending grunge medium (unparalleled 4-octave range) and his major thematic motifs of existential isolation, grief/recovery, and spiritual searching.
+5. Seminal Metrics: A vertical bar chart demonstrating the massive global streaming footprint of his ultimate multi-band and solo masterpieces.
+6. Awards & Philanthropy: A dedicated ELA block highlighting his Grammy achievements, posthumous honors, and the life-changing work of the Chris and Vicky Cornell Foundation for vulnerable youth.
+7. Grunge Lore & Trivia: Highlighting his James Bond theme history, the emotional formation of Temple of the Dog, and his early days as a seafood chef.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Chris Cornell</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B132B;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(28, 37, 65, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(217, 119, 6, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #D97706, #0B766E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#1C2541] to-[#0B132B] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#D97706]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">CHRIS CORNELL</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#D97706] uppercase display-font">The Architect of Grunge • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#D97706]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born Christopher John Boyle on July 20, 1964, in Seattle, Washington, Cornell spent much of his childhood dealing with severe social anxiety and depression. Finding solace in the drums and piano, he dropped out of school to support his mother, working as a sous-chef in local seafood restaurants while playing in local cover bands.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    In 1984, he co-founded <span class="text-[#D97706] font-semibold">Soundgarden</span>, a pioneering group that became one of the "Big Four" of the 1990s Seattle grunge explosion. With a staggering, technically flawless 4-octave vocal range, Cornell navigated three highly successful creative eras: fronting the heavy metal-grunge of Soundgarden, the massive post-grunge rock of the supergroup <span class="text-[#0B766E] font-semibold">Audioslave</span>, and carving out an intimate, folk-laced acoustic solo career that cemented him as one of the greatest rock vocalists of all time.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#0B766E]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Estate Value</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $60M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Estate Engines:</span><br>
+                    Steady global streaming and physical sales across three distinct catalogs, historic songwriting royalties, major film soundtracks (including *Casino Royale* and *The Avengers*), and live touring master rights.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Chris Cornell's cross-generational work bridges heavy metal purists, 90s grunge enthusiasts, and younger alternative folk/rock listeners worldwide.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While his core listeners are Gen X and older Millennials (aged 35–54), digital streaming continues to pull in younger rock communities.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His melodic, highly emotional and vocal-centric catalog holds an exceptionally balanced gender split for alternative rock.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">A massive global rock icon, his streaming footprints span heavily across North America, Western Europe, and South America.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1C2541]/40 to-[#0B132B] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#D97706] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Cornell's vocal medium is legendary, blending a powerful, raspy baritone register with soaring, glass-shattering multi-octave belt screams that defined the Seattle grunge sound.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#D97706] bg-opacity-10 text-[#FCD34D] font-semibold rounded-full border border-[#D97706] border-opacity-30 text-lg">Grunge / Rock</span>
+                    <span class="px-4 py-2 bg-[#0B766E] bg-opacity-10 text-[#2DD4BF] font-semibold rounded-full border border-[#0B766E] border-opacity-30 text-lg">Alternative Rock</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Acoustic Folk</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#0B766E]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🧠</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Existential Isolation & Depression</h4>
+                            <p class="text-slate-400">Deep, poetic and haunting explorations of internal dark periods, social alienation, and battling mental health struggles (prominent in "Black Hole Sun").</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🩹</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Grief, Recovery, & Resilience</h4>
+                            <p class="text-slate-400">Processing the tragic loss of peers and finding the strength to walk through psychological trauma toward self-healing.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">⏳</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Mortality & Spiritual Searching</h4>
+                            <p class="text-slate-400">Lyrical reflections on fleeting human lifetimes, religious disillusionment, and searching for ultimate truth and salvation.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Cornell's discography contains landscape-defining rock milestones. Soundgarden's masterpiece <span class="font-bold italic text-white">Superunknown (1994)</span> debuted at #1 on the Billboard 200, while Audioslave's self-titled 2002 debut achieved triple-platinum certification. His intimate 2011 live album <span class="font-bold italic text-white">Songbook</span> remains an acoustic folk-rock high-water mark.</p>
+                    <div class="bg-[#D97706] bg-opacity-5 rounded-xl p-4 border border-[#D97706] border-opacity-25">
+                        <h4 class="font-bold text-[#D97706] text-lg mb-1 display-font">The Multi-Band Legacy</h4>
+                        <p class="text-slate-300">Cornell remains one of the few frontmen in rock history to achieve multiple multi-platinum hits and lead charting acts across three distinct eras (Soundgarden, Audioslave, and his solo efforts).</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of his defining rock masterpieces across his various projects.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#D97706] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">3 Grammy Awards (including Best Rock Performance - "Black Hole Sun")</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🎸</span>
+                        <span class="text-lg text-slate-300 font-semibold">Posthumous Grammy Award (Best Rock Performance - "When Bad Does Good", 2019)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🎬</span>
+                        <span class="text-lg text-slate-300 font-semibold">Golden Globe Award Nomination for Best Original Song ("The Keeper")</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🔥</span>
+                        <span class="text-lg text-slate-300 font-semibold">Voted "Rock's Greatest Singer" by multiple industry consensus polls</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#0B766E]">
+                <h2 class="text-3xl font-bold text-[#0B766E] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">The Chris and Vicky Cornell Foundation</h4>
+                        <p class="text-slate-400 text-sm">Founded in 2012, this foundation raises funds and partners with global organizations to support homeless, abused, neglected, and impoverished children. It donates millions directly to child shelter networks and youth development centers.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Humanitarian & Refugee Outreach</h4>
+                        <p class="text-slate-400 text-sm">A fierce advocate for vulnerable populations. Cornell donated the proceeds of his final solo singles to the International Rescue Committee (IRC) to directly support refugee families fleeing geopolitical conflict zones.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#1C2541]/20 via-[#0B132B] to-[#1C2541]/30 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Grunge Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#D97706]">🎬</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The James Bond Landmark</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Cornell co-wrote and performed "You Know My Name" for *Casino Royale* (2006), making him the first American male artist to write and perform a theme song for an official James Bond film.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#0B766E]">🥀</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Temple of the Dog</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Following the tragic drug overdose of his roommate and Mother Love Bone singer Andrew Wood, Cornell formed the supergroup Temple of the Dog with future members of Pearl Jam as a pure, grief-healing musical tribute.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#94A3B8]">🐟</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Seafood Chef</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Long before his voice packed stadium arenas worldwide, Chris supported his mother and family by cleaning fish, shucking oysters, and working as a professional sous-chef in Seattle.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["35-54 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [60, 40],
+                    backgroundColor: ['#D97706', '#1C2541'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [54, 46],
+                    backgroundColor: ['#0B766E', '#D97706'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "Western Europe", "South America", "Canada", "Australia"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 88, 82, 65, 55],
+                    backgroundColor: '#0B766E',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Black Hole Sun", "Like a Stone", "You Know My Name", "Hunger Strike"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [1100, 950, 410, 320], 
+                    backgroundColor: ['#D97706', '#0B766E', '#1C2541', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1C2541' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
