@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Sweetheart Lavender & Cloud Obsidian" (Plum Obsidian #08040C, Soft Lavender #C084FC, Celestial Peach #FDBA74, Bright Platinum #F8FAFC, Deep Lavender Slate #1E112A)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Ethereal, high-glamour header and biographical synthesis charting her rise from Boca Raton, Florida, and Broadway's "13" to Nickelodeon's Victorious, culminating in her global pop-R&B reign.
+2. The Vault: Financial valuation highlighting her estimated $240M net worth, record-shattering Sweetener and Thank U, Next touring revenues, her highly successful r.e.m. beauty line, and acting roles.
+3. The Audience: Interactive Chart.js graphs detailing her highly dedicated, female-leaning, and globally dominant Gen Z/Millennial "Arianator" consumer core.
+4. The Art: Explaining her complex vocal medium (four-octave soprano, whistle register, meticulous self-vocal arrangement) and her major thematic motifs of grief/resilience, feminine empowerment, and toxic love.
+5. Seminal Metrics: A vertical bar chart demonstrating the massive global streaming footprint of her defining, record-breaking pop anthems.
+6. Awards & Philanthropy: Dedicated section highlighting her Grammy wins, historic Billboard Hot 100 sweeps, and her heroic work organizing the "One Love Manchester" benefit concert raising over $13M.
+7. Pop Lore & Trivia: Highlighting her iconic high ponytail trademark, her Broadway roots, and her master vocal impressions.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Ariana Grande</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #08040C;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(30, 17, 42, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(192, 132, 252, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #C084FC, #FDBA74);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#1E112A] to-[#08040C] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#C084FC]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">ARIANA GRANDE</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#C084FC] uppercase display-font">The Architect of Ethereal Pop-R&B</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#C084FC]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born June 26, 1993, in Boca Raton, Florida, Ariana Grande-Butera spent her childhood performing in local theater productions. After making her professional Broadway debut at age 15 in the musical *13*, she rose to national prominence as the quirky, beloved character Cat Valentine on Nickelodeon's hit teen sitcoms <span class="italic font-semibold text-white">Victorious</span> and <span class="italic font-semibold text-white">Sam & Cat</span>.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    Determined to prioritize her musical calling, she transitioned to recording, releasing her 1950s R&B-influenced debut <span class="text-[#C084FC] font-semibold">Yours Truly (2013)</span>. Showcasing a jaw-dropping vocal register, Ariana systematically evolved into a global powerhouse, fusing contemporary trap-pop beats, classic 90s R&B arrangements, and highly personal thematic alchemies to become one of the most commercially dominant and critically respected vocalists of her generation.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#FDBA74]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $240M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Record-breaking digital streaming catalog dividends, massive sold-out global arena tours, her internationally successful cosmetics line <span class="text-white italic">r.e.m. beauty</span>, high-profile acting roles (including Glinda in Universal's *Wicked*), and highly valued perfume licensing portfolios.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Ariana's visual branding, vocal excellence, and deep vulnerability maintain a highly passionate, trend-setting core of global Gen-Z and Millennial cultural enthusiasts.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Her active pop-trap soundscapes appeal overwhelmingly to Gen Z and younger Millennials, who comprise 70% of her core streaming base.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Her lyrical themes of feminine empowerment and romantic healing attract an exceptionally passionate, heavily female-leaning demographic.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">A true international stadium sensation, her streaming footprints are heavily anchored across North America, Western Europe, and East Asia.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1E112A] to-[#08040C] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#C084FC] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Ariana's vocal medium is legendary, defined by a four-octave lyric soprano vocal range and a flawless whistle register. An expert vocal arranger, she meticulously records and layers dozens of her own complex harmony tracks in home studios.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#C084FC] bg-opacity-10 text-[#C084FC] font-semibold rounded-full border border-[#C084FC] border-opacity-30 text-lg">Dance-Pop / Trap-Pop</span>
+                    <span class="px-4 py-2 bg-[#FDBA74] bg-opacity-10 text-[#FDBA74] font-semibold rounded-full border border-[#FDBA74] border-opacity-30 text-lg">Contemporary R&B</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Neo-Soul / House</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#FDBA74]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🧠</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Grief, Trauma, & Resilience</h4>
+                            <p class="text-slate-400">Deeply personal, healing-focused lyrical processing of public tragedies, personal loss, and anxiety (central to *Sweetener* and *Thank U, Next*).</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💅</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Feminine Empowerment & Autonomy</h4>
+                            <p class="text-slate-400">Asserting control over her financial, sexual, and creative choices, celebrating sisterhood, and breaking structural double standards.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💔</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Toxic Love vs. Self-Realization</h4>
+                            <p class="text-slate-400">Exploring the painful realities of co-dependency, healing after divorce, and discovering that the ultimate romance is with oneself.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Her discography tracks a masterclass in structural pop-R&B. The chart-conquering <span class="font-bold italic text-white">My Everything (2014)</span> led to her experimental, Grammy-winning album <span class="font-bold italic text-white">Sweetener (2018)</span>, her universally adored magnum opus <span class="font-bold italic text-white">Thank U, Next (2019)</span>, and her introspective, critically praised <span class="font-bold italic text-white">Eternal Sunshine (2024)</span>.</p>
+                    <div class="bg-[#C084FC] bg-opacity-5 rounded-xl p-4 border border-[#C084FC] border-opacity-25">
+                        <h4 class="font-bold text-[#C084FC] text-lg mb-1 display-font">The Historical Sweep</h4>
+                        <p class="text-slate-300">With "thank u, next," "7 rings," and "break up with your girlfriend, i'm bored," Ariana became the first solo artist ever to **monopolize the entire top three spots of the Billboard Hot 100 simultaneously**, matching a historic record set only by The Beatles in 1964.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of her most commercially dominant global pop hits.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#C084FC] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">2 Grammy Awards (including Best Pop Vocal Album - *Sweetener*) & 15 Nominations</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">9 Billboard Music Awards & 3 American Music Awards</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">💎</span>
+                        <span class="text-lg text-slate-300 font-semibold">First artist to debut the lead singles of her first five albums in the Billboard Hot 100 Top 10</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🌍</span>
+                        <span class="text-lg text-slate-300 font-semibold">Time 100 Most Influential People & Billboard Woman of the Year (2018)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#FDBA74]">
+                <h2 class="text-3xl font-bold text-[#FDBA74] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">One Love Manchester Benefit Concert</h4>
+                        <p class="text-slate-400 text-sm">Following the tragic 2017 bombing at her concert in Manchester, Ariana bravely returned to the city just weeks later to host "One Love Manchester." Gathering global superstars, she raised over **$13 Million** directly for the British Red Cross to aid families and victims of the attack.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Democratic Mental Health Access & LGBTQ+ Giving</h4>
+                        <p class="text-slate-400 text-sm">A fierce advocate for therapy, Ariana partnered with BetterHelp to donate over **$2 Million** in free therapy sessions to low-income fans. She also established the "Protect & Defend Trans Youth Fund," raising millions to protect trans communities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#1E112A] via-[#08040C] to-[#1E112A] text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Pop Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#C084FC]">👱‍♀️</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The High Ponytail</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Her signature high ponytail was born out of utility. Having severely bleached and damaged her hair red for years to play Cat Valentine on Nickelodeon, she pulled her hair up in a high pony to mask the damage—unintentionally inventing her primary visual trademark.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#FDBA74]">🎭</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Broadway Roots</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Long before her television fame, Ariana was a dedicated theater kid, winning a National Youth Theatre Association Award for her portrayal of Charlotte in Jason Robert Brown's Broadway musical *13*.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#60A5FA]">🎤</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Master Impersonator</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Possessing a hyper-trained ear, Ariana is famous for her jaw-dropping vocal impressions of pop icons like Celine Dion, Whitney Houston, Shakira, and Britney Spears, which she frequently performs on late-night television.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [70, 30],
+                    backgroundColor: ['#C084FC', '#1E112A'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Female Listeners", "Male & Other"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [65, 35],
+                    backgroundColor: ['#FDBA74', '#C084FC'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "Western Europe", "East Asia", "Latin America", "Australasia"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 85, 70, 65, 55],
+                    backgroundColor: '#C084FC',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["7 rings", "thank u, next", "Side to Side", "Save Your Tears Remix"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Billions)',
+                    data: [2.2, 1.8, 1.4, 1.3], 
+                    backgroundColor: ['#C084FC', '#FDBA74', '#1E112A', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E112A' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Billions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
