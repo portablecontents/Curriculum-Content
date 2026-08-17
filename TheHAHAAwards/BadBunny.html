@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Reggaeton Sunset & Neon Ocean" (Tropical Obsidian #0B0914, Neon Fuchsia #D946EF, Sunset Gold #F59E0B, Off-White Pearl #F9F6F0, Indigo Night #1E1B4B)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: High-energy, tropical-themed header and biographical synthesis charting his rise from a grocery bagger in Vega Baja, Puerto Rico, to the undisputed, record-shattering global king of Latin Trap and Reggaeton.
+2. The Vault: Financial valuation highlighting his $80M net worth, record-shattering touring revenues (World's Hottest Tour), Adidas collaborations, and WWE contract.
+3. The Audience: Interactive Chart.js graphs detailing his fiercely loyal Gen Z, highly youth-concentrated, and massive Latin-crossover global listenership.
+4. The Art: Explaining his bilingual creative medium, subverting classic machismo, and his major thematic motifs of Puerto Rican political solidarity, nostalgic summer romance, and fluid self-expression.
+5. Seminal Metrics: A vertical bar chart demonstrating the historic streaming metrics of his defining albums (such as Un Verano Sin Ti, the first all-Spanish album nominated for ELA-equivalent Album of the Year at the Grammys).
+6. Awards & Philanthropy: Dedicated section highlighting historic Grammy wins, Latin Grammy sweeps, and his Good Bunny Foundation (raising millions for youth sports and music education in Puerto Rico).
+7. Cultural Lore & Trivia: Spotlighting his high-profile WWE wrestling career, his Econo grocery store beginnings, and hosting Saturday Night Live entirely in Spanglish.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Bad Bunny</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B0914;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(30, 27, 75, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(217, 70, 239, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #D946EF, #F59E0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#1E1B4B]/80 to-[#0B0914] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#D946EF]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">BAD BUNNY</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#D946EF] uppercase display-font">The Global Icon of Latin Trap & Reggaeton</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#D946EF]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born Benito Antonio Martínez Ocasio on March 10, 1994, in Vega Baja, Puerto Rico, he was raised in a working-class household alongside his two younger brothers. Benito began singing in his local church choir, eventually teaching himself music production while balancing shifts bagging groceries at an Econo supermarket and studying at the University of Puerto Rico at Arecibo.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    Operating under the moniker <span class="text-[#D946EF] font-semibold">Bad Bunny</span>, he released his breakout trap single "Diles" on SoundCloud in 2016, sparking immediate industry demand. Refusing to alter his Puerto Rican accent or translate his catalog into English, Bad Bunny achieved absolute global hegemony, releasing genre-defining masterpieces like <span class="italic font-semibold text-white">Un Verano Sin Ti</span> and restructuring the modern pop marketplace entirely on his own cultural terms.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#F59E0B]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $80M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Continuous record-breaking digital streams, historic stadium touring revenues (his 2022 World's Hottest Tour grossed a record $435M), his major ongoing global partnership with Adidas, movie contracts, and highly paid live WWE wrestling appearances.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Bad Bunny's universal crossover appeal unites Spanish-speaking markets, North American youth subcultures, and mainstream international pop communities.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His heavy trap rhythms and viral internet presence attract an exceptionally young demographic, with 72% of listeners aged 18–34.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His boundary-pushing lyrics and dismantling of traditional machismo draw an exceptionally balanced, universal gender split.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While dominating Latin America and Spain, he maintains massive, chart-conquering streaming volume across the United States.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1E1B4B]/40 to-[#0B0914] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#D946EF] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Bad Bunny's creative medium is defined by low-pitched, deep baritone vocal delivery, rapid trap triplet-flows, and heavy reggaeton dembow beats seamlessly fused with alternative indie synth structures.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#D946EF] bg-opacity-10 text-[#FDA4AF] font-semibold rounded-full border border-[#D946EF] border-opacity-30 text-lg">Latin Trap</span>
+                    <span class="px-4 py-2 bg-[#F59E0B] bg-opacity-10 text-[#FCD34D] font-semibold rounded-full border border-[#F59E0B] border-opacity-30 text-lg">Reggaeton</span>
+                    <span class="px-4 py-2 bg-[#1E1B4B] text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Alternative Pop</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#F59E0B]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">✊</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">PR Political Solidarity & Resilience</h4>
+                            <p class="text-slate-400">Deep thematic critiques of institutional corruption in Puerto Rico, blackouts, gentrification, and celebrating colonial resistance (evident in "El Apagón").</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💅</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Fluid Expression & Dismantling Machismo</h4>
+                            <p class="text-slate-400">Revising hyper-masculine hip-hop norms, advocating for trans/queer safety, wearing dresses, and painting nails (prominent in "Yo Perreo Sola").</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">☀️</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Nostalgic Summer & Melancholic Romance</h4>
+                            <p class="text-slate-400">Capturing the bittersweet transition of summer vacation romances, late-night heartbreak, and coastal escapism.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Bad Bunny's album rollouts stand as historic music industry records. His historic <span class="font-bold italic text-white">Un Verano Sin Ti (2022)</span> became the **first all-Spanish album to earn a Grammy Album of the Year nomination** and spent 13 weeks atop the Billboard 200, alongside other blockbusters like <span class="font-bold italic text-white">YHLQMDLG (2020)</span> and <span class="font-bold italic text-white">Nadie Sabe Lo Que Va a Pasar Mañana (2023)</span>.</p>
+                    <div class="bg-[#D946EF] bg-opacity-5 rounded-xl p-4 border border-[#D946EF] border-opacity-25">
+                        <h4 class="font-bold text-[#D946EF] text-lg mb-1 display-font">The Streaming Emperor</h4>
+                        <p class="text-slate-300">He holds the all-time Spotify historical record as the **most streamed artist in a single year**, achieving over 18.5 Billion streams in 2022 without releasing any English crossover songs.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of his defining global Latin-pop and trap masterpieces.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#D946EF] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">3 Grammy Awards & 11 Latin Grammy Awards</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">30 Billboard Latin Music Awards</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🥇</span>
+                        <span class="text-lg text-slate-300 font-semibold">First non-English language artist to win VMA Artist of the Year (2022)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🌟</span>
+                        <span class="text-lg text-slate-300 font-semibold">Included in Time Magazine's 100 Most Influential People</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#F59E0B]">
+                <h2 class="text-3xl font-bold text-[#F59E0B] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">The Good Bunny Foundation (Founder)</h4>
+                        <p class="text-slate-400 text-sm">Founded by Benito to improve the lives of Puerto Rican youth. The foundation donates millions directly to fund sports clinics, restore municipal athletic fields, distribute free art/music supplies, and host massive toy giveaways during Christmas.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Civic Protests & Social Justice</h4>
+                        <p class="text-slate-400 text-sm">In 2019, Bad Bunny took a direct hiatus from his music career to physically lead massive street protests in San Juan alongside residents, successfully demanding the resignation of Puerto Rico's corrupt governor.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#1E1B4B]/20 via-[#0B0914] to-[#1E1B4B]/30 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Cultural Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#D946EF]">🤼‍♂️</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The WWE Superstar</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">A lifelong professional wrestling superfan, Bad Bunny signed with WWE, performing highly complex physical matches at WrestleMania 37 and Backlash, earning massive praise from professional wrestlers.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#F59E0B]">🛒</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Grocery Bagger Beginnings</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Just months before signing his major breakout deal, Benito supported his music hobby by bagging groceries at an Econo supermarket in Puerto Rico while recording on a basic laptop.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#E2E8F0]">🎤</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Spanglish SNL Auteur</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">In 2023, he made cultural television history by pulling double-duty as both host and musical guest on Saturday Night Live, delivering his entire opening monologue in Spanglish with Pedro Pascal.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [72, 28],
+                    backgroundColor: ['#D946EF', '#1E1B4B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Female Listeners", "Male Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [50, 50],
+                    backgroundColor: ['#F59E0B', '#D946EF'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["Latin America", "United States", "Spain", "Western Europe", "Others"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 90, 85, 60, 40],
+                    backgroundColor: '#D946EF',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Dakiti (with Jhayco)", "Me Porto Bonito", "Titi Me Preguntó", "Monaco"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Billions)',
+                    data: [1.9, 1.7, 1.5, 0.9], 
+                    backgroundColor: ['#D946EF', '#F59E0B', '#1E1B4B', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E1B4B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Billions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
