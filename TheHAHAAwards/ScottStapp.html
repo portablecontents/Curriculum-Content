@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Higher Clay & Crimson Sun" (Clay Obsidian #08070B, Burning Amber #D97706, Theatrical Crimson #9F1239, Sand Pearl #F5F5F4, Slate Gray #334155)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Grand, theatrical arena-themed header and biographical synthesis charting his rise from a strict religious household in Florida, forming Creed at FSU with Mark Tremonti, to selling out stadiums globally and defining the late-90s post-grunge boom.
+2. The Vault: Financial valuation highlighting his estimated $10M net worth, continuous catalog royalties from Creed's 53M+ global album sales, solo endeavors, and publishing assets.
+3. The Audience: Interactive Chart.js graphs detailing his resilient, multi-generational, and globally passionate rock listener core.
+4. The Art: Explaining his operatic, baritone-heavy vocal medium (which popularized the dramatic "yarl" post-grunge vocal style) and his major thematic motifs of spiritual redemption, existential conflict, and parental duty.
+5. Seminal Metrics: A vertical bar chart demonstrating the massive global streaming and radio footprint of Creed's defining rock masterpieces.
+6. Awards & Philanthropy: Dedicated section highlighting his Grammy win, multi-platinum RIAA certifications, and his life-saving work through the With Arms Wide Open Foundation.
+7. Post-Grunge Lore & Trivia: Highlighting his high-profile battle with mental health and addiction, his legendary 2024 Creed reunion tour, and his early days writing songs in Tallahassee.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Scott Stapp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #08070B;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(30, 20, 35, 0.35);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(217, 119, 6, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #D97706, #9F1239);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#31102F]/50 to-[#08070B] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#D97706]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">SCOTT STAPP</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#D97706] uppercase display-font">The Voice of Creed • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#D97706]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born Anthony Scott Flippen on August 8, 1973, in Orlando, Florida, he was raised in a highly strict, deeply religious Christian household by his mother and stepfather, a local minister. This intense religious upbringing, heavily saturated in biblical themes, theological discipline, and moral expectations, would go on to fundamentally shape his deeply introspective, spiritual, and mythic lyricism.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    While attending Florida State University, Stapp reunited with his high school classmate, guitarist Mark Tremonti. Recognizing their shared musical ambitions, they formed the post-grunge rock band <span class="text-[#D97706] font-semibold">Creed</span> in 1994. Bypassing standard industry trends, Creed crafted a powerful, stadium-sized alternative rock sound that catapulted them to global superstardom, making them one of the most successful rock bands of the late-90s and early-2000s.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#9F1239]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $10M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Massive global album royalties (Creed has sold over 53 million albums worldwide), highly lucrative headlining reunion tours, solo acoustic tours, and songwriting catalog royalties.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Scott Stapp's anthemic rock vocals and spiritually charged messages have built a highly loyal, multi-generational audience spanning alternative rock and active rock communities.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While Gen X and Millennial listeners who grew up with Creed make up his core fanbase, active streaming engages a rising tier of younger fans.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Due to the crossover commercial appeal of his massive melodic rock ballads, Stapp's audience features an incredibly balanced gender split.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While heavily anchored in North American rock radio, his live touring reach extends across Europe, Australasia, and South America.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1E293B]/40 to-[#090D16] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#D97706] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Stapp's performance medium is characterized by his iconic, operatic baritone "yarl" delivery, which set the vocal standard for late-1990s post-grunge rock radio.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#D97706] bg-opacity-10 text-[#D97706] font-semibold rounded-full border border-[#D97706] border-opacity-30 text-lg">Post-Grunge</span>
+                    <span class="px-4 py-2 bg-[#9F1239] bg-opacity-10 text-[#FDA4AF] font-semibold rounded-full border border-[#9F1239] border-opacity-30 text-lg">Hard Rock</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Alternative Metal</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#9F1239]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🙏</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Spiritual Redemption & Grace</h4>
+                            <p class="text-slate-400">Deep, faith-infused lyrics focusing on finding salvation, escaping personal darkness, and ascending to a higher state of moral clarity.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🧠</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Internal & Existential Turmoil</h4>
+                            <p class="text-slate-400">Capturing the painful struggle against self-sabotage, depression, existential doubt, and seeking to reconcile with one's own mind.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">👶</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Fatherhood & Intergenerational Hopes</h4>
+                            <p class="text-slate-400">Reflecting on the profound responsibility of bringing children into a broken world, seeking to break toxic generational cycles (pivotal in "With Arms Wide Open").</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">With Creed, Stapp released multiple multi-platinum juggernauts. Their sophomore record, <span class="font-bold italic text-white">Human Clay (1999)</span>, achieved the incredibly rare Diamond certification from the RIAA. They followed this with the #1 Billboard charting albums <span class="font-bold italic text-white">Weathered (2001)</span> and <span class="font-bold italic text-white">Full Circle (2009)</span>.</p>
+                    <div class="bg-[#D97706] bg-opacity-5 rounded-xl p-4 border border-[#D97706] border-opacity-25">
+                        <h4 class="font-bold text-[#D97706] text-lg mb-1 display-font">Rock Radio Titan</h4>
+                        <p class="text-slate-300">Creed was the first band in rock history to have four consecutive singles from a debut album reach #1 on active rock radio, cementing their unprecedented commercial dominance.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of Creed's ultimate global rock masterpieces.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#D97706] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">1 Grammy Award (Best Rock Song - "With Arms Wide Open", 2001)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">4 Billboard Music Awards (including Rock Artist of the Year)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🎬</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple MTV Video Music Award (VMA) Nominations</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📈</span>
+                        <span class="text-lg text-slate-300 font-semibold">RIAA Diamond Album Certification (Human Clay)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#9F1239]">
+                <h2 class="text-3xl font-bold text-[#9F1239] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">With Arms Wide Open Foundation</h4>
+                        <p class="text-slate-400 text-sm">Founded by Scott in 2000, this foundation is dedicated to helping underprivileged children and families around the world. It has raised millions, donating funds directly to pediatric medical research, family shelters, and community support centers.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Mental Health & Veteran Advocacy</h4>
+                        <p class="text-slate-400 text-sm">Having fought his own battles with depression and addiction, Stapp is a highly active advocate. He works closely with organizations like Childhelp and MusiCares to promote mental health awareness and aid military veterans coping with PTSD.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#111827] via-[#090D16] to-[#1E293B] text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Cultural Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#D97706]">🎤</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The "Yarl" Vocal Style</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Stapp is widely credited with popularizing the distinct, heavy-vibrato post-grunge vocal style known as the "yarl," which heavily influenced several major rock bands of the early 2000s.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#9F1239]">🚢</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The 2024 Comeback</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">In 2024, after a decade-long hiatus, Creed made a historic, sold-out reunion tour. The massive tour sold out arenas across North America, proving the enduring legacy of their iconic rock catalog.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#60A5FA]">🦅</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Tallahassee Origins</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Creed’s early chart-topping hits were written by Stapp and Tremonti in Tallahassee, Florida. To pay rent, they performed in local clubs, building an immediate, dedicated grass-roots following.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["35-54 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [65, 35],
+                    backgroundColor: ['#D97706', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [54, 46],
+                    backgroundColor: ['#9F1239', '#D97706'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "Western Europe", "South America", "Canada", "Australia"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 85, 78, 65, 52],
+                    backgroundColor: '#D97706',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["With Arms Wide Open", "Higher", "My Sacrifice", "One Last Breath"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [450, 400, 480, 350], 
+                    backgroundColor: ['#D97706', '#9F1239', '#1E293B', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
