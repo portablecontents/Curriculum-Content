@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Madison Square & Oyster Bay" (Piano Key Obsidian #0A0D14, Vintage Microphone Amber #D97706, New York Denim #2563EB, Coast Sand Cream #FAF8F5, Slate Gray #475569)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Classic, theatrical New York-themed header and biographical synthesis charting his rise from Hicksville, Long Island, to filling stadiums worldwide and his record-breaking Madison Square Garden residency.
+2. The Vault: Financial valuation highlighting his massive $225M net worth, continuous touring empire, historic catalog values, and real estate assets on Long Island.
+3. The Audience: Responsive demographic charts plotting his exceptionally broad, multi-generational, and global fanbase.
+4. The Art: Explaining his piano-driven rock medium (narrative storytelling) and his major thematic motifs of working-class survival, nostalgic urban landscapes, and romantic vulnerability.
+5. Seminal Metrics: A vertical bar chart demonstrating the massive global album shipments and digital streams of his definitive masterworks.
+6. Awards & Philanthropy: A dedicated ELA block highlighting his Grammy achievements, Rock and Roll Hall of Fame status, and his major Long Island bay environmental preservation and music education donations.
+7. Long Island Lore & Trivia: Highlighting his legendary "Piano Man" origins, his honorary degree collections, and his historic 150-show Madison Square Garden residency milestone.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Billy Joel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A0D14;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #D97706, #2563EB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#1E293B] to-[#0A0D14] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#D97706]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">BILLY JOEL</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#D97706] uppercase display-font">The Piano Man • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#D97706]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born May 9, 1949, in the Bronx, New York, William Martin Joel grew up in Hicksville, Long Island. Raised in a musical household, he began classical piano lessons at a young age, initially using his boxing skills to protect himself from neighborhood bullies. Quitting high school to perform full-time, he played in various local bands and piano bars under the alias "Bill Martin" to pay off early debts.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    His breakthrough arrived with his landmark 1973 album and hit single <span class="text-[#D97706] font-semibold">"Piano Man."</span> Relocating back to New York, he entered a historic creative run with producer Phil Ramone, releasing legendary albums like <span class="italic font-semibold text-white">The Stranger (1977)</span> and <span class="italic font-semibold text-white">52nd Street (1978)</span>. Billy Joel's highly melodic, blue-collar narrative songs established him as one of the premier singer-songwriters in global pop-rock history.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#2563EB]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $225M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Massive stadium and arena touring revenues (including his historic 10-year monthly Madison Square Garden residency), historic music publishing royalties (owning his own master compositions), physical catalog sales, and extensive real estate holdings on Long Island.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Billy Joel boasts one of the most structurally unique fanbases in music—a deeply dedicated, multi-generational community of listeners that spans Baby Boomers, Gen X, Millennials, and Gen Z.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While older demographics represent his legacy base, digital streaming has introduced his catalog to a massive younger market (aged 18–34).</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His melodic, highly emotional and energetic pop-rock catalog maintains a perfect, universal demographic split.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While he is the quintessential poet of New York, his music dominates streaming markets in North America, Western Europe, and Japan.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1E293B]/40 to-[#0A0D14] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#D97706] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Operating primarily in acoustic piano composition, Billy Joel is credited with blending classic pop-rock structures with Broadway-esque theatrical storytelling, jazz-soul arrangements, and classical music elements.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#D97706] bg-opacity-10 text-[#FCD34D] font-semibold rounded-full border border-[#D97706] border-opacity-30 text-lg">Pop-Rock</span>
+                    <span class="px-4 py-2 bg-[#2563EB] bg-opacity-10 text-[#60A5FA] font-semibold rounded-full border border-[#2563EB] border-opacity-30 text-lg">Singer-Songwriter</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Theatrical Rock</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#2563EB]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🏭</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Blue-Collar Struggle & Blue Oyster Bay</h4>
+                            <p class="text-slate-400">Deeply empathetic stories of working-class laborers, fishermen, economic decline, and small-town pride (evident in "The Downeaster 'Alexa'").</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🗽</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">New York Urban Nostalgia</h4>
+                            <p class="text-slate-400">Capturing the unique pace, characters, streets, and romantic atmosphere of New York City and Long Island suburban life.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💔</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Intimacy & Bittersweet Romances</h4>
+                            <p class="text-slate-400">Honest, vulnerable assessments of marriage, divorce, infatuation, and the emotional complexity of lifelong commitments.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">His discography represents monumental milestones in physical album shipments. His multi-platinum masterpiece <span class="font-bold italic text-white">The Stranger (1977)</span> spawned four Top-10 singles, while his historic <span class="font-bold italic text-white">Greatest Hits Volume I & II</span> collection stands as one of the highest-selling albums in US certified history.</p>
+                    <div class="bg-[#D97706] bg-opacity-5 rounded-xl p-4 border border-[#D97706] border-opacity-25">
+                        <h4 class="font-bold text-[#D97706] text-lg mb-1 display-font">The Multi-Platinum Standard</h4>
+                        <p class="text-slate-300">Joel has achieved over <span class="font-extrabold text-xl text-white">82 Million</span> certified album shipments in the US alone, making him the sixth best-selling solo artist of all time.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of his defining catalog pop-rock masterpieces.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#D97706] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">5 Grammy Awards (including Album of the Year and Record of the Year)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏛️</span>
+                        <span class="text-lg text-slate-300 font-semibold">Inductee into the Rock and Roll Hall of Fame (1999)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🌟</span>
+                        <span class="text-lg text-slate-300 font-semibold">Kennedy Center Honors (2013)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🖋️</span>
+                        <span class="text-lg text-slate-300 font-semibold">Gershwin Prize for Popular Song (Library of Congress)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#2563EB]">
+                <h2 class="text-3xl font-bold text-[#2563EB] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">The Long Island Sound & Bayman Support</h4>
+                        <p class="text-slate-400 text-sm">An avid boater and resident of Oyster Bay, Joel has historically donated millions to charity organizations supporting clean-water initiatives in the Long Island Sound and directly assisting local, struggling maritime Baymen.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Music Education & Public School Endowments</h4>
+                        <p class="text-slate-400 text-sm">Wallen and Joel share public fund giving models. Joel has endowed several millions directly to public schools, music academies, and collegiate programs across New York state to fund young classical and contemporary musicians.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#1E293B]/20 via-[#0A0D14] to-[#1E293B]/30 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Long Island Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#D97706]">🏟️</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The MSG Record Residency</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Billy Joel has achieved the all-time record for consecutive arena residency shows, performing monthly sold-out sets at Madison Square Garden for over a decade, culminating in his historic 150th show.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#2563EB]">🚢</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Downeaster "Alexa"</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">His iconic folk-rock song "The Downeaster 'Alexa'" was written directly about the struggles of commercial fishermen on Long Island, named after his custom custom-built 36-foot fishing boat.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#E2E8F0]">🎓</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">No High School Diploma</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Because he missed his English exam due to performing late at night, he didn't graduate high school. He famously remarked: "I'm not going to Columbia, I'm going to Columbia Records." He was officially awarded his diploma 25 years later.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "35-54 Years Old", "55+ Years Old"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [35, 40, 25],
+                    backgroundColor: ['#D97706', '#2563EB', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [50, 50],
+                    backgroundColor: ['#D97706', '#2563EB'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "Western Europe", "Japan", "Australia", "Canada"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Priority Index',
+                    data: [100, 85, 75, 60, 55],
+                    backgroundColor: '#2563EB',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Piano Man", "Uptown Girl", "Vienna", "Billy the Kid"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [1100, 850, 780, 450], 
+                    backgroundColor: ['#D97706', '#2563EB', '#1E293B', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
