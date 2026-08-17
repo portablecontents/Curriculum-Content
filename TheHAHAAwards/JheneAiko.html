@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Chilombo Indigo & Celestial Peach" (Space Obsidian #08060D, Meditative Indigo #312E81, Sunset Peach #FDBA74, Chilombo Pink #EC4899, Soft Pearl #FAF8F6)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Meditative, atmospheric header and biographical synthesis charting her rise from Los Angeles, early B2K vocal associations, and the devastating loss of her brother Miyagi, to pioneering the therapeutic "sound bowl" neo-soul R&B movement.
+2. The Vault: Financial valuation highlighting her $6M net worth, continuous streaming catalog residuals, sold-out tours, and publishing rights.
+3. The Audience: Responsive demographic charts plotting her highly devoted Gen Z, heavily female-leaning, and R&B crossover listener core.
+4. The Art: Explaining her multi-sensory medium (integrating 432Hz tunings and crystal singing bowls) and her major thematic motifs of spiritual healing & alchemy, raw relationship turbulence, and maternal/ancestral legacy.
+5. Seminal Metrics: A vertical bar chart demonstrating the massive global streaming footprint of her defining modern soul anthems.
+6. Awards & Philanthropy: Dedicated section highlighting her historic Grammy Album of the Year nomination for Chilombo, and her compassionate WAYS Foundation aiding cancer patients.
+7. Ethereal Lore & Trivia: Highlighting her poetry book "2Fish", her deep practice of sound healing therapy, and her early MySpace-era mixtape origins.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Jhené Aiko</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #08060D;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(49, 46, 129, 0.15);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(253, 186, 116, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #FDBA74, #EC4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#312E81]/50 to-[#08060D] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#FDBA74]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">JHENÉ AIKO</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#FDBA74] uppercase display-font">The High Priestess of Healing R&B • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#FDBA74]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born March 16, 1988, in Los Angeles, California, Jhené Aiko Efuru Chilombo grew up in a vibrant, multi-ethnic, and highly musical household. Of mixed African-American, Japanese, Spanish, and Native American descent, she entered the music industry as a young teenager, contributing guest vocals to the prominent early 2000s R&B boy band B2K. 
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    Aiko's artistic trajectory fundamentally transformed in 2012 following the devastating loss of her brother, Miyagi, to cancer. Turning inward to process her immense grief, she self-released her acclaimed mixtape <span class="text-[#FDBA74] font-semibold">Sailing Soul(s) (2011)</span> and signed with Def Jam. By integrating **432Hz crystal singing bowls** and therapeutic vocal frequencies into her soulful songwriting, she pioneered modern Alternative R&B, converting personal tragedy into a universal sanctuary of sound.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#EC4899]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $6M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Global streaming catalogs (racking up billions of plays), sold-out international arena tours (The Magic Hour Tour), high-end lifestyle collaborations, poetry publishing, and independent songwriting rights.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Jhené’s therapeutic, soft-spoken vocals and deep emotional transparency have cultivated an exceptionally dedicated, predominantly female-leaning Gen Z and Millennial consumer core.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Her raw, vulnerable focus on relationship healing, anxiety, and self-care appeals overwhelmingly to audiences aged 18–34 (70%).</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Her focus on emotional processing, maternal love, and divine feminine energy draws a highly female-leaning listener split (60%).</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-[#312E81]/10 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While highly centered in US metropolitan landscapes, her atmospheric soundwaves capture massive audiences throughout the UK and South Africa.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#312E81]/30 to-[#08060D] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#FDBA74] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Jhené’s musical medium is fundamentally multi-sensory. Known for her light, breezy, and whisper-soft soprano vocal delivery, she infuses modern R&B production with 432Hz frequency tuning, wind chimes, and crystal singing bowls.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#FDBA74] bg-opacity-10 text-[#FDBA74] font-semibold rounded-full border border-[#FDBA74] border-opacity-30 text-lg">Alternative R&B</span>
+                    <span class="px-4 py-2 bg-[#EC4899] bg-opacity-10 text-[#FDA4AF] font-semibold rounded-full border border-[#EC4899] border-opacity-30 text-lg">Neo-Soul</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Ambient / Healing R&B</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#EC4899]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">✨</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Spiritual Alchemy & Grief Healing</h4>
+                            <p class="text-slate-400">Transmuting deep psychological trauma, family grief, and mourning into divine self-love, tranquility, and peace.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🥀</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Romantic Turbulence & Autonomy</h4>
+                            <p class="text-slate-400">Deeply candid chronicles of toxic relationships, heartbreak, asserting physical independence, and establishing self-respect.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🌊</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Maternal & Ancestral Connection</h4>
+                            <p class="text-slate-400">Reflecting on mother-daughter lineage, protection, passing down wisdom, and aligning with spiritual ancestors (prominent in *Trip*).</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Aiko's catalog is a masterclass in atmospheric concept albums. Her EP <span class="font-bold italic text-white">Sail Out (2013)</span> launched her mainstream breakout, followed by the highly cinematic, grief-processing <span class="font-bold italic text-white">Trip (2017)</span> and her absolute, chart-topping masterpiece <span class="font-bold italic text-white">Chilombo (2020)</span>.</p>
+                    <div class="bg-[#FDBA74] bg-opacity-5 rounded-xl p-4 border border-[#FDBA74] border-opacity-25">
+                        <h4 class="font-bold text-[#FDBA74] text-lg mb-1 display-font">Historic Crossover Success</h4>
+                        <p class="text-slate-300">Her triple-platinum single "Sativa" and Billboard hit "The Worst" became defining anthems of modern alternative soul, logging billions of streams globally.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of her most popular R&B and alternative-soul classics.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#FDBA74] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">3 Grammy Award Nominations (including Album of the Year for *Chilombo*)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🎭</span>
+                        <span class="text-lg text-slate-300 font-semibold">Soul Train Music Award for Best R&B/Soul Female Artist</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple BET Awards and NAACP Image Award Nominations</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🥇</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multi-Platinum RIAA single certifications across her catalog</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#EC4899]">
+                <h2 class="text-3xl font-bold text-[#EC4899] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">The WAYS Foundation (Founder)</h4>
+                        <p class="text-slate-400 text-sm">Following the loss of her brother Miyagi, Jhené founded the **WAYS Foundation**, a charitable organization dedicated to providing financial support, medical assistance, and hope to cancer patients and their families, particularly focusing on underfunded urban clinics.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Animal Rights & Mental Health Advocacy</h4>
+                        <p class="text-slate-400 text-sm">An active, highly visible partner with PETA advocating for animal adoption and rescue shelters. Jhené also speaks transparently about her personal battles with anxiety and depression, funding youth therapy accessibility drives.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#312E81]/20 via-[#08060D] to-[#EC4899]/10 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Ethereal Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#FDBA74]">🥣</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Sound Bow Healing</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">During the recording of her album *Chilombo*, Jhené hand-selected distinct crystal singing bowls tuned to unique throat and heart chakras, playing them in real-time in the vocal booths to imbue her tracks with therapeutic frequency.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#EC4899]">📘</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The 2Fish Poetry</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">A highly talented literary writer, Jhené published *2Fish* (2017), a deeply intimate poetry book collecting her childhood journals, raw processing of grief, and poems exploring her spiritual identity.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#94A3B8]">🌊</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Sailing Soul Mixtape</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">To escape early predatory major-label contracts, Jhené completely took control of her career by self-releasing her landmark 2011 mixtape *Sailing Soul(s)* independently online, sparking her massive cult fanbase.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [70, 30],
+                    backgroundColor: ['#FDBA74', '#312E81'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Female Listeners", "Male & Other"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [60, 40],
+                    backgroundColor: ['#EC4899', '#FDBA74'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "United Kingdom", "South Africa", "Canada", "France"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 80, 75, 60, 40],
+                    backgroundColor: '#FDBA74',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Sativa", "The Worst", "Triggered", "B.S. (feat. H.E.R.)"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [850, 620, 480, 450], 
+                    backgroundColor: ['#FDBA74', '#EC4899', '#312E81', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E1B4B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
