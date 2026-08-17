@@ -1,0 +1,481 @@
+<!--
+Color Palette: "Whiskey Soul & Forest Charcoal" (Deep Charcoal #0B0C10, Whiskey Gold #D97706, Forest Green #15803D, Weathered Bone #FAF8F6, Warm Copper #B45309)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Rustic, high-fidelity country-themed header and biographical synthesis detailing his journey from Lexington, Kentucky, writing legendary hits behind the scenes for Nashville superstars, to his explosive solo debut with Traveller.
+2. The Vault: Financial valuation highlighting his estimated $25M net worth, his legendary All-American Road Show tours, catalog publishing, and physical vinyl dominance.
+3. Interactive Songwriting Deconstructor: An interactive tool demonstrating how Stapleton contrasts raw, blues-soaked vocal power with acoustic folk-gospel harmonies and heavy emotional vulnerability.
+4. The Audience: Interactive Chart.js graphs detailing his exceptionally broad, multi-generational, and multi-genre crossover demographics.
+5. The Art: Explaining his powerful, gravelly vocal medium (his unmatched baritone-tenor range) and his major thematic motifs of grief/hard living, working-class resilience, and domestic peace.
+6. Seminal Metrics: A vertical bar chart comparing the massive streaming figures of his era-defining country-soul masterpieces.
+7. Awards & Philanthropy: Dedicated section highlighting his 10+ Grammy wins, historic CMA Sweeps, and the life-saving work of his Outlaw State of Kind charitable fund.
+8. Outlaw Lore & Trivia: Spotlighting his game-changing 2015 CMA duet with Justin Timberlake, his early bluegrass roots with The Steeldrivers, and his massive catalog of hits written for other artists.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Chris Stapleton</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B0C10;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.25);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(217, 119, 6, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #D97706, #FAF8F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#15803D]/20 to-[#0B0C10] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#D97706]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">CHRIS STAPLETON</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#D97706] uppercase display-font">The Vanguard of Outlaw Country & Southern Soul</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#D97706]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born April 15, 1978, in Lexington, Kentucky, and raised in the coalfield country of Staffordsville, Chris Stapleton grew up surrounded by bluegrass, folk, and classic outlaw country. After briefly studying engineering at Vanderbilt University, he dropped out and relocated to Nashville in 2001 to pursue songwriting full-time, rapidly establishing himself as one of the most prolific and requested hitmakers behind the scenes.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    For over a decade, Stapleton wrote chart-topping hits for country superstars like George Strait, Kenny Chesney, and Luke Bryan, while serving as the powerhouse lead vocalist for the progressive bluegrass band The SteelDrivers. His defining breakthrough as a solo artist arrived with his 2015 masterpiece debut <span class="text-[#D97706] font-semibold">Traveller</span>. Fusing raw, traditional outlaw-country structures with deep, gravelly Southern soul and blues guitar, Stapleton fundamentally transformed modern country radio, proving that raw authenticity remains commercially unstoppable.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#15803D]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $25M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Financial Engines:</span><br>
+                    Massive global streaming and physical album royalties, consecutive sold-out amphitheater and stadium runs (his legendary All-American Road Show tours), a highly lucrative catalog of hits written for other major country artists, and premium merchandise sales.
+                </p>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE SONGWRITING DECONSTRUCTOR -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#15803D]">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <span class="px-4 py-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 text-teal-300 font-semibold text-xs tracking-widest uppercase mb-4 inline-block">
+                        Interactive Analysis
+                    </span>
+                    <h2 class="text-3xl font-bold text-white mb-4 display-font flex items-center">
+                        <span class="text-4xl mr-3">🧪</span> Songwriting Deconstructor
+                    </h2>
+                    <p class="text-slate-300 mb-4 leading-relaxed">
+                        Chris Stapleton is a master of <strong>emotional resonance</strong>. He strips away the glossy, over-produced trends of modern country pop, opting instead to pair his colossal, raspy vocal power with acoustic bluegrass warmth and devastatingly honest lyrics.
+                    </p>
+                    <p class="text-slate-350 text-sm mb-6 leading-relaxed">
+                        Select an iconic track below to deconstruct how Stapleton crafts his unique brand of roots-level outlaw storytelling.
+                    </p>
+                    
+                    <!-- Interactive Song Triggers -->
+                    <div class="grid grid-cols-3 gap-3">
+                        <button onclick="revealStapletonDeconstruction('tennessee-whiskey')" class="py-2.5 px-4 bg-amber-500/10 hover:bg-amber-500/20 text-[#D97706] font-bold text-xs uppercase tracking-wider rounded-lg border border-amber-500/30 transition duration-200">
+                            Tenn. Whiskey
+                        </button>
+                        <button onclick="revealStapletonDeconstruction('fire-away')" class="py-2.5 px-4 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 font-bold text-xs uppercase tracking-wider rounded-lg border border-rose-500/30 transition duration-200">
+                            Fire Away
+                        </button>
+                        <button onclick="revealStapletonDeconstruction('starting-over')" class="py-2.5 px-4 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 font-bold text-xs uppercase tracking-wider rounded-lg border border-emerald-500/30 transition duration-200">
+                            Starting Over
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Analysis Display -->
+                <div class="p-6 bg-slate-950/80 rounded-2xl border border-slate-800/80 min-h-[300px] flex flex-col justify-between shadow-inner">
+                    <div id="deconstructionContainer">
+                        <h4 class="text-xl font-bold text-[#D97706] display-font mb-2" id="songTitle">Tennessee Whiskey (2015)</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <span class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">The Sonic Medium:</span>
+                                <p class="text-sm text-emerald-400 font-semibold" id="sonicMedium">Slow-burning, bluesy electric guitar grooves paired with classic 1970s R&B-soul backbeats and flawless gospel background harmonies by Morgane Stapleton.</p>
+                            </div>
+                            <div>
+                                <span class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">The Literary Substance:</span>
+                                <p class="text-slate-300 text-sm italic" id="literarySubstance">"You're as smooth as Tennessee whiskey... you're as sweet as strawberry wine..." — Metaphorically reframing past substance struggles into a pure, saving, and domestic romantic devotion.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-t border-slate-800 pt-4 mt-4 flex items-center justify-between text-xs text-slate-400">
+                        <span>💡 Select options on the left to swap analyses</span>
+                        <span class="font-bold text-[#D97706] uppercase" id="songReleaseYear">2015 Release</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Bypassing traditional country barriers, Chris Stapleton commands a incredibly diverse global audience, bridging classic Southern rock fans and traditional country purists with alternative, indie-folk, and R&B communities.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His raw, bluesy country-soul sound maintains an incredibly steady appeal among adults aged 25-54, who comprise 65% of his active streaming audience.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His focus on emotional vulnerability, mental health, and family loyalty attracts a remarkably balanced gender demographic.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-[#15803D]/10 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While highly centered in North American rural and metropolitan markets, his streaming footprint remains exceptionally strong across Western Europe and Australasia.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#15803D]/20 to-[#0B0C10] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#D97706] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Stapleton's primary medium is his earth-shaking, raw, and high-energy tenor vocal delivery, paired with blues-infused electric guitar solos, fingerpicked acoustic mandolins, and raw backbeat rhythms.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#D97706] bg-opacity-10 text-[#F59E0B] font-semibold rounded-full border border-[#D97706] border-opacity-30 text-lg">Outlaw Country</span>
+                    <span class="px-4 py-2 bg-[#15803D] bg-opacity-10 text-[#4ADE80] font-semibold rounded-full border border-[#15803D] border-opacity-30 text-lg">Southern Soul / Blues</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Bluegrass / Southern Rock</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#15803D]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🥃</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Grief, Melancholy, & Hard Living</h4>
+                            <p class="text-slate-400">Deeply introspective lyricism exploring whiskey-soaked regrets, coping with deep personal loss, and the heavy toll of life on the open highway.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🌾</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Working-Class Resilience</h4>
+                            <p class="text-slate-400">Vivid, empathetic depictions of manual labor, economic struggle, family dedication, and keeping self-respect amidst small-town stagnation.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🏡</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Domestic Salvation & Simple Devotion</h4>
+                            <p class="text-slate-400">Celebrating simple, quiet, domestic partnership with his wife Morgane, finding true peace away from celebrity and material noise.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Stapleton’s discography represents an historic standard of critical and commercial success. His landmark debut <span class="font-bold italic text-white">Traveller (2015)</span> achieved 6x Platinum certification, followed by the critically praised double releases <span class="font-bold italic text-white">From A Room: Volume 1 & Volume 2 (2017)</span>, and his Grammy-winning <span class="font-bold italic text-white">Starting Over (2020)</span>.</p>
+                    <div class="bg-[#D97706] bg-opacity-5 rounded-xl p-4 border border-[#D97706] border-opacity-25">
+                        <h4 class="font-bold text-[#D97706] text-lg mb-1 display-font">The Multi-Platinum Standard</h4>
+                        <p class="text-slate-300">His signature rendition of "Tennessee Whiskey" became a permanent, global cultural institution, exceeding the elusive **RIAA Diamond Certification** (over 10 million units sold) and amassing over 2 billion streams on Spotify alone.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital plays on Spotify of his most globally dominant country-soul anthems.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#D97706] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">10 Grammy Awards & over 20 career nominations</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🎸</span>
+                        <span class="text-lg text-slate-300 font-semibold">16 CMA Awards (including multiple Male Vocalist of the Year titles)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-[#15803D]/10 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">15 ACM Awards (including Artist-Songwriter of the Decade, 2019)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">💎</span>
+                        <span class="text-lg text-slate-300 font-semibold">RIAA Diamond Single Certification for "Tennessee Whiskey"</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#15803D]">
+                <h2 class="text-3xl font-bold text-[#15803D] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Outlaw State of Kind (Founder)</h4>
+                        <p class="text-slate-400 text-sm">Founded by Chris and Morgane Stapleton in 2016, **Outlaw State of Kind** is a massive, highly active donor-advised fund administered by the Community Foundation of Middle Tennessee. The fund raises and donates millions of dollars directly to organizations supporting veteran mental health, local public school music education, disaster relief, and systemic poverty eradication.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Hometown Kentucky Advocacy & Relief</h4>
+                        <p class="text-slate-400 text-sm">Deeply loyal to his eastern Kentucky roots, Stapleton actively directs substantial financial aid and physical help to local communities devastated by regional flooding, donating performance revenues and helping fund clean water and housing programs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#15803D]/10 via-[#0B0C10] to-[#1F2937]/20 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Outlaw Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#D97706]">🎩</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Timberlake Catalyst</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">In 2015, despite massive critical praise, Stapleton was largely unknown to mainstream pop crowds. His show-stopping duet with pop superstar Justin Timberlake at the CMA Awards on "Tennessee Whiskey" became an overnight viral phenomenon, launching Traveller to #1 on the charts.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#15803D]">🎤</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The SteelDrivers</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Before finding global solo superstardom, Chris was the powerhouse lead singer and acoustic guitarist of the progressive, highly acclaimed bluegrass band The SteelDrivers from 2007 to 2010, earning multiple early Grammy nominations.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#FEF08A]">✍️</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Hit Songwriter</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Stapleton is an extremely prolific behind-the-scenes writer, penning massive country radio hits for Luke Bryan ("Drink a Beer"), Thomas Rhett ("Crash and Burn"), George Strait ("Love's Gonna Make It Alright"), and Kenny Chesney ("Never Wanted Nothing More").</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // Songwriting Deconstructor Interactive Logic
+        const songwritingDatabase = {
+            'tennessee-whiskey': {
+                title: "Tennessee Whiskey (2015)",
+                medium: "Slow-burning, blues-infused electric guitar grooves paired with classic 1970s R&B-soul backbeats and flawless, soaring vocal harmonies by Morgane Stapleton.",
+                substance: '"You\'re as smooth as Tennessee whiskey... you\'re as sweet as strawberry wine..." — Metaphorically reframing past substance abuse and hard living into a pure, saving, and domestic romantic devotion.',
+                year: "2015 Traveller Era"
+            },
+            'fire-away': {
+                title: "Fire Away (2015)",
+                medium: "A delicate, slow-rolling acoustic fingerpicked foundation that dynamically shifts to a massive, soaring soul-baring electric guitar solo and raw vocal belts.",
+                substance: '"Fire away... show me your hands, show me your heart..." — An intense, empathetic narrative directly addressing the psychological toll of severe depression and suicide prevention.',
+                year: "2015 Traveller Era"
+            },
+            'starting-over': {
+                title: "Starting Over (2020)",
+                medium: "Warm, acoustic rhythm guitar strums layered with gentle, weeping pedal steel strings and raw, hopeful double-tracked vocal harmonies.",
+                substance: '"This might not be an easy road, but it\'s the road I want to ride..." — A bittersweet but triumphant working-class portrait of leaving hardship behind to seek redemption, renewal, and domestic peace.',
+                year: "2020 starting over Era"
+            }
+        };
+
+        function revealStapletonDeconstruction(songKey) {
+            const data = songwritingDatabase[songKey];
+            if (!data) return;
+
+            document.getElementById('songTitle').textContent = data.title;
+            document.getElementById('sonicMedium').textContent = data.medium;
+            document.getElementById('literarySubstance').textContent = data.substance;
+            document.getElementById('songReleaseYear').textContent = data.year;
+        }
+
+        // ================= Chart.js Initializations =================
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["25-54 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [65, 35],
+                    backgroundColor: ['#D97706', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [50, 50],
+                    backgroundColor: ['#15803D', '#D97706'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "Western Europe", "Canada", "Australia", "Latin America"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 78, 72, 60, 30],
+                    backgroundColor: '#D97706',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Tennessee Whiskey", "You Should Probably Leave", "Starting Over", "Millionaire"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [2100, 680, 480, 390], 
+                    backgroundColor: ['#D97706', '#15803D', '#334155', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
