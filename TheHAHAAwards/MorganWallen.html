@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Mullet Denim & Whiskey Gold" (Charcoal Shadow #090D16, Warm Whiskey Amber #D97706, Indigo Denim #1E3A8A, Soft Platinum #F1F5F9, Midnight Slate #111827)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: High-energy country-themed header and biographical synthesis charting his rise from Sneedville, Tennessee, and a career-ending baseball injury to breaking historic Billboard records.
+2. The Vault: Financial valuation highlighting his $25M net worth, sold-out stadium tours, and his Nashville bar venture ("This Bar").
+3. The Audience: Responsive demographic charts plotting his massive crossover country-pop listener base.
+4. The Art: Exploring his genre-blending country medium and his major thematic motifs of small-town nostalgia, heartbreak and whiskey, and Southern working-class pride.
+5. Seminal Metrics: A vertical bar chart comparing the multi-billion streaming figures of his record-breaking catalog.
+6. Awards & Philanthropy: Dedicated section highlighting historic ACM/CMA achievements and the Morgan Wallen Foundation's investments in youth sports and music education.
+7. Southern Lore & Trivia: Highlighting his signature mullet hair trend, his baseball origins, and his historical 50+ week run on the Billboard 200.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Morgan Wallen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #090D16;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(217, 119, 6, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #D97706, #3B82F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#1E3A8A]/50 to-[#090D16] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#D97706]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">MORGAN WALLEN</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#D97706] uppercase display-font">The Modern Titan of Crossover Country</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#D97706]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born May 13, 1993, in Sneedville, Tennessee, Morgan Cole Wallen grew up singing in church and playing competitive baseball. A gifted pitcher, he aimed for a career in sports until a severe elbow injury during his senior year of high school brought his baseball dreams to an abrupt end. Turning to the guitar to cope, he began writing songs and cultivating a raw, raspy country-rock voice.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    After a brief appearance on NBC's *The Voice* in 2014, Wallen signed with Big Loud Records. His breakout arrived with his 2018 debut <span class="text-[#D97706] font-semibold">If I Know Me</span>, but it was his historical double and triple albums that shattered historic crossover records, merging traditional Southern storytelling with hip-hop trap beats to redefine modern arena country.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#3B82F6]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $25M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Shattering streaming records globally, consecutive sold-out international stadium tours (One Night at a Time World Tour), songwriting publishing catalogs, and his Nashville bar venture, <span class="text-white italic">This Bar & Tennessee Kitchen</span>.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Morgan's unique blend of country narrative and hip-hop production bridges cultural gaps, building an intensely dedicated, youthful crossover fanbase across rural, suburban, and urban communities.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His high-tempo, hip-hop-influenced country beats attract a surprisingly young core, with 68% of his streaming base aged 18–34.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His mix of hard-partying anthems and emotional heartbreak ballads commands a highly balanced gender demographic.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While dominating North American landscapes, his crossover hits have carved out strong streaming hubs in Australia, Canada, and the UK.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1E3A8A]/30 to-[#090D16] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#D97706] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Morgan Wallen's sound is characterized by a unique drawl and raspy vocal tone, combining standard acoustic country guitars and slide steel strings with 808 trap drum patterns.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#D97706] bg-opacity-10 text-[#D97706] font-semibold rounded-full border border-[#D97706] border-opacity-30 text-lg">Contemporary Country</span>
+                    <span class="px-4 py-2 bg-[#1E3A8A] bg-opacity-10 text-[#60A5FA] font-semibold rounded-full border border-[#1E3A8A] border-opacity-30 text-lg">Country-Pop</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Southern Rock</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#3B82F6]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🥃</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Heartbreak & Whiskey Comfort</h4>
+                            <p class="text-slate-400">Pervasive stories of romantic loss, bad decisions, drowning sorrows in local bars, and struggling to move past ended relationships.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🚜</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Small-Town Nostalgia & Heritage</h4>
+                            <p class="text-slate-400">Celebrating simple Southern living, dirt roads, working-class pride, family, and reflecting on simple origins.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🎭</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">The Double-Life Dichotomy</h4>
+                            <p class="text-slate-400">Exploring internal tension between wild, self-destructive late-night partying and finding spiritual or quiet peace.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Morgan's album rollouts stand as statistical phenomenons. His massive 30-track project <span class="font-bold italic text-white">Dangerous: The Double Album (2021)</span> and his 36-track powerhouse <span class="font-bold italic text-white">One Thing at a Time (2023)</span> both shattered historic charts, spending consecutive months at #1 on the Billboard 200.</p>
+                    <div class="bg-[#D97706] bg-opacity-5 rounded-xl p-4 border border-[#D97706] border-opacity-25">
+                        <h4 class="font-bold text-[#D97706] text-lg mb-1 display-font">Streaming Overlord</h4>
+                        <p class="text-slate-300">His signature track "Last Night" became a global crossover smash, topping the Billboard Hot 100 for 16 weeks and generating over 1.5 Billion streams on Spotify alone.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of his defining catalog highlights.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#D97706] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">CMA Entertainer of the Year (2024)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🎸</span>
+                        <span class="text-lg text-slate-300 font-semibold">ACM Album of the Year (*Dangerous*)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">11 Billboard Music Awards (in a single night, 2023)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📈</span>
+                        <span class="text-lg text-slate-300 font-semibold">Billboard 200 Decade Record Holder for a Country Album</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#3B82F6]">
+                <h2 class="text-3xl font-bold text-[#3B82F6] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">The Morgan Wallen Foundation</h4>
+                        <p class="text-slate-400 text-sm">Founded with a core belief that all children should have access to sports and music. The foundation donates millions to fund local baseball park renovations, purchase athletic equipment for low-income leagues, and support public school music classes across North America.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Disaster & Hunger Relief Campaigns</h4>
+                        <p class="text-slate-400 text-sm">Wallen routinely partners with emergency relief organizations, allocating concert ticketing surcharges to fund disaster cleanup operations in regions struck by hurricanes, as well as local food bank distributions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#1E3A8A]/20 via-[#090D16] to-[#1E3A8A]/30 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Cultural Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#D97706]">💈</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Modern Mullet</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Wallen single-handedly popularized the return of the retro mullet haircut among younger male generations, making it a prominent trademark of modern country-pop fashion culture.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#3B82F6]">⚾</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Pitcher's Tragedy</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">A promising, competitive high school pitcher, Wallen tore his ulnar collateral ligament (UCL). The injury forced him to put down his glove and pick up his first guitar, altering his path forever.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#EF4444]">📈</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Billboard Dominance</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">His sophomore record, *Dangerous*, broke historic records by spending its first 10 consecutive weeks at #1 on the Billboard 200, eventually logging over 100 weeks in the Top 10.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [68, 32],
+                    backgroundColor: ['#D97706', '#1E3A8A'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [49, 51],
+                    backgroundColor: ['#3B82F6', '#D97706'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "Canada", "Australia", "United Kingdom", "Western Europe"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 88, 72, 45, 20],
+                    backgroundColor: '#D97706',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Last Night", "Whiskey Glasses", "Wasted on You", "Cowgirls (feat. ERNEST)"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Billions)',
+                    data: [1.5, 1.1, 1.0, 0.7], 
+                    backgroundColor: ['#D97706', '#3B82F6', '#1E3A8A', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E3A8A' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Billions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
