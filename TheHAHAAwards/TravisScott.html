@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Cactus Jack Earth & Cyber Purple" (Deep Cyber Obsidian #0A0A0C, Cactus Brown #854D0E, Neon Cactus Green #4ADE80, Psychedelic Purple #A855F7, Warm Platinum #F8FAFC)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: High-impact, psychedelic-themed header and biographical synthesis detailing his journey from Houston, Texas (sleeping on floors in LA/NY) to becoming a global cultural titan and live-performance visionary.
+2. The Vault: Financial valuation highlighting his massive $80M net worth, record-breaking live ticket sales, Nike/Jordan sneaker empires, and historic corporate partnerships.
+3. The Audience: Interactive Chart.js graphs detailing his fiercely loyal Gen Z, highly youth-concentrated, and global festival-going listener core.
+4. The Art: Explaining his genre-blending psychedelic trap medium and his major thematic motifs of chaotic escapism, deconstructed playgrounds, and industrial Southern trap.
+5. Seminal Metrics: A vertical bar chart comparing the multi-billion streaming figures of his ultimate hit anthems.
+6. Awards & Philanthropy: Dedicated section highlighting historic Grammy nominations, Billboard wins, and Travis's Cactus Jack Foundation (raising millions for Houston youth and TSU scholarships).
+7. Cultural Lore & Trivia: Highlighting his historic Fortnite "Astronomical" virtual concert (12M+ concurrent viewers), his anti-gravity roller coaster stages, and the rare Cactus Jack brand collaborations.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Travis Scott</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A0A0C;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(20, 20, 25, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(168, 85, 247, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #A855F7, #4ADE80);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#854D0E]/30 to-[#0A0A0C] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#A855F7]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">TRAVIS SCOTT</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#4ADE80] uppercase display-font">The Visionary of Psychedelic Trap • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#A855F7]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born Jacques Bermon Webster II on April 30, 1991, in Houston, Texas, Travis Scott spent his early years in Missouri City. After dropping out of the University of Texas at San Antonio, he moved to Los Angeles and New York to pursue music, facing extreme financial hardship and sleeping on friend's floors before catching the attention of T.I. and **Kanye West**.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    Initially signed as a producer to West's GOOD Music imprint, Travis quickly established himself as a dominant solo artist. With the release of his dark, atmospheric debut <span class="text-[#4ADE80] font-semibold">Rodeo (2015)</span> and his multi-platinum, GRAMMY-nominated masterpiece <span class="text-[#A855F7] font-semibold">Astroworld (2018)</span>, he fundamentally shifted the sonic and visual landscape of modern hip-hop, blending heavy auto-tuned melodies with industrial southern trap beats and stadium-scale world-building.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#4ADE80]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $80M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Global streaming catalogs (billions of plays), record-breaking stadium touring (Circus Maximus Tour), massive multi-million dollar corporate brand endorsement deals (Nike, Jordan, McDonald's, Playstation), and his independent record label imprint, <span class="text-white italic">Cactus Jack Records</span>.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Travis Scott commands one of the most fiercely loyal, youth-concentrated, and highly trend-conscious fanbases in modern music, acting as a massive cultural catalyst for streetwear, design, and live performance.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His high-tempo, atmospheric trap beats appeal overwhelmingly to Gen Z and younger Millennials, who comprise 75% of his active streaming audience.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His chaotic energy and hype-centric live shows attract an audience that skews slightly male, but maintains strong universal reach.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">He commands a massive global stadium presence, with deep streaming footholds in North America, Western Europe, and Latin America.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#854D0E]/20 to-[#0A0A0C] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#4ADE80] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Travis is a pioneer of "psychedelic trap," characterized by dark, atmospheric synth pad layers, distorted 808 sub-bass, experimental beat-switches, and heavy, atmospheric auto-tune vocal processing used as an instrument itself.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#A855F7] bg-opacity-10 text-[#C084FC] font-semibold rounded-full border border-[#A855F7] border-opacity-30 text-lg">Psychedelic Trap</span>
+                    <span class="px-4 py-2 bg-[#4ADE80] bg-opacity-10 text-[#4ADE80] font-semibold rounded-full border border-[#4ADE80] border-opacity-30 text-lg">Southern Hip-Hop</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Alternative Rap</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#A855F7]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🔮</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Chaotic Escapism & Hype Hedonism</h4>
+                            <p class="text-slate-400">Capturing the intense sensory overload of late-night partying, global fame, excess, and seeking escape from the pressures of reality.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🏜️</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Psychedelic Distorted Reality</h4>
+                            <p class="text-slate-400">Atmospheric, dream-like narratives exploring illusions, altered mental states, paranoia, and existential searching (pivotal in *Utopia*).</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🎡</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Nostalgia & Deconstructed Playgrounds</h4>
+                            <p class="text-slate-400">Using the imagery of the defunct Six Flags AstroWorld theme park as a metaphor for lost childhood, commercialization, and artistic solitude.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Travis Scott’s discography consists of massive, era-defining conceptual albums. His landmark major-label debut <span class="font-bold italic text-white">Rodeo (2015)</span> set a new standard for trap music. He reached commercial hegemony with <span class="font-bold italic text-white">Astroworld (2018)</span> and continued his experimental dominance with the critically praised, global #1 album <span class="font-bold italic text-white">Utopia (2023)</span>.</p>
+                    <div class="bg-[#A855F7] bg-opacity-5 rounded-xl p-4 border border-[#A855F7] border-opacity-25">
+                        <h4 class="font-bold text-[#A855F7] text-lg mb-1 display-font">The Diamond Standard</h4>
+                        <p class="text-slate-300">His signature anthem "SICKO MODE" surpassed the elusive **RIAA Diamond Certification** (over 10 million units sold) and remains one of the most commercially successful hip-hop collaborations in music history.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of his defining global trap anthems.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#A855F7] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">10 Grammy Award Nominations (including Album of the Year & Rap Album of the Year)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple Billboard Music Awards & BET Hip Hop Awards</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">💎</span>
+                        <span class="text-lg text-slate-300 font-semibold">RIAA Diamond Certified Single ("SICKO MODE")</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📈</span>
+                        <span class="text-lg text-slate-300 font-semibold">Grammy Award for Best Music Video Nomination</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#4ADE80]">
+                <h2 class="text-3xl font-bold text-[#4ADE80] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">The Cactus Jack Foundation</h4>
+                        <p class="text-slate-400 text-sm">Founded by Travis to provide educational and creative resources for Houston youth. The foundation funds public play spaces, creative design workshops, and substantial collegiate scholarship systems.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">The Waymon Webster Scholarship Fund</h4>
+                        <p class="text-slate-400 text-sm">Through his foundation, Travis established this fund to pay off the tuition fees of graduating seniors at Historically Black Colleges and Universities (HBCUs), including Texas Southern University, assisting youth in achieving debt-free education.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#854D0E]/20 via-[#0A0A0C] to-[#1E293B]/20 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Cactus Jack Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#A855F7]">🎮</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Astronomical Virtual Show</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">In April 2020, Travis hosted "Astronomical" inside *Fortnite*. The live virtual concert set a gaming record, attracting over **12.3 million concurrent players** and redefining how artists host virtual spectacles.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#4ADE80]">👟</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Cactus Jack Nike Empire</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">His ongoing creative collaborations with Nike and Jordan Brand have produced some of the most sought-after, highly valued sneakers in history, with signature designs regularly trading for thousands on secondary markets.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#F59E0B]">🍟</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The McDonald's Deal</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">In 2020, he became the first celebrity since Michael Jordan in 1992 to have an official custom-designed meal on the McDonald's national menu, triggering a historic ingredients shortage across US franchises.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [75, 25],
+                    backgroundColor: ['#A855F7', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [56, 44],
+                    backgroundColor: ['#A855F7', '#4ADE80'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["North America", "Western Europe", "Latin America", "East Asia", "Australasia"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 85, 78, 55, 45],
+                    backgroundColor: '#A855F7',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["goosebumps", "SICKO MODE", "Butterfly Effect", "FE!N (feat. Playboi Carti)"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Billions)',
+                    data: [2.5, 2.3, 1.4, 1.0], 
+                    backgroundColor: ['#A855F7', '#4ADE80', '#854D0E', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Billions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
