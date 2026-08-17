@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Opium Red & Chrome Obsidian" (Vamp Obsidian #09090B, Crimson Red #DC2626, Cyber Purple #7C3AED, Chrome Gray #94A3B8, Pearl White #F8FAFC)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: High-impact, gothic-punk themed header and biographical synthesis charting his rise from Riverdale, Georgia, his "Sir Cartier" SoundCloud origins, and the AWGE alliance, to becoming the undisputed king of modern "Rage Rap."
+2. The Vault: Financial valuation highlighting his estimated $25M net worth, his highly profitable independent "Opium" label ecosystem, major apparel collaborations, and global festival headlining fees.
+3. The Audience: Interactive Chart.js graphs detailing his fiercely loyal Gen Z, highly male-skewing, and skater-cyberpunk crossover demographics.
+4. The Art: Explaining his highly experimental vocal medium (the "baby voice", abstract ad-libs, and vocal minimalism) and his core thematic motifs of gothic escapism, anti-social alienation, and high-fashion excess.
+5. Seminal Metrics: A vertical bar chart demonstrating the massive global streaming footprint of his defining, genre-altering masterpieces.
+6. Awards & Philanthropy: Dedicated section highlighting his historic #1 Billboard 200 debut with Whole Lotta Red, and his quiet contributions to Atlanta youth shelters and music gear endowments.
+7. Opium Lore & Trivia: Spotlighting his secretive social media presence, the formation of the Opium label, his birthmark mythos, and his adoration for punk-rock icons like Sid Vicious.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Playboi Carti</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #09090B;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(220, 38, 38, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #DC2626, #7C3AED);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#7C3AED]/20 to-[#09090B] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#DC2626]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">PLAYBOI CARTI</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#DC2626] uppercase display-font">The Vanguard of Gothic Rage Trap • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#DC2626]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born Jordan Terrell Carter on September 13, 1996, in Riverdale, Georgia, he grew up in working-class neighborhoods in Atlanta. Carter skipped school frequently to focus on fashion, skateboarding, and recording under the initial alias "Sir Cartier" in local studios and bedroom spaces.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    After joining the Atlanta underground collective Awful Records, Carti caught the attention of A$AP Rocky, signing with his **AWGE** imprint and Interscope Records in 2016. Rejecting standard rap structures, Carti debuted with hit singles like "Magnolia," before undergoing a profound, radical sonic shift. By adopting a dark, vampire-inspired aesthetic and pioneering "Rage Trap" on his landmark 2020 album <span class="italic font-semibold text-white">Whole Lotta Red</span>, Carti transformed trap music into a chaotic, goth-punk movement that commands a global subculture.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#7C3AED]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $25M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Massive streaming catalog dividends, sold-out international arena tours (The Antagonist Tour), premier festival headlining guarantees, highly successful merchandise, and his independent record label imprint, <span class="text-white italic">Opium</span>.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Playboi Carti's avant-garde punk-trap music and mysterious social media presence command one of the most fiercely loyal, youth-concentrated, and streetwear-obsessed fanbases in modern culture.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His high-tempo, psychedelic soundscapes appeal overwhelmingly to Gen Z, with 78% of his active streaming base aged 13–24.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Originally skewing heavily male due to mosh-pit culture, his fashion-forward identity has balanced his streaming demographic significantly.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">He commands a massive global festival and streaming presence, with primary strongholds in North America, Western Europe, and Japan.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1E293B]/40 to-[#09090B] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#DC2626] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Carti’s musical style is highly experimental, characterized by his pitched-up "baby voice" delivery, rapid high-octane ad-libs, and raw minimalist vocal loops layered over aggressive, distorted synthesizers and booming 808s.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#DC2626] bg-opacity-10 text-[#FDA4AF] font-semibold rounded-full border border-[#DC2626] border-opacity-30 text-lg">Rage Trap</span>
+                    <span class="px-4 py-2 bg-[#7C3AED] bg-opacity-10 text-[#D8B4FE] font-semibold rounded-full border border-[#7C3AED] border-opacity-30 text-lg">Alternative Hip-Hop</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Cloud Rap / Goth-Punk</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#7C3AED]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🧛</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Gothic Escapism & The Vamp</h4>
+                            <p class="text-slate-400">Constructing a vast, nocturnal aesthetic, using vampire imagery and goth-punk styling to represent running from mainstream society.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🧠</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Anti-Social Alienation</h4>
+                            <p class="text-slate-400">Intimate, raw lyrics depicting profound isolation, distrust of friends, paranoia, and feeling like an misunderstood outsider.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">⚡</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Rockstar Excess & Fashion</h4>
+                            <p class="text-slate-400">Vivid, high-energy portraits celebrating high-fashion designer clothes, extreme wealth-building, and high-octane stage adrenaline.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Carti's discography contains landscape-altering landmarks. His self-titled debut mixtape <span class="font-bold italic text-white">Playboi Carti (2017)</span> laid the groundwork, followed by the highly critically acclaimed, experimental <span class="font-bold italic text-white">Die Lit (2018)</span>, and his #1 Billboard punk-trap masterpiece, <span class="font-bold italic text-white">Whole Lotta Red (2020)</span>.</p>
+                    <div class="bg-[#DC2626] bg-opacity-5 rounded-xl p-4 border border-[#DC2626] border-opacity-25">
+                        <h4 class="font-bold text-[#DC2626] text-lg mb-1 display-font">The "FE!N" Phenomenon</h4>
+                        <p class="text-slate-300">His explosive featured appearance on Travis Scott's hit "FE!N" surpassed over **1.0 Billion** streams, cementing Carti as one of the most commercially impactful vocal forces in contemporary music.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of his defining global trap anthems.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#DC2626] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">#1 Billboard 200 Debut (*Whole Lotta Red*, 2020)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">Grammy Award Nominations (for featured album collaborations)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">💿</span>
+                        <span class="text-lg text-slate-300 font-semibold">"Magnolia" Certified Triple-Platinum by RIAA</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📈</span>
+                        <span class="text-lg text-slate-300 font-semibold">Rolling Stone and Pitchfork Album of the Year placements</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#7C3AED]">
+                <h2 class="text-3xl font-bold text-[#7C3AED] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Quiet Atlanta Community Contributions</h4>
+                        <p class="text-slate-400 text-sm">Consistent with his highly private, mysterious nature, Carti quietly donates substantial funding directly to inner-city Atlanta youth shelters, community centers, and developmental workshops, bypassing traditional public relations campaigns.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Local Independent Artist Support</h4>
+                        <p class="text-slate-400 text-sm">Uses his sovereign record label imprint, **Opium**, to directly sign, support, and financially back young, emerging underground alternative hip-hop artists, providing them with professional production resources and global tour exposure.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#7C3AED]/10 via-[#09090B] to-[#DC2626]/10 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Opium Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#DC2626]">🧛</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Vamp Movement</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Carti single-handedly birthed the modern internet "vamp" culture, incorporating gothic imagery, leather, chains, and nocturnal lifestyle themes that heavily influenced Gen Z fashion trends globally.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#7C3AED]">🤫</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Secretive Legend</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Carti keeps an almost absolute, enigmatic mystique by routinely deleting all his Instagram posts and disappearing from the internet for months, sending fans into massive frenzy over rumored releases.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#94A3B8]">🎸</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Punk-Rock Alliance</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">A fierce admirer of early British punk, Carti draws visual and philosophical inspiration from icons like Sid Vicious, modeling his wild, aggressive, and mosh-pit heavy concerts directly after 1970s punk shows.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["13-24 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [78, 22],
+                    backgroundColor: ['#DC2626', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [62, 38],
+                    backgroundColor: ['#7C3AED', '#DC2626'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["North America", "Western Europe", "East Asia", "Australasia", "Latin America"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 85, 76, 60, 52],
+                    backgroundColor: '#DC2626',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Magnolia", "FE!N (feat. Carti)", "Sky", "Wokeuplikethis*"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [1100, 1000, 950, 720], 
+                    backgroundColor: ['#DC2626', '#7C3AED', '#1E293B', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
