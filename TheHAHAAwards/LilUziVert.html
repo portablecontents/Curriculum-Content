@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Eternal Pink & Cyberpunk Indigo" (Space Obsidian #08060B, Neon Fuchsia #EC4899, Electric Pink #F43F5E, Glowing Indigo #6366F1, Bright Platinum #F8FAFC)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: High-impact, cyber-grunge themed header and biographical synthesis charting their rise from North Philadelphia, early SoundCloud rap dominance, to becoming a global pop-trap phenomenon.
+2. The Vault: Financial valuation highlighting their estimated $25M net worth, massive streaming catalog payouts, sold-out international tours, and high-value custom jewelry assets.
+3. The Audience: Interactive Chart.js graphs detailing their highly devoted Gen Z, trend-conscious, and alternative hip-hop consumer core.
+4. The Art: Explaining their genre-blending medium (emo-rap, pop-punk vocal delivery, high-fashion styling) and their major thematic motifs of emotional alienation, rockstar excess, and anime escapism.
+5. Seminal Metrics: A vertical bar chart demonstrating the massive global streaming footprint of their defining, record-breaking anthems.
+6. Awards & Philanthropy: Dedicated section highlighting Grammy nominations, historic Billboard charts, and their extensive community work supporting Philadelphia youth shelters and student arts.
+7. Cyber Punk Lore & Trivia: Highlighting their famous $24M pink forehead diamond, their stage-name origin ("rap like a little Uzi"), and their deep adoration for Hayley Williams and Paramore.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Lil Uzi Vert</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #08060B;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(49, 46, 129, 0.15);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(236, 72, 153, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #EC4899, #6366F1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#4C1D95]/40 to-[#08060B] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#EC4899]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">LIL UZI VERT</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#EC4899] uppercase display-font">The Rock Star of Emo-Trap • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#EC4899]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born Symere Bysil Woods on July 31, 1995, in North Philadelphia, Pennsylvania, they grew up listening to Mike Jones, Marilyn Manson, and Paramore. Refusing to settle into the traditional street-rap soundscapes of Philadelphia, Woods began rapping in high school, co-founding a creative collective called Steetown before adopting the moniker Lil Uzi Vert—earned after a childhood friend remarked that their rapid rap flow sounded "like a little Uzi."
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    Propelled by a vibrant, hyper-energetic, and genre-defying DIY run on SoundCloud, they exploded into global prominence with mixtapes like <span class="text-[#EC4899] font-semibold">Luv Is Rage (2015)</span>. By combining the aggressive tempos of trap, the emotional vulnerability of 2000s emo-rock, and an avant-garde, gender-fluid fashion sense, Lil Uzi Vert revolutionized contemporary hip-hop, converting underground subcultures into a dominant, chart-conquering global powerhouse.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#6366F1]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $25M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Massive streaming catalog dividends (exceeding tens of billions of plays), lucrative global arena and festival headlining guarantees, independent master record payouts, and high-value creative apparel lines.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Lil Uzi Vert commands a remarkably loyal, youth-concentrated, and highly trend-conscious fanbase that bridges mainstream trap listeners with alternative rock and anime subcultures.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Their high-tempo, rock-infused trap beats appeal overwhelmingly to Gen Z and younger Millennials (13–29), who comprise 76% of their active streaming base.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Their focus on emotional vulnerability, mental health, and gender-fluid self-expression secures an incredibly balanced gender demographic.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">A true international festival headliner, their largest streaming concentrations lie in North America, Western Europe, and East Asia.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#4C1D95]/20 to-[#08060B] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#EC4899] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Operating at the boundary of rock and hip-hop, Lil Uzi Vert's medium is characterized by a rapid, high-pitched vocal delivery, rapid triplet flows, and pop-punk vocal belts over heavy 808 sub-bass, synths, and video game chip-tunes.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#EC4899] bg-opacity-10 text-[#FDA4AF] font-semibold rounded-full border border-[#EC4899] border-opacity-30 text-lg">Emo-Trap</span>
+                    <span class="px-4 py-2 bg-[#6366F1] bg-opacity-10 text-[#818CF8] font-semibold rounded-full border border-[#6366F1] border-opacity-30 text-lg">SoundCloud Rap</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Pop-Punk / Synth-Pop</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#6366F1]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🧠</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Emotional Alienation & Heartbreak</h4>
+                            <p class="text-slate-400">Intimate, painful lyrics processing romantic betrayal, coping with profound depression, and feeling like an isolated outsider.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">⚡</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">The Price of Rockstar Excess</h4>
+                            <p class="text-slate-400">Capturing the dizzying highs and terrifying lows of sudden wealth, sensory overloads, and high-fashion material escapism.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🛸</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Sci-Fi, Anime, & Outer-Space Escapism</h4>
+                            <p class="text-slate-400">Constructing vast, fantasy-inspired world-building metaphors, using space travel and anime to represent fleeing from cold realities.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Uzi's discography contains era-defining monuments of modern rap. Their groundbreaking studio debut <span class="font-bold italic text-white">Luv Is Rage 2 (2017)</span> was followed by the highly successful, sci-fi concept album <span class="font-bold italic text-white">Eternal Atake (2020)</span>, and their experimental, genre-bending 2023 powerhouse, <span class="font-bold italic text-white">Pink Tape</span>.</p>
+                    <div class="bg-[#EC4899] bg-opacity-5 rounded-xl p-4 border border-[#EC4899] border-opacity-25">
+                        <h4 class="font-bold text-[#EC4899] text-lg mb-1 display-font">The Billion-Stream Classic</h4>
+                        <p class="text-slate-300">Their emotional masterpiece "XO Tour Llif3" went organically viral worldwide, amassing over **2.1 Billion** streams on Spotify alone and standing as the defining anthem of the entire SoundCloud rap era.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of their most commercially dominant global masterpieces.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#EC4899] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">Grammy Award Nominations (including Best New Artist, 2018)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">Billboard Music Award (Top Rap Song - "XO Tour Llif3")</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">💎</span>
+                        <span class="text-lg text-slate-300 font-semibold">RIAA Diamond Certified Collaboration ("Bad and Boujee" with Migos)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📈</span>
+                        <span class="text-lg text-slate-300 font-semibold">First solo #1 Billboard 200 debut with *Luv Is Rage 2*</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#6366F1]">
+                <h2 class="text-3xl font-bold text-[#6366F1] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">The XXXTentacion Memorial Foundation</h4>
+                        <p class="text-slate-400 text-sm">Following the tragic loss of close friend and fellow SoundCloud pioneer XXXTentacion, Uzi stepped in to co-found and heavily fund a dedicated memorial foundation aimed at raising millions to support youth mental health, suicide prevention, and single mother assistance.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Philadelphia Youth and Arts Support</h4>
+                        <p class="text-slate-400 text-sm">Uzi quietly donates massive resources directly to inner-city Philadelphia public school arts programs, community youth shelters, and developmental workshops, providing free musical gear for underprivileged kids.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#1E1B4B]/20 via-[#08060B] to-[#4C1D95]/20 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Cyber Punk Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#EC4899]">💎</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The $24M Forehead Diamond</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">In 2021, Uzi captured worldwide media headlines by having a custom, natural 11-carat pink diamond valued at $24 million surgically implanted into their forehead, representing the absolute peak of rockstar excess.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#6366F1]">🎸</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Hayley Williams Alliance</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">A self-professed emo kid, Uzi credits Hayley Williams of Paramore as their single biggest creative inspiration, frequently calling her one of the greatest vocalists and writers of the 21st century.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#F59E0B]">🎮</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Anime & Gaming Obsession</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Their entire aesthetic is deeply saturated in anime culture. They frequently customize their multimillion-dollar hyper-cars with detailed anime livery wrap designs and sample retro gaming soundtracks.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["13-24 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [76, 24],
+                    backgroundColor: ['#EC4899', '#1E1B4B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [54, 46],
+                    backgroundColor: ['#6366F1', '#EC4899'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["North America", "Western Europe", "Latin America", "East Asia", "Australasia"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 85, 78, 72, 60],
+                    backgroundColor: '#EC4899',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["XO Tour Llif3", "20 Min", "Money Longer", "Just Wanna Rock"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Billions)',
+                    data: [2.1, 1.2, 0.9, 0.7], 
+                    backgroundColor: ['#EC4899', '#6366F1', '#1E1B4B', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E1B4B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Billions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
