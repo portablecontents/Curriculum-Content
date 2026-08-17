@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Trench Yellow & Clancy Crimson" (Obsidian Base #07090E, Hazard Yellow #EAB308, Bandito Crimson #DC2626, Soft Slate #94A3B8, Pure White #FFFFFF)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: High-impact, alternative-themed header and biographical synthesis charting his rise from a star high school basketball player in Columbus, Ohio, to teaching himself piano and founding the multi-platinum force Twenty One Pilots.
+2. The Vault: Financial valuation highlighting his $30M net worth, record-shattering album sales, and his sovereign independent control over his visual world-building.
+3. The Audience: Interactive Chart.js graphs detailing the highly dedicated "Skeleton Clique" fan demographic spanning Gen Z and younger Millennials.
+4. The Art: Explaining his genre-blending medium (alt hip-hop, synth-pop, ukulele, piano) and his major thematic motifs of mental health, personified insecurities ("Blurryface"), existential doubt, and community solidarity.
+5. Seminal Metrics: A vertical bar chart demonstrating the historic streaming and sales metrics of his defining concepts.
+6. Awards & Philanthropy: Dedicated section highlighting his Grammy win, historic RIAA milestones (every track on Blurryface and Vessel certified gold/platinum), and his extensive support of suicide prevention and youth mental health organizations.
+7. Clique Lore & Trivia: Highlighting the Arthur Miller "All My Sons" origin, his famous on-stage pants-less Grammy acceptance speech, and the symbolic "X" tattoos honoring Columbus.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Tyler Joseph</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #07090E;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(234, 179, 8, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #EAB308, #DC2626);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#1E293B] to-[#07090E] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#EAB308]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">TYLER JOSEPH</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#EAB308] uppercase display-font">Frontman of Twenty One Pilots • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#EAB308]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born December 1, 1988, in Columbus, Ohio, Tyler Joseph grew up in a devout, athletic household. A standout high school basketball player, he was offered a full collegiate athletic scholarship. However, after discovering an old, dusty electronic keyboard in his closet, he rejected the sports path to teach himself music, copying radio tunes and writing raw poetry.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    In 2009, he formed **Twenty One Pilots** with high school friends, later solidifying the iconic, energetic duo in 2011 with drummer **Josh Dun**. Blending synth-pop hooks, rapid-fire rap, and highly theatrical conceptual storylines, Tyler’s intensely vulnerable songwriting connected directly with millions, taking them from basement shows in Ohio to packing the world's largest arenas.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#DC2626]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $30M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Massive global music royalties, consecutive sold-out worldwide arena tours (The Clancy World Tour), merchandise engines tailored for a highly obsessive collector fanbase, and substantial songwriting publishing catalog values.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Tyler Joseph's raw lyrics on mental health have gathered one of the most fiercely loyal, tightly knit subcultures in modern music history, widely known as the **"Skeleton Clique."**</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His highly emotional lyrics and focus on cognitive struggles appeal immensely to Gen Z and Millennials, who comprise 74% of his core active fanbase.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His open discussions on vulnerability, trauma, and connection draw an exceptionally balanced, universal gender split.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While deeply centered in Midwest US roots, the Skeleton Clique holds massive, active streaming strongholds globally.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1E293B]/40 to-[#07090E] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#EAB308] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Tyler operates as a multi-instrumentalist, utilizing keyboards, bass, synthesizers, and his signature ukulele. His genre-blending style shifts dynamically from upbeat synth-pop and reggae grooves to aggressive alternative hip-hop verses.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#EAB308] bg-opacity-10 text-[#FCD34D] font-semibold rounded-full border border-[#EAB308] border-opacity-30 text-lg">Alternative Hip-Hop</span>
+                    <span class="px-4 py-2 bg-[#DC2626] bg-opacity-10 text-[#FCA5A5] font-semibold rounded-full border border-[#DC2626] border-opacity-30 text-lg">Electro-Pop / Rock</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Indie Pop / Reggae</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#DC2626]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🧠</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Insecurity & "Blurryface" Personification</h4>
+                            <p class="text-slate-400">Constructing physical visual metaphors (such as black neck/hands paint) to represent his personified inner demons, self-doubt, and cognitive anxieties.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">⛓️</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Existential Doubt vs. Faith</h4>
+                            <p class="text-slate-400">Introspective battles between Christian spiritual roots, moral responsibility, existential fear, and finding the will to survive.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💀</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Community, Belonging, & Loyalty</h4>
+                            <p class="text-slate-400">Creating rich conceptual worlds (such as Dema and Trench) to symbolize depression, and honoring the collective power of the fanbase to keep each other alive.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Tyler's catalog contains historic, chart-altering conceptual projects. Their third record, <span class="font-bold italic text-white">Vessel (2013)</span>, built their cult fame. However, the landmark release <span class="font-bold italic text-white">Blurryface (2015)</span> shattered music history, becoming the first album ever to have *every single song* certified Gold or Platinum by the RIAA, followed by the highly conceptual <span class="font-bold italic text-white">Trench (2018)</span> and <span class="font-bold italic text-white">Clancy (2024)</span>.</p>
+                    <div class="bg-[#EAB308] bg-opacity-5 rounded-xl p-4 border border-[#EAB308] border-opacity-25">
+                        <h4 class="font-bold text-[#EAB308] text-lg mb-1 display-font">The Diamond Standard</h4>
+                        <p class="text-slate-300">"Stressed Out" stands as an era-defining, RIAA-certified Diamond global hit single, generating over <span class="font-extrabold text-xl text-white">2.2 Billion</span> streams on Spotify alone.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of Twenty One Pilots' ultimate alternative masterpieces.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#EAB308] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">1 Grammy Award (Best Pop Duo/Group Performance - "Stressed Out")</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">17 Billboard Music Awards (including Top Rock Artist and Top Rock Album)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📀</span>
+                        <span class="text-lg text-slate-300 font-semibold">First album in history to have *every track* certified Gold/Platinum (Blurryface)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🥇</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple RIAA Diamond Single Certifications ("Stressed Out", "Heathens")</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#DC2626]">
+                <h2 class="text-3xl font-bold text-[#DC2626] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">National Suicide Prevention & Crisis Partners</h4>
+                        <p class="text-slate-400 text-sm">Given the mental health focus of his catalog, Tyler is a massive advocate for suicide prevention. He partners with and donates substantial proceeds from tours directly to the American Foundation for Suicide Prevention (AFSP) and the Trevor Project to provide critical youth crisis resources.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Local Columbus Youth & Arts Endowments</h4>
+                        <p class="text-slate-400 text-sm">Quietly funds and sponsors youth arts programs, music therapy initiatives, and Columbus local public school music departments to provide free instruments and safe creative outlets for kids in his home city.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#14532D]/10 via-[#07090E] to-[#1E293B]/20 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Clique Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#EAB308]">✈️</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Arthur Miller Origins</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Tyler named the band after Arthur Miller's classic play *All My Sons*, where a father knowingly ships faulty aircraft parts causing the death of 21 pilots, symbolizing moral dilemmas and tough choices.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#DC2626]">🩳</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Pants-less Grammy Move</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Before they were famous, Tyler and Josh used to watch the Grammys in their underwear in their shared apartment. True to a pact they made, they accepted their 2017 Grammy in their underwear live on stage.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#60A5FA]">📍</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">On-Stage "X" Tattoos</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">To cement their eternal bond with their local Columbus hometown fanbase, both Tyler and Josh received matching "X" tattoos live on stage during a hometown show in 2013.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [74, 26],
+                    backgroundColor: ['#EAB308', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Female Listeners", "Male Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [50, 50],
+                    backgroundColor: ['#DC2626', '#EAB308'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["North America", "Western Europe", "Latin America", "Australasia", "Eastern Europe"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 85, 80, 60, 55],
+                    backgroundColor: '#EAB308',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Stressed Out", "Heathens", "Ride", "Chlorine"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Billions)',
+                    data: [2.2, 1.9, 1.8, 0.5], 
+                    backgroundColor: ['#EAB308', '#DC2626', '#1E293B', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Billions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
