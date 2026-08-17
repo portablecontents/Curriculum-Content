@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Purpose Purple & Platinum Pop" (Deep Slate Obsidian #0F172A, Vibrant Violet #8B5CF6, Warm Peach #FDBA74, Platinum White #F8FAFC, Cool Gray #475569)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Sleek, pop-focused header and biographical synthesis charting his rise from busking in Stratford, Ontario, to becoming one of the best-selling music artists in history via Scooter Braun and Usher.
+2. The Vault: Financial valuation highlighting his $300M net worth, his massive 2023 catalog sale, and continuous global touring revenues.
+3. The Audience: Interactive Chart.js graphs detailing his fiercely loyal "Belieber" fanbase that has grown up alongside him.
+4. The Art: Explaining his genre-blending medium (pop, R&B, EDM) and his major thematic motifs of teenage infatuation, mature romantic devotion, and spiritual redemption/growth.
+5. Seminal Metrics: A vertical bar chart demonstrating the massive global streaming footprint of his defining pop anthems.
+6. Awards & Philanthropy: Dedicated section highlighting his Grammy wins, Diamond certifications, and his historic, record-breaking work with the Make-A-Wish Foundation.
+7. Pop Lore & Trivia: Highlighting his YouTube discovery origins, his skilled drum/piano musicianship, and the massive cultural impact of his hair/fashion in the 2010s.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Justin Bieber</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0F172A;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(139, 92, 246, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #8B5CF6, #FDBA74);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#4C1D95]/40 to-[#0F172A] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#8B5CF6]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">JUSTIN BIEBER</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#8B5CF6] uppercase display-font">The Defining Pop Star of a Generation</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#8B5CF6]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born March 1, 1994, in London, Ontario, and raised in Stratford, Justin Drew Bieber grew up in a low-income household, raised by a single mother. Displaying immense natural talent, he taught himself to play piano, drums, guitar, and trumpet. He began busking on the steps of the local Avon Theatre and uploading homemade covers of R&B songs to YouTube.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    Discovered accidentally by talent manager Scooter Braun on YouTube in 2007, Bieber was quickly flown to Atlanta where he caught the attention of R&B superstar Usher. Signing with Island Def Jam, his debut EP <span class="text-[#8B5CF6] font-semibold">My World (2009)</span> triggered a global phenomenon ("Bieber Fever"). Transitioning gracefully from a teenage idol to a mature, R&B-influenced pop heavyweight, he remains one of the best-selling music artists of all time.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#FDBA74]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $300M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    In 2023, Bieber sold his 291-song catalog (including publishing and master recording rights) to Hipgnosis Songs Capital for an estimated $200 million. Other streams include massive global arena tours and his "Drew House" clothing line.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Bieber’s fan base, originally defined by the intensely dedicated "Beliebers," has matured alongside him, broadening into a massive, multi-generational global audience.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While his core listeners grew up with him (now aged 25-34), his pivot to R&B and EDM has continuously attracted active younger Gen Z streamers.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Historically skewing heavily female, his audience has balanced significantly over the last decade due to high-profile hip-hop and EDM collaborations.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">A true international juggernaut, his streaming dominance stretches from North America deep into Europe, Latin America, and Asia.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1E293B]/40 to-[#0F172A] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#8B5CF6] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Bieber’s vocal style is characterized by a smooth, highly melodic R&B tenor. Over his career, he has seamlessly transitioned from teen-pop acoustic ballads to tropical house, EDM, and mature contemporary R&B.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#8B5CF6] bg-opacity-10 text-[#A78BFA] font-semibold rounded-full border border-[#8B5CF6] border-opacity-30 text-lg">Pop / R&B</span>
+                    <span class="px-4 py-2 bg-[#FDBA74] bg-opacity-10 text-[#FDBA74] font-semibold rounded-full border border-[#FDBA74] border-opacity-30 text-lg">Dance-Pop / EDM</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Acoustic Pop</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#FDBA74]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💞</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Romantic Devotion & Intimacy</h4>
+                            <p class="text-slate-400">Evolving from teenage infatuation ("Baby") to mature, committed love, marriage, and deep domestic intimacy (evident in *Justice*).</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🙏</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Spiritual Redemption & Grace</h4>
+                            <p class="text-slate-400">Navigating public mistakes, seeking forgiveness, relying on faith, and finding a higher purpose beyond fame (central to *Purpose*).</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🧠</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">The Pressure of the Spotlight</h4>
+                            <p class="text-slate-400">Candidly addressing the overwhelming psychological toll of growing up as a global commodity, anxiety, and finding mental peace.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">His discography tracks one of the most successful commercial runs in pop history. The acoustic pop of <span class="font-bold italic text-white">My World 2.0 (2010)</span> gave way to the critically acclaimed, EDM-infused redemption album <span class="font-bold italic text-white">Purpose (2015)</span>, and the mature R&B-pop of <span class="font-bold italic text-white">Justice (2021)</span>.</p>
+                    <div class="bg-[#8B5CF6] bg-opacity-5 rounded-xl p-4 border border-[#8B5CF6] border-opacity-25">
+                        <h4 class="font-bold text-[#8B5CF6] text-lg mb-1 display-font">Billboard Dominance</h4>
+                        <p class="text-slate-300">Bieber has achieved eight number-one albums on the Billboard 200 and holds numerous records, including being the youngest solo male artist to debut at number one.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of his defining global pop anthems.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#8B5CF6] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">2 Grammy Awards (including Best Dance Recording) & 23 Nominations</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">26 Billboard Music Awards</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">💎</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple RIAA Diamond Certified Singles ("Baby", "Sorry", "Despacito")</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🇨🇦</span>
+                        <span class="text-lg text-slate-300 font-semibold">8 Juno Awards (Canada's top music honor)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#FDBA74]">
+                <h2 class="text-3xl font-bold text-[#FDBA74] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Make-A-Wish Foundation Record Holder</h4>
+                        <p class="text-slate-400 text-sm">Bieber holds the all-time record for the most wishes granted by a single musical artist through the Make-A-Wish Foundation (over 250 wishes), regularly meeting with critically ill children backstage at his concerts.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Pencils of Promise & Disaster Relief</h4>
+                        <p class="text-slate-400 text-sm">He has heavily funded "Pencils of Promise," building schools in developing countries. He also frequently organizes high-dollar donations for disaster relief, including significant contributions during the COVID-19 pandemic and California wildfires.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#1E293B]/20 via-[#0A0F1D] to-[#312E81]/20 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Cultural Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#8B5CF6]">🎥</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The YouTube Pioneer</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Bieber is widely considered the first global superstar to be discovered entirely via YouTube, fundamentally altering how A&R executives and record labels scouted talent for the next decade.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#FDBA74]">🥁</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Secret Virtuoso</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Often stereotyped early on as just a "teen idol" vocalist, Bieber is actually a highly skilled multi-instrumentalist, frequently shocking crowds by playing complex drum solos and piano medleys live on tour.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#475569]">💇‍♂️</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The "Bieber Swoop"</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">During his early *My World* era, his signature swooped, side-swept haircut became a massive cultural phenomenon, arguably the most copied men's hairstyle of the early 2010s.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [65, 35],
+                    backgroundColor: ['#8B5CF6', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Female Listeners", "Male Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [58, 42],
+                    backgroundColor: ['#FDBA74', '#8B5CF6'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "Latin America", "United Kingdom", "Canada", "East Asia"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 85, 75, 70, 60],
+                    backgroundColor: '#8B5CF6',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["STAY (with The Kid LAROI)", "Love Yourself", "Sorry", "Peaches"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Billions)',
+                    data: [3.1, 2.5, 2.2, 1.8], 
+                    backgroundColor: ['#8B5CF6', '#FDBA74', '#312E81', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Billions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
