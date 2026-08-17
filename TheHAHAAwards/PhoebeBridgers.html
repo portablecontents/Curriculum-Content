@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Gothic Lavender & Bone" (Cemetery Obsidian #0C0A09, Spectral Lavender #A78BFA, Muted Indigo #6366F1, Tombstone Gray #4B5563, Bone White #FAF8F5)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Melancholic, gothic-themed bedroom-studio header and biographical synthesis charting her rise from Pasadena, California, to her seminal solo records and the formation of the Grammy-sweeping supergroup boygenius.
+2. The Vault: Financial valuation highlighting her estimated $10M net worth, massive independent vinyl physical sales, sold-out global tours, and her sovereign "Saddest Factory Records" label imprint.
+3. The Audience: Interactive Chart.js graphs detailing her exceptionally loyal Gen Z, heavily female, and LGBTQ+ crossover demographics.
+4. The Art: Explaining her delicate, double-tracked vocal medium and her core thematic motifs of existential dread, childhood trauma, and coping through dark, dry humor.
+5. Seminal Metrics: A vertical bar chart demonstrating the massive global streaming footprint of her defining indie-folk masterpieces.
+6. Awards & Philanthropy: Dedicated section highlighting her 4 historic Grammy wins in 2024, and her extensive, high-dollar philanthropy raising millions for reproductive rights, LGBTQ+ centers, and systemic racial justice.
+7. Gothic Lore & Trivia: Spotlighting her signature skeleton onesie trademark, the legendary guitar-smashing SNL performance, and her close creative alliance with Julien Baker and Lucy Dacus.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Phoebe Bridgers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0C0A09;
+            color: #FAF8F5;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(28, 25, 23, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(167, 139, 250, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #A78BFA, #6366F1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#312E81]/30 to-[#0C0A09] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#A78BFA]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">PHOEBE BRIDGERS</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#A78BFA] uppercase display-font">The High Priestess of Sad-Girl Indie Rock</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#A78BFA]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born August 17, 1994, in Pasadena, California, Phoebe Lucille Bridgers grew up writing songs on her guitar and busking at local Los Angeles farmers markets. She attended the prestigious Los Angeles County High School for the Arts (LACHSA), performing in various punk and indie bands, including the group Sloppy Jane, where she played bass.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    Bypassing traditional corporate pop trajectories, Phoebe released her self-produced debut album <span class="text-[#A78BFA] font-semibold">Stranger in the Alps (2017)</span> to instant cult acclaim, followed by her explosive, multi-Grammy-nominated sophomore masterpiece <span class="italic font-semibold text-white">Punisher (2020)</span>. By co-founding the highly successful, Grammy-sweeping indie supergroup <span class="font-semibold text-white">boygenius</span> alongside Julien Baker and Lucy Dacus, Bridgers has emerged as one of the most culturally vital and critically revered singer-songwriters of her generation.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#6366F1]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $10M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Massive independent vinyl physical and digital catalog sales, highly lucrative global headlining arena tours (both solo and with boygenius), scoring, and her sovereign Saddest Factory Records imprint under Dead Oceans.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Phoebe's intensely literary, vulnerable lyrics on mental health and fluid identity have gathered an incredibly devoted, predominantly Gen Z and female/LGBTQ+ crossover audience.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Her focus on modern existential anxiety and youth relationships resonates heavily with Gen Z and younger Millennials (18–34), who comprise 72% of her core streaming base.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender & Queer Identity</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Her fluid, open self-expression and subversion of traditional gender norms attract a significantly female and LGBTQ+ identifying demographic.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While highly centered in US coastal cities, her digital and physical footprints remain exceptionally strong across the UK, Australia, and Canada.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#312E81]/20 to-[#0C0A09] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#A78BFA] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Phoebe's vocal medium is defined by her soft, intimate, and often double-tracked whisper-vocals. She pairs this delicate delivery with detuned, fingerpicked acoustic guitars, sweeping baritone brass, and chamber-folk orchestral strings.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#A78BFA] bg-opacity-10 text-[#C084FC] font-semibold rounded-full border border-[#A78BFA] border-opacity-30 text-lg">Indie Folk / Sadcore</span>
+                    <span class="px-4 py-2 bg-[#6366F1] bg-opacity-10 text-[#818CF8] font-semibold rounded-full border border-[#6366F1] border-opacity-30 text-lg">Alternative Rock</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Chamber Pop</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#6366F1]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🧠</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Existential Dread & Apocalyptic Solitude</h4>
+                            <p class="text-slate-400">Capturing the overwhelming feeling of modern doom, planetary crises, and finding quiet, dark peace amidst absolute chaos (evident in "I Know the End").</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🏠</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Childhood Trauma & Complex Family Dynamics</h4>
+                            <p class="text-slate-400">Deeply personal, highly literary reflections on domestic abuse, strained paternal ties, and processing early memories ("Kyoto").</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🎭</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Dark Humor & Coping Mechanisms</h4>
+                            <p class="text-slate-400">Using bone-dry, self-deprecating irony, true-crime obsession, and casual conversation to deflect intense emotional wounds ("Motion Sickness").</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Her discography tracks an incredible artistic evolution. The haunting acoustic textures of <span class="font-bold italic text-white">Stranger in the Alps (2017)</span> laid the groundwork for her universally adored, gold-certified masterpiece <span class="font-bold italic text-white">Punisher (2020)</span>. In 2023, boygenius released <span class="font-bold italic text-white">the record</span>, which swept critical charts globally.</p>
+                    <div class="bg-[#A78BFA] bg-opacity-5 rounded-xl p-4 border border-[#A78BFA] border-opacity-25">
+                        <h4 class="font-bold text-[#A78BFA] text-lg mb-1 display-font">The Vinyl Sovereign</h4>
+                        <p class="text-slate-300">By prioritizing high-concept art designs, color-splattered vinyl pressings, and direct fan engagement, Phoebe has established her physical records as highly sought-after tangible collector's items globally.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of her most commercially dominant, soul-baring solo masterpieces.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#A78BFA] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">4 Grammy Awards (won in 2024 with boygenius, including Best Alternative Music Album)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">11 Total Career Grammy Nominations (including Best New Artist, 2021)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🎸</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple Libera Awards & AIM Independent Music Awards</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🌟</span>
+                        <span class="text-lg text-slate-300 font-semibold">Highly placed on Rolling Stone, Pitchfork, and NME Greatest Albums lists</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#6366F1]">
+                <h2 class="text-3xl font-bold text-[#6366F1] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Planned Parenthood & Reproductive Rights</h4>
+                        <p class="text-slate-400 text-sm">A fierce, vocal advocate for women's healthcare, Bridgers has raised and donated substantial funds directly to Planned Parenthood and local abortion funds across the US through charity single releases and tour proceeds.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">The Marsha P. Johnson Institute & LGBTQ+ Giving</h4>
+                        <p class="text-slate-400 text-sm">Phoebe consistently channels performance earnings to organizations defending the rights of Black trans people, local LGBTQ+ youth community shelters, and indigenous rights programs across North America.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#1E293B]/20 via-[#0C0A09] to-[#312E81]/20 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Gothic Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#A78BFA]">💀</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Skeleton Onesie</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Phoebe single-handedly established the black-and-white skeleton suit as an iconic modern indie-rock visual trademark, wearing it in music videos, photo shoots, and across hundreds of live performances.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#EF4444]">🎸</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The SNL Smash</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">During her 2021 Saturday Night Live debut performance of "I Know the End", she shocked television viewers by violently smashing her Danelectro guitar on a fake wedge monitor, subverting rock-macho tropes.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#6366F1]">🏭</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Saddest Factory Records</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">In 2020, Phoebe launched her own record label imprint, Saddest Factory Records, designed explicitly to sign, champion, and financially boost queer, underrepresented, and alternative-minded indie artists.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [72, 28],
+                    backgroundColor: ['#A78BFA', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Female/Non-Binary", "Male Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [64, 36],
+                    backgroundColor: ['#6366F1', '#A78BFA'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "United Kingdom", "Australia", "Canada", "Germany"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 88, 75, 70, 52],
+                    backgroundColor: '#A78BFA',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Motion Sickness", "Kyoto", "Scott Street", "I Know the End"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [410, 220, 185, 120], 
+                    backgroundColor: ['#A78BFA', '#6366F1', '#1E293B', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
