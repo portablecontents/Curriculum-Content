@@ -1,213 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artist Profiles: Database Hub</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0B0F19;
-            color: #E2E8F0;
-        }
-        .display-font {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        .glass-panel {
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-        }
-        .text-gradient {
-            background: linear-gradient(to right, #38BDF8, #818CF8, #E879F9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artist Directory // The HAHA Awards</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=MedievalSharp&family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #070913;
+      --panel-bg: rgba(18, 22, 38, 0.85);
+      --card-bg: rgba(28, 21, 38, 0.9);
+      
+      --brass-gold: #e5a93c;
+      --brass-dark: #784e1b;
+      
+      --neon-cyan: #00f3ff;
+      --neon-violet: #d926ff;
+      --neon-amber: #ffaa00;
+      --neon-green: #00ff66;
+      
+      --text-bright: #e2f1ff;
+      --text-muted: #8ba2c0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-dark);
+      color: var(--text-bright);
+      font-family: 'Share Tech Mono', monospace;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 50% 10%, rgba(217, 38, 255, 0.15), transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(0, 243, 255, 0.1), transparent 50%),
+        linear-gradient(rgba(7, 9, 19, 0.92), rgba(7, 9, 19, 0.92)),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 243, 255, 0.03) 3px, rgba(0, 243, 255, 0.03) 4px);
+      background-attachment: fixed;
+      overflow-x: hidden;
+      padding-bottom: 90px;
+    }
+
+    #rune-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.35;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+    
+    .nav-bar {
+      margin-bottom: 20px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--neon-cyan);
+      text-decoration: none;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.85rem;
+      border: 1px solid var(--neon-cyan);
+      padding: 8px 16px;
+      border-radius: 4px;
+      background: rgba(0, 243, 255, 0.1);
+      transition: all 0.2s ease;
+    }
+    
+    .nav-link:hover {
+      background: rgba(0, 243, 255, 0.2);
+      box-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+      transform: translateY(-2px);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .brass-plaque {
+      display: inline-block;
+      background: linear-gradient(180deg, #3d2b1f 0%, #1a120c 50%, #2a1d13 100%);
+      border: 3px solid var(--brass-gold);
+      border-radius: 12px;
+      padding: 20px 40px;
+      box-shadow: 0 0 20px rgba(229, 169, 60, 0.3), inset 0 0 15px rgba(0, 0, 0, 0.8), 0 0 0 6px #0d0a14;
+      position: relative;
+    }
+
+    .brass-plaque::before, .brass-plaque::after {
+      content: '⚙';
+      position: absolute;
+      color: var(--brass-gold);
+      font-size: 1.2rem;
+      top: 8px;
+    }
+    .brass-plaque::before { left: 12px; }
+    .brass-plaque::after { right: 12px; }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      margin: 0 0 8px 0;
+      background: linear-gradient(90deg, #00f3ff, #e2f1ff, var(--neon-violet));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+    }
+
+    .subtitle {
+      font-family: 'MedievalSharp', cursive;
+      font-size: 1.15rem;
+      color: var(--brass-gold);
+      margin: 0;
+    }
+
+    .terminal-search-box {
+      background: rgba(10, 14, 26, 0.9);
+      border: 2px solid var(--neon-cyan);
+      border-radius: 8px;
+      padding: 12px 20px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 15px rgba(0, 243, 255, 0.2), inset 0 0 10px rgba(0, 243, 255, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .terminal-prompt {
+      color: var(--neon-cyan);
+      font-weight: bold;
+      font-size: 1.2rem;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .search-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--neon-green);
+      font-family: 'Fira Code', monospace;
+      font-size: 1.1rem;
+    }
+
+    .search-input::placeholder {
+      color: rgba(0, 255, 102, 0.4);
+      font-style: italic;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(20, 16, 30, 0.95), rgba(12, 18, 32, 0.95));
+      border: 1px solid var(--brass-dark);
+      border-radius: 8px;
+      padding: 18px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--neon-cyan), transparent);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--neon-cyan);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 243, 255, 0.2);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-badge {
+      align-self: flex-start;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      color: var(--neon-amber);
+      background: rgba(255, 170, 0, 0.1);
+      border: 1px solid rgba(255, 170, 0, 0.4);
+    }
+
+    .card h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
+      margin: 0 0 12px 0;
+      color: var(--text-bright);
+      text-transform: uppercase;
+    }
+
+    .card:hover h3 {
+      color: var(--neon-cyan);
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--brass-gold);
+      border-top: 1px dashed rgba(184, 134, 11, 0.3);
+      padding-top: 8px;
+      margin-top: auto;
+    }
+
+    .card-action {
+      color: var(--neon-cyan);
+      font-weight: bold;
+    }
+
+    .status-hud {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background: linear-gradient(180deg, #120e1a 0%, #06040a 100%);
+      border-top: 2px solid var(--brass-gold);
+      box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 25px;
+      z-index: 10;
+      font-size: 0.85rem;
+    }
+
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+    }
+
+    .status-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--neon-green);
+      box-shadow: 0 0 8px var(--neon-green);
+    }
+
+    .hud-clock {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      color: var(--neon-cyan);
+      background: rgba(0, 243, 255, 0.1);
+      padding: 4px 12px;
+      border: 1px solid rgba(0, 243, 255, 0.3);
+      border-radius: 4px;
+      box-shadow: inset 0 0 6px rgba(0, 243, 255, 0.2);
+    }
+
+    #no-results {
+      display: none;
+      text-align: center;
+      padding: 50px 0;
+      color: var(--neon-violet);
+      font-size: 1.2rem;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    @media (max-width: 600px) {
+      .brass-plaque { padding: 15px 20px; }
+      h1 { font-size: 1.5rem; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-<body class="antialiased min-h-screen py-12 px-6 sm:px-12 lg:px-24">
+<body>
 
-    <div class="max-w-6xl mx-auto">
-        
-        <!-- HEADER Section -->
-        <header class="text-center mb-12">
-            <span class="px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 font-semibold text-xs tracking-widest uppercase mb-4 inline-block">
-                Source Database
-            </span>
-            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white display-font mt-2">
-                THE ARTIST <span class="text-gradient">ARCHIVE</span>
-            </h1>
-            <p class="mt-4 text-slate-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-                Explore, compare, and analyze the cultural profiles curated by your peers. Use this directory to gather evidence and assemble your arguments for the HAHA Awards.
-            </p>
-        </header>
+  <!-- Background Effects -->
+  <canvas id="rune-canvas"></canvas>
 
-        <!-- SEARCH AND FILTER CONTROLS -->
-        <section class="glass-panel rounded-2xl p-6 mb-12 flex flex-col md:flex-row gap-4 items-center justify-between">
-            <div class="relative w-full md:w-96">
-                <input 
-                    type="text" 
-                    id="searchBar" 
-                    placeholder="Search artist name or genre..." 
-                    class="w-full bg-slate-950/60 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition duration-300"
-                >
-            </div>
-            <div class="flex flex-wrap gap-2 w-full md:w-auto">
-                <button onclick="filterGenre('all')" class="genre-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-indigo-600 text-white transition duration-300">All</button>
-                <button onclick="filterGenre('hip-hop')" class="genre-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition duration-300">Hip-Hop / Rap</button>
-                <button onclick="filterGenre('rock')" class="genre-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition duration-300">Rock</button>
-            </div>
-        </section>
-
-        <!-- DIRECTORY GRID -->
-        <section>
-            <div id="artistGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- Drake -->
-                <div class="artist-card glass-panel rounded-2xl p-6 flex flex-col justify-between border-t-4 border-[#EC4899] hover:border-indigo-400 transition-all duration-300" data-name="Drake Aubrey Graham" data-genres="hip-hop rap pop-rap">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-3xl">🎤</span>
-                            <span class="text-xs font-semibold px-2.5 py-1 rounded bg-[#EC4899]/10 text-[#EC4899] border border-[#EC4899]/20 uppercase">Hip-Hop / R&B</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white display-font mb-1">Drake</h3>
-                        <p class="text-slate-400 text-xs mb-4">Aubrey Graham • Compton-Era Peer, Commercial Record-Breaker</p>
-                        <ul class="text-xs text-slate-300 space-y-2 mb-6">
-                            <li class="flex items-center">
-                                <span class="text-indigo-400 mr-2">💎</span> **Net Worth:** $400 Million
-                            </li>
-                            <li class="flex items-center">
-                                <span class="text-indigo-400 mr-2">📈</span> **Key Themes:** Fame, Nostalgia, ambition
-                            </li>
-                        </ul>
-                    </div>
-                    <a href="drake" target="_parent" class="w-full block text-center bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm py-2.5 rounded-xl transition duration-300">
-                        View Infographic
-                    </a>
-                </div>
-
-                <!-- Kendrick Lamar -->
-                <div class="artist-card glass-panel rounded-2xl p-6 flex flex-col justify-between border-t-4 border-[#B91C1C] hover:border-indigo-400 transition-all duration-300" data-name="Kendrick Lamar K-Dot Compton" data-genres="hip-hop rap conscious">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-3xl">👑</span>
-                            <span class="text-xs font-semibold px-2.5 py-1 rounded bg-[#B91C1C]/10 text-[#FCA5A5] border border-[#B91C1C]/20 uppercase">Conscious Rap</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white display-font mb-1">Kendrick Lamar</h3>
-                        <p class="text-slate-400 text-xs mb-4">K-Dot • Pulitzer Laureate, Literary Narrative Visionary</p>
-                        <ul class="text-xs text-slate-300 space-y-2 mb-6">
-                            <li class="flex items-center">
-                                <span class="text-indigo-400 mr-2">💎</span> **Net Worth:** $140 Million
-                            </li>
-                            <li class="flex items-center">
-                                <span class="text-indigo-400 mr-2">📈</span> **Key Themes:** Systemic Struggle, Trauma, Faith
-                            </li>
-                        </ul>
-                    </div>
-                    <a href="kendrick-lamar" target="_parent" class="w-full block text-center bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm py-2.5 rounded-xl transition duration-300">
-                        View Infographic
-                    </a>
-                </div>
-
-                <!-- Bruce Springsteen -->
-                <div class="artist-card glass-panel rounded-2xl p-6 flex flex-col justify-between border-t-4 border-[#F59E0B] hover:border-indigo-400 transition-all duration-300" data-name="Bruce Springsteen The Boss New Jersey" data-genres="rock heartland">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-3xl">🎸</span>
-                            <span class="text-xs font-semibold px-2.5 py-1 rounded bg-[#F59E0B]/10 text-[#FBBF24] border border-[#F59E0B]/20 uppercase">Heartland Rock</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white display-font mb-1">Bruce Springsteen</h3>
-                        <p class="text-slate-400 text-xs mb-4">The Boss • Working-Class Icon, Marathon Arena Performer</p>
-                        <ul class="text-xs text-slate-300 space-y-2 mb-6">
-                            <li class="flex items-center">
-                                <span class="text-indigo-400 mr-2">💎</span> **Net Worth:** $650 Million
-                            </li>
-                            <li class="flex items-center">
-                                <span class="text-indigo-400 mr-2">📈</span> **Key Themes:** Blue-Collar Struggle, Escapism
-                            </li>
-                        </ul>
-                    </div>
-                    <a href="bruce-springsteen" target="_parent" class="w-full block text-center bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm py-2.5 rounded-xl transition duration-300">
-                        View Infographic
-                    </a>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- ADD YOUR OWN INSTRUCTIONS CONTAINER -->
-        <section class="mt-16 bg-gradient-to-r from-indigo-950/20 via-slate-900/20 to-pink-950/20 rounded-3xl p-8 border border-indigo-500/20">
-            <div class="max-w-3xl mx-auto text-center">
-                <h3 class="text-2xl font-bold text-white display-font mb-2">➕ Missing Your Selected Artist?</h3>
-                <p class="text-slate-300 text-sm leading-relaxed mb-6">
-                    If your generated artist profile is ready to join the collective database, complete the publishing steps to add them to this platform's network ecosystem.
-                </p>
-                <a href="directions" target="_parent" class="inline-flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white font-bold text-sm px-6 py-3 rounded-xl transition duration-300 shadow-lg">
-                    <span>Read Publishing Directions</span>
-                </a>
-            </div>
-        </section>
-
+  <div class="container">
+    
+    <div class="nav-bar">
+      <a href="../index.html" class="nav-link">← ROOT DIR</a>
+      <a href="homepage.html" class="nav-link">↑ HAHA HUB</a>
     </div>
 
-    <!-- IN-MEMORY FILTER & SEARCH SCRIPT -->
-    <script>
-        const searchInput = document.getElementById('searchBar');
-        const artistGrid = document.getElementById('artistGrid');
-        const cards = artistGrid.getElementsByClassName('artist-card');
+    <header>
+      <div class="brass-plaque">
+        <h1>ARTIST DIRECTORY</h1>
+        <p class="subtitle">🗂️ Master Index of Nominated Musicians 🗂️</p>
+      </div>
+    </header>
 
-        searchInput.addEventListener('input', () => {
-            filterDatabase();
-        });
+    <div class="terminal-search-box">
+      <span class="terminal-prompt">QUERY_ROSTER&gt;</span>
+      <input 
+        type="text" 
+        id="search" 
+        class="search-input" 
+        placeholder="Search artists by name..." 
+        onkeyup="filterCards()"
+        autocomplete="off"
+      />
+    </div>
 
-        function filterGenre(genre) {
-            // Update button styling active states
-            const buttons = document.getElementsByClassName('genre-btn');
-            for (let btn of buttons) {
-                btn.classList.remove('bg-indigo-600', 'text-white');
-                btn.classList.add('bg-slate-800', 'text-slate-400');
-            }
-            
-            // Find clicked button and style as active
-            const clickedBtn = event.currentTarget;
-            clickedBtn.classList.remove('bg-slate-800', 'text-slate-400');
-            clickedBtn.classList.add('bg-indigo-600', 'text-white');
+    <main id="content-container">
+      <div class="grid">
+        
+        <!-- Artist Cards (Alphabetical Order based on provided screenshots) -->
+        <a href="AaronLewis.html" class="card"><span class="card-badge">Nominee</span><h3>Aaron Lewis</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="ArianaGrande.html" class="card"><span class="card-badge">Nominee</span><h3>Ariana Grande</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="BadBunny.html" class="card"><span class="card-badge">Nominee</span><h3>Bad Bunny</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="BillieEilish.html" class="card"><span class="card-badge">Nominee</span><h3>Billie Eilish</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="BillyJoel.html" class="card"><span class="card-badge">Nominee</span><h3>Billy Joel</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        
+        <a href="BossmanDlow.html" class="card"><span class="card-badge">Nominee</span><h3>Bossman Dlow</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="BruceSpringsteen.html" class="card"><span class="card-badge">Nominee</span><h3>Bruce Springsteen</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="BrunoMars.html" class="card"><span class="card-badge">Nominee</span><h3>Bruno Mars</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="CalvinHarris.html" class="card"><span class="card-badge">Nominee</span><h3>Calvin Harris</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="ChesterBennington.html" class="card"><span class="card-badge">Nominee</span><h3>Chester Bennington</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        
+        <a href="ChrisCornell.html" class="card"><span class="card-badge">Nominee</span><h3>Chris Cornell</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="ChrisStapleton.html" class="card"><span class="card-badge">Nominee</span><h3>Chris Stapleton</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="DanielCaesar.html" class="card"><span class="card-badge">Nominee</span><h3>Daniel Caesar</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="DonToliver.html" class="card"><span class="card-badge">Nominee</span><h3>Don Toliver</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="Drake.html" class="card"><span class="card-badge">Nominee</span><h3>Drake</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        
+        <a href="EddieVedder.html" class="card"><span class="card-badge">Nominee</span><h3>Eddie Vedder</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="EltonJohn.html" class="card"><span class="card-badge">Nominee</span><h3>Elton John</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="FrankOcean.html" class="card"><span class="card-badge">Nominee</span><h3>Frank Ocean</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="Future.html" class="card"><span class="card-badge">Nominee</span><h3>Future</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="JCole.html" class="card"><span class="card-badge">Nominee</span><h3>J. Cole</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        
+        <a href="JheneAiko.html" class="card"><span class="card-badge">Nominee</span><h3>Jhené Aiko</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="JustinBieber.html" class="card"><span class="card-badge">Nominee</span><h3>Justin Bieber</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="JustinVernon.html" class="card"><span class="card-badge">Nominee</span><h3>Justin Vernon</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="KaliUchis.html" class="card"><span class="card-badge">Nominee</span><h3>Kali Uchis</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="KendrickLamar.html" class="card"><span class="card-badge">Nominee</span><h3>Kendrick Lamar</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        
+        <a href="Kettama.html" class="card"><span class="card-badge">Nominee</span><h3>Kettama</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="KeyshiaCole.html" class="card"><span class="card-badge">Nominee</span><h3>Keyshia Cole</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="LaurynHill.html" class="card"><span class="card-badge">Nominee</span><h3>Lauryn Hill</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="LilUziVert.html" class="card"><span class="card-badge">Nominee</span><h3>Lil Uzi Vert</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="LinManuelMiranda.html" class="card"><span class="card-badge">Nominee</span><h3>Lin-Manuel Miranda</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        
+        <a href="MFDoom.html" class="card"><span class="card-badge">Nominee</span><h3>MF Doom</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="MacDemarco.html" class="card"><span class="card-badge">Nominee</span><h3>Mac DeMarco</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="MacMiller.html" class="card"><span class="card-badge">Nominee</span><h3>Mac Miller</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="MalcomTodd.html" class="card"><span class="card-badge">Nominee</span><h3>Malcom Todd</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="MichaelJackson.html" class="card"><span class="card-badge">Nominee</span><h3>Michael Jackson</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        
+        <a href="MorganWallen.html" class="card"><span class="card-badge">Nominee</span><h3>Morgan Wallen</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="Nickleback.html" class="card"><span class="card-badge">Nominee</span><h3>Nickleback</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="NoahKahan.html" class="card"><span class="card-badge">Nominee</span><h3>Noah Kahan</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="PhoebeBridgers.html" class="card"><span class="card-badge">Nominee</span><h3>Phoebe Bridgers</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="PlayboiCarti.html" class="card"><span class="card-badge">Nominee</span><h3>Playboi Carti</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        
+        <a href="RickRoss.html" class="card"><span class="card-badge">Nominee</span><h3>Rick Ross</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="Rihanna.html" class="card"><span class="card-badge">Nominee</span><h3>Rihanna</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="SZA.html" class="card"><span class="card-badge">Nominee</span><h3>SZA</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="ScottStapp.html" class="card"><span class="card-badge">Nominee</span><h3>Scott Stapp</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="StephanJenkins.html" class="card"><span class="card-badge">Nominee</span><h3>Stephan Jenkins</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        
+        <a href="TateMcRae.html" class="card"><span class="card-badge">Nominee</span><h3>Tate McRae</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="TaylorSwift.html" class="card"><span class="card-badge">Nominee</span><h3>Taylor Swift</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="TheNeighbourhood.html" class="card"><span class="card-badge">Nominee</span><h3>The Neighbourhood</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="TheWeeknd.html" class="card"><span class="card-badge">Nominee</span><h3>The Weeknd</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="TravisScott.html" class="card"><span class="card-badge">Nominee</span><h3>Travis Scott</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        
+        <a href="TyMyers.html" class="card"><span class="card-badge">Nominee</span><h3>Ty Myers</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="TylerJoseph.html" class="card"><span class="card-badge">Nominee</span><h3>Tyler Joseph</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="TylertheCreator.html" class="card"><span class="card-badge">Nominee</span><h3>Tyler, The Creator</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
+        <a href="ZachBryan.html" class="card"><span class="card-badge">Nominee</span><h3>Zach Bryan</h3><div class="card-footer"><span>STATUS: SECURE</span><span class="card-action">ACCESS ➔</span></div></a>
 
-            filterDatabase(genre);
+      </div>
+    </main>
+
+    <div id="no-results">⚡ NO NOMINEE FOUND MATCHING QUERY ⚡</div>
+  </div>
+
+  <div class="status-hud">
+    <div class="status-item">
+      <div class="status-indicator"></div>
+      <span>SYSTEM: ONLINE | SUB-DIRECTORY: /TheHAHAAwards/ArtistDirectory.html</span>
+    </div>
+    <div id="hud-time" class="hud-clock">00:00:00 PM</div>
+  </div>
+
+  <script>
+    function filterCards() {
+      const query = document.getElementById('search').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (text.includes(query)) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
         }
+      });
 
-        function filterDatabase(genreOverride) {
-            const query = searchInput.value.toLowerCase().trim();
-            
-            // Find the active genre button
-            let activeGenre = genreOverride || 'all';
-            if (!genreOverride) {
-                const activeBtn = Array.from(document.getElementsByClassName('genre-btn')).find(btn => btn.classList.contains('bg-indigo-600'));
-                if (activeBtn) {
-                    activeGenre = activeBtn.textContent.toLowerCase().trim();
-                    if (activeGenre.includes('hip-hop')) activeGenre = 'hip-hop';
-                }
-            }
+      document.getElementById('no-results').style.display = visibleCount === 0 ? 'block' : 'none';
+    }
 
-            for (let card of cards) {
-                const name = card.getAttribute('data-name').toLowerCase();
-                const genres = card.getAttribute('data-genres').toLowerCase();
-                
-                const matchesQuery = name.includes(query) || genres.includes(query);
-                const matchesGenre = activeGenre === 'all' || genres.includes(activeGenre);
+    function updateClock() {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      document.getElementById('hud-time').innerText = timeStr;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
 
-                if (matchesQuery && matchesGenre) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            }
+    const canvas = document.getElementById('rune-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const runes = '♫♪♬♭♮♯✦✧⚙⚡ᚠᚢᚦᚨᚱ';
+    const particles = Array.from({ length: 35 }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      char: runes[Math.floor(Math.random() * runes.length)],
+      size: Math.random() * 14 + 10,
+      speedY: -(Math.random() * 0.5 + 0.2),
+      opacity: Math.random() * 0.7 + 0.2
+    }));
+
+    function animateRunes() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = '#00f3ff'; 
+      
+      particles.forEach(p => {
+        ctx.font = `${p.size}px 'Share Tech Mono', monospace`;
+        ctx.globalAlpha = p.opacity;
+        ctx.fillText(p.char, p.x, p.y);
+        
+        p.y += p.speedY;
+        if (p.y < -20) {
+          p.y = height + 20;
+          p.x = Math.random() * width;
         }
-    </script>
+      });
+
+      requestAnimationFrame(animateRunes);
+    }
+    animateRunes();
+  </script>
 
 </body>
 </html>
