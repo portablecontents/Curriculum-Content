@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Moonwalk Silver & Regal Crimson" (Theatrical Obsidian #060608, Royal Crimson #E11D48, Metallic Silver #94A3B8, Gold Accent #D97706, Velvet Plum #31102F)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Grand, theatrical header and biographical synthesis charting his rise from Gary, Indiana, and the Jackson 5 to the undisputed, landscape-shattering title of "The King of Pop."
+2. The Vault: Financial valuation highlighting his immense estate valuation, his legendary ATV/Beatles publishing catalog acquisition, and historic catalog sale metrics.
+3. The Audience: Responsive demographic charts plotting his uniquely universal, multi-generational, and global fanbase.
+4. The Art: Explaining his revolutionary creative mediums (the birth of the cinematic "short film" music video and athletic arena choreography) and his major thematic motifs of social healing, global paranoia, and media isolation.
+5. Seminal Metrics: A vertical bar chart demonstrating the unparalleled sales and streaming metrics of his absolute masterworks.
+6. Awards & Philanthropy: A dedicated ELA block highlighting his EGOT-adjacent accolades, Guinness World Records, and his history-making support of over 39 global charities.
+7. Cultural Lore & Trivia: Highlighting his Motown 25 Moonwalk debut, the signature single white glove, and his legendary anti-gravity patent.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Michael Jackson</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #060608;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(49, 16, 47, 0.15);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(225, 29, 72, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #E11D48, #D97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#31102F] to-[#060608] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#E11D48]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">MICHAEL JACKSON</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#E11D48] uppercase display-font">The King of Pop • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#E11D48]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born August 29, 1958, in Gary, Indiana, Michael Joseph Jackson was the eighth of ten children in a working-class family. Showcasing extraordinary vocal and dance talent, he became the breakout lead singer of the family group **The Jackson 5** by age eight. Under Motown Records, they secured historic consecutive chart-toppers, launching Michael into the national spotlight.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    Entering adulthood, Michael embarked on an unparalleled solo career, catalyzed by his partnership with legendary producer Quincy Jones on *Off the Wall* (1979). With the release of <span class="text-[#E11D48] font-semibold">Thriller (1982)</span>, his cinematic short films and revolutionary choreography shattered racial barriers on MTV and established him as the undisputed, global King of Pop.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#D97706]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Valuation</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $2B+
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Assets & Estate Value:</span><br>
+                    Valued in the billions post-mortem. Main assets include complete catalog publishing rights, a historic 2024 Sony catalog sale (valuing half of his publishing at $1.2B), merchandising, and the theatrical rights to his global legacy media.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Michael Jackson commands an almost mythic, universally balanced audience. His listeners represent a rare, truly multi-generational and cross-continental demographic spectrum.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Uniquely distributed across generations, drawing substantial streaming numbers from Gen Z alongside long-time Gen X and Boomer supporters.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His melodic, highly emotional and energetic catalogs hold an almost perfect demographic split globally.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His influence has no geographic boundaries, commanding massive, active streaming volumes across all major world continents.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#31102F]/40 to-[#060608] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#E11D48] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Michael Jackson revolutionized the music video, transforming it into a high-art, cinematic "short film." As a vocalist, his delivery is defined by staccato phrasing, iconic "hiccups," and intense high-register head-voice notes.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#E11D48] bg-opacity-10 text-[#FDA4AF] font-semibold rounded-full border border-[#E11D48] border-opacity-30 text-lg">Contemporary Pop</span>
+                    <span class="px-4 py-2 bg-[#D97706] bg-opacity-10 text-[#FCD34D] font-semibold rounded-full border border-[#D97706] border-opacity-30 text-lg">Soul & Funk / R&B</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Dance / Pop-Rock</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#D97706]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🌍</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Social Unity & Global Healing</h4>
+                            <p class="text-slate-400">Pioneering powerful messages advocating for climate protection, racial harmony, and planetary healing (manifested in "Man in the Mirror" and "Earth Song").</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">👁️</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Paranoia & Intense Public Isolation</h4>
+                            <p class="text-slate-400">Deep, haunting narratives detailing media exploitation, loss of privacy, paranoia, and the suffocating feeling of being constantly watched.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">⚡</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Systemic Injustice & Struggle</h4>
+                            <p class="text-slate-400">Strong lyrical denunciations of police bias, institutional profiling, and judicial abuse (prominent in "They Don't Care About Us").</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">His discography represents the highest tier of commercial achievement in music history. The historic <span class="font-bold italic text-white">Thriller (1982)</span> stands unmatched as the **best-selling album of all time** (70M+ copies), followed by the chart-conquering giants <span class="font-bold italic text-white">Bad (1987)</span> and <span class="font-bold italic text-white">Dangerous (1991)</span>.</p>
+                    <div class="bg-[#E11D48] bg-opacity-5 rounded-xl p-4 border border-[#E11D48] border-opacity-25">
+                        <h4 class="font-bold text-[#E11D48] text-lg mb-1 display-font">The Billion-Stream Legacy</h4>
+                        <p class="text-slate-300">Decades after their initial release, his catalog continues to generate massive digital volume, with multiple tracks exceeding the coveted billion-stream milestone on Spotify.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Giants</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of his defining global pop masterpieces.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#E11D48] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">13 Grammy Awards (including a record-setting 8 Grammys in a single night, 1984)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">👑</span>
+                        <span class="text-lg text-slate-300 font-semibold">Grammy Legend Award & Grammy Lifetime Achievement Award</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏅</span>
+                        <span class="text-lg text-slate-300 font-semibold">Two-time inductee into the Rock and Roll Hall of Fame</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📜</span>
+                        <span class="text-lg text-slate-300 font-semibold">Guinness World Record for Most Successful Entertainer of All Time</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#D97706]">
+                <h2 class="text-3xl font-bold text-[#D97706] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Guinness Record for Most Charities Supported</h4>
+                        <p class="text-slate-400 text-sm">Jackson is listed in the Guinness Book of World Records for supporting over **39 different charities** through millions in direct personal donations, benefit concerts, and medical endowments.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">USA for Africa & "Heal the World" Fund</h4>
+                        <p class="text-slate-400 text-sm">Co-wrote "We Are the World" (1985), which raised over $63 Million for African famine relief. He later founded the **Heal the World Foundation** (1992) to fund medicine, education, and direct aid for children in war-torn and low-income nations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#31102F]/30 via-[#060608] to-[#1E293B]/20 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Cultural Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#E11D48]">👞</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Moonwalk Debut</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">On May 16, 1983, during the *Motown 25* television special, Michael performed "Billie Jean" and debuted his signature "Moonwalk" dance step, instantly altering pop culture history.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#D97706]">🪐</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Anti-Gravity Patent</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">To perform his famous 45-degree forward lean in "Smooth Criminal" live, Michael co-patented a custom slot-hitching stage shoe mechanism (US Patent 5,255,452).</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#94A3B8]">🧤</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Single White Glove</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">His iconic single white rhinestone glove was born out of utility rather than fashion, initially worn to mask the early onset of vitiligo on his hand.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "35-54 Years Old", "55+ Years Old"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [42, 35, 23],
+                    backgroundColor: ['#E11D48', '#D97706', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Female Listeners", "Male Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [52, 48],
+                    backgroundColor: ['#E11D48', '#94A3B8'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["North America", "Western Europe", "Latin America", "East Asia", "Australasia"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Priority Index',
+                    data: [100, 95, 90, 85, 70],
+                    backgroundColor: '#E11D48',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Billie Jean", "Beat It", "Thriller", "Smooth Criminal"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [1600, 1100, 850, 750], 
+                    backgroundColor: ['#E11D48', '#D97706', '#31102F', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#31102F' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
