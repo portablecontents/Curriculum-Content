@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Miseducation Cocoa & Gold" (Espresso Obsidian #0F0A08, Shimmering Gold #D4AF37, Burnt Terracotta #9A3412, Ivory Cream #FAF6F0, Deep Cocoa #1F1410)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Warm, retro vinyl-themed header and biographical synthesis charting her rise from South Orange, New Jersey, and acting in Sister Act 2, to co-founding the Fugees and releasing the historic, record-shattering solo album "The Miseducation of Lauryn Hill."
+2. The Vault: Financial valuation highlighting her estimated $10M net worth, continuous catalog royalties, publishing, and her independent choices to step away from mainstream industry exploitation.
+3. The Audience: Interactive Chart.js graphs detailing her massive, multi-generational, and globally resilient neo-soul listener core.
+4. The Art: Explaining her revolutionary vocal medium (seamlessly blending classical soul singing with sharp, conscious hip-hop verses) and her major thematic motifs of maternal love, spiritual devotion, and systemic/industry greed.
+5. Seminal Metrics: A vertical bar chart comparing the massive streaming figures of her defining solo and Fugees masterpieces.
+6. Awards & Philanthropy: Spotlight on her historic 5-Grammy sweep in 1999 (the first woman to do so), her Pulitzer-level cultural impact, and her Refugee Project supporting at-risk urban youth.
+7. Reggae-Soul Lore: Highlights of her recording at Tuff Gong Studios in Jamaica, her role in Sister Act 2, and her deliberate retreat from fame to preserve her mental health and artistic integrity.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Ms. Lauryn Hill</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0F0A08;
+            color: #E7E5E4;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(31, 20, 16, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #D4AF37, #9A3412);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#1F1410] to-[#0F0A08] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#D4AF37]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">LAURYN HILL</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#D4AF37] uppercase display-font">The High Priestess of Neo-Soul • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#D4AF37]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born May 26, 1975, in East Orange, New Jersey, Lauryn Noelle Hill grew up in a music-loving South Orange home. Showing early promise as an actress and vocalist, she starred in the film *Sister Act 2: Back in the Habit* as a teenager. While still in high school, she co-founded the legendary hip-hop trio **The Fugees** alongside Wyclef Jean and Pras Michel.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    The Fugees' sophomore album *The Score* (1996) went Diamond, establishing them as global titans. However, it was Lauryn’s 1998 solo debut, <span class="text-[#D4AF37] font-semibold">The Miseducation of Lauryn Hill</span>, that altered cultural history. Recorded partially in Jamaica, the album seamlessly fused raw hip-hop with warm Motown soul, becoming a generational touchstone that redefined the commercial and artistic limits of modern R&B.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#9A3412]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $10M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Steady global catalog royalties from her landmark solo and Fugees recordings, highly anticipated international anniversary tours, publishing residuals, and private live-performance guarantees.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-stone-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Ms. Lauryn Hill's organic blend of conscious poetry and soulful vocal delivery attracts an exceptionally broad, multi-generational, and globally conscious audience.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-[#1F1410]/40 p-6 rounded-xl border border-stone-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While Millennial and Gen X listeners drove her early physical sales, active streaming has introduced her to a massive Gen Z audience (55%).</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-[#1F1410]/40 p-6 rounded-xl border border-stone-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Her raw, vulnerable focus on motherhood, sisterhood, and romantic integrity draws a highly balanced, universal demographic split.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-[#1F1410]/40 p-6 rounded-xl border border-stone-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While deeply rooted in US urban soundscapes, her legacy commands massive streaming markets in the UK, Brazil, and South Africa.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1F1410]/40 to-[#0F0A08] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#D4AF37] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Ms. Lauryn Hill is a vocal pioneer, famous for seamlessly transitioning from rich, raspy alto neo-soul singing to rapid, complex, and intellectually sharp conscious rap verses within the same track.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#D4AF37] bg-opacity-10 text-[#D4AF37] font-semibold rounded-full border border-[#D4AF37] border-opacity-30 text-lg">Neo-Soul / R&B</span>
+                    <span class="px-4 py-2 bg-[#9A3412] bg-opacity-10 text-[#F97316] font-semibold rounded-full border border-[#9A3412] border-opacity-30 text-lg">Conscious Hip-Hop</span>
+                    <span class="px-4 py-2 bg-stone-850 text-slate-300 font-semibold rounded-full border border-stone-700 text-lg">Reggae-Soul</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#9A3412]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🤰</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Maternal Love & Sacrifice</h4>
+                            <p class="text-slate-400">Deep, beautiful lyrical celebrations of motherhood, choosing family over industry demands, and maternal instinct (immortalized in "To Zion").</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🙏</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Spiritual Devotion & Self-Respect</h4>
+                            <p class="text-slate-400">Urging the younger generation to value their bodies, keep spiritual integrity, and avoid superficial materialism ("Doo Wop (That Thing)").</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🏦</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Industry Exploitation & Materialism</h4>
+                            <p class="text-slate-400">Sharp, conscious critiques of corporate music greed, systemic entrapment, and the loss of creative sovereignty.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Her discography contains landscape-defining music milestones. The Fugees' <span class="font-bold italic text-white">The Score (1996)</span> is one of the best-selling rap albums in history, while her solo masterpiece <span class="font-bold italic text-white">The Miseducation of Lauryn Hill (1998)</span> remains the ultimate blueprint for modern R&B, blending classic acoustic arrangements with hip-hop breakbeats.</p>
+                    <div class="bg-[#D4AF37] bg-opacity-5 rounded-xl p-4 border border-[#D4AF37] border-opacity-25">
+                        <h4 class="font-bold text-[#D4AF37] text-lg mb-1 display-font">The Diamond Milestone</h4>
+                        <p class="text-slate-300">In 2021, *The Miseducation* was officially certified **RIAA Diamond** (over 10 million copies sold in the US), making Lauryn the first female hip-hop artist in history to achieve this milestone.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-stone-850 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of her most popular solo and Fugees-era classics.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#D4AF37] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-stone-900/50 rounded-lg border border-stone-850">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">8 Grammy Awards (including Historic 5-Grammy sweep in a single night, 1999)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-stone-900/50 rounded-lg border border-stone-850">
+                        <span class="text-2xl mr-3">👑</span>
+                        <span class="text-lg text-slate-300 font-semibold">First hip-hop album to win Album of the Year at the Grammys (*Miseducation*)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-stone-900/50 rounded-lg border border-stone-850">
+                        <span class="text-2xl mr-3">📜</span>
+                        <span class="text-lg text-slate-300 font-semibold">Inducted into the National Recording Registry (Library of Congress)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-stone-900/50 rounded-lg border border-stone-850">
+                        <span class="text-2xl mr-3">💎</span>
+                        <span class="text-lg text-slate-300 font-semibold">RIAA Diamond Certified Artist (The Miseducation of Lauryn Hill)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#9A3412]">
+                <h2 class="text-3xl font-bold text-[#9A3412] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">The Refugee Project (Founder)</h4>
+                        <p class="text-slate-400 text-sm">In 1996, Lauryn founded **The Refugee Project**, a non-profit organization dedicated to supporting, mentoring, and providing creative/educational opportunities for at-risk urban youth. She funded annual summer camps and public school mentorship programs across New Jersey.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Global African Diaspora Aid & Benefit Concerts</h4>
+                        <p class="text-slate-400 text-sm">Hill has consistently raised millions for global human rights. She hosted major benefit concerts to raise funds for clean-water wells in East Africa, supported immigrant advocacy groups, and funded housing programs for low-income communities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#1F1410]/20 via-[#0F0A08] to-[#1F1410]/30 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Neo-Soul Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-stone-900 bg-opacity-40 p-6 rounded-xl border border-stone-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#D4AF37]">🇯🇲</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Tuff Gong Studio Sessions</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">To escape corporate pressure, Lauryn traveled to Kingston, Jamaica, to record much of *The Miseducation* at Bob Marley's historic Tuff Gong Studios, infusing the album with rich, organic reggae-soul textures.</p>
+                </div>
+                <div class="bg-stone-900 bg-opacity-40 p-6 rounded-xl border border-stone-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#9A3412]">🎭</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Sister Act 2 Breakthrough</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">At just 17, Lauryn starred as the rebellious high school singer Rita Watson in *Sister Act 2: Back in the Habit*, where her stunning on-screen performance of "Joyful, Joyful" launched her into the national consciousness.</p>
+                </div>
+                <div class="bg-stone-900 bg-opacity-40 p-6 rounded-xl border border-stone-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#F8FAFC]">🦉</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Sovereign Retreat</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">At the peak of her historic solo fame, Lauryn walked away from the mainstream music industry to protect her mental health and raise her children, a decision that has become legendary industry lore of choosing integrity over greed.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [55, 45],
+                    backgroundColor: ['#D4AF37', '#1F1410'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Female Listeners", "Male Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [54, 46],
+                    backgroundColor: ['#9A3412', '#D4AF37'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "United Kingdom", "Brazil", "South Africa", "Western Europe"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 85, 80, 75, 60],
+                    backgroundColor: '#D4AF37',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Killing Me Softly (Fugees)", "Doo Wop (That Thing)", "Ex-Factor", "Ready or Not (Fugees)"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [1200, 820, 510, 480], 
+                    backgroundColor: ['#D4AF37', '#9A3412', '#1F1410', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1F1410' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
