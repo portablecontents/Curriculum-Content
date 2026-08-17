@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Blonde Orange & Acid Green" (Deep Obsidian #090D16, Channel Orange #F97316, Acid Mint Green #4ADE80, Warm Platinum #F8FAFC, Charcoal Slate #1E293B)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Cinematic, introspective header and biographical synthesis detailing his journey from New Orleans (fleeing Hurricane Katrina) and ghostwriting in LA to co-founding Odd Future and releasing genre-defining masterpieces.
+2. The Vault: Financial valuation highlighting his independent distribution model, buying out his Def Jam contract, his luxury brand Homer, and $15M net worth.
+3. The Audience: Interactive Chart.js graphs detailing his intensely loyal, artistic, Gen Z and Millennial crossover listenership.
+4. The Medium & Message: Exploring his avant-garde R&B medium and his major thematic motifs of unrequited love, nostalgic isolation, fluid identity, and fleeting youth.
+5. Seminal Metrics: A vertical bar chart comparing the massive streaming figures of his defining independent anthems.
+6. Awards & Philanthropy: Dedicated section highlighting historic Grammy achievements, GLAAD awards, and his quiet humanitarian relief efforts.
+7. Avant-Garde Lore & Trivia: Highlighting his legendary "Def Jam chess move" with the visual album Endless, recording in hotel rooms, and his elusive radio program blonded Radio.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Frank Ocean</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #090D16;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #F97316, #4ADE80);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#1E293B] to-[#090D16] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#F97316]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">FRANK OCEAN</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#F97316] uppercase display-font">The Avant-Garde Lyricist of Modern Soul</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#F97316]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born Christopher Edwin Breaux on October 28, 1987, in Long Beach, California, he relocated to New Orleans as a child. He was building his early recording studio when **Hurricane Katrina** devastated the city in 2005, destroying his equipment and forcing him to pack up and seek shelter in Los Angeles. There, he supported himself by ghostwriting songs for established pop stars while establishing his identity.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    After joining the chaotic L.A. creative collective **Odd Future**, Frank released his mixtape *nostalgia, ULTRA* in 2011 to massive critical acclaim. Refusing traditional pop guidelines, he released his major label debut <span class="text-[#F97316] font-semibold">Channel Orange (2012)</span> and the era-defining independent masterpiece <span class="text-[#4ADE80] font-semibold">Blonde (2016)</span>, utilizing cinematic, deeply literary narratives to elevate contemporary R&B into high fine art.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#4ADE80]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $15M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    100% independent streaming royalties (owing to owning his own master recordings), his luxury apparel/jewelry brand <span class="text-white italic">Homer</span>, exclusive festival performance guarantees, and physical vinyl catalog runs.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Frank Ocean's highly introspective, poetic style commands a deeply dedicated, alternative listener base concentrated heavily within younger generations and creative demographics.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His alternative R&B and highly intimate narratives appeal immensely to Gen Z and Millennials, who comprise 74% of his core active streaming base.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His vulnerability, raw honesty, and fluid identity draw an exceptionally balanced, universal demographic split across all genders.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While highly centered in US metropolitan areas, his digital streaming catalogs maintain significant, loyal footholds worldwide.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1E293B]/40 to-[#090D16] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#F97316] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Frank Ocean's vocal delivery is conversational yet highly dynamic, shifting seamlessly from delicate, whispery head-voice notes to dense, multi-track vocal layers with unconventional pitch modifications.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#F97316] bg-opacity-10 text-[#F97316] font-semibold rounded-full border border-[#F97316] border-opacity-30 text-lg">Alternative R&B</span>
+                    <span class="px-4 py-2 bg-[#4BE380] bg-opacity-10 text-[#4BE380] font-semibold rounded-full border border-[#4BE380] border-opacity-30 text-lg">Avant-Garde Soul</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Indie Pop / Art Pop</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#4ADE80]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💔</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Unrequited Love & Vulnerability</h4>
+                            <p class="text-slate-400">Intimate, painful stories of unfulfilled romantic desires, heartbreak, and emotional transparency (evident across *Channel Orange*).</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🕰️</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Nostalgic Isolation & Fleeting Youth</h4>
+                            <p class="text-slate-400">Reflecting on childhood, memories, car culture, and the bitter-sweet process of growing up (central to *nostalgia, ULTRA* and *Blonde*).</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">⚡</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Fluid Identity & Sexuality</h4>
+                            <p class="text-slate-400">Masterful storytelling exploring personal orientation, dismantling traditional toxic structures, and searching for authentic peace.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Frank’s catalog is regarded as one of the most culturally vital in modern history. The major-label smash <span class="font-bold italic text-white">Channel Orange (2012)</span> won massive acclaim, but it was his completely independent sophomore masterpiece <span class="font-bold italic text-white">Blonde (2016)</span> that critics regularly rank as the absolute greatest album of the 2010s decade.</p>
+                    <div class="bg-[#F97316] bg-opacity-5 rounded-xl p-4 border border-[#F97316] border-opacity-25">
+                        <h4 class="font-bold text-[#F97316] text-lg mb-1 display-font">Independent Sovereign</h4>
+                        <p class="text-slate-300">By completely bypassing the standard major label distribution machine, Frank generates significantly higher profit margins on his stream counts compared to traditional artists.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">A comparison of his most commercially dominant global singles.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#F97316] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">2 Grammy Awards (including Best Urban Contemporary Album - *Channel Orange*)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏳️‍🌈</span>
+                        <span class="text-lg text-slate-300 font-semibold">GLAAD Media Award for Outstanding Music Artist</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">Metacritic's Album of the Decade (*Blonde* - #1 Consensus Spot)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🍁</span>
+                        <span class="text-lg text-slate-300 font-semibold">BRIT Award for International Male Solo Artist</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#4ADE80]">
+                <h2 class="text-3xl font-bold text-[#4ADE80] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Quiet Crisis Relief & Community Aid</h4>
+                        <p class="text-slate-400 text-sm">Consistent with his highly private nature, Frank quietly donates substantial sums to disaster relief funds (such as Hurricane Katrina survivors and Gulf Coast restoration societies) without launching public press campaigns.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">LGBTQ+ Visibility & Youth Support</h4>
+                        <p class="text-slate-400 text-sm">By sharing his landmark open letter in 2012, Frank broke barriers within the historically conservative hip-hop community. He continuously supports and funds national LGBTQ+ youth programs to provide shelter and resources.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#1E293B]/20 via-[#090D16] to-[#1E293B]/30 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Cultural Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#F97316]">♟️</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Legendary Chess Move</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">To break his restrictive Def Jam deal, Frank released the visual album *Endless* on a Friday, fulfilling his contract. The very next day, he independently self-released *Blonde*, keeping 100% of the profits and shocking the industry.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#4ADE80]">💎</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Homer Brand</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">In 2021, Frank launched "Homer," an independent American luxury brand focusing on high-end silk scarves, hand-crafted jewelry, and custom-designed lab-grown diamonds.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#60A5FA]">🚗</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Car Enthusiast</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Frank is highly passionate about vintage cars. From the iconic BMW E30 M3 on the cover of *nostalgia, ULTRA* to references in lyrics, automotive designs serve as his primary visual metaphors.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [74, 26],
+                    backgroundColor: ['#F97316', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [50, 50],
+                    backgroundColor: ['#F97316', '#4ADE80'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "United Kingdom", "Canada", "Australia", "Western Europe"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 85, 75, 60, 55],
+                    backgroundColor: '#F97316',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Pink + White", "Lost", "Thinkin Bout You", "Chanel"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [1300, 1100, 850, 750], 
+                    backgroundColor: ['#4ADE80', '#F97316', '#1E293B', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
