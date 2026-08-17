@@ -1,0 +1,376 @@
+<!--
+Color Palette: "Compton Crown" (Deep Onyx #111827, Striking Crimson #B91C1C, Royal Gold #D97706, Crisp White #FFFFFF, Light Stone #F3F4F6)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Bold header and biography establishing his roots in Compton and literary prowess.
+2. The Vault: Highlighting his estimated net worth and massive touring/pgLang revenue.
+3. The Audience: Data visualizations detailing age, gender, and regional market appeal.
+4. The Art: Breakdown of his conscious rap genres and profound narrative themes.
+5. Legacy Sales: Comparative chart showing the streaming dominance of his biggest cultural anthems.
+6. Awards & Philanthropy: Spotlight on the Pulitzer Prize and Compton community investments.
+7. The Lore: Call-outs featuring pgLang and legendary cultural impact events.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Kendrick Lamar (K-Dot)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F3F4F6;
+            color: #111827;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-r from-[#111827] via-[#374151] to-[#B91C1C] text-white py-16 px-6 shadow-xl mb-10 border-b-4 border-[#D97706]">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-5xl md:text-8xl font-extrabold tracking-tighter mb-4 text-[#F3F4F6]">KENDRICK LAMAR</h1>
+            <p class="text-xl md:text-2xl font-semibold tracking-widest text-[#D97706] uppercase">Pulitzer Laureate • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-lg border-l-8 border-[#B91C1C]">
+                <div class="flex items-center space-x-4 mb-6">
+                    <span class="text-4xl">👑</span>
+                    <h2 class="text-3xl font-bold text-[#111827]">The Origin Story</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-gray-700 mb-4">
+                    Born June 17, 1987, in Compton, California, Kendrick Lamar Duckworth grew up surrounded by the harsh realities of gang violence and poverty. Using poetry and hip-hop as his escape, he began releasing mixtapes under the moniker "K-Dot" as a teenager, catching the attention of legendary producer Dr. Dre.
+                </p>
+                <p class="text-lg leading-relaxed text-gray-700">
+                    With the release of his major-label debut <span class="italic font-semibold text-gray-900">good kid, m.A.A.d city</span> in 2012, he cemented himself as a generational talent. Known for his cinematic storytelling, complex rhyme schemes, and profound cultural critique, Kendrick has elevated the rap genre into high literary art.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-lg flex flex-col justify-center items-center text-center bg-white border-t-4 border-[#D97706]">
+                <h2 class="text-xl font-bold text-gray-500 uppercase tracking-wider mb-2">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold bg-gradient-to-r from-[#D97706] to-[#B91C1C] gradient-text mb-4">
+                    $140M
+                </div>
+                <p class="text-sm text-gray-600 border-t border-gray-200 pt-4 w-full">
+                    <span class="font-bold text-gray-800">Primary Income Streams:</span><br>
+                    Massive global tours (The Big Steppers Tour), back-catalog streaming royalties, and his pgLang creative agency.
+                </p>
+            </div>
+        </section>
+
+        <section class="glass-card rounded-2xl p-8 shadow-lg">
+            <div class="mb-8 border-b border-gray-200 pb-4">
+                <h2 class="text-3xl font-bold text-[#111827] mb-2 flex items-center"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-gray-600 text-lg">Kendrick's intensely lyrical and politically charged music resonates most deeply with young adults, while maintaining critical acclaim across all generational boundaries.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-gray-800 text-center">Age Distribution</h3>
+                    <p class="text-sm text-center text-gray-500 mb-4">The 18-34 demographic constitutes a massive 70% of his core listenership.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-gray-800 text-center">Gender Split</h3>
+                    <p class="text-sm text-center text-gray-500 mb-4">His audience skews slightly male, but maintains widespread universal appeal.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-gray-800 text-center">Top Global Markets</h3>
+                    <p class="text-sm text-center text-gray-500 mb-4">While his narratives are deeply American, his cultural impact is thoroughly global.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-lg bg-[#111827] text-white border-b-8 border-[#D97706]">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#F3F4F6]"><span class="text-3xl mr-3">🎤</span> Medium & Genre</h2>
+                <p class="text-gray-400 mb-6 text-lg">Lamar operates within the realm of Hip-Hop, but frequently incorporates dense live instrumentation, blending poetry with deeply rooted Black American musical traditions.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#B91C1C] bg-opacity-20 text-[#FCA5A5] font-semibold rounded-full border border-[#B91C1C] border-opacity-50 text-lg">Conscious Hip-Hop</span>
+                    <span class="px-4 py-2 bg-[#D97706] bg-opacity-20 text-[#FCD34D] font-semibold rounded-full border border-[#D97706] border-opacity-50 text-lg">Jazz Rap</span>
+                    <span class="px-4 py-2 bg-gray-700 bg-opacity-50 text-gray-300 font-semibold rounded-full border border-gray-600 text-lg">West Coast Rap</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-lg border-l-4 border-[#111827]">
+                <h2 class="text-3xl font-bold text-[#111827] mb-6 flex items-center"><span class="text-3xl mr-3">📜</span> Core Literary Themes</h2>
+                <ul class="space-y-5">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">⚖️</span>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-lg">Systemic Injustice</h4>
+                            <p class="text-gray-600">Fierce critiques of institutional racism, police brutality, and the political disenfranchisement of Black Americans.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🧠</span>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-lg">Generational Trauma</h4>
+                            <p class="text-gray-600">Exploring the psychological weight of growing up in poverty and the cycle of survival in Compton.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🙏</span>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-lg">Spirituality & Redemption</h4>
+                            <p class="text-gray-600">Deeply introspective struggles with faith, temptation, self-worth, and moral responsibility.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="glass-card rounded-2xl p-8 shadow-lg">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-[#111827] mb-4 flex items-center"><span class="text-3xl mr-3">💿</span> Most Popular Work</h2>
+                    <p class="text-gray-600 text-lg mb-4">Kendrick is heavily regarded as an <span class="font-bold text-gray-900">"Album Artist."</span> Projects like <span class="italic font-semibold text-gray-900">To Pimp a Butterfly (2015)</span> and <span class="italic font-semibold text-gray-900">DAMN. (2017)</span> are frequently cited by critics as some of the greatest albums of the 21st century.</p>
+                    <div class="bg-[#B91C1C] bg-opacity-10 rounded-xl p-5 border border-[#B91C1C] border-opacity-30">
+                        <h4 class="font-bold text-[#B91C1C] text-lg mb-1">Cultural Anthems</h4>
+                        <p class="text-gray-800">His tracks often transcend standard music metrics to become global chants, particularly "Alright," which became a unifying anthem for civil rights movements worldwide.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-gray-800 text-center">Spotify Billion-Stream Anthems</h3>
+                    <p class="text-sm text-center text-gray-500 mb-4">Massive hits that dominate streaming platforms.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW SECTION: Awards & Philanthropy -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-lg">
+                <h2 class="text-3xl font-bold text-[#111827] mb-6 flex items-center"><span class="text-3xl mr-3">🏅</span> Major Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-100">
+                        <span class="text-2xl mr-3">🖋️</span>
+                        <span class="text-lg text-gray-800 font-semibold">Pulitzer Prize for Music (2018)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-100">
+                        <span class="text-2xl mr-3">🎵</span>
+                        <span class="text-lg text-gray-800 font-semibold">17 Grammy Awards</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-100">
+                        <span class="text-2xl mr-3">🌐</span>
+                        <span class="text-lg text-gray-800 font-semibold">Time 100 Most Influential People</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-100">
+                        <span class="text-2xl mr-3">📺</span>
+                        <span class="text-lg text-gray-800 font-semibold">Primetime Emmy Award (Super Bowl Halftime Show)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-lg border-t-4 border-[#B91C1C]">
+                <h2 class="text-3xl font-bold text-[#B91C1C] mb-6 flex items-center"><span class="text-3xl mr-3">❤️</span> Philanthropy & Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-gray-900 text-lg">Compton Community Support</h4>
+                        <p class="text-gray-600">Lamar has continually invested in his hometown, notably donating tens of thousands to the Compton Unified School District to fund sports, after-school, and music programs.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 text-lg">Charity Performances</h4>
+                        <p class="text-gray-600">Frequently headlines benefit concerts to raise awareness and funds for charities like Habitat for Humanity and organizations addressing systemic poverty and homelessness.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass-card rounded-2xl p-8 shadow-lg bg-[#B91C1C] text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center"><span class="text-3xl mr-3">🏆</span> The Legacy: Interesting Facts</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-[#111827] bg-opacity-40 p-6 rounded-xl border border-red-400 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#D97706]">🏅</div>
+                    <h3 class="text-xl font-bold mb-2">The Pulitzer History</h3>
+                    <p class="text-red-100 leading-relaxed">He is the first non-classical or jazz artist in history to win the Pulitzer Prize for Music for his profoundly deep album, DAMN.</p>
+                </div>
+                <div class="bg-[#111827] bg-opacity-40 p-6 rounded-xl border border-red-400 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#F3F4F6]">🏢</div>
+                    <h3 class="text-xl font-bold mb-2">pgLang</h3>
+                    <p class="text-red-100 leading-relaxed">He co-founded pgLang, a mysterious and highly successful multidisciplinary creative company that produces music, films, and advertising campaigns.</p>
+                </div>
+                <div class="bg-[#111827] bg-opacity-40 p-6 rounded-xl border border-red-400 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#D97706]">🏟️</div>
+                    <h3 class="text-xl font-bold mb-2">The Pop Out Event</h3>
+                    <p class="text-red-100 leading-relaxed">Following his historic 2024 lyrical feud with Drake, Kendrick hosted "The Pop Out" in LA, a massive, unifying cultural concert event viewed by millions globally.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" } }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "35+ Years Old"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [70, 30],
+                    backgroundColor: ['#111827', '#E5E7EB'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [58, 42],
+                    backgroundColor: ['#111827', '#B91C1C'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "United Kingdom", "Canada", "Australia", "France"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Affinity',
+                    data: [100, 75, 60, 45, 30],
+                    backgroundColor: '#D97706',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { grid: { display: false }, ticks: { font: { family: "'Inter', sans-serif" } } }
+                }
+            }
+        });
+
+        const streamLabels = ["HUMBLE.", "All The Stars", "Not Like Us", "DNA."].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: streamLabels,
+                datasets: [{
+                    label: 'Streams (in Billions)',
+                    data: [2.1, 1.5, 1.2, 1.1], 
+                    backgroundColor: ['#111827', '#B91C1C', '#D97706', '#6B7280'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#F3F4F6' },
+                        title: { display: true, text: 'Billions of Streams', font: { family: "'Inter', sans-serif" } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
