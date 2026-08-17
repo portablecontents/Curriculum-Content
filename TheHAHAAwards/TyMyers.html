@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Texas Dusk & Burnished Copper" (Deep Charcoal #0C0A09, Burnished Copper #D97706, Dusk Indigo #1E1B4B, Warm Sand #F5F5F4, Muted Clay #78716C)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Rustic, high-fidelity Texas-themed header and biographical synthesis charting his rise from a family ranch in Round Top, Texas, self-recording soulful country-blues, to becoming one of the most exciting young breakout stars of modern independent country.
+2. The Vault: Financial valuation highlighting his independent artist-tier net worth (estimated at $1M), rapidly growing master recording stream royalties, and highly demanded regional touring revenue.
+3. The Audience: Interactive Chart.js graphs detailing his highly concentrated Gen Z, Southern-crossover, and social media-native consumer demographics.
+4. The Art: Explaining his raw, acoustic-driven medium (combining blues-rock guitar work with an unbelievably deep, mature baritone) and his core thematic motifs of small-town isolation, young romantic longing, and preserving blue-collar ranching roots.
+5. Seminal Metrics: A vertical bar chart demonstrating the massive global streaming footprint of his breakthrough singles.
+6. Awards & Philanthropy: Dedicated section highlighting his independent critical acclaim, editorial playlist domination, and his active work supporting rural youth agricultural programs and local farming communities.
+7. Texas Lore & Trivia: Spotlighting his 14-year-old local gigging origins, the shock of first-time listeners hearing his deep voice, and his independent, major-label-bypassing growth model.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Ty Myers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0C0A09;
+            color: #FAF8F5;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(45, 39, 36, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(217, 119, 6, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #D97706, #F59E0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#1E1B4B]/40 to-[#0C0A09] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#D97706]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">TY MYERS</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#D97706] uppercase display-font">The Soul of Modern Texas Country • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#D97706]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born and raised on a family ranch in Round Top, Texas, Ty Myers grew up steeped in traditional country music, Southern rock, and gritty Texas blues. He picked up the acoustic guitar at a young age, performing and writing raw country-soul ballads from his bedroom while balancing local ranch work. 
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    Bypassing traditional corporate Nashville structures, Ty began uploading live, unpolished acoustic videos to social media in his mid-teens. His incredibly mature, soulful, and deep baritone vocal delivery shocked internet listeners, triggering rapid viral growth with original breakthrough tracks like <span class="text-[#D97706] font-semibold">"Tie Up"</span>. Standing as a prominent champion of the modern independent Texas country movement, Myers bridges classic outlaw-style authenticity with Gen Z digital appeal.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#1E1B4B]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $1M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-850 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Skyrocketing digital streaming royalties from self-released master recordings, highly successful independent club and theater tours across the Southern US, merchandise sales, and direct songwriting publishing.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-850 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Ty Myers has cultivated a highly passionate, young, and trend-conscious crossover fanbase that unites traditional country-music listeners with alternative indie-folk and modern streetwear communities.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-950/40 p-6 rounded-xl border border-slate-900 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His acoustic grit and TikTok-native virality appeal overwhelmingly to Gen Z and younger Millennials (under 30), comprising 74% of his core active streaming base.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-950/40 p-6 rounded-xl border border-slate-900 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His highly emotional lyrics, raw vocal vulnerability, and romantic outlaw narratives attract a highly balanced, universal gender split.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-950/40 p-6 rounded-xl border border-slate-900 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While heavily anchored in his native state of Texas and the Southern US, his digital footprints continue to grow throughout Canada and Australia.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1E1B4B]/30 to-[#0C0A09] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#D97706] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Ty Myers’s musical medium relies on pure, organic instrumentation. His sound is defined by unpolished acoustic guitar strumming, electric blues-guitar licks, steel slide-guitars, and his signature deep, gravelly baritone vocal delivery.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#D97706] bg-opacity-10 text-[#D97706] font-semibold rounded-full border border-[#D97706] border-opacity-30 text-lg">Texas Country</span>
+                    <span class="px-4 py-2 bg-[#1E1B4B] bg-opacity-20 text-[#818CF8] font-semibold rounded-full border border-[#1E1B4B] border-opacity-30 text-lg">Outlaw Folk</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Americana / Blues-Rock</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#1E1B4B]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🤠</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Preserving Rural Roots & Labor</h4>
+                            <p class="text-slate-400">Celebrating traditional southern ranching life, hard manual labor, honest living, and staying grounded in simple beginnings.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💔</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Young Adult Melancholy & Romance</h4>
+                            <p class="text-slate-400">Exploring the deep, bittersweet realities of small-town young love, fleeting romantic connections, and local-bar heartbreak.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🌾</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Isolation & Small-Town Quiet</h4>
+                            <p class="text-slate-400">Capturing the introspective solitude of vast Texas horizons, driving down empty farm roads, and seeking quiet peace away from city noise.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Ty’s breakout era is defined by highly successful, independent digital single releases. Tracks like <span class="font-bold italic text-white">"Tie Up"</span>, <span class="font-bold italic text-white">"Drinkin' Alone"</span>, and <span class="font-bold italic text-white">"Tired of Trying"</span> have established him as a premier independent force in country-folk music, bypassing Nashville's standard radio channels.</p>
+                    <div class="bg-[#D97706] bg-opacity-5 rounded-xl p-4 border border-[#D97706] border-opacity-25">
+                        <h4 class="font-bold text-[#D97706] text-lg mb-1 display-font">Independent Sovereign</h4>
+                        <p class="text-slate-300">By managing his own independent publishing and master recordings, Ty retains complete creative control over his musical direction and secures significantly higher profit margins on his stream counts.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-950/40 p-6 rounded-xl border border-slate-900 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of his breakthrough country-blues masterpieces.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#D97706] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-950/50 rounded-lg border border-slate-900">
+                        <span class="text-2xl mr-3">🎸</span>
+                        <span class="text-lg text-slate-300 font-semibold">"Artist to Watch" accolades in prominent outlaw country & indie circles</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-950/50 rounded-lg border border-slate-900">
+                        <span class="text-2xl mr-3">📻</span>
+                        <span class="text-lg text-slate-300 font-semibold">Featured on top global country editorial playlists (Texas Music, Indigo, etc.)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-950/50 rounded-lg border border-slate-900">
+                        <span class="text-2xl mr-3">🎫</span>
+                        <span class="text-lg text-slate-300 font-semibold">Consecutive sold-out club headlining runs across Texas and the South</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-900">
+                        <span class="text-2xl mr-3">📈</span>
+                        <span class="text-lg text-slate-300 font-semibold">Tens of millions of independent streams across self-released tracks</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#1E1B4B]">
+                <h2 class="text-3xl font-bold text-[#1E1B4B] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Supporting Rural Youth & Agriculture</h4>
+                        <p class="text-slate-400 text-sm">Having grown up on a working ranch, Ty is a passionate advocate for preserving rural heritage. He frequently donates performance earnings and partners with local groups to support youth agricultural programs (such as 4-H and FFA), helping preserve rural career paths.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Preserving Local Texas Heritage</h4>
+                        <p class="text-slate-400 text-sm">Directly funds local historic preservation efforts in central Texas, aiming to protect the community structures, old dance halls, and family-owned ranches that form the backbone of his lyrical universe.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#0C0A09] via-[#1E1B4B]/20 to-[#0C0A09] text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Cultural Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-950/50 p-6 rounded-xl border border-slate-900 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#D97706]">🪵</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">14-Year-Old Performer</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">A true prodigy, Ty began playing live gigs at local central Texas honky-tonks, bars, and community markets when he was just fourteen years old, honing his live stage presence before he could legally drive.</p>
+                </div>
+                <div class="bg-slate-950/50 p-6 rounded-xl border border-slate-900 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#1E1B4B]">🎙️</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Vocal Disconnection</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">He is famous for the complete shock of first-time listeners hearing his records; his incredibly deep, rich, and weathered vocal tone is so mature that fans rarely guess his actual young age.</p>
+                </div>
+                <div class="bg-slate-950/50 p-6 rounded-xl border border-slate-900 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#FAF8F6]">🌾</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Round Top Identity</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Growing up in Round Top—a tiny Texas town famous for its massive antique shows and wide open spaces—deeply shaped his rural storytelling, preventing his brand from being engineered by commercial Nashville factories.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["16-29 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [74, 26],
+                    backgroundColor: ['#D97706', '#1E1B4B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Female Listeners", "Male Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [55, 45],
+                    backgroundColor: ['#1E1B4B', '#D97706'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["Texas", "Southern US", "Midwest US", "Canada", "Australia"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 90, 75, 55, 45],
+                    backgroundColor: '#D97706',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Tie Up", "Drinkin' Alone", "Tired of Trying", "Drop Top"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [35.0, 18.2, 12.5, 8.0], 
+                    backgroundColor: ['#D97706', '#1E1B4B', '#78716C', '#451A03'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1C1917' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
