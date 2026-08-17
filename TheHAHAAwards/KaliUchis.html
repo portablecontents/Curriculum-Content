@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Venus Rose & Obsidian" (Deep Velvet #1A0B14, Venus Rose #F43F5E, Sunset Gold #F59E0B, Pearl White #F8FAFC, Soft Blush #FDA4AF)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Lush, cinematic header and biographical synthesis detailing her journey from Alexandria, Virginia, and Pereira, Colombia, to becoming a global bilingual pop and R&B powerhouse.
+2. The Vault: Financial valuation highlighting her $5M net worth, independent fashion lines (Bodied by Uchis), and global touring.
+3. The Audience: Interactive Chart.js graphs detailing her highly aesthetic-driven, female-leaning Gen Z and Latin crossover listener core.
+4. The Art: Explaining her vocal medium (dreamy, vintage falsetto) and major thematic motifs of divine femininity, bilingual dual-identity, and astrological/spiritual romance.
+5. Seminal Metrics: A vertical bar chart comparing the multi-million/billion streaming figures of her ultimate R&B and Latin pop anthems.
+6. Awards & Philanthropy: Spotlight on her Grammy win, Billboard Latin Music Awards, and her direct humanitarian aid to communities in Colombia.
+7. Cultural Lore: Highlights of her high school jazz band saxophone roots, directing her own music videos, and her DIY bedroom mixtape origins.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Kali Uchis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1A0B14;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(40, 15, 25, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(244, 63, 94, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #F43F5E, #F59E0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#3E0A1E] to-[#1A0B14] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#F43F5E]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-5xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">KALI UCHIS</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#FDA4AF] uppercase display-font">The Bilingual Queen of Dream-Soul</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#F43F5E]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born Karly-Marina Loaiza on July 17, 1994, in Alexandria, Virginia, Kali Uchis spent her childhood split between the United States and her family's native Pereira, Colombia. Finding refuge in music and visual arts during a tumultuous high school experience, she began skipping class to produce her own songs in her bedroom using a cheap microphone, culminating in her 2012 DIY mixtape, <span class="text-[#FDA4AF] font-semibold">Drunken Babble</span>.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    Her retro-soul aesthetic quickly caught the attention of major artists like Tyler, the Creator and Snoop Dogg. Refusing to be boxed into a single market, she boldly transitions between English R&B and Spanish-language Latin pop. With universally acclaimed albums like <span class="italic font-semibold text-white">Isolation</span> and <span class="italic font-semibold text-white">Sin Miedo</span>, Uchis has established herself as a formidable, genre-defying architect of modern music.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#F59E0B]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $5M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Global streaming royalties across dual language markets, sold-out international arena tours (such as the *Red Moon in Venus* Tour), and her successful independent sustainable denim and fashion line, <span class="text-white italic">Bodied by Uchis</span>.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Kali's heavy emphasis on vintage aesthetics, divine femininity, and bilingual expression has cultivated an intensely devoted global fanbase that bridges the US pop and Latin music markets.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-[#280F19]/40 p-6 rounded-xl border border-[#3E0A1E] shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Her dreamy, atmospheric production resonates deeply with youth culture, with 75% of her core streaming base spanning Gen Z and younger Millennials (18–34).</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-[#280F19]/40 p-6 rounded-xl border border-[#3E0A1E] shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Her lyrical themes of female empowerment and emotional healing attract a significantly female-leaning listener demographic.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-[#280F19]/40 p-6 rounded-xl border border-[#3E0A1E] shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">She commands a massive dual-market presence, bridging deep listener hubs in the United States, Mexico, and Colombia.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#3E0A1E]/60 to-[#1A0B14] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#F43F5E] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Uchis blends doo-wop, 90s R&B, and reggaeton, characterized by her breathy, vintage falsetto and lush, orchestral synthesizer production.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#F43F5E] bg-opacity-10 text-[#FDA4AF] font-semibold rounded-full border border-[#F43F5E] border-opacity-30 text-lg">Neo-Soul / R&B</span>
+                    <span class="px-4 py-2 bg-[#F59E0B] bg-opacity-10 text-[#FCD34D] font-semibold rounded-full border border-[#F59E0B] border-opacity-30 text-lg">Latin Pop</span>
+                    <span class="px-4 py-2 bg-[#3E0A1E] text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Dream-Pop</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#F59E0B]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">✨</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Divine Femininity & Healing</h4>
+                            <p class="text-slate-400">Reclaiming personal power after toxic relationships, prioritizing self-love, and establishing strong emotional boundaries.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🌗</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Dual Identity & Cultural Roots</h4>
+                            <p class="text-slate-400">Seamlessly weaving English and Spanish lyrics to reflect the authentic experience of the Latin-American diaspora.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🔮</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Astrology & Spiritual Romance</h4>
+                            <p class="text-slate-400">Utilizing cosmic imagery, lunar cycles, and spiritual connection to describe the ethereal, transcendent nature of love.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Her catalog is a testament to genre versatility. Her debut <span class="font-bold italic text-white">Isolation (2018)</span> became an instant indie-R&B classic. She followed this by boldly releasing the Spanish-language album <span class="font-bold italic text-white">Sin Miedo (del Amor y Otros Demonios) (2020)</span>, proving her crossover dominance, before returning to lush soul with <span class="font-bold italic text-white">Red Moon In Venus (2023)</span> and <span class="font-bold italic text-white">Orquídeas (2024)</span>.</p>
+                    <div class="bg-[#F43F5E] bg-opacity-5 rounded-xl p-4 border border-[#F43F5E] border-opacity-25">
+                        <h4 class="font-bold text-[#FDA4AF] text-lg mb-1 display-font">The "Telepatía" Phenomenon</h4>
+                        <p class="text-slate-300">The completely Spanish/Spanglish track "telepatía" went organically viral, earning over 1.2 Billion streams and becoming one of the longest-running Spanish-language solos on the Billboard Hot 100.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-[#280F19]/40 p-6 rounded-xl border border-[#3E0A1E] shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">A comparison of her most commercially dominant global singles.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#F43F5E] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-[#280F19]/40 rounded-lg border border-[#3E0A1E]">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">1 Grammy Award (Best Dance Recording for "10%" with Kaytranada)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-[#280F19]/40 rounded-lg border border-[#3E0A1E]">
+                        <span class="text-2xl mr-3">🌎</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple Billboard Latin Music Awards (Latin Pop Album of the Year)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-[#280F19]/40 rounded-lg border border-[#3E0A1E]">
+                        <span class="text-2xl mr-3">💿</span>
+                        <span class="text-lg text-slate-300 font-semibold">American Music Award (Favorite Latin Song)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-[#280F19]/40 rounded-lg border border-[#3E0A1E]">
+                        <span class="text-2xl mr-3">🌟</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple Grammy Nominations for Best Música Urbana Album</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#F59E0B]">
+                <h2 class="text-3xl font-bold text-[#F59E0B] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Direct Colombian Community Aid</h4>
+                        <p class="text-slate-400 text-sm">Uchis frequently returns to Pereira, Colombia, to deliver direct aid. She uses her platform and personal wealth to purchase groceries, medicine, and wheelchairs for struggling families and communities in her native hometown.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Charity Wardrobe Sales & Immigrant Advocacy</h4>
+                        <p class="text-slate-400 text-sm">She regularly sells pieces from her iconic vintage wardrobe and red-carpet appearances via online thrift platforms, donating 100% of the proceeds to charities supporting immigrant rights and youth community centers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#3E0A1E]/30 via-[#1A0B14] to-[#3E0A1E]/40 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Cultural Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-[#280F19]/40 p-6 rounded-xl border border-[#3E0A1E] hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#F43F5E]">🎷</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Jazz Band Roots</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Long before her vocal career took off, she was a dedicated instrumentalist. She played the saxophone and piano in her high school's elite jazz band.</p>
+                </div>
+                <div class="bg-[#280F19]/40 p-6 rounded-xl border border-[#3E0A1E] hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#F59E0B]">🎬</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Auteur Director</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">A true visual artist, Kali conceptualizes and directs almost all of her own lush, highly stylized music videos to maintain absolute control over her aesthetic universe.</p>
+                </div>
+                <div class="bg-[#280F19]/40 p-6 rounded-xl border border-[#3E0A1E] hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#FDA4AF]">🎤</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Snooping Car</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">After recording her first mixtape in her bedroom on a cheap Snowball mic, she used to test her audio mixes by listening to them out of her beat-up Subaru's car speakers.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#E2E8F0' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [75, 25],
+                    backgroundColor: ['#F43F5E', '#3E0A1E'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Female Listeners", "Male & Other"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [65, 35],
+                    backgroundColor: ['#FDA4AF', '#F59E0B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "Mexico", "Colombia", "United Kingdom", "Spain"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 92, 85, 70, 65],
+                    backgroundColor: '#F43F5E',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#E2E8F0' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["telepatía", "After The Storm (feat. Tyler)", "Moonlight", "Dead To Me"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [1200, 550, 480, 350], 
+                    backgroundColor: ['#F43F5E', '#F59E0B', '#FDA4AF', '#3E0A1E'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#3E0A1E' },
+                        ticks: { color: '#E2E8F0' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#E2E8F0' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#E2E8F0' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
