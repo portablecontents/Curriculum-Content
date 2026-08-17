@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Numb Crimson & Hybrid Slate" (Deep Obsidian #090D16, Electric Crimson #DC2626, Cool Slate #64748B, Warm Platinum #F1F5F9, Charcoal Blue #1E293B)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Bold, industrial-themed header and biographical synthesis highlighting his rise from Phoenix, Arizona, to fronting the iconic, genre-defining band Linkin Park.
+2. The Vault: Financial valuation highlighting his $30M estate net worth, record-shattering album sales, and music publishing assets.
+3. The Audience: Responsive demographic charts plotting the multi-generational, global community of rock, metal, and hip-hop listeners.
+4. The Art: Explaining his unparalleled vocal medium (blending melodic vulnerability with raw gut-wrenching screams) and his core literary motifs of internal conflict, anxiety, and cathartic healing.
+5. Seminal Metrics: A vertical bar chart demonstrating the massive global streaming footprint of Linkin Park's defining anthems.
+6. Awards & Philanthropy: Dedicated section highlighting historic Grammy achievements and Chester's profound legacy as a co-founder of the global disaster-relief charity, Music for Relief.
+7. Cultural Lore & Trivia: Spotlighting his early band Grey Daze, tenure fronting Stone Temple Pilots, and his signature flame tattoos.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Chester Bennington</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #090D16;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #DC2626, #F43F5E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#1E293B] to-[#090D16] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#DC2626]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font">CHESTER BENNINGTON</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#DC2626] uppercase display-font">Voice of a Generation • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#DC2626]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born March 20, 1976, in Phoenix, Arizona, Chester Charles Bennington overcame a deeply traumatic childhood marked by severe bullying, abuse, and struggles with addiction. Channeling his emotional scars into poetry and music, he fronted local bands before auditioning in 1999 for an L.A.-based hybrid rock group then known as Xero, which soon became <span class="text-[#DC2626] font-semibold">Linkin Park</span>.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    With the release of their diamond-certified debut album <span class="italic font-semibold text-white">Hybrid Theory</span> in 2000, Chester's soaring, cathartic screams and deeply vulnerable melodies propelled the band to international superstardom. Alongside co-vocalist Mike Shinoda, Chester blended heavy metal, hip-hop, and electronic beats, fundamentally reshaping modern alternative rock for the 21st century.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#64748B]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $30M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Assets & Estate Value:</span><br>
+                    Valued at an estimated $30 Million at the time of his passing in 2017. Income drove from historic catalog sales (over 100 million albums sold globally), massive stadium tours, and songwriting publishing assets.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Linkin Park bridges the gap between classic rock purists, metalheads, hip-hop fans, and electronic music listeners, commanding a massive and diverse multi-generational fanbase worldwide.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While Millennial listeners who grew up with the band's early CDs make up a large portion, active streaming continues to engage Gen Z listeners.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Unlike many traditional heavy rock bands, the emotional vulnerability of Chester's lyrics attracted a highly balanced gender demographic.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Linkin Park remains a truly global stadium act, with passionate streaming footprints stretching across all continents.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1E293B]/40 to-[#090D16] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#DC2626] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Chester’s vocal delivery is legendary, capable of transitioning smoothly from whisper-quiet, soulful verses to powerful, sustained raspy screamo choruses without losing pitch.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#DC2626] bg-opacity-10 text-[#F43F5E] font-semibold rounded-full border border-[#DC2626] border-opacity-30 text-lg">Nu-Metal</span>
+                    <span class="px-4 py-2 bg-[#64748B] bg-opacity-10 text-[#94A3B8] font-semibold rounded-full border border-[#64748B] border-opacity-30 text-lg">Alternative Rock</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Post-Grunge</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#64748B]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🧠</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Internal Conflict & Alienation</h4>
+                            <p class="text-slate-400">Capturing the suffocating, isolating feeling of fighting one's own mind, self-sabotage, and feeling misunderstood by society.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🌊</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Numbness & Emotional Burnout</h4>
+                            <p class="text-slate-400">Exploring the overwhelming exhaustion of trying to live up to others' expectations, resulting in complete emotional detachment.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">☀️</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Adversity, Recovery, & Resilience</h4>
+                            <p class="text-slate-400">Searching for healing, seeking closure, and pushing through deep trauma to find self-sovereignty.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Linkin Park produced multiple landscape-altering projects. Their debut, <span class="font-bold italic text-white">Hybrid Theory (2000)</span>, remains the best-selling debut album of the 21st century. It was followed by the critically and commercially massive <span class="font-bold italic text-white">Meteora (2003)</span> and the experimental, atmospheric <span class="font-bold italic text-white">Minutes to Midnight (2007)</span>.</p>
+                    <div class="bg-[#DC2626] bg-opacity-5 rounded-xl p-4 border border-[#DC2626] border-opacity-25">
+                        <h4 class="font-bold text-[#DC2626] text-lg mb-1 display-font">Streaming Legend</h4>
+                        <p class="text-slate-300">Linkin Park became one of the first rock acts in history to achieve multiple songs in the exclusive **Spotify Billion-Stream Club**, proving their lasting cultural relevance.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Lifetime stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital plays of their ultimate global rock anthems.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#DC2626] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">2 Grammy Awards (including Best Hard Rock Performance - "Crawling")</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🎬</span>
+                        <span class="text-lg text-slate-300 font-semibold">5 MTV Video Music Awards</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">10 Billboard Music Awards</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📈</span>
+                        <span class="text-lg text-slate-300 font-semibold">Diamond Certification from the RIAA (Hybrid Theory)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#64748B]">
+                <h2 class="text-3xl font-bold text-[#64748B] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Music for Relief (Co-Founder)</h4>
+                        <p class="text-slate-400 text-sm">Following the 2004 Indian Ocean tsunami, Linkin Park founded Music for Relief. The charity raised over $9 Million, responding to dozens of natural disasters globally, providing clean water, planting over 1 million trees, and funding solar power suitcases for medical clinics.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Mental Health & Suicide Prevention Legacy</h4>
+                        <p class="text-slate-400 text-sm">Following his tragic passing in 2017, Chester’s family and bandmates co-founded the **320 Changes Direction** initiative, aiming to change the culture around mental health and provide resources for individuals struggling with depression.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#111827] via-[#090D16] to-[#1E293B] text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Cultural Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#DC2626]">🔥</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Flame Tattoos</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Chester's signature flame tattoos on his forearms became iconic. He once joked that when Linkin Park signed their first record contract, his tattoo artist offered to do them for free if the album went gold.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#64748B]">🎙️</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Stone Temple Pilots Tenure</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">A lifelong fan of grunge legends Stone Temple Pilots, Chester fulfilled a childhood dream by fronting the band as their lead singer from 2013 to 2015 following Scott Weiland's departure.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#FEF08A]">🍕</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Early Jobs & Grey Daze</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Before Linkin Park, Chester fronted the post-grunge band Grey Daze in Phoenix, supporting himself financially by working at a local Burger King to cover rent.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["25-44 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [62, 38],
+                    backgroundColor: ['#DC2626', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [53, 47],
+                    backgroundColor: ['#64748B', '#DC2626'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "Western Europe", "South America", "East Asia", "Australia"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 95, 88, 72, 60],
+                    backgroundColor: '#DC2626',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["In the End", "Numb", "What I've Done", "One Step Closer"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Billions)',
+                    data: [2.0, 1.9, 0.9, 0.6], 
+                    backgroundColor: ['#DC2626', '#64748B', '#1E293B', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Billions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
