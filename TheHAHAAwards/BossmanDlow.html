@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Get In Gold & Turf Charcoal" (Stadium Charcoal #0A0C10, Neon Yellow-Gold #EAB308, Turf Green #15803D, Bright Platinum #F8FAFC, Deep Slate #1E293B)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: High-energy, Florida-themed stadium header and biographical synthesis charting his rise from Port Salerno, Florida, to becoming the breakout king of 2024 Florida trap.
+2. The Vault: Financial valuation highlighting his estimated $2M rising-star net worth, independent streaming milestones, club tour fees, and Alamo Records partnership.
+3. The Audience: Interactive Chart.js graphs detailing his highly trend-conscious, Gen Z, and athlete-crossover demographics.
+4. The Art: Explaining his high-tempo, dembow-bouncing Florida trap medium and his major thematic motifs of relentless hustle, unapologetic confidence, and regional Florida pride.
+5. Seminal Metrics: A vertical bar chart demonstrating the massive global streaming footprint of his breakthrough anthems.
+6. Awards & Philanthropy: Dedicated section highlighting his historic Billboard Hot 100 debut and his community sports camp sponsorships in Port Salerno.
+7. Turf Lore & Trivia: Highlighting his name acronym (Determined, Loyal, Outstanding, Wise), his heavy connection to NFL/collegiate athlete culture, and his viral TikTok dance campaigns.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Bossman Dlow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A0C10;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.25);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(234, 179, 8, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #EAB308, #15803D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#15803D]/30 to-[#0A0C10] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#EAB308]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">BOSSMAN DLOW</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#EAB308] uppercase display-font">The Heavyweight of Florida Trap • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#EAB308]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born Devriany Sandifer on August 31, 1998, in Port Salerno, Florida, Bossman Dlow grew up surrounded by the sun-drenched but economically challenging communities of South Florida. Refusing to settle into the background, Sandifer turned his focus toward music in his late teens, channeling Florida’s high-energy, bass-heavy, and rapid-firing street-rap traditions into his early recording sessions.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    Operating under his distinctive alias, Dlow rose rapidly through regional Florida mixtape releases like <span class="italic font-semibold text-[#EAB308]">Too Slippery</span>. In early 2024, his infectious, incredibly high-energy single <span class="text-[#EAB308] font-semibold">"Get In With Me"</span> took over social media and streaming platforms, triggering a major label signing with Alamo Records. Blending athletic, rhythmic dembow bounces with raw, confident Southern hustler anthems, Bossman Dlow has emerged as one of the most culturally dominant breakout rap stars of the mid-2020s.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#15803D]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $2M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Skyrocketing digital streaming royalties, highly lucrative club performance bookings nationwide, major label advances (Alamo Records), custom merchandising, and high-value streetwear endorsements.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Bossman Dlow’s fast-paced, high-energy tracks maintain an incredibly concentrated following among Gen Z, college athletes, and athletic-streetwear cultures.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His high-tempo, club-ready trap beats appeal overwhelmingly to Gen Z and younger Millennials (13–29), who comprise 78% of his active streaming base.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His highly energetic anthems and viral TikTok dance trends attract an incredibly balanced, universal gender split.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While highly centered in Florida and the Southern US, his tracks dominate metropolitan digital playlists nationwide.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1E293B]/40 to-[#0A0C10] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#EAB308] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Dlow’s musical style is characterized by a rapid-fire, heavy-hitting Southern flow layered over pounding 808 sub-bass, bouncing dembow handclaps, and fast-paced brass arrangements typical of the modern Florida trap subgenre.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#EAB308] bg-opacity-10 text-[#EAB308] font-semibold rounded-full border border-[#EAB308] border-opacity-30 text-lg">Florida Trap</span>
+                    <span class="px-4 py-2 bg-[#15803D] bg-opacity-10 text-[#4ADE80] font-semibold rounded-full border border-[#15803D] border-opacity-30 text-lg">Southern Hip-Hop</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Bouncing Dembow Trap</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#15803D]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">⚡</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">The Relentless Hustle & Ambition</h4>
+                            <p class="text-slate-400">Vivid, energetic lyrical portraits depicting constant wealth-building, hard work, escaping poverty, and claiming independent financial sovereignty.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💎</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Unapologetic Confidence</h4>
+                            <p class="text-slate-400">Celebrating self-reliance, overcoming industry doubt, showcasing luxury fashion, and asserting dominance on the microphone.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🌴</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Florida Heritage & Gridiron Culture</h4>
+                            <p class="text-slate-400">Integrating direct Southern slang, regional town references, and high-energy American football metaphors representing competitive triumph.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Dlow’s breakout era is defined by highly successful digital mixtapes and single releases. His 2024 mixtape <span class="font-bold italic text-white">Mr Beat The Road</span> catapulted him to national prominence, supported by the massive, chart-conquering singles <span class="font-bold italic text-white">"Get In With Me"</span> and <span class="font-bold italic text-white">"Mr Pot Scraper"</span>.</p>
+                    <div class="bg-[#EAB308] bg-opacity-5 rounded-xl p-4 border border-[#EAB308] border-opacity-25">
+                        <h4 class="font-bold text-[#EAB308] text-lg mb-1 display-font">Billboard Breakout</h4>
+                        <p class="text-slate-300">"Get In With Me" achieved a historic debut on the Billboard Hot 100 entirely through independent, organic internet momentum—marking a rare and major victory for raw, regional Florida trap.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of his defining high-energy trap anthems.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#EAB308] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">Historic Billboard Hot 100 charting debut ("Get In With Me", 2024)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">#1 on Shazam's US National Charts</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">💿</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple gold/platinum tracking singles in record time</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📈</span>
+                        <span class="text-lg text-slate-300 font-semibold">Featured on prominent global trap & hip-hop editorial playlists</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#15803D]">
+                <h2 class="text-3xl font-bold text-[#15803D] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Supporting Port Salerno Youth Sports</h4>
+                        <p class="text-slate-400 text-sm">Having grown up with a deep passion for athletics, Dlow frequently invests directly back into his hometown. He funds and sponsors local youth sports leagues, providing free athletic equipment, uniforms, and covering league registration fees for low-income families.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">School Supply and Community Aid Drives</h4>
+                        <p class="text-slate-400 text-sm">Organizes and funds annual back-to-school drives in Martin County, distributing free backpacks filled with necessary supplies to underprivileged elementary students, aiming to remove financial educational barriers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#15803D]/10 via-[#0A0C10] to-[#1E293B]/20 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Cultural Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#EAB308]">🧠</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The D.L.O.W. Acronym</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">His iconic stage name "Dlow" isn't just a nickname—it stands as a personal, motivational acronym meaning: **Determined, Loyal, Outstanding, and Wise**.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#15803D]">🏈</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Gridiron Connection</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Dlow's high-energy trap anthems became the unofficial soundtracks of the NFL and collegiate locker rooms, frequently played by athletes and featured in viral post-game celebratory dances.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#6366F1]">🕺</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The TikTok Wave</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">His single "Get In With Me" sparked a massive, organic global dance trend on TikTok. Millions of users, celebrities, and social influencers copied his signature rhythmic movements, accelerating his global breakout.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["13-29 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [78, 22],
+                    backgroundColor: ['#EAB308', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [55, 45],
+                    backgroundColor: ['#15803D', '#EAB308'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["Florida", "Southern US", "East Coast US", "Midwest US", "International"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 88, 75, 60, 30],
+                    backgroundColor: '#15803D',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Get In With Me", "Mr Pot Scraper", "Talk My Shit", "Check"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [120, 75, 55, 40], 
+                    backgroundColor: ['#EAB308', '#15803D', '#1E293B', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
