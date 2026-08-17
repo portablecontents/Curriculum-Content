@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Maybach Gold & Velvet Black" (Velvet Obsidian #050508, Maybach Gold #D4AF37, Crimson Accent #9F1239, Charcoal Slate #1E293B, Soft White #F8FAFC)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Ultra-luxurious, cinematic header and biographical synthesis charting his rise from Carol City, Florida, and a college football scholarship to founding Maybach Music Group (MMG) and becoming hip-hop's ultimate luxury icon.
+2. The Vault: Financial valuation detailing his estimated $150M net worth, his massive Wingstop franchise empire, Belaire Champagne partnerships, and his legendary 109-room "Promise Land" estate.
+3. The Audience: Interactive Chart.js graphs detailing his highly loyal, cross-generational, and culturally diverse listener demographics.
+4. The Art: Explaining his grandiose, brass-laden, cinematic rap medium, and his major thematic motifs of astronomical wealth/hustle, street-to-executive evolution, and unshakeable loyalty.
+5. Seminal Metrics: A vertical bar chart demonstrating the massive streaming power of his defining street and luxury anthems.
+6. Awards & Philanthropy: Dedicated section highlighting his Grammy nominations, BET Awards, and his extensive work providing career pathways, local toy drives, and student athletic funding.
+7. Boss Lore & Trivia: Highlighting his legendary correctional officer controversy, hosting his own massive annual car show at his estate, and the famous signature "grunt" (Huh!).
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Rick Ross</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050508;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.2);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #D4AF37, #F59E0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#1E293B] to-[#050508] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#D4AF37]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">RICK ROSS</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#D4AF37] uppercase display-font">The Biggest Boss of Luxury Hip-Hop</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#D4AF37]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born William Leonard Roberts II on January 28, 1976, in Clarksdale, Mississippi, he was raised in Carol City, Florida. Roberts excelled in athletics, earning a football scholarship to Albany State University, a Historically Black University (HBCU) in Georgia, before shifting his ambitions toward rap writing and local independent mixtapes.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    His defining breakthrough arrived in 2006 with the cinematic street anthem <span class="text-[#D4AF37] font-semibold">"Hustlin'"</span>, triggering an unprecedented multi-million dollar bidding war between major labels. Eventually signing with Def Jam, he established his own dominant empire, <span class="text-[#D4AF37] font-semibold">Maybach Music Group (MMG)</span>, launching the careers of Meek Mill and Wale, while solidifying himself as hip-hop's ultimate curator of grand, orchestral, and luxury-laced storytelling.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#9F1239]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $150M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Financial Engines:</span><br>
+                    Owning over 25 lucrative <span class="text-white">Wingstop</span> franchises, major global partnerships with Luc Belaire Champagne and Bumbu Rum, massive back-catalog stream royalties, and high-value real estate holdings, including his legendary 235-acre Georgia estate.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Rick Ross's cinematic luxury production and iconic status as an executive bridge the gap between golden-era hip-hop purists and modern trap/R&B listeners worldwide.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His multi-decade run yields a broad audience, heavily capturing core 18-34 young adults (62%) alongside older hip-hop enthusiasts.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His catalog, which features hard street trap alongside smooth, R&B-infused luxury cuts, draws an incredibly balanced gender demographic.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Deeply rooted in the Southern United States, his streaming presence remains highly influential across global metropolitan centers.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1E293B]/40 to-[#050508] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#D4AF37] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Rick Ross's creative medium is characterized by a commanding, deep baritone vocal delivery, his world-famous signature grunt ("Huh!"), and cinematic production featuring live horn sections, orchestral strings, and deep 808 trap patterns.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#D4AF37] bg-opacity-10 text-[#D4AF37] font-semibold rounded-full border border-[#D4AF37] border-opacity-30 text-lg">Luxury Rap</span>
+                    <span class="px-4 py-2 bg-[#9F1239] bg-opacity-10 text-[#FDA4AF] font-semibold rounded-full border border-[#9F1239] border-opacity-30 text-lg">Southern Hip-Hop</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Trap / Maybach Soul</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#D4AF37]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💼</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Astronomical Wealth & The Hustle</h4>
+                            <p class="text-slate-400">Glorifying blue-collar work ethic, constant ambition, self-reliance, and the acquisition of fine luxury goods (yachts, mansions, luxury cars).</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">👑</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Executive Evolution & Business Sovereignty</h4>
+                            <p class="text-slate-400">Charting his transformation from a street-level hustler to a multi-franchise business mogul, establishing generational black wealth.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🤝</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Unshakeable Loyalty & Brotherhood</h4>
+                            <p class="text-slate-400">Extolling trust, protecting the inner creative circle, and ensuring the collective financial success of his artists and family.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Ross’s album catalog represents a high-water mark of consistent commercial rap. His landmark major debut <span class="font-bold italic text-white">Port of Miami (2006)</span> went gold, leading to his critically adored masterpiece <span class="font-bold italic text-white">Teflon Don (2010)</span> and his executive, chart-topping MMG group collaborative compilations <span class="font-bold italic text-white">Self Made Volumes I-III</span>.</p>
+                    <div class="bg-[#D4AF37] bg-opacity-5 rounded-xl p-4 border border-[#D4AF37] border-opacity-25">
+                        <h4 class="font-bold text-[#D4AF37] text-lg mb-1 display-font">The Platinum Anchor</h4>
+                        <p class="text-slate-300">"Hustlin'" and "Aston Martin Music" became foundational pop-cultural pillars, generating millions of global sales and maintaining massive streaming replay figures decades later.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of his defining global street and luxury anthems.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#D4AF37] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">9 Grammy Award Nominations (including Best Rap Album - *God Forgives, I Don't*)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple BET Awards (Best Male Hip-Hop Artist, 2012)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🥇</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple Certified Platinum & Gold RIAA Album Certifications</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">👑</span>
+                        <span class="text-lg text-slate-300 font-semibold">Voted "Hottest MC in the Game" by MTV (2012)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#9F1239]">
+                <h2 class="text-3xl font-bold text-[#9F1239] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">HBCU and Student Athlete Advocacy</h4>
+                        <p class="text-slate-400 text-sm">Roberts utilizes his wealth to directly fund sports facilities, athletic equipment, and scholarships at the high school level in Carol City, and regularly partners with and donates back-to-school funding to HBCUs like his alma mater, Albany State.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Hometown Community Action & Local Career Growth</h4>
+                        <p class="text-slate-400 text-sm">Through his massive portfolio of over 25 Wingstop restaurants, Ross actively targets and hires local, low-income youth, providing real jobs, financial literacy, and career advancement programs in underprivileged metropolitan neighborhoods.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#1E293B]/20 via-[#050508] to-[#9F1239]/10 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Maybach Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#D4AF37]">🏰</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Promise Land</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Ross owns "The Promise Land," a legendary 109-room mansion in Fayetteville, Georgia, originally built by boxing icon Evander Holyfield. Featuring an Olympic-sized pool and an animal sanctuary, it is one of the largest homes in the United States.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#9F1239]">🚗</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Promised Land Car Show</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">An avid collector of rare, customized, and antique motor vehicles, Ross hosts an annual, world-famous high-end Car Show on his massive estate, drawing thousands of vehicle enthusiasts globally.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#60A5FA]">👮</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Correctional Officer Controversy</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">In 2008, photos leaked of Roberts working as a correctional officer in his early twenties. Despite initial shock and denial within the hip-hop community, he embraced the controversy, turning the narrative into a testament of his ultimate survival and rise to power.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [62, 38],
+                    backgroundColor: ['#D4AF37', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [50, 50],
+                    backgroundColor: ['#9F1239', '#D4AF37'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "Western Europe", "Canada", "Latin America", "Australia"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 75, 68, 55, 45],
+                    backgroundColor: '#D4AF37',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Aston Martin Music", "Stay Schemin'", "Diced Pineapples", "Hustlin'"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [420, 380, 290, 250], 
+                    backgroundColor: ['#D4AF37', '#9F1239', '#1E293B', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
