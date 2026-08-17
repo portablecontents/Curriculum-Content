@@ -1,0 +1,376 @@
+<!--
+Color Palette: "Classic Rock Amber & Denim" (Rich Cobalt #2563EB, Vibrant Amber #F59E0B, Crimson Rock #DC2626, Deep Slate #0F172A, Crisp White #FFFFFF)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Header and Biography introducing "The Boss" and his journey from New Jersey.
+2. The Vault: Visual spotlight on his massive $650M valuation and historic catalog sale.
+3. The Audience: Responsive charts analyzing generational, gender, and regional appeal.
+4. The Medium & Message: Breakdown of Heartland Rock roots and core narrative themes.
+5. Legacy Sales: Comparative chart showing the global shipments of his most iconic albums.
+6. Awards & Philanthropy: Emphasizing EGOT-level achievements and community food bank efforts.
+7. Heartland Lore: Engaging call-outs featuring his legendary marathon shows and accolades.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Bruce Springsteen (The Boss)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #0F172A;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-r from-[#0F172A] via-[#2563EB] to-[#DC2626] text-white py-16 px-6 shadow-lg mb-10">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 text-[#F59E0B]">THE BOSS</h1>
+            <p class="text-xl md:text-2xl font-light tracking-wide uppercase opacity-90">Bruce Springsteen • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">🎸</span>
+                    <h2 class="text-3xl font-bold text-[#2563EB]">The Origin Story</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-gray-700 mb-4">
+                    Born on September 23, 1949, in Long Branch, New Jersey, Bruce Springsteen grew up in a working-class household in Freehold. Inspired by seeing Elvis Presley on television, he bought his first guitar and began performing in local Jersey shore bars, eventually forming the legendary <span class="font-semibold text-gray-900">E Street Band</span>.
+                </p>
+                <p class="text-lg leading-relaxed text-gray-700">
+                    After his poetic 1973 debut, his 1975 masterpiece <span class="italic font-semibold text-gray-900">Born to Run</span> launched him into international superstardom. Known for his explosive live sets and deeply narrative songwriting, he quickly became the poetic voice of the American working class.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center bg-gradient-to-br from-white to-gray-50 border-t-4 border-[#F59E0B]">
+                <h2 class="text-xl font-bold text-gray-500 uppercase tracking-wider mb-2">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold bg-gradient-to-r from-[#F59E0B] to-[#DC2626] gradient-text mb-4">
+                    $650M
+                </div>
+                <p class="text-sm text-gray-600 border-t border-gray-200 pt-4 w-full">
+                    <span class="font-bold text-gray-800">Primary Income Streams:</span><br>
+                    Sony music catalog sale ($500 Million), decade-spanning arena tours, physical record sales, and Springsteen on Broadway.
+                </p>
+            </div>
+        </section>
+
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-[#2563EB] mb-2 flex items-center"><span class="text-3xl mr-3">👥</span> Demographics & Reach</h2>
+                <p class="text-gray-600 text-lg">Springsteen boasts one of the most dedicated legacy fanbases in rock history. While his core audience spans older generations who grew up with his vinyl records, his live presence continues to convert younger listeners globally.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-gray-800 text-center">Age Distribution</h3>
+                    <p class="text-sm text-center text-gray-500 mb-4">Listeners aged 45 and older make up about 60% of his listener base, with 40% representing active younger generations.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-gray-800 text-center">Gender Split</h3>
+                    <p class="text-sm text-center text-gray-500 mb-4">His fanbase shows a slight masculine leaning, but retains a highly balanced gender split globally.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-gray-800 text-center">Top Global Markets</h3>
+                    <p class="text-sm text-center text-gray-500 mb-4">While deeply rooted in America, his anthemic arena rock has secured massive, loyal markets throughout Europe.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#F59E0B]"><span class="text-3xl mr-3">🥁</span> Medium & Genre</h2>
+                <p class="text-gray-300 mb-6 text-lg">Springsteen pioneered the Heartland Rock genre, characterized by straightforward, energetic musicianship fused with narratives of everyday blue-collar struggles.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#2563EB] bg-opacity-20 text-[#60A5FA] font-semibold rounded-full border border-[#2563EB] border-opacity-50 text-lg">Heartland Rock</span>
+                    <span class="px-4 py-2 bg-[#F59E0B] bg-opacity-20 text-[#FBBF24] font-semibold rounded-full border border-[#F59E0B] border-opacity-50 text-lg">Arena Rock</span>
+                    <span class="px-4 py-2 bg-[#DC2626] bg-opacity-20 text-[#F87171] font-semibold rounded-full border border-[#DC2626] border-opacity-50 text-lg">Folk Rock</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#F59E0B]">
+                <h2 class="text-3xl font-bold text-[#2563EB] mb-6 flex items-center"><span class="text-3xl mr-3">📝</span> Main Themes</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🏭</span>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-lg">Working-Class Struggle</h4>
+                            <p class="text-gray-600">Chronicling blue-collar labor, deindustrialization, economic hardship, and systemic inequality.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🚗</span>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-lg">Escapism & The Highway</h4>
+                            <p class="text-gray-600">The open road as a symbol of freedom, running away from small towns, and seeking redemption.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🗽</span>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-lg">The American Dream</h4>
+                            <p class="text-gray-600">Exploring the disillusionment, shattered promises, and enduring hope within the nation.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-[#2563EB] mb-4 flex items-center"><span class="text-3xl mr-3">📀</span> Most Popular Work</h2>
+                    <p class="text-gray-600 text-lg mb-4">Springsteen's catalog represents some of the highest-selling physical records of all time. His legendary 1984 record <span class="font-bold italic text-gray-900">Born in the U.S.A.</span> spawned seven Top-10 singles, securing its place in pop cultural history.</p>
+                    <div class="bg-[#2563EB] bg-opacity-10 rounded-xl p-4 border border-[#2563EB] border-opacity-30">
+                        <h4 class="font-bold text-[#2563EB] text-lg mb-1">Cultural Benchmark</h4>
+                        <p class="text-gray-800">"Born to Run" and "Thunder Road" are frequently cited on lists of the greatest American songs ever written.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-gray-800 text-center">Global Album Shipments</h3>
+                    <p class="text-sm text-center text-gray-500 mb-4">A look at the sheer commercial scale of his most celebrated studio releases.</p>
+                    <div class="chart-container">
+                        <canvas id="albumsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW SECTION: Awards & Philanthropy -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#2563EB] mb-6 flex items-center"><span class="text-3xl mr-3">🏅</span> Major Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-100">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-gray-800 font-semibold">20 Grammy Awards</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-100">
+                        <span class="text-2xl mr-3">🎬</span>
+                        <span class="text-lg text-gray-800 font-semibold">1 Academy Award (Oscar)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-100">
+                        <span class="text-2xl mr-3">🎭</span>
+                        <span class="text-lg text-gray-800 font-semibold">Special Tony Award (Broadway)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-100">
+                        <span class="text-2xl mr-3">🦅</span>
+                        <span class="text-lg text-gray-800 font-semibold">Presidential Medal of Freedom</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#DC2626]">
+                <h2 class="text-3xl font-bold text-[#DC2626] mb-6 flex items-center"><span class="text-3xl mr-3">❤️</span> Philanthropy & Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-gray-900 text-lg">Food Bank Champion</h4>
+                        <p class="text-gray-600">For decades, Springsteen has invited local food bank representatives to every concert, raising millions for hunger relief worldwide.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 text-lg">Veterans Support</h4>
+                        <p class="text-gray-600">A fierce advocate for military veterans, frequently headlining benefits for the Bob Woodruff Foundation to support wounded servicemembers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-[#2563EB] text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center"><span class="text-3xl mr-3">✨</span> Heartland Lore: Interesting Facts</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white bg-opacity-10 p-6 rounded-xl backdrop-blur-sm hover:bg-opacity-20 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#F59E0B]">⏱️</div>
+                    <h3 class="text-xl font-bold mb-2">Marathon Concerts</h3>
+                    <p class="text-blue-100 leading-relaxed">Springsteen is famous for his high-energy, non-stop stadium shows, routinely performing for 3 to 4 hours with no opening acts or intermissions.</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-6 rounded-xl backdrop-blur-sm hover:bg-opacity-20 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#FF8A8A]">📁</div>
+                    <h3 class="text-xl font-bold mb-2">The Half-Billion Deal</h3>
+                    <p class="text-blue-100 leading-relaxed">In 2021, Bruce sold his publishing rights and master recordings to Sony for $500M, marking one of the largest catalog sales in music history.</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-6 rounded-xl backdrop-blur-sm hover:bg-opacity-20 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#67E8F9]">🎸</div>
+                    <h3 class="text-xl font-bold mb-2">The E-Street Band</h3>
+                    <p class="text-blue-100 leading-relaxed">He has played with the same core backing musicians, The E Street Band, since the early 1970s, establishing deep, lifelong musical brotherhoods.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" } }
+                }
+            }
+        };
+
+        const ageLabels = ["Over 45 Years Old", "Under 45 Years Old"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [60, 40],
+                    backgroundColor: ['#2563EB', '#E2E8F0'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [55, 45],
+                    backgroundColor: ['#2563EB', '#DC2626'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "United Kingdom", "Germany", "Scandinavia", "Australia"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 85, 75, 70, 55],
+                    backgroundColor: '#F59E0B',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { grid: { display: false }, ticks: { font: { family: "'Inter', sans-serif" } } }
+                }
+            }
+        });
+
+        const albumLabels = ["Born in the U.S.A.", "Born to Run", "The Rising", "Nebraska"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('albumsChart'), {
+            type: 'bar',
+            data: {
+                labels: albumLabels,
+                datasets: [{
+                    label: 'Global Sales (Millions)',
+                    data: [30.0, 9.0, 3.0, 1.5],
+                    backgroundColor: ['#DC2626', '#2563EB', '#F59E0B', '#94A3B8'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: '#F1F5F9' },
+                        title: { display: true, text: 'Sales (Millions)', font: { family: "'Inter', sans-serif" } }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
