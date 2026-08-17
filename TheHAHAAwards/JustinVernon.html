@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Wisconsin Winter Pine & Faded Amber" (Cabin Obsidian #0A0A0A, Frosted Pine #14532D, Campfire Amber #D97706, Winter Slate #475569, Off-White Snow #F5F5F4)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Atmospheric, winter-themed header and biographical synthesis charting his journey from Eau Claire, Wisconsin, and a devastating breakup, to the legendary cabin isolation that birthed Bon Iver.
+2. The Vault: Financial valuation highlighting his estimated $10M net worth, his independent Jagjaguwar roots, and his high-profile production/writing credits (Kanye West, Taylor Swift).
+3. The Audience: Interactive Chart.js graphs detailing his highly devoted, introspective Gen Z, Millennial, and alternative folk/electronic crossover listener core.
+4. The Art: Explaining his evolving medium (from raw acoustic fingerpicking to complex, glitchy synth-vocal processing) and his major thematic motifs of existential heartbreak, seasonal isolation, and spiritual rebirth.
+5. Seminal Metrics: A vertical bar chart demonstrating the massive global streaming footprint of his defining indie-folk masterpieces.
+6. Awards & Philanthropy: A dedicated ELA block highlighting his historic Grammy wins (Best New Artist), and his massive local investments in Wisconsin via the Eaux Claires festival and voting rights advocacy.
+7. Cabin Lore & Trivia: Highlighting the mythical "For Emma" cabin origins, the meaning of the name "Bon Iver," and his refusal to conform to mainstream pop industry expectations.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Justin Vernon (Bon Iver)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A0A0A;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(20, 83, 45, 0.15);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(217, 119, 6, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #D97706, #14532D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#14532D]/40 to-[#0A0A0A] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#D97706]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">JUSTIN VERNON</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#D97706] uppercase display-font">The Architect of Bon Iver • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#D97706]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born April 30, 1981, in Eau Claire, Wisconsin, Justin DeYarmond Edison Vernon was heavily involved in local high school jazz and indie-rock bands. Following the dissolution of his band DeYarmond Edison, a devastating romantic breakup, and a bout with mononucleosis, Vernon retreated to his father's remote hunting cabin in Northwestern Wisconsin in late 2006.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    Isolating himself through the harsh winter with only basic recording equipment and acoustic guitars, he created the legendary, soul-baring project <span class="text-[#D97706] font-semibold">For Emma, Forever Ago (2007)</span> under the moniker **Bon Iver**. What began as a personal catharsis evolved into a globally dominant indie-folk phenomenon. Refusing to stagnate, Vernon consistently expanded his sound, becoming a highly sought-after collaborator for global superstars like Kanye West and Taylor Swift, transforming his Wisconsin roots into the epicenter of modern alternative music.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#14532D]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $10M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Continuous indie catalog streaming royalties, massive global arena/festival touring with Bon Iver, high-profile songwriting/production credits for global pop stars, and co-founding the Eaux Claires music festival.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Bon Iver’s highly atmospheric, emotionally raw catalog bridges the gap between purist indie-folk circles, modern alternative pop, and electronic experimentalism, capturing a deeply devoted, multi-generational audience.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His catalog captures an incredibly steady core of Millennials who discovered him in 2007, alongside massive Gen Z streams through his recent collaborative pop works.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His highly vulnerable themes of heartbreak, isolation, and spiritual questioning maintain an exceptionally balanced, universal demographic.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While deeply anchored in the American Midwest and coastal cities, Bon Iver holds massive streaming strongholds across Western Europe and Australia.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#14532D]/30 to-[#0A0A0A] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#D97706] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Vernon's primary medium is defined by his signature, ethereal falsetto. While his origins are rooted in raw acoustic fingerpicking, he systematically evolved to incorporate massive, glitchy synthesizer processing, brass sections, and complex electronic loop sampling.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#D97706] bg-opacity-10 text-[#FCD34D] font-semibold rounded-full border border-[#D97706] border-opacity-30 text-lg">Indie Folk</span>
+                    <span class="px-4 py-2 bg-[#14532D] bg-opacity-20 text-[#A7F3D0] font-semibold rounded-full border border-[#14532D] border-opacity-30 text-lg">Folktronica</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Art Pop / Ambient</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#14532D]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">❄️</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Isolation & Winter Desolation</h4>
+                            <p class="text-slate-400">Using the harsh, frozen, and quiet landscapes of the American Midwest as literal and psychological metaphors for loneliness and healing.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💔</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Existential Heartbreak & Reflection</h4>
+                            <p class="text-slate-400">Deeply poetic, often abstract lyrical examinations of failed relationships, acknowledging personal flaws, and seeking difficult closure.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🌿</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Spiritual Rebirth & Geography</h4>
+                            <p class="text-slate-400">Tying specific geographic locations (cities, rivers, states) to profound moments of personal change, spiritual awakening, and connection.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">His discography tracks a breathtaking sonic evolution. The raw, acoustic cabin origins of <span class="font-bold italic text-white">For Emma, Forever Ago (2007)</span> gave way to the lush, orchestral majesty of his self-titled <span class="font-bold italic text-white">Bon Iver (2011)</span>, and the deeply experimental, electronic glitch-pop of <span class="font-bold italic text-white">22, A Million (2016)</span> and <span class="font-bold italic text-white">i,i (2019)</span>.</p>
+                    <div class="bg-[#D97706] bg-opacity-5 rounded-xl p-4 border border-[#D97706] border-opacity-25">
+                        <h4 class="font-bold text-[#D97706] text-lg mb-1 display-font">The Crossover Catalyst</h4>
+                        <p class="text-slate-300">Through his massive vocal contributions to Taylor Swift's *folklore* and *evermore*, and Kanye West's *My Beautiful Dark Twisted Fantasy*, Vernon became a crucial, hidden architect of mainstream pop and hip-hop.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of his definitive global indie anthems.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#D97706] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">2 Grammy Awards (Best New Artist & Best Alternative Music Album, 2012)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">10 Total Career Grammy Nominations (including Record and Song of the Year)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🥇</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple RIAA Multi-Platinum Single Certifications ("Skinny Love", "Holocene")</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🎸</span>
+                        <span class="text-lg text-slate-300 font-semibold">Universal critical praise as an Album of the Decade defining artist</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#14532D]">
+                <h2 class="text-3xl font-bold text-[#14532D] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Wisconsin Civic Engagement & Voting Rights</h4>
+                        <p class="text-slate-400 text-sm">Deeply invested in his home state's political future, Vernon frequently organizes local "For Wisconsin" initiatives. He uses his platform to drive voter registration, support democratic grassroots movements, and fund local Midwest civil rights programs.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Gender Equity in Music (2 A Billion)</h4>
+                        <p class="text-slate-400 text-sm">Through his **2 A Billion** campaign, Bon Iver donates concert proceeds directly to local organizations focused on ending domestic violence, promoting gender equity, and providing safe shelters for marginalized communities at every single tour stop.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#14532D]/20 via-[#0A0A0A] to-[#D97706]/10 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Cabin Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#F5F5F4]">🇫🇷</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Origin of the Name</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">The name "Bon Iver" is derived from the French phrase "bon hiver," meaning "good winter." Vernon heard the phrase while watching the television show *Northern Exposure* during his cabin isolation.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#D97706]">🏟️</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Eaux Claires Festival</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">To bring economic and cultural value back to his hometown, he co-founded the Eaux Claires music festival in Wisconsin, transforming the rural town into an international destination for independent artists and fans.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#475569]">🎶</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Messina Instrument</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Working with his sound engineer, Vernon developed a completely custom software instrument called "The Messina" (named after the engineer), which allowed him to play heavily harmonized, synthesized vocal chords live via keyboard.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [70, 30],
+                    backgroundColor: ['#D97706', '#14532D'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [50, 50],
+                    backgroundColor: ['#14532D', '#D97706'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "United Kingdom", "Canada", "Australia", "Western Europe"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 85, 75, 65, 50],
+                    backgroundColor: '#D97706',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Skinny Love", "Holocene", "Rosyln", "exile (w/ Taylor Swift)"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [1100, 750, 680, 850], 
+                    backgroundColor: ['#D97706', '#14532D', '#475569', '#1E293B'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
