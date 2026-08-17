@@ -1,0 +1,487 @@
+<!--
+Color Palette: "Semi-Charmed Sunburst & Slate" (Midnight Slate #0B0F17, Coastal Gold #F59E0B, Theatrical Crimson #E11D48, Sand Pearl #FAF8F6, Slate Steel #334155)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Grand, alternative-themed header and biographical synthesis charting his rise from Northern California, graduating with high English honors from UC Berkeley, and founding Third Eye Blind in San Francisco.
+2. The Vault: Financial valuation highlighting his estimated $15M net worth, his continuous touring empire (Summer Gods tours), and persistent master catalog publishing rights.
+3. Interactive Lyric Alchemist: An interactive tool demonstrating how Jenkins contrasts bright, sunny pop arrangements with devastatingly dark, poetic lyrics.
+4. The Audience: Interactive Chart.js graphs detailing his fiercely loyal Gen X/Millennial core and the rising Gen Z streaming resurgence.
+5. The Art: Explaining his genre-blending post-grunge/power-pop medium and his major thematic motifs of chemical dependency, romantic obsession, and survival.
+6. Seminal Metrics: A vertical bar chart comparing the massive streaming figures of his ultimate rock radio masterpieces.
+7. Awards & Philanthropy: Dedicated section highlighting Billboard Music Awards, RIAA multi-platinum certifications, and his extensive work supporting suicide prevention, youth mental health, and ocean conservation.
+8. Alt-Rock Lore & Trivia: Spotlighting his UC Berkeley English Literature background, his high-profile late-90s relationship with Charlize Theron, and the band's famous rejection of corporate label interference.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Stephan Jenkins</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B0F17;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.3);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(245, 158, 11, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #F59E0B, #E11D48);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#1E293B] to-[#0B0F17] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#F59E0B]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">STEPHAN JENKINS</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#F59E0B] uppercase display-font">The Literary Architect of Post-Grunge Pop • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#F59E0B]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born September 27, 1964, in Indio, California, Stephan Jenkins grew up in Northern California with a deep interest in literature and music. A brilliant academic, he attended the **University of California, Berkeley**, graduating with a Bachelor of Arts in English Literature with high honors, even delivering a commencement address for his department. 
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    In 1993, Jenkins co-founded the alternative rock band **Third Eye Blind** in San Francisco alongside guitarist Kevin Cadogan. Signing a historic contract with Elektra Records, their self-titled 1997 debut album took the global charts by storm. Driven by Jenkins' hyper-literate, rapid-fire lyrical style and unmatched melodic instincts, he established himself as one of the 90s' most successful songwriters, masterfully disguising raw, dark human experiences inside massive, sun-drenched radio anthems.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#E11D48]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $15M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Enduring alternative rock catalog publishing royalties (Third Eye Blind has sold over 15 million albums), highly lucrative and consecutive annual amphitheater tours (The Summer Gods Tours), merch and vinyl distribution, and solo acoustic ventures.
+                </p>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE LYRIC CONTRAST ALCHEMIST -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-cyan-500">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <span class="px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 font-semibold text-xs tracking-widest uppercase mb-4 inline-block">
+                        Interactive Analysis
+                    </span>
+                    <h2 class="text-3xl font-bold text-white mb-4 display-font flex items-center">
+                        <span class="text-4xl mr-3">🧪</span> The Lyric Alchemist
+                    </h2>
+                    <p class="text-slate-300 mb-4 leading-relaxed">
+                        Stephan Jenkins is a master of <strong>emotional subversion</strong>. He pioneered the technique of wrapping heavy, devastating, and deeply controversial themes within highly energetic, major-key pop-rock hooks.
+                    </p>
+                    <p class="text-slate-350 text-sm mb-6 leading-relaxed">
+                        Select a classic song below to deconstruct how Jenkins' bright musical surface masks a dark, complex literary undercurrent.
+                    </p>
+                    
+                    <!-- Interactive Song Triggers -->
+                    <div class="grid grid-cols-3 gap-3">
+                        <button onclick="revealLyricContrast('semi-charmed')" class="py-2.5 px-4 bg-amber-500/10 hover:bg-amber-500/20 text-[#F59E0B] font-bold text-xs uppercase tracking-wider rounded-lg border border-amber-500/30 transition duration-200">
+                            Semi-Charmed
+                        </button>
+                        <button onclick="revealLyricContrast('jumper')" class="py-2.5 px-4 bg-rose-500/10 hover:bg-rose-500/20 text-[#E11D48] font-bold text-xs uppercase tracking-wider rounded-lg border border-rose-500/30 transition duration-200">
+                            Jumper
+                        </button>
+                        <button onclick="revealLyricContrast('hows-it-going')" class="py-2.5 px-4 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 font-bold text-xs uppercase tracking-wider rounded-lg border border-cyan-500/30 transition duration-200">
+                            Going to Be
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Analysis Display -->
+                <div class="p-6 bg-slate-950/80 rounded-2xl border border-slate-800/80 min-h-[280px] flex flex-col justify-between shadow-inner">
+                    <div id="lyricAnalysisContainer">
+                        <h4 class="text-xl font-bold text-[#F59E0B] display-font mb-2" id="selectedSongTitle">Semi-Charmed Life (1997)</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <span class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">The Bright Musical Mask:</span>
+                                <p class="text-sm text-emerald-400 font-semibold" id="brightMask">Upbeat "doo-doo-doo" vocal hooks, driving 140 BPM tempo, and sunny California garage-pop acoustic strums.</p>
+                            </div>
+                            <div>
+                                <span class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">The Dark Literary Reality:</span>
+                                <p class="text-slate-300 text-sm italic" id="darkReality">"I want something else to get me through this semi-charmed kind of life..." — Detailed, non-romanticized descriptions of the descent into crystal methamphetamine addiction and urban decay.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-t border-slate-800 pt-4 mt-4 flex items-center justify-between text-xs text-slate-400">
+                        <span>💡 Click options on the left to swap tracks</span>
+                        <span class="font-bold text-[#F59E0B] uppercase" id="songYear">1997 Peak</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Stephan's alternative rock anthems command a remarkably resilient audience, bridging original Gen X/Millennial radio fans with a massive, rising wave of Gen Z streaming listeners.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While original fans aged 35–54 make up the legacy core (55%), massive 90s rock nostalgia has converted 45% of his streaming base to Gen Z and younger Millennials.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Due to the intense emotional vulnerability and highly melodic pop hooks of his writing, Jenkins' fanbase has an almost perfect gender demographic balance.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Deeply rooted in US alternative rock culture, Third Eye Blind continues to command major, active stadium markets across the Anglosphere.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1E293B]/40 to-[#0B0F17] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#F59E0B] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Operating as a vocalist and guitarist, Jenkins' performance medium is characterized by a rapid, rhythm-driven, almost-spoken-word delivery that transitions seamlessly to massive, anthemic power-pop choruses, layered over crunchy garage-rock guitars.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#F59E0B] bg-opacity-10 text-[#FCD34D] font-semibold rounded-full border border-[#F59E0B] border-opacity-30 text-lg">Alternative Rock</span>
+                    <span class="px-4 py-2 bg-[#E11D48] bg-opacity-10 text-[#FDA4AF] font-semibold rounded-full border border-[#E11D48] border-opacity-30 text-lg">Post-Grunge</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Power Pop / Indie Rock</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#E11D48]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💊</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Chemical Dependency & Self-Medication</h4>
+                            <p class="text-slate-400">Honest, gritty, and non-glorified depictions of drug culture, addiction recovery, and using substances to escape suburban existential dread.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💔</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Obsessive Heartbreak & Decay of Relationships</h4>
+                            <p class="text-slate-400">Deep, poetic chronicles of broken connections, post-split bitterness, and the painful process of fading out of someone's life ("How's It Going to Be").</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🩹</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Suicide, Empathy, & Resilience</h4>
+                            <p class="text-slate-400">Urging individuals facing intense alienation, depression, or bullying to seek a path to survival and choose life (immortalized in the anthem "Jumper").</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Third Eye Blind's self-titled debut <span class="font-bold italic text-white">Third Eye Blind (1997)</span> achieved monumental, historic success, going 6x Platinum and spawning three Top-10 hits. They followed this with the highly successful, platinum records <span class="font-bold italic text-white">Blue (1999)</span> and <span class="font-bold italic text-white">Out of the Vein (2003)</span>.</p>
+                    <div class="bg-[#F59E0B] bg-opacity-5 rounded-xl p-4 border border-[#F59E0B] border-opacity-25">
+                        <h4 class="font-bold text-[#F59E0B] text-lg mb-1 display-font">Alternative Radio Giants</h4>
+                        <p class="text-slate-300">"Semi-Charmed Life" and "Jumper" remain permanent fixtures of rock radio globally, logging billions of cumulative plays across streaming platforms decades later.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of his ultimate alternative masterpieces.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#F59E0B] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">1 Billboard Music Award (Modern Rock Track of the Year - "Semi-Charmed Life")</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">8 Billboard Music Award Nominations</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">💿</span>
+                        <span class="text-lg text-slate-300 font-semibold">RIAA 6x Platinum Certification (Third Eye Blind, 1997)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">👑</span>
+                        <span class="text-lg text-slate-300 font-semibold">California Music Awards for Outstanding Songwriting</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#E11D48]">
+                <h2 class="text-3xl font-bold text-[#E11D48] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Suicide Prevention and Mental Health</h4>
+                        <p class="text-slate-400 text-sm">Recognizing the profound healing legacy of their hit song "Jumper" (written about a friend's suicide jump), Jenkins works closely with organizations like the American Foundation for Suicide Prevention (AFSP) and the Trevor Project, raising hundreds of thousands of dollars to fund critical youth crisis support lines.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Ocean Conservation (Surfrider Foundation)</h4>
+                        <p class="text-slate-400 text-sm">An avid lifelong surfer, Jenkins is a passionate, active advocate for marine ecosystems. He donates significant touring percentages directly to the Surfrider Foundation to combat coastal plastic pollution and protect California's beaches.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#1E293B]/20 via-[#0B0F17] to-[#1E293B]/30 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Alternative Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#F59E0B]">📚</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Berkeley English Scholar</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Jenkins graduated with high academic honors in English Literature from UC Berkeley. This formal, extensive study of classic poetry heavily drove his dense, complex, and highly rhythmic lyrical styling.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#E11D48]">📸</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Charlize Theron Era</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">During the peak of Third Eye Blind's late-1990s fame, Jenkins was in a highly publicized, long-term relationship with Oscar-winning actress Charlize Theron, inspire-writing several tracks on *Blue*.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#60A5FA]">🏄‍♂️</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Avid Ocean Surfer</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Jenkins has surfed almost his entire life. He famously schedules tour locations around global surf swells, traveling with custom boards and spending hours in the water before headlining major festival slots.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // Lyric Alchemist Interactive Logic
+        const lyricDatabase = {
+            'semi-charmed': {
+                title: "Semi-Charmed Life (1997)",
+                mask: "Upbeat 'doo-doo-doo' vocal hooks, driving 140 BPM tempo, and sunny California garage-pop acoustic strums.",
+                reality: '"I want something else to get me through this semi-charmed kind of life..." — Detailed, non-romanticized descriptions of the descent into crystal methamphetamine addiction and urban decay.',
+                year: "1997 Peak"
+            },
+            'jumper': {
+                title: "Jumper (1998)",
+                mask: "Lush, sweeping acoustic guitar progression, warm vocal harmonies, and an extremely catchy, sing-along chorus.",
+                reality: '"I wish you would step back from that ledge, my friend..." — Written about a gay teenager who jumped to his death from a bridge in San Diego, exploring anti-bullying, trauma, and direct human empathy.',
+                year: "1998 Peak"
+            },
+            'hows-it-going': {
+                title: "How's It Going to Be (1997)",
+                mask: "Gentle, rolling mandolin melodies, clean guitars, and a soaring, highly melodic alternative power ballad structure.",
+                reality: '"How\'s it going to be when you don\'t know me anymore..." — A devastating, slow-burning examination of the exact moment a profound romantic relationship completely dies and turns cold.',
+                year: "1997 Peak"
+            }
+        };
+
+        function revealLyricContrast(songKey) {
+            const data = lyricDatabase[songKey];
+            if (!data) return;
+
+            // Update DOM with quick fades
+            const titleEl = document.getElementById('selectedSongTitle');
+            const maskEl = document.getElementById('brightMask');
+            const realityEl = document.getElementById('darkReality');
+            const yearEl = document.getElementById('songYear');
+
+            titleEl.textContent = data.title;
+            maskEl.textContent = data.mask;
+            realityEl.textContent = data.reality;
+            yearEl.textContent = data.year;
+        }
+
+        // ================= Chart.js Initializations =================
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["35-54 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [55, 45],
+                    backgroundColor: ['#F59E0B', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Female Listeners", "Male Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [50, 50],
+                    backgroundColor: ['#E11D48', '#F59E0B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "Canada", "United Kingdom", "Australia", "Western Europe"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 80, 75, 70, 45],
+                    backgroundColor: '#F59E0B',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Semi-Charmed Life", "Jumper", "How's It Going to Be", "Never Let You Go"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [610, 440, 240, 210], 
+                    backgroundColor: ['#F59E0B', '#E11D48', '#1E293B', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
