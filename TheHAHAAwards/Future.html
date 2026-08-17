@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Pluto Purple & Freebandz Gold" (Deep Space Obsidian #0B0A10, Pluto Purple #9333EA, Freebandz Gold #D97706, Toxic Green #22C55E, Slate Charcoal #1E293B)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Dark, atmospheric Atlanta trap-themed header and biographical synthesis charting his rise from the Dungeon Family collective to becoming the most influential architect of modern, melodic toxic trap.
+2. The Vault: Financial valuation highlighting his estimated $50M net worth, his Freebandz label imprint, and massive global streaming/feature royalties.
+3. The Audience: Interactive Chart.js graphs detailing his fiercely loyal, heavily youth-concentrated, and predominantly male listener base.
+4. The Art: Explaining his revolutionary vocal medium (heavy auto-tune, mumbled melodies) and his core thematic motifs of toxic romance, street hedonism, and emotional numbness.
+5. Seminal Metrics: A vertical bar chart demonstrating the massive global streaming footprint of his most culturally dominant anthems.
+6. Awards & Philanthropy: Spotlight on his Grammy wins, historic Billboard #1 runs, and his FreeWishes Foundation supporting Atlanta youth and seniors.
+7. Trap Lore & Trivia: Highlighting his "Pluto" alter ego, his legendary 2014-2015 mixtape run, and his origins in the Dungeon Family.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Future</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B0A10;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(147, 51, 234, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #9333EA, #D97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#1E293B]/60 to-[#0B0A10] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#9333EA]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">FUTURE</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#9333EA] uppercase display-font">The Architect of Melodic Trap</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#9333EA]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born Nayvadius DeMun Cash on November 20, 1983, in Atlanta, Georgia, he grew up immersed in the city's legendary rap culture. He found early mentorship within the **Dungeon Family** collective, where his cousin Rico Wade encouraged him to hone his writing skills. Earning the nickname "The Future," he relentlessly dropped street mixtapes, establishing a reputation for tireless studio work ethics.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    His defining, culture-shifting run occurred between 2014 and 2015, dropping consecutive classic mixtapes like <span class="italic font-semibold text-white">Monster</span> and <span class="italic font-semibold text-white">DS2 (Dirty Sprite 2)</span>. By weaponizing auto-tune to convey dark, emotional numbness over heavy Southern production, Future completely revolutionized the vocal soundscape of global hip-hop, inspiring a massive wave of "melodic trap" artists and becoming one of the most commercially dominant rappers of the 21st century.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#D97706]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $50M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Astronomical global streaming metrics, his highly successful independent record label <span class="text-white italic">Freebandz</span>, massive arena/festival touring guarantees, and serving as the most sought-after feature artist in modern rap.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Future's dark, club-ready anthems command a massive, highly dedicated, and youth-concentrated demographic that dictates global hip-hop and streetwear trends.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His high-tempo, heavy 808 production appeals overwhelmingly to Gen Z and Millennials, who comprise 78% of his active streaming base.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His heavy emphasis on "toxic" romantic dynamics, street hustle, and late-night excess draws a predominantly male demographic.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While highly centered in US urban hubs (especially Atlanta), his streaming footprint spans globally across Europe and Africa.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1E293B]/40 to-[#0B0A10] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#9333EA] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Future's primary medium is his revolutionary use of vocal pitch-correction (auto-tune). Rather than using it to sound perfect, he uses it to warp his raspy, mumbled melodies into a dark, emotional instrument over heavy Southern sub-bass and fast hi-hats.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#9333EA] bg-opacity-10 text-[#C084FC] font-semibold rounded-full border border-[#9333EA] border-opacity-30 text-lg">Southern Trap</span>
+                    <span class="px-4 py-2 bg-[#D97706] bg-opacity-10 text-[#FBBF24] font-semibold rounded-full border border-[#D97706] border-opacity-30 text-lg">Mumble Rap</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Melodic Hip-Hop</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#22C55E]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💔</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Toxic Romance & Distrust</h4>
+                            <p class="text-slate-400">Deep, often cynical lyrics exploring broken relationships, emotional manipulation, and prioritizing financial success over romantic loyalty.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💊</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Substance Reliance & Emotional Numbness</h4>
+                            <p class="text-slate-400">Darkly reflecting on the use of lean, prescription pills, and excess to numb the psychological pain of past trauma and current fame.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💸</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">The Grind & Lavish Escapism</h4>
+                            <p class="text-slate-400">Celebrating astronomical wealth-building, expensive fashion, and chaotic late-night club environments as the ultimate rewards for street survival.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Future's catalog is defined by unparalleled prolific output. His legendary 2014-2015 mixtape run (<span class="font-bold italic text-white">Monster</span>, <span class="font-bold italic text-white">Beast Mode</span>, <span class="font-bold italic text-white">56 Nights</span>) completely reshaped modern rap. He achieved ultimate commercial dominance with albums like <span class="font-bold italic text-white">DS2 (2015)</span>, <span class="font-bold italic text-white">HNDRXX (2017)</span>, and <span class="font-bold italic text-white">I NEVER LIKED YOU (2022)</span>.</p>
+                    <div class="bg-[#9333EA] bg-opacity-5 rounded-xl p-4 border border-[#9333EA] border-opacity-25">
+                        <h4 class="font-bold text-[#9333EA] text-lg mb-1 display-font">The Drake Alliance</h4>
+                        <p class="text-slate-300">His collaborative mixtape with Drake, *What a Time to Be Alive* (2015), became a cultural phenomenon, achieving multi-platinum status and spawning the diamond-certified single "Jumpman."</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of his most commercially dominant trap anthems.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#9333EA] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">3 Grammy Awards (including Best Melodic Rap Performance)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📈</span>
+                        <span class="text-lg text-slate-300 font-semibold">First artist to achieve two #1 albums in consecutive weeks (*Future* and *HNDRXX*)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">💎</span>
+                        <span class="text-lg text-slate-300 font-semibold">RIAA Diamond Certified Single ("Life Is Good" with Drake)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple BET Hip Hop Awards and American Music Awards</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#D97706]">
+                <h2 class="text-3xl font-bold text-[#D97706] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">The FreeWishes Foundation</h4>
+                        <p class="text-slate-400 text-sm">Founded by Future alongside his mother and sister, this Atlanta-based foundation provides critical resources to underserved local communities. They frequently host massive Thanksgiving food drives, Christmas toy giveaways, and back-to-school backpack distributions.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Senior Citizen Support</h4>
+                        <p class="text-slate-400 text-sm">During the pandemic and extreme heatwaves, FreeWishes heavily funded programs to assist Atlanta's elderly populations, purchasing groceries, installing air conditioning units, and organizing wellness check-ins for isolated seniors.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#1E293B]/20 via-[#0B0A10] to-[#9333EA]/20 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Trap Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#9333EA]">🚀</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The "Pluto" Alter Ego</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Future frequently refers to himself as "Pluto," a moniker that represents his desire to push the boundaries of earthly sound and exist on a completely different, isolated creative planet.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#D97706]">🏰</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Dungeon Family</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">He was heavily mentored early on by the legendary Atlanta hip-hop collective "The Dungeon Family" (which included Outkast). He got his "Future" nickname from members who told him he was the "future of rap."</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#22C55E]">🔥</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Mixtape King</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Following a difficult public breakup and a mixed reaction to his sophomore pop-leaning album, he retreated to the studio and released three massive, gritty street mixtapes in under a year, completely reviving and skyrocketing his career.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [78, 22],
+                    backgroundColor: ['#9333EA', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [65, 35],
+                    backgroundColor: ['#1E293B', '#9333EA'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "Western Europe", "Canada", "Africa", "Australia"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 75, 70, 60, 45],
+                    backgroundColor: '#9333EA',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Mask Off", "Life Is Good", "Wait For U", "March Madness"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Billions/Millions)',
+                    data: [1.6, 1.5, 1.2, 0.4], 
+                    backgroundColor: ['#9333EA', '#D97706', '#22C55E', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Billions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
