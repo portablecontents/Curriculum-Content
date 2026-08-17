@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Heartbreak Rose & Champagne Gold" (Velvet Plum #12040D, Dusty Rose #F472B6, Champagne Gold #F59E0B, Soft Sand #FAFAF9, Slate Plum #2E1026)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Soulful, retro-tinged header and biographical synthesis charting her rise from foster care in Oakland, California, to early mentorship by MC Hammer, her breakout debut, and her status as the "Princess of Hip-Hop Soul."
+2. The Vault: Financial valuation highlighting her estimated $8M net worth, continuous catalog streaming royalties, historic reality television production, and live performances.
+3. The Audience: Interactive Chart.js graphs detailing her highly devoted, female-leaning, and deeply passionate R&B listener base.
+4. The Art: Explaining her soul-baring vocal medium (defined by high-emotion, raspy belts) and her major thematic motifs of toxic heartbreak, personal resilience, and maternal/family loyalty.
+5. Seminal Metrics: A vertical bar chart illustrating the streaming power of her defining, soul-stirring R&B anthems.
+6. Awards & Philanthropy: Dedicated section highlighting her Grammy nominations, historic BET reality TV ratings, and her advocacy work for foster youth and single mothers.
+7. Soul Lore & Trivia: Highlighting her childhood meeting with Tupac Shakur, her record-breaking BET reality show run, and her Oakland roots.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Keyshia Cole</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #12040D;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(46, 16, 38, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(244, 114, 182, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #F472B6, #F59E0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#2E1026] to-[#12040D] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#F472B6]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">KEYSHIA COLE</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#F472B6] uppercase display-font">The Princess of Hip-Hop Soul • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#F472B6]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born October 15, 1981, in Oakland, California, Keyshia Cole overcame an incredibly challenging childhood, spent primarily in the foster care system before being adopted. Finding her voice and escaping her surrounding hardships through music, she was introduced to and mentored by Oakland legend **MC Hammer** at just twelve years old.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    Driven by an unrelenting determination, she moved to Los Angeles at age 18 to pursue a recording contract. Her raw, gospel-inflected R&B style culminated in her platinum-selling 2005 debut album <span class="text-[#F472B6] font-semibold">The Way It Is</span>. By infusing traditional soul singing with the grit and realities of modern street life, Keyshia established herself as a vital voice for women dealing with heartbreak and resilience.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#F59E0B]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $8M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Steady global R&B streaming royalties, headlining and co-headlining tours, executive production and starring salaries from her record-breaking BET reality television franchises, and songwriting residuals.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Keyshia's emotionally transparent lyrics and street-soul anthems command a fiercely loyal, heavily female-leaning audience spanning R&B, hip-hop, and adult contemporary communities.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While her core base consists of Millennials who grew up with her early 2000s CDs, active streaming engages a rising tier of younger R&B enthusiasts.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Her raw, empowering, and vulnerability-driven anthems of romantic survival draw a heavily female-skewing listener split.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Highly dominant across North American markets, her catalog has also established a robust international diaspora footprint.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#2E1026]/40 to-[#12040D] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#F472B6] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Keyshia's vocal performance medium is defined by her distinct, raw, and high-register gospel-trained belt, allowing her to deliver immense emotional intensity over hard hip-hop beats.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#F472B6] bg-opacity-10 text-[#F472B6] font-semibold rounded-full border border-[#F472B6] border-opacity-30 text-lg">R&B / Hip-Hop Soul</span>
+                    <span class="px-4 py-2 bg-[#F59E0B] bg-opacity-10 text-[#FCD34D] font-semibold rounded-full border border-[#F59E0B] border-opacity-30 text-lg">Contemporary Soul</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Urban Pop</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#F59E0B]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💔</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Toxic Heartbreak & Romantic Deception</h4>
+                            <p class="text-slate-400">Deep, raw, and highly relatable narratives exploring infidelity, betrayal, emotional games, and moving on (prominent in "I Should Have Cheated").</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💪</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Resilience & Female Empowerment</h4>
+                            <p class="text-slate-400">Finding the strength to walk away from toxic dynamics, reclaiming personal sovereignty, and thriving independently (central to "Let It Go").</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🏠</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Family Struggle & Intergenerational Reconciliation</h4>
+                            <p class="text-slate-400">Reflecting openly on biological family ties, foster care trauma, addiction recovery, and fighting to heal generational wounds.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Keyshia's catalog features an incredibly successful run of multi-platinum records. Her breakthrough debut <span class="font-bold italic text-white">The Way It Is (2005)</span> laid the groundwork for her chart-topping, Grammy-nominated masterpieces <span class="font-bold italic text-white">Just Like You (2007)</span> and <span class="font-bold italic text-white">A Different Me (2008)</span>.</p>
+                    <div class="bg-[#F472B6] bg-opacity-5 rounded-xl p-4 border border-[#F472B6] border-opacity-25">
+                        <h4 class="font-bold text-[#F472B6] text-lg mb-1 display-font">The Ultimate R&B Anthem</h4>
+                        <p class="text-slate-300">Her timeless masterpiece ballad "Love" spent over 50 weeks on the Billboard Hot R&B/Hip-Hop Songs chart, cementing its place as one of the most celebrated and highly covered love songs of the 21st century.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital plays on Spotify for her defining R&B classics.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#F472B6] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">4 Grammy Award Nominations (including Best Female R&B Vocal Performance - "Heaven Sent")</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple Soul Train Music Awards & ASCAP Rhythm & Soul Awards</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📺</span>
+                        <span class="text-lg text-slate-300 font-semibold">Record-Breaking BET Reality TV Ratings (The Way It Is)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📈</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple Consecutive Platinum RIAA Album Certifications</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#F59E0B]">
+                <h2 class="text-3xl font-bold text-[#F59E0B] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Foster Youth & Adoption Advocacy</h4>
+                        <p class="text-slate-400 text-sm">Having been adopted herself, Keyshia is a passionate advocate for foster youth. She works closely with various national foster-care organizations, raising millions of dollars and speaking publicly to help remove systemic barriers for kids awaiting adoption.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Single Motherhood & Women's Support Groups</h4>
+                        <p class="text-slate-400 text-sm">Frequently partners with local community shelters to fund therapy, offer resources, and provide direct financial aid to single mothers dealing with domestic struggles, aiming to provide the structural support she lacked growing up.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#2E1026]/40 via-[#12040D] to-[#1E293B]/20 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Cultural Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#F472B6]">🌹</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Meeting Tupac Shakur</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">At just 12 years old, Keyshia met hip-hop icon Tupac Shakur in Los Angeles. He recognized her singing talent and promised to collaborate with her when she grew older, a pivotal moment of artistic validation.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#F59E0B]">📺</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Reality TV Pioneer</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Her landmark 2006 reality show, *Keyshia Cole: The Way It Is*, was one of the most-watched programs in BET history. By documenting her real-life family healing and struggles, she set a new standard for raw television transparency.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#60A5FA]">🎤</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Oakland Roots</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Growing up in Oakland, Keyshia recorded early music alongside her brother and local friends, developing a unique, raw musical style that heavily contrasted with the more polished R&B of the era.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [65, 35],
+                    backgroundColor: ['#F472B6', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Female Listeners", "Male Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [68, 32],
+                    backgroundColor: ['#F59E0B', '#F472B6'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "Western Europe", "Canada", "Africa", "Japan"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 75, 68, 60, 45],
+                    backgroundColor: '#FDBA74',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Love", "Let It Go", "Heaven Sent", "I Should Have Cheated"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [520, 310, 240, 180], 
+                    backgroundColor: ['#F472B6', '#F59E0B', '#2E1026', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#2E1026' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
