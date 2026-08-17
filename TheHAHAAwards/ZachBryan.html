@@ -1,0 +1,392 @@
+<!--
+Color Palette: "American Folk Amber & Charcoal" (Deep Wood Obsidian #0E0C0B, Warm Whiskey Amber #D97706, Faded Denim #3B82F6, Bone Cream #FAF8F5, Iron Ore Slate #1F2937)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Bold, rustic header and biographical synthesis charting his rise from a US Navy active-duty service member self-recording songs in the Florida heat to selling out global arenas as an independent-minded outlaw folk superstar.
+2. The Vault: Financial valuation highlighting his massive independent stream royalties, record-shattering live ticket sales, and $25M net worth.
+3. The Audience: Interactive Chart.js graphs detailing his unique crossover fanbase spanning country, indie folk, and mainstream rock listeners.
+4. The Art: Explaining his raw, acoustic medium and his major thematic motifs of small-town nostalgia, grief, military brotherhood, and bittersweet regrets.
+5. Seminal Metrics: A vertical bar chart comparing the multi-billion streaming figures of his ultimate folk-country classics.
+6. Awards & Philanthropy: Spotlight on his Grammy, ACM achievements, veteran advocacy, and his stance on keeping ticket prices affordable for working-class fans.
+7. Cultural Lore & Trivia: Highlighting his Florida Airbnb recording origins, his official honorable discharge by the US Navy, and his legendary live album "All My Homies Hate Ticketmaster".
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Zach Bryan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0E0C0B;
+            color: #E5E7EB;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(31, 41, 55, 0.3);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(217, 119, 6, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #D97706, #F59E0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#1F2937] to-[#0E0C0B] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#D97706]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-5xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">ZACH BRYAN</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#D97706] uppercase display-font">The Poetic Voice of Modern Folk-Country</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#D97706]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born April 2, 1996, in Okinawa, Japan, while his family was deployed overseas, Zach Bryan grew up in Oologah, Oklahoma. He enlisted in the US Navy at age 17, following family tradition. During active service, Zach began writing songs to cope with the isolation of deployment, self-recording acoustic videos on his iPhone with his friends in the muggy Florida heat.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    His raw, unvarnished delivery exploded on YouTube with "Heading South," leading to his self-released debut album <span class="text-[#D97706] font-semibold">DeAnn</span> (named after his late mother). Bypassing traditional Nashville radio pipelines, the US Navy honorably discharged him in 2021 after eight years of service so he could fulfill his musical calling, launching him into the forefront of alternative American music.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#3B82F6]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $25M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Massive independent streaming catalog dividends, consecutive sold-out stadium and arena tours, songwriting publishing catalog rights, physical vinyl sales, and merchandise distribution.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Zach Bryan's raw style bridges the gap between classic outlaw country and contemporary indie folk, amassing a fiercely loyal, multi-genre following among younger audiences.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His organic, non-radio-engineered sound appeals immensely to Gen Z and younger Millennials, who comprise 65% of his active listener base.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His highly emotional lyrics, vulnerability, and acoustic arrangements draw an exceptionally balanced, universal gender split.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">While deeply rooted in rural and suburban North America, his streaming footprint continues to grow throughout Australia and the UK.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1F2937]/40 to-[#0E0C0B] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#D97706] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Zach Bryan's music is defined by unpolished, gravelly vocals, simple acoustic guitar strumming, prominent mandolin/fiddle chords, and a complete lack of modern pitch-correction.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#D97706] bg-opacity-10 text-[#D97706] font-semibold rounded-full border border-[#D97706] border-opacity-30 text-lg">Indie Folk / Americana</span>
+                    <span class="px-4 py-2 bg-[#3B82F6] bg-opacity-10 text-[#60A5FA] font-semibold rounded-full border border-[#3B82F6] border-opacity-30 text-lg">Outlaw Country</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Heartland Rock</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#3B82F6]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🍂</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Grief, Memory, & Late Mother</h4>
+                            <p class="text-slate-400">Deep, painful thematic reflections on losing his mother, honoring family heritage, and processing terminal grief (pivotal in *DeAnn*).</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🍻</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Late-Night Driving & Small-Town Life</h4>
+                            <p class="text-slate-400">Vivid snapshots of endless highway miles, small-town blue-collar life, local bars, and nostalgic youth.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🪖</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Military Brotherhood & Regret</h4>
+                            <p class="text-slate-400">Raw stories of deployment, military camaraderie, survivor's guilt, and navigating the transitions of personal identity.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Zach's catalog represents an incredibly prolific run of continuous projects. His major label debut, the 34-track epic <span class="font-bold italic text-white">American Heartbreak (2022)</span>, was followed by his self-titled 2023 masterpiece <span class="font-bold italic text-white">Zach Bryan</span>, and his raw, evocative 2024 album, <span class="font-bold italic text-white">The Great American Bar Scene</span>.</p>
+                    <div class="bg-[#D97706] bg-opacity-5 rounded-xl p-4 border border-[#D97706] border-opacity-25">
+                        <h4 class="font-bold text-[#D97706] text-lg mb-1 display-font">Streaming Powerhouse</h4>
+                        <p class="text-slate-300">His signature track "Something in the Orange" spent over 65 weeks on the Billboard Hot 100, becoming the longest-charting solo country single of the 21st century.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of his defining catalog highlights.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#D97706] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">1 Grammy Award (Best Country Duo/Group - "I Remember Everything")</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🎸</span>
+                        <span class="text-lg text-slate-300 font-semibold">ACM New Male Artist of the Year (2023)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">4 Billboard Music Awards (including Top Rock Artist and Top Rock Album)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📈</span>
+                        <span class="text-lg text-slate-300 font-semibold">Double-Platinum Certification by the RIAA (American Heartbreak)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#3B82F6]">
+                <h2 class="text-3xl font-bold text-[#3B82F6] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">The "All My Homies" Fair Pricing Fight</h4>
+                        <p class="text-slate-400 text-sm">Bryan actively combats predatory secondary ticket-market pricing. He famously capped ticket prices on his 2023 tour, restricted transfers, and opted out of Ticketmaster's dynamic pricing scheme to protect working-class fans.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Veteran & Active Duty Support</h4>
+                        <p class="text-slate-400 text-sm">Frequently supports and donates performance revenues to organizations assisting veterans with PTSD, transition programs, and housing support across North America.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#1F2937]/30 via-[#0E0C0B] to-[#1F2937]/40 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Cultural Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#D97706]">🏠</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Hot Airbnb</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">His debut album, *DeAnn*, was recorded by Zach and his military friends inside a boiling Florida Airbnb over a single weekend with no professional soundproofing or high-end gear.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#3B82F6]">🪖</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Honorable Discharge</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">He was honorably discharged from the US Navy in 2021 specifically to fulfill his musical calling. The Navy recognized his massive global talent and allowed him to pursue it full-time.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#EF4444]">🎟️</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">"All My Homies..."</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Following ticket-purchasing frustrations for his fans, he released a live album recorded at Red Rocks titled "All My Homies Hate Ticketmaster", making his political and consumer stance clear.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [65, 35],
+                    backgroundColor: ['#D97706', '#1F2937'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [51, 49],
+                    backgroundColor: ['#3B82F6', '#D97706'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "Canada", "Australia", "United Kingdom", "Western Europe"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 85, 75, 55, 30],
+                    backgroundColor: '#D97706',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Something in the Orange", "I Remember Everything", "Heading South", "Pink Skies"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Billions)',
+                    data: [1.6, 1.4, 0.9, 0.7], 
+                    backgroundColor: ['#D97706', '#3B82F6', '#1F2937', '#4B5563'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1F2937' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Billions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
