@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Vintage Peach & Espresso" (Deep Espresso #1C1310, Warm Peach #FFEDD5, Honey Gold #F59E0B, Off-White Sand #F9F6F0, Muted Slate #334155)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Bold, soulful header and biographical synthesis detailing his journey from Oshawa and homeless street busking to global R&B superstardom.
+2. The Vault: Financial valuation highlighting his independent career pathways, label ownership (Golden Child), and $12M net worth.
+3. The Audience: Interactive Chart.js graphs detailing his highly romantic Gen Z and Millennial consumer core.
+4. The Art: Explaining his vocal medium, gospel roots, and his major thematic motifs of religious conflict, obsessive romance, and existential longing.
+5. Seminal Metrics: A vertical bar chart comparing the multi-billion streaming figures of his ultimate soul classics.
+6. Awards & Philanthropy: Spotlight on his Grammy Award, Juno achievements, and his support for Canadian youth music communities.
+7. Cultural Lore: Highlights of his Seventh-day Adventist choir roots, live organic recording style, and major cross-genre collaborative milestones.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Daniel Caesar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1C1310;
+            color: #E7E5E4;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(39, 26, 21, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(253, 186, 116, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #FDBA74, #F59E0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#271A15] to-[#1C1310] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#FDBA74]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font">DANIEL CAESAR</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#FDBA74] uppercase display-font">The Modern Voice of Neo-Soul • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#FDBA74]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born Ashton Dumar Norwill Simmonds on July 30, 1995, in Oshawa, Ontario, Caesar was raised in a strict, deeply religious Seventh-day Adventist household. After clashing with his parents over his musical ambitions, he was kicked out of his home at age 17, moving to Toronto where he slept in parks and busked on streets while recording early acoustic tracks.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    His breakthrough arrived independently in 2017 with his self-funded, Grammy-nominated debut album <span class="text-[#FDBA74] font-semibold">Freudian</span>. Fusing raw acoustic soul, gospel choirs, and vulnerable contemporary R&B harmonies, Caesar established himself as a dominant creative force, bypassing traditional major label avenues to achieve global critical acclaim.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#F59E0B]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $12M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Global streaming revenue, sold-out international headline tours, songwriting publishing residuals, and master recording ownership under his independent label imprint, <span class="text-white italic">Golden Child Recordings</span>.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Caesar's smooth, romantic vocals appeal heavily to Gen Z and younger Millennials, cultivating an exceptionally devoted global fanbase centered in major urban areas.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His acoustic-laced neo-soul resonates profoundly with young adults, who constitute 70% of his listener database.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His romantic and emotionally vulnerable R&B ballads attract a slightly higher female demographic split.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">He commands massive streaming markets in the US and Canada, alongside an incredibly passionate consumer base in Southeast Asia.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#271A15]/40 to-[#1C1310] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#FDBA74] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Daniel Caesar’s sound is defined by warm analog instrumentation, intricate gospel choir backing vocals, and raw, unprocessed guitar loops paired with intimate falsettos.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#FDBA74] bg-opacity-10 text-[#FDBA74] font-semibold rounded-full border border-[#FDBA74] border-opacity-30 text-lg">Contemporary R&B</span>
+                    <span class="px-4 py-2 bg-[#F59E0B] bg-opacity-10 text-[#F59E0B] font-semibold rounded-full border border-[#F59E0B] border-opacity-30 text-lg">Neo-Soul</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Gospel-Soul</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#F59E0B]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🙏</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Religious Guilt & Salvation</h4>
+                            <p class="text-slate-400">Deep internal tension between carnal desire, Seventh-day Adventist guilt, biblical imagery, and spiritual redemption (prominent in *Freudian*).</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💞</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Obsessive Infatuation & Intimacy</h4>
+                            <p class="text-slate-400">Capturing the physical and psychological codependency of romantic devotion, vulnerability, and absolute submission.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🌌</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Existential Longing & Solitude</h4>
+                            <p class="text-slate-400">Reflecting on depression, isolation, and searching for peace amidst sudden global recognition.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">His catalog stands as a masterclass in modern soul. The breakthrough <span class="font-bold italic text-white">Freudian (2017)</span> laid the groundwork for his experimental album <span class="font-bold italic text-white">Case Study 01 (2019)</span> and his richly textured, critically adored 2023 release, <span class="font-bold italic text-white">NEVER ENOUGH</span>.</p>
+                    <div class="bg-[#FDBA74] bg-opacity-5 rounded-xl p-4 border border-[#FDBA74] border-opacity-25">
+                        <h4 class="font-bold text-[#FDBA74] text-lg mb-1 display-font">Streaming Giant</h4>
+                        <p class="text-slate-300">"Best Part" and "Get You" became generational wedding and romance anthems, generating billions of digital streams and solidifying his global commercial footprints.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of his defining catalog highlights.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#FDBA74] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">1 Grammy Award (Best R&B Performance - "Best Part" in 2019)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🍁</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple Juno Awards (including R&B/Soul Recording of the Year)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple Soul Train Music Award Nominations</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🥇</span>
+                        <span class="text-lg text-slate-300 font-semibold">Certified Multi-Platinum by RIAA and Music Canada</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#F59E0B]">
+                <h2 class="text-3xl font-bold text-[#F59E0B] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Canadian Creative Youth Collectives</h4>
+                        <p class="text-slate-400 text-sm">Remembering his struggles as a homeless teenager in Toronto, Caesar actively funds and donates recording gear to independent creative spaces and youth shelters in Ontario, giving low-income artists access to professional studios.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Mental Health & Marginalized Community Support</h4>
+                        <p class="text-slate-400 text-sm">Publicly advocates for therapy, speaking transparently about his struggles with sudden isolation and faith crises, and routinely donates performance earnings to organizations offering mental health counseling in inner-city communities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#271A15]/40 via-[#1C1310] to-[#1E293B] text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Cultural Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#FDBA74]">⛪</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Adventist Choir</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">His unique vocal arrangements and gospel harmonies were developed directly during his childhood years, singing in Oshawa Seventh-day Adventist choir ensembles.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#F59E0B]">📻</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Independent Path</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Despite massive offers from global major labels, Caesar chose to release his breakthrough *Freudian* independently under his own imprint, securing complete artistic control.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#60A5FA]">🍑</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Peaches Connection</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Co-wrote and was featured on Justin Bieber's historic #1 Billboard smash "Peaches," earning Caesar global recognition and his first #1 on the Hot 100.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [70, 30],
+                    backgroundColor: ['#FDBA74', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Female Listeners", "Male & Other"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [56, 44],
+                    backgroundColor: ['#F59E0B', '#FDBA74'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "Southeast Asia", "Canada", "United Kingdom", "Japan"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 90, 85, 60, 40],
+                    backgroundColor: '#FDBA74',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Best Part (feat. H.E.R.)", "Get You (feat. Kali Uchis)", "Always", "Japanese Denim"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Billions)',
+                    data: [1.3, 1.1, 0.5, 0.4], 
+                    backgroundColor: ['#FDBA74', '#F59E0B', '#334155', '#271A15'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#271A15' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Billions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
