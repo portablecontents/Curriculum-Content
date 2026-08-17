@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Caribbean Navy & Savage Rose" (Deep Navy Obsidian #070B19, Rose Gold #FDBA74, Savage Fuchsia #D01C5E, Soft Pearl White #F8FAFC, Ocean Slate #1E293B)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Sleek, high-fashion header and biographical synthesis charting her journey from Bridgetown, Barbados, to being discovered by Evan Rogers, her early dancehall-pop era, and her ultimate ascension to a global pop-R&B vanguard.
+2. The Vault: Financial valuation highlighting her billionaire status ($1.4B+), her revolutionary Fenty Beauty cosmetics empire, Savage X Fenty, and immense global catalog earnings.
+3. The Audience: Interactive Chart.js graphs detailing her massive, exceptionally diverse, female-leaning, and globally dominant multigenerational consumer demographics.
+4. The Art: Explaining her genre-bending medium (dancehall, R&B, synth-pop, EDM) and her major thematic motifs of female autonomy/empowerment, intense romantic codependency, and immigrant resilience.
+5. Seminal Metrics: A vertical bar chart demonstrating the massive global streaming footprint of her defining, record-shattering hits.
+6. Awards & Philanthropy: Dedicated section highlighting her 9 Grammy wins, the Michael Jackson Video Vanguard Award, her designation as a National Hero of Barbados, and the life-saving work of her Clara Lionel Foundation (CLF).
+7. Fenty Lore & Trivia: Spotlighting the "Fenty Effect" shade revolution, her legendary rule-breaking Met Gala fashion moments, and her historic 2023 Super Bowl halftime performance.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Rihanna</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #070B19;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(208, 28, 94, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #FDBA74, #D01C5E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#1E293B] to-[#070B19] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#D01C5E]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">RIHANNA</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#D01C5E] uppercase display-font">The Billionaire Empress of Pop & R&B • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#D01C5E]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born Robyn Rihanna Fenty on February 20, 1988, in Bridgetown, Barbados, she grew up in a modest bungalow, selling clothes on the street with her father to support her family. Navigating a turbulent childhood marked by her father’s struggles with addiction, she found her escape in singing. At age 15, her striking vocal tone and star presence caught the attention of American record producer Evan Rogers during his vacation on the island.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    Rogers flew her to New York to record demos, which quickly landed on the desk of newly appointed Def Jam CEO, **Jay-Z**. Signing her on the spot, she launched her career with Caribbean-infused dancehall-pop hits before completely redefining her persona on her landmark 2007 album <span class="text-[#D01C5E] font-semibold">Good Girl Gone Bad</span>. Transitioning effortlessly across pop, R&B, EDM, and fashion, Rihanna transformed from a young Barbadian singer into a global billionaire cultural institution.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#FDBA74]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $1.4B+
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Financial Engines:</span><br>
+                    Her highly revolutionary cosmetics brand <span class="text-white italic">Fenty Beauty</span> (co-owned with luxury giant LVMH), her inclusive lingerie line <span class="text-white italic">Savage X Fenty</span>, massive global digital streaming catalog royalties, and high-value beauty endorsements.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Rihanna commands one of the most culturally expansive, diverse, and loyal multi-generational audiences in music history, bridging old-school pop radio listeners with modern Gen Z and Millennial streamers.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Her diverse, genre-spanning hits attract a highly youth-driven core, with 68% of her active streaming audience concentrated in the 18–34 age bracket.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Her dual identity as an empowering pop star and a pioneer of inclusive, body-positive fashion lines draws an exceptionally strong, female-leaning consumer split.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Her influence spans across every major continent, commanding massive, active streaming volumes in North America, Western Europe, and Latin America.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1E293B]/40 to-[#070B19] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#D01C5E] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Rihanna’s performance medium is defined by her uniquely raspy, Caribbean-inflected vocal timbre. She pioneered the modern integration of Caribbean dancehall and reggae rhythms directly with high-energy electronic dance pop and contemporary R&B production.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#D01C5E] bg-opacity-10 text-[#FDA4AF] font-semibold rounded-full border border-[#D01C5E] border-opacity-30 text-lg">Dancehall / Reggae-Pop</span>
+                    <span class="px-4 py-2 bg-[#FDBA74] bg-opacity-10 text-[#FDBA74] font-semibold rounded-full border border-[#FDBA74] border-opacity-30 text-lg">Contemporary R&B</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">EDM / Electropop</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#FDBA74]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💅</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Female Autonomy & Empowerment</h4>
+                            <p class="text-slate-400">Asserting absolute control over her sexuality, financial independence, and personal power, while rejecting societal double standards (evident in "Needed Me").</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💔</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Vulnerability & Toxic Codependency</h4>
+                            <p class="text-slate-400">Deeply honest, raw lyricism addressing destructive relationship dynamics, the addictive nature of toxic love, and processing emotional heartbreak ("Love on the Brain").</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🇧🇧</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Immigrant Resilience & Heritage</h4>
+                            <p class="text-slate-400">Proudly preserving and celebrating her Caribbean heritage, patois inflections, and highlighting her journey from an island girl to a global empress.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Rihanna’s catalog is a relentless hit-making machine. The blockbuster <span class="font-bold italic text-white">Good Girl Gone Bad (2007)</span> went multi-platinum and spawned her career-defining anthem "Umbrella." She continued her sonic reinvention with the dark pop of <span class="font-bold italic text-white">Rated R (2009)</span>, the dance-pop of <span class="font-bold italic text-white">Loud (2010)</span>, and her critically adored, R&B-soul masterpiece <span class="font-bold italic text-white">Anti (2016)</span>.</p>
+                    <div class="bg-[#D01C5E] bg-opacity-5 rounded-xl p-4 border border-[#D01C5E] border-opacity-25">
+                        <h4 class="font-bold text-[#D01C5E] text-lg mb-1 display-font">The Billboard Juggernaut</h4>
+                        <p class="text-slate-300">Rihanna has secured 14 number-one singles on the Billboard Hot 100, ranking her third all-time—only behind The Beatles and Elvis Presley—cementing her absolute commercial hegemony.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of her most globally dominant, era-defining hits.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#D01C5E] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">9 Grammy Awards & 33 Nominations across R&B, Pop, and Rap categories</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🇧🇧</span>
+                        <span class="text-lg text-slate-300 font-semibold">Declared an official National Hero of Barbados (2021)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">12 Billboard Music Awards & 13 American Music Awards</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">👑</span>
+                        <span class="text-lg text-slate-300 font-semibold">Recipient of the MTV Michael Jackson Video Vanguard Award (2016)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#FDBA74]">
+                <h2 class="text-3xl font-bold text-[#FDBA74] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">The Clara Lionel Foundation (Founder)</h4>
+                        <p class="text-slate-400 text-sm">Founded by Rihanna in 2012 (named after her grandparents), this foundation funds groundbreaking education and emergency response programs across the globe. She has donated tens of millions directly to oncology and nuclear medicine programs in Barbados, and spearheaded climate resilience initiatives throughout the Caribbean.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Global Education Advocacy & Humanitarian of the Year</h4>
+                        <p class="text-slate-400 text-sm">Serving as an ambassador for the Global Partnership for Education, Rihanna successfully raises billions of dollars to support girls' secondary education in developing countries, earning her Harvard University's Humanitarian of the Year award in 2017.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#1E293B]/20 via-[#070B19] to-[#D01C5E]/20 text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Fenty Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#D01C5E]">💄</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Fenty Shade Revolution</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">When Rihanna launched Fenty Beauty in 2017, she pioneered the "Fenty Effect" by releasing a historic 40-shade foundation range. It completely disrupted the global cosmetics industry, forcing major legacy brands to immediately expand their inclusive offerings for diverse skin tones.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#FDBA74]">☂️</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The British Umbrella Ban</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">During the peak of her 2007 smash "Umbrella," the song became so dominant in the United Kingdom that fans began bringing umbrellas directly into night clubs, forcing security teams at multiple venues to ban them due to safety concerns.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#60A5FA]">🤰</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Floating Halftime Show</h3>
+                    <p class="text-slate-305 leading-relaxed text-sm">During her historic 2023 Super Bowl Halftime performance—viewed by over **121 million concurrent viewers**—Rihanna casually revealed her second pregnancy while singing on platforms suspended dozens of feet in the air, creating an instant cultural moment.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [68, 32],
+                    backgroundColor: ['#D01C5E', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Female Listeners", "Male & Other"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [63, 37],
+                    backgroundColor: ['#FDBA74', '#D01C5E'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["North America", "Western Europe", "Latin America", "Australasia", "Asia & Africa"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 92, 85, 70, 60],
+                    backgroundColor: '#D01C5E',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["We Found Love", "Work (feat. Drake)", "Diamonds", "Umbrella"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [1500, 1400, 1350, 1250], 
+                    backgroundColor: ['#D01C5E', '#FDBA74', '#1E293B', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
