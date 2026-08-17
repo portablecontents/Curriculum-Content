@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Ice-Pop Silver & Blue" (Deep Obsidian #090D16, Frosted Ice Blue #38BDF8, Metallic Chrome #94A3B8, Pure White #FFFFFF, Cool Slate #1E293B)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Sleek, high-energy header and biographical synthesis charting her unique transition from a world-class elite competitive dancer to an international chart-topping pop sensation.
+2. The Vault: Financial valuation highlighting her massive streaming numbers, international arena tours, brand sponsorships (like lululemon), and $8M net worth.
+3. The Audience: Interactive Chart.js graphs detailing her highly engaged Gen Z, heavily female, and global streaming consumer core.
+4. The Art: Explaining her creative medium (high-energy pop vocals integrated with elite athletic choreography) and her major thematic motifs of toxic relationship games, heartbreak, and emotional defensive walls.
+5. Seminal Metrics: A vertical bar chart comparing the multi-million streaming figures of her ultimate pop anthems.
+6. Awards & Philanthropy: Spotlight on her Juno Awards, Billboard nominations, and her advocacy for young dancers and mental health in the performing arts.
+7. Cultural Lore: Highlights of her historic run on "So You Think You Can Dance", her early YouTube bedroom songwriting beginnings, and her athletic training.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Tate McRae</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #090D16;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #38BDF8, #94A3B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#1E293B] to-[#090D16] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#38BDF8]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">TATE MCRAE</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#38BDF8] uppercase display-font">The Choreography-Pop Powerhouse • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#38BDF8]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born July 1, 2003, in Calgary, Canada, Tate Rosner McRae spent her early childhood in Oman before returning to Canada to pursue intense dance training. Performing at an elite level, she became the first Canadian finalist on the American reality show <span class="text-[#38BDF8] font-semibold">"So You Think You Can Dance"</span> at just 13 years old.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    While her athletic dance career was soaring, Tate secretly wrote raw, introspective piano ballads in her bedroom, uploading her first original track "One Day" to YouTube in 2017. The video went viral, triggering a massive bidding war and signing with RCA Records. By fusing her breathtaking, athletic dance abilities with high-tempo, infectious pop hooks, Tate emerged as a rare, complete double-threat visual entertainer on the global pop stage.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#94A3B8]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $8M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Global music streams (exceeding billions of plays), sold-out international arena tours, major brand sponsorships (such as her global deal with lululemon), music video syndication, and songwriting credits.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Tate's visually stunning, highly energetic pop records and TikTok-viral choreography cultivate a highly concentrated, passionate fanbase centered heavily in Gen Z and female audiences.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Her high-energy pop music and relatable, heartbreak-centric lyrics appeal heavily to Gen Z, with 70% of her core streaming base aged 13–24.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Her introspective lyricism and viral dance routines attract a significantly female-skewing listener demographic split.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Tate possesses massive streaming strongholds across Canada, the United States, the United Kingdom, and Australasia.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#1E293B]/40 to-[#090D16] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#38BDF8] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Tate McRae bridges the gap between classic radio teen pop and modern choreography-heavy visual media, delivering crisp pop vocals designed for physically demanding stage performances.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#38BDF8] bg-opacity-10 text-[#38BDF8] font-semibold rounded-full border border-[#38BDF8] border-opacity-30 text-lg">Dance-Pop</span>
+                    <span class="px-4 py-2 bg-[#94A3B8] bg-opacity-10 text-[#CBD5E1] font-semibold rounded-full border border-[#94A3B8] border-opacity-30 text-lg">Contemporary Pop</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Synth-Pop</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#94A3B8]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💔</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Betrayal & Romantic Deception</h4>
+                            <p class="text-slate-400">Deep thematic focus on discovering a partner's dishonesty, processing unexpected heartbreak, and reclaiming power (evident in "you broke me first").</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🎭</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Romantic Obsession & Desire</h4>
+                            <p class="text-slate-400">Exploring the intoxicating, competitive nature of fast romance and the adrenaline of mutual infatuation (central to "greedy").</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🛡️</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Emotional Walls & Trust Issues</h4>
+                            <p class="text-slate-400">Coping with the defense mechanisms built after past trauma, navigating trust issues, and trying to protect one's peace of mind.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Tate's early work was highlighted by her breakthrough EP <span class="font-bold italic text-white">too young to be sad (2021)</span>, leading to her debut studio album <span class="font-bold italic text-white">i used to think i could fly (2022)</span> and her massive, chart-conquering 2023 sophomore release, <span class="font-bold italic text-white">think later</span>.</p>
+                    <div class="bg-[#38BDF8] bg-opacity-5 rounded-xl p-4 border border-[#38BDF8] border-opacity-25">
+                        <h4 class="font-bold text-[#38BDF8] text-lg mb-1 display-font">Chart Disruptor</h4>
+                        <p class="text-slate-300">With her single "greedy" reaching the coveted #1 spot on the Billboard Global 200 and the Spotify Global Charts, Tate secured her place among the elite modern pop hitmakers.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">A comparison of lifetime digital plays on Spotify for her defining global singles.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#38BDF8] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🍁</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple Juno Awards (including Artist of the Year and Album of the Year)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">📊</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple Billboard Music Award Nominations</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🎬</span>
+                        <span class="text-lg text-slate-300 font-semibold">MTV Video Music Award (VMA) Nominations</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🌍</span>
+                        <span class="text-lg text-slate-300 font-semibold">Included in Forbes 30 Under 30 (Music List)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#94A3B8]">
+                <h2 class="text-3xl font-bold text-[#94A3B8] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Supporting Creative Youth & Local Dance Scholarships</h4>
+                        <p class="text-slate-400 text-sm">Remembering her intense, expensive training years, McRae frequently donates funds, sponsors equipment, and creates competitive scholarships for low-income youth at local Canadian dance academies to help them bypass financial entry barriers.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Mental Health in the Performing Arts</h4>
+                        <p class="text-slate-400 text-sm">A vocal advocate for young performers, she works with organizations to speak transparently about the intense psychological pressures of early-career success, body image in dance, and prioritizing mental health.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#111827] via-[#090D16] to-[#1E293B] text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Cultural Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#38BDF8]">🤸</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">SYTYCD History</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">At just 13, Tate made history as the very first Canadian finalist on the prominent American show *So You Think You Can Dance*, placing second runner-up in the children's division.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#94A3B8]">🎹</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Bedroom Beginnings</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Her viral song "One Day" was written entirely on her bedroom keyboard and filmed on her phone camera, proving her initial organic appeal before any major production backing.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#F59E0B]">🎙️</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Voice Acting Talents</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Before her music career dominated her time, Tate was a talented voice actress, lending her voice to characters in animated series such as the Lalaloopsy franchise.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["13-24 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [70, 30],
+                    backgroundColor: ['#38BDF8', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Female Listeners", "Male & Other"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [62, 38],
+                    backgroundColor: ['#94A3B8', '#38BDF8'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["Canada", "United States", "United Kingdom", "Australia", "Germany"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 95, 88, 80, 55],
+                    backgroundColor: '#38BDF8',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["greedy", "you broke me first", "exes", "run for the hills"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Billions)',
+                    data: [1.3, 1.2, 0.4, 0.3], 
+                    backgroundColor: ['#38BDF8', '#94A3B8', '#1E293B', '#475569'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Billions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
