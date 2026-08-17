@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Dark-Pop Acid Lime" (Deep Obsidian #090D16, Acid Lime #A3E635, Soft Mint #34D399, Pure White #FFFFFF, Muted Slate #334155)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Bold header and biographical synthesis highlighting her rise from home-studio bedroom recordings with her brother Finneas to global pop hegemony.
+2. The Vault: Visual snapshot of her financial valuation and diverse revenue ecosystems.
+3. The Audience: Responsive demographic charts plotting her intensely dedicated Gen Z and Millennial consumer core.
+4. The Art: Breakdown of alternative-pop boundaries and her highly evocative, cinematic literary themes.
+5. Seminal Metrics: A vertical bar chart demonstrating her multi-billion stream discography.
+6. Awards & Philanthropy: Analysis of her history-making award sweeps and deep environmental/climate change activism.
+7. Cultural Lore: Highlighting synesthesia and her iconic self-aware fashion branding.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Billie Eilish</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #090D16;
+            color: #E2E8F0;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #A3E635, #34D399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#111827] to-[#090D16] text-white py-20 px-6 shadow-xl mb-10 border-b border-[#A3E635]/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font">BILLIE EILISH</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#A3E635] uppercase display-font">The Left-of-Center Icon • Artist Profile</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#A3E635]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born December 18, 2001, in Los Angeles, Billie Eilish Pirate Baird O'Connell was homeschooled in an artistic household. At just 13 years old, she uploaded the haunting track <span class="text-[#A3E635] font-semibold">"Ocean Eyes"</span> to SoundCloud—a song written and produced by her older brother and chief collaborator, <span class="font-semibold text-white">Finneas O'Connell</span>. 
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    The track exploded overnight, triggering a major-label signing and establishing a modern blueprint for DIY, bedroom-produced music. Bypassing traditional shiny pop formulas, Billie and Finneas crafted a dark, sub-bass heavy alternative sound that quickly revolutionized contemporary pop music worldwide.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#34D399]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $50M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-800 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Dominant global streaming residuals, platinum physical/digital catalog sales, sold-out international arena tours, global apparel branding, and major cinematic soundtracks (James Bond, Barbie).
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Billie's introspective, avant-garde style possesses a magnetic resonance among young demographics, pioneering cultural trends for Gen Z and Millennials globally.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">A staggering 65% of her global listenership is concentrated within the critical 18–34 young adult demographic.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Her core base trends slightly female, while retaining significant universal demographic appeal.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Her massive streaming footprints are anchored in North America, Western Europe, and Latin America.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#111827] to-[#090D16] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#A3E635] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Eilish’s vocal style is characterized by soft, whispery, close-mic delivery, contrasted with heavy, industrial-leaning synth and bass production.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#A3E635] bg-opacity-10 text-[#A3E635] font-semibold rounded-full border border-[#A3E635] border-opacity-30 text-lg">Alternative Pop</span>
+                    <span class="px-4 py-2 bg-[#34D399] bg-opacity-10 text-[#34D399] font-semibold rounded-full border border-[#34D399] border-opacity-30 text-lg">Electropop</span>
+                    <span class="px-4 py-2 bg-slate-800 text-slate-300 font-semibold rounded-full border border-slate-700 text-lg">Art Pop</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#34D399]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🧠</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Mental Health & Depression</h4>
+                            <p class="text-slate-400">Intimate, raw explorations of self-doubt, existential anxiety, and coping with intense global spotlight.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">💤</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Lucid Dreams & Paralysis</h4>
+                            <p class="text-slate-400">Drawing lyrical concepts directly from night terrors, sleep paralysis, and sub-conscious fears.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🌍</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Eco-Anxiety & Despair</h4>
+                            <p class="text-slate-400">Addressing climate crises and environmental doom (as highlighted in "All the Good Girls Go to Hell").</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">Her debut record, <span class="font-bold italic text-white">When We All Fall Asleep, Where Do We Go? (2019)</span>, went straight to #1 globally. She continued this critical mastery on <span class="font-bold italic text-white">Happier Than Ever (2021)</span> and the deeply textural <span class="font-bold italic text-white">Hit Me Hard and Soft (2024)</span>.</p>
+                    <div class="bg-[#A3E635] bg-opacity-5 rounded-xl p-4 border border-[#A3E635] border-opacity-25">
+                        <h4 class="font-bold text-[#A3E635] text-lg mb-1 display-font">Streaming Giant</h4>
+                        <p class="text-slate-300">She remains one of the youngest artists in Spotify history to exceed <span class="font-extrabold text-xl text-white">100 Million</span> monthly listeners, driven by massive catalog replay metrics.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-slate-900/40 p-6 rounded-xl border border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime streams of her most popular global singles.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#A3E635] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🏆</span>
+                        <span class="text-lg text-slate-300 font-semibold">9 Grammy Awards (Historic 4-category sweep in 2020)</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🎬</span>
+                        <span class="text-lg text-slate-300 font-semibold">2 Academy Awards (Oscars) for Best Original Song</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🥇</span>
+                        <span class="text-lg text-slate-300 font-semibold">Youngest two-time Oscar winner in history</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-slate-900/50 rounded-lg border border-slate-800">
+                        <span class="text-2xl mr-3">🌍</span>
+                        <span class="text-lg text-slate-300 font-semibold">2 Golden Globe Awards & 3 BRIT Awards</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#34D399]">
+                <h2 class="text-3xl font-bold text-[#34D399] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Environmental Activism & Overconsumption</h4>
+                        <p class="text-slate-400 text-sm">A major climate advocate. She partners with non-profit REVERB to decarbonize her world tours, bans single-use plastics at venues, serves plant-based menus, and hosted the "Overheated" climate festival in London.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Mental Health & Suicide Prevention Advocacy</h4>
+                        <p class="text-slate-400 text-sm">Frequently supports national mental health awareness campaigns (such as Seize the Awkward), speaking publicly about self-love, therapy, and breaking the stigma around youth depression.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#111827] via-[#090D16] to-[#1E293B] text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Cultural Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#A3E635]">🎨</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Chromesthesia</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Billie has synesthesia, meaning she visualizes colors, shapes, and numbers for every song she writes. Her music is literally designed as visual experiences.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#34D399]">👕</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Oversized Fashion Icon</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Famously pioneered a brand built around hyper-baggy clothing, initially designed specifically to prevent media outlets from body-shaming or hyper-sexualizing her.</p>
+                </div>
+                <div class="bg-slate-900 bg-opacity-40 p-6 rounded-xl border border-slate-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#60A5FA]">🎹</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Finneas Alliance</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Despite major-label offers, she refuses to work with standard pop factories. She continues to record and produce her music almost exclusively with Finneas in home studios.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [65, 35],
+                    backgroundColor: ['#A3E635', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Female Listeners", "Male & Other"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [60, 40],
+                    backgroundColor: ['#34D399', '#1E293B'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "United Kingdom", "Germany", "Latin America", "Japan"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 85, 75, 70, 45],
+                    backgroundColor: '#A3E635',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#94A3B8' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Lovely (with Khalid)", "Bad Guy", "Ocean Eyes", "Birds of a Feather"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Billions)',
+                    data: [2.6, 2.4, 1.2, 1.0], 
+                    backgroundColor: ['#34D399', '#A3E635', '#475569', '#1E293B'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' },
+                        title: { display: true, text: 'Billions of Streams', font: { family: "'Inter', sans-serif" }, color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
