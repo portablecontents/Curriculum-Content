@@ -1,0 +1,392 @@
+<!--
+Color Palette: "Vintage Tape & Faded Denim" (Deep Studio Stone #1C1917, Mustard Yellow #EAB308, Vintage Denim #3B82F6, Faded Cherry #EF4444, Soft Bone #F5F5F4)
+I confirm that NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+Narrative Plan:
+1. Introduction: Relaxed, retro-themed header and biographical synthesis charting his rise from Edmonton, Canada, to becoming the undisputed king of modern indie "slacker rock."
+2. The Vault: Financial valuation highlighting his independent DIY ethos, his own imprint (Mac's Record Label), and an estimated $5M net worth.
+3. The Audience: Responsive demographic charts plotting his heavily Gen Z, skateboarding, and alternative indie listener core.
+4. The Art: Explaining his lo-fi analog medium (chorus pedals, tape machines) and his major thematic motifs of fleeting youth, familial estrangement, and simple pleasures.
+5. Seminal Metrics: A vertical bar chart demonstrating the massive global streaming footprint of his most iconic lo-fi anthems.
+6. Awards & Philanthropy: A dedicated ELA block highlighting his Polaris Music Prize nominations and his grassroots philanthropy (auctioning his old couches and shoes for youth music camps).
+7. Lo-Fi Lore & Trivia: Highlighting his self-coined "Jizz Jazz" genre, his ode to Viceroy cigarettes, and the time he gave out his actual home address on a record to invite fans over for coffee.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile: Mac DeMarco</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1C1917;
+            color: #E7E5E4;
+        }
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .glass-card {
+            background: rgba(41, 37, 36, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(234, 179, 8, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #EAB308, #3B82F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <header class="bg-gradient-to-b from-[#3B82F6]/20 to-[#1C1917] text-white py-20 px-6 shadow-xl mb-10 border-b-2 border-[#EAB308]/30">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-white display-font uppercase">MAC DEMARCO</h1>
+            <p class="text-xl md:text-2xl font-bold tracking-widest text-[#EAB308] uppercase display-font">The Lo-Fi King of Slacker Rock</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-12">
+
+        <!-- BIOGRAPHY & NET WORTH -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 shadow-xl border-l-8 border-[#EAB308]">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl">📖</span>
+                    <h2 class="text-3xl font-bold text-white display-font">Biographical Synthesis</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-300 mb-4">
+                    Born Vernor Winfield MacBriare Smith IV on April 30, 1990, in Duncan, British Columbia, and raised in Edmonton, Canada, Mac DeMarco grew up playing in high school indie bands. After moving to Vancouver and later Montreal, he began recording and releasing songs independently in his bedroom, embracing a cheap, analog, do-it-yourself (DIY) recording approach.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300">
+                    Signing with independent label Captured Tracks, his breakthrough records <span class="italic font-semibold text-[#EAB308]">2 (2012)</span> and <span class="italic font-semibold text-[#EAB308]">Salad Days (2014)</span> inadvertently birthed a massive global subculture. Armed with a gap-toothed smile, thrift-store fashion, and a warbling chorus pedal, DeMarco became the reluctant poster boy for "slacker rock," deeply influencing an entire generation of bedroom pop producers.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl flex flex-col justify-center items-center text-center border-t-4 border-[#3B82F6]">
+                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-wider mb-2 display-font">Estimated Net Worth</h2>
+                <div class="text-6xl font-extrabold gradient-text mb-4 display-font">
+                    $5M
+                </div>
+                <p class="text-sm text-slate-300 border-t border-slate-700 pt-4 w-full">
+                    <span class="font-bold text-white">Primary Income Streams:</span><br>
+                    Independent publishing rights, massive physical vinyl catalog sales, sold-out international indie tours, unexpected TikTok viral resurgences, and his own independent label, <span class="text-white italic">Mac's Record Label</span>.
+                </p>
+            </div>
+        </section>
+
+        <!-- DEMOGRAPHICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+            <div class="mb-8 border-b border-slate-700 pb-4">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center display-font"><span class="text-3xl mr-3">📊</span> Demographics & Reach</h2>
+                <p class="text-slate-400 text-lg">Mac DeMarco's fanbase is the quintessential modern "indie" demographic—heavily tied to skateboarding culture, vintage aesthetics, and Gen Z digital subcultures.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center bg-[#292524]/40 p-6 rounded-xl border border-stone-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Age Distribution</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Thanks to massive viral resurgences on TikTok, an overwhelming 70% of his streaming audience falls squarely into the 18–34 Gen Z/Millennial bracket.</p>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-[#292524]/40 p-6 rounded-xl border border-stone-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Gender Split</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Originally skewing heavily male (skater/slacker subcultures), his melodic, romantic synth-pop tracks have balanced his audience significantly.</p>
+                    <div class="chart-container">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center bg-[#292524]/40 p-6 rounded-xl border border-stone-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Top Global Markets</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">His laid-back, sun-drenched acoustic style holds massive streaming strongholds across the US, UK, Canada, and Latin America.</p>
+                    <div class="chart-container">
+                        <canvas id="geoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENRE & THEMES -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-br from-[#292524] to-[#1C1917] text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center text-[#EAB308] display-font"><span class="text-3xl mr-3">🎵</span> Medium & Genre</h2>
+                <p class="text-slate-300 mb-6 text-lg">Mac famously records his own music using analog reel-to-reel tape machines. His signature sound relies heavily on detuned synthesisers, chorus-pedal electric guitars, and raw, unpolished drum takes.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-[#EAB308] bg-opacity-10 text-[#EAB308] font-semibold rounded-full border border-[#EAB308] border-opacity-30 text-lg">Indie Pop</span>
+                    <span class="px-4 py-2 bg-[#3B82F6] bg-opacity-20 text-[#60A5FA] font-semibold rounded-full border border-[#3B82F6] border-opacity-50 text-lg">Slacker Rock / Jangle Pop</span>
+                    <span class="px-4 py-2 bg-stone-800 text-stone-300 font-semibold rounded-full border border-stone-700 text-lg">Lo-Fi / Bedroom Pop</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-l-4 border-[#EF4444]">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center display-font"><span class="text-3xl mr-3">📓</span> Thematic Motifs</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">🕰️</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Aging & Fleeting Youth</h4>
+                            <p class="text-slate-400">A constant, nostalgic struggle with growing older, losing touch with childhood friends, and the fatigue of a fast-paced life (pivotal in *Salad Days*).</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">👨‍👦</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Familial Estrangement & Forgiveness</h4>
+                            <p class="text-slate-400">Deeply personal, bittersweet reflections on his complicated relationship with his absent father and family trauma (explored heavily in *This Old Dog*).</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 mt-1">☕</span>
+                        <div>
+                            <h4 class="font-bold text-slate-100 text-lg display-font">Simple Pleasures & Escapism</h4>
+                            <p class="text-slate-400">Odes to the mundane but comforting aspects of life—drinking coffee, smoking cigarettes, and seeking quiet isolation away from the limelight.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WORKS & METRICS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl">
+             <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4 flex items-center display-font"><span class="text-3xl mr-3">📀</span> Seminal Works</h2>
+                    <p class="text-slate-300 text-lg mb-4">DeMarco's discography defined 2010s indie music. His albums <span class="font-bold italic text-white">2 (2012)</span> and <span class="font-bold italic text-white">Salad Days (2014)</span> are considered modern lo-fi classics. He shifted to acoustic, deeply introspective folk-synth on <span class="font-bold italic text-white">This Old Dog (2017)</span>, and famously released a massive 199-song instrumental dump titled <span class="font-bold italic text-white">One Wayne G (2023)</span>.</p>
+                    <div class="bg-[#EAB308] bg-opacity-5 rounded-xl p-4 border border-[#EAB308] border-opacity-25">
+                        <h4 class="font-bold text-[#EAB308] text-lg mb-1 display-font">The Unlikely Pop Star</h4>
+                        <p class="text-slate-300">Despite zero pop radio promotion, tracks like "Heart to Heart" and "Chamber of Reflection" exploded organically on TikTok, catapulting his indie records into the Spotify Billion-Stream club.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center bg-[#292524]/40 p-6 rounded-xl border border-stone-800 shadow-sm">
+                    <h3 class="font-bold text-xl mb-2 text-white text-center display-font">Spotify Stream Champions</h3>
+                    <p class="text-sm text-center text-slate-400 mb-4">Comparing lifetime digital streams of his definitive lo-fi anthems.</p>
+                    <div class="chart-container">
+                        <canvas id="streamsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS & PHILANTHROPY SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 shadow-xl">
+                <h2 class="text-3xl font-bold text-[#EAB308] mb-6 flex items-center display-font"><span class="text-3xl mr-3">🏅</span> Critical Acclaim & Awards</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-3 bg-[#292524]/40 rounded-lg border border-stone-800">
+                        <span class="text-2xl mr-3">🇨🇦</span>
+                        <span class="text-lg text-slate-300 font-semibold">Multiple Polaris Music Prize Shortlist Nominations</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-[#292524]/40 rounded-lg border border-stone-800">
+                        <span class="text-2xl mr-3">🥇</span>
+                        <span class="text-lg text-slate-300 font-semibold">RIAA Platinum Certified Singles without major label radio push</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-[#292524]/40 rounded-lg border border-stone-800">
+                        <span class="text-2xl mr-3">🎸</span>
+                        <span class="text-lg text-slate-300 font-semibold">Pitchfork's "Best New Music" Accolades</span>
+                    </li>
+                    <li class="flex items-center p-3 bg-[#292524]/40 rounded-lg border border-stone-800">
+                        <span class="text-2xl mr-3">🌟</span>
+                        <span class="text-lg text-slate-300 font-semibold">Voted "Artist of the Decade" in multiple indie publications</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 shadow-xl border-t-4 border-[#3B82F6]">
+                <h2 class="text-3xl font-bold text-[#3B82F6] mb-6 flex items-center display-font"><span class="text-3xl mr-3">❤️</span> Philanthropy & Social Impact</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">The DIY Charity Auctions</h4>
+                        <p class="text-slate-400 text-sm">To support the Willie Mae Rock Camp for Girls, Mac frequently auctions off his personal, highly recognizable items on eBay—including auctioning off an old pair of his worn-out Vans sneakers (which sold for over $21,000) and his actual living room couch.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg display-font">Disaster Relief & Local Giving</h4>
+                        <p class="text-slate-400 text-sm">Mac frequently organizes last-minute, low-cost benefit shows in Los Angeles and New York, donating all door proceeds to California wildfire relief programs and local community food banks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LORE & INTERESTING FACTS -->
+        <section class="glass-card rounded-2xl p-8 shadow-xl bg-gradient-to-r from-[#1C1917] via-[#292524] to-[#1C1917] text-white">
+            <h2 class="text-3xl font-bold mb-8 text-center display-font"><span class="text-3xl mr-3">✨</span> Lo-Fi Lore & Trivia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-stone-900 bg-opacity-40 p-6 rounded-xl border border-stone-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#EAB308]">🎷</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">"Jizz Jazz"</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">Rejecting the labels of "indie pop" or "slacker rock," Mac jokingly self-coined his genre of music as "Jizz Jazz," a term that his fanbase fully embraced.</p>
+                </div>
+                <div class="bg-stone-900 bg-opacity-40 p-6 rounded-xl border border-stone-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#EF4444]">🚬</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">Ode to Viceroy</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">One of his most famous early tracks, "Ode to Viceroy," is literally a love song written about his favorite brand of cheap Canadian cigarettes, cementing his dirtbag-chic aesthetic.</p>
+                </div>
+                <div class="bg-stone-900 bg-opacity-40 p-6 rounded-xl border border-stone-800 hover:bg-opacity-60 transition duration-300">
+                    <div class="text-4xl mb-4 text-[#3B82F6]">☕</div>
+                    <h3 class="text-xl font-bold mb-2 display-font">The Coffee Invite</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm">At the very end of his mini-album *Another One*, Mac literally recited his actual home address in Far Rockaway, New York, inviting any fan who heard it to stop by his house for a cup of coffee. Hundreds actually did.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string' || label.length <= limit) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const customTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const globalChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                tooltip: customTooltipConfig,
+                legend: {
+                    position: 'bottom',
+                    labels: { font: { family: "'Inter', sans-serif" }, color: '#D6D3D1' }
+                }
+            }
+        };
+
+        const ageLabels = ["18-34 Years Old", "Other Demographics"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('ageChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ageLabels,
+                datasets: [{
+                    data: [70, 30],
+                    backgroundColor: ['#EAB308', '#292524'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: { ...globalChartOptions, cutout: '70%' }
+        });
+
+        const genderLabels = ["Male Listeners", "Female Listeners"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('genderChart'), {
+            type: 'pie',
+            data: {
+                labels: genderLabels,
+                datasets: [{
+                    data: [55, 45],
+                    backgroundColor: ['#3B82F6', '#EF4444'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: globalChartOptions
+        });
+
+        const geoLabels = ["United States", "United Kingdom", "Canada", "Australia", "Latin America"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('geoChart'), {
+            type: 'bar',
+            data: {
+                labels: geoLabels,
+                datasets: [{
+                    label: 'Market Index',
+                    data: [100, 80, 75, 65, 55],
+                    backgroundColor: '#EAB308',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { display: false, grid: { display: false } },
+                    y: { 
+                        grid: { display: false }, 
+                        ticks: { font: { family: "'Inter', sans-serif" }, color: '#D6D3D1' } 
+                    }
+                }
+            }
+        });
+
+        const trackLabels = ["Heart to Heart", "Chamber of Reflection", "My Kind of Woman", "Freaking Out the Neighborhood"].map(l => wrapLabel(l));
+        new Chart(document.getElementById('streamsChart'), {
+            type: 'bar',
+            data: {
+                labels: trackLabels,
+                datasets: [{
+                    label: 'Streams (in Millions)',
+                    data: [1200, 850, 650, 480], 
+                    backgroundColor: ['#EAB308', '#3B82F6', '#EF4444', '#57534E'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                ...globalChartOptions,
+                plugins: {
+                    tooltip: customTooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: '#292524' },
+                        ticks: { color: '#D6D3D1' },
+                        title: { display: true, text: 'Millions of Streams', font: { family: "'Inter', sans-serif" }, color: '#D6D3D1' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#D6D3D1' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
