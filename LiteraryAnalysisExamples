@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Literary Device Slideshow (Fullscreen)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Bungee&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Fullscreen high-contrast theme for classroom readability */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a;
+            color: #FFFFFF;
+        }
+
+        /* Muted scanlines for texture without distraction */
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.2),
+                rgba(0, 0, 0, 0.2) 1px,
+                transparent 1px,
+                transparent 4px
+            );
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .slideshow-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            background-color: #232323;
+            box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #ff00ff;
+            padding: 5vh 5vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+        
+        .title-slide .slide-content h1 {
+            font-family: 'Bungee', cursive;
+            font-size: 6vw;
+            color: #ff00ff;
+            text-shadow: 6px 6px 0 #00ffff;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .title-slide .slide-content p {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 2vw;
+            color: #ffff00;
+            line-height: 1.5;
+        }
+        
+        .slide-content {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Aligned to top */
+            align-items: center;
+            padding-top: 5vh; /* Added top padding */
+            padding-bottom: 18vh; /* Safe space for buttons */
+            box-sizing: border-box;
+        }
+
+        .quote-text, .device-explanation {
+            /* Initial font sizes are set here */
+            --base-font-size: 2.5; /* vw unit */
+        }
+
+        .quote-text {
+            font-size: calc(var(--base-font-size) * 1vw);
+            font-weight: 700;
+            line-height: 1.4; /* Reduced line spacing */
+            color: #FFFFFF;
+            background-color: rgba(35,35,35,0.85);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 4px solid #00ffff;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            max-width: 85vw; /* Made wider */
+        }
+
+        .quote-source {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.5vw;
+            color: #ffff00;
+            margin-bottom: 2rem;
+        }
+
+        .device-card {
+            background-color: rgba(51,51,51,0.9);
+            border: 4px solid #ff00ff;
+            border-radius: 15px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 75vw; /* Made wider */
+        }
+
+        .device-title {
+            font-family: 'Bungee', cursive;
+            font-size: 3vw;
+            color: #00ffff;
+            margin-bottom: 1.5rem;
+            text-shadow: 3px 3px 0 #ff00ff;
+        }
+
+        .device-explanation {
+            font-size: calc(var(--base-font-size) * 0.72vw); /* Smaller base for explanation */
+            line-height: 1.5; /* Reduced line spacing */
+            color: #EAEAEA;
+        }
+
+        .nav-controls {
+            position: absolute;
+            bottom: 4vh;
+            right: 4vw;
+            display: flex;
+            gap: 1.5rem;
+            z-index: 20;
+        }
+
+        .nav-button {
+            padding: 1rem 2rem;
+            background-color: #ff00ff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-family: 'Bungee', cursive;
+            font-size: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 0 15px #ff00ff;
+            transition: all 0.2s;
+        }
+
+        .nav-button:hover {
+            background-color: #ffff00;
+            color: #000;
+            box-shadow: 0 0 20px #ffff00;
+            transform: scale(1.1);
+        }
+        
+        #shuffle-button {
+            font-size: 1.5rem;
+            background-color: #00ff00;
+            color: #1a1a1a;
+            box-shadow: 0 0 15px #00ff00;
+        }
+        
+        #shuffle-button:hover {
+             background-color: #ffff00;
+             box-shadow: 0 0 20px #ffff00;
+        }
+        
+        .slide-counter {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.2rem;
+            color: #00ffff;
+            z-index: 20;
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .title-slide h1 { font-size: 8vw; }
+            .title-slide p { font-size: 3vw; }
+            .quote-text { --base-font-size: 4; }
+            .device-explanation { --base-font-size: 4; }
+            .quote-source { font-size: 2.5vw; }
+            .device-title { font-size: 5vw; }
+            .nav-button { font-size: 2rem; padding: 0.8rem 1.5rem; }
+            .nav-controls { width: auto; left: 50%; transform: translateX(-50%); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="slideshow-container">
+        <!-- Slides will be injected here by JavaScript -->
+        <div id="slide-container"></div>
+
+        <div class="nav-controls">
+            <button class="nav-button prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="nav-button" id="shuffle-button" onclick="shuffleAndRestart()">New Deck</button>
+            <button class="nav-button next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+        
+        <div class="slide-counter" id="slide-counter"></div>
+    </div>
+
+    <script>
+        // Data extracted from the provided documents
+        const quotesData = [
+            // From 10R Quotes PDF
+            {
+                id: "cask-wall",
+                source: "The Cask of Amontillado by Edgar Allan Poe",
+                quote: "\"We passed through a range of low arches, descended, passed on, and descending again, arrived at a deep crypt, in which the foulness of the air caused our flambeaux rather to glow than flame.\"",
+                analyses: [
+                    { device: "Imagery", explanation: "Poe uses dark and damp sensory imagery—the 'deep crypt,' the 'foulness of the air,' and the weakly glowing torches—to create a claustrophobic and deathly atmosphere." },
+                    { device: "Plot", explanation: "This description is part of the rising action, methodically taking the reader deeper into the catacombs and building suspense as Montresor leads the unsuspecting Fortunato toward his doom." }
+                ]
+            },
+            {
+                id: "cask-wall",
+                source: "The Cask of Amontillado by Edgar Allan Poe",
+                quote: "\"For the love of God, Montresor!\" \"Yes,\" I said, \"for the love of God!\"",
+                analyses: [
+                    { device: "External Conflict", explanation: "This exchange marks the climax of the external conflict between Montresor and Fortunato. It is the final, desperate plea met with a cold, mocking reply, sealing Fortunato's fate." },
+                    { device: "Indirect Characterization", explanation: "Through his chilling and ironic speech, Montresor is indirectly characterized as utterly remorseless and sadistic. His reply twists a sacred plea into a final taunt, revealing the depth of his vengeful nature." }
+                ]
+            },
+            {
+                id: "interlopers-tree",
+                source: "The Interlopers by Saki",
+                quote: "\"And each prayed a private prayer that his men might be the first to arrive, so that he might be the first to show honorable attention to the enemy that had become a friend.\"",
+                analyses: [
+                    { device: "Internal Conflict", explanation: "This line reveals the complete resolution of the internal conflict within both Ulrich and Georg. Their lifelong hatred has been replaced by a newfound desire for reconciliation and honor." },
+                    { device: "Plot", explanation: "This shared sentiment is the story's turning point, where the central conflict shifts from man vs. man to man vs. nature, setting up the devastatingly ironic finale." }
+                ]
+            },
+            {
+                id: "interlopers-tree",
+                source: "The Interlopers by Saki",
+                quote: "\"Wolves.\"",
+                analyses: [
+                    { device: "Plot", explanation: "This single word serves as the story's shocking and ironic resolution. The reconciliation of the two men is rendered meaningless as a new, insurmountable external conflict arrives." },
+                    { device: "Imagery", explanation: "The word instantly conjures a terrifying visual and auditory image of a new threat, leaving the reader to imagine the gruesome and tragic fate of the two men." }
+                ]
+            },
+            {
+                id: "necklace-sparkle",
+                source: "The Necklace by Guy de Maupassant",
+                quote: "\"She had become the woman of impoverished households—strong and hard and rough. With frowsy hair, with skirts awry, and with red hands, she talked loud while washing the floor with great swishes of water.\"",
+                analyses: [
+                    { device: "Indirect Characterization", explanation: "Mathilde is indirectly characterized through her changed looks ('frowsy hair,' 'red hands') and actions ('talked loud while washing'). This shows the brutal, physical toll that a decade of poverty and hard labor has taken on her." },
+                    { device: "Imagery", explanation: "The passage provides a stark visual image of Mathilde's transformation from a pretty, dreaming socialite into a coarse, working-class woman, emphasizing the harshness of her new reality." }
+                ]
+            },
+            {
+                id: "necklace-sparkle",
+                source: "The Necklace by Guy de Maupassant",
+                quote: "\"Oh, my poor Mathilde! Why, my necklace was paste. It was worth at most five hundred francs!\"",
+                analyses: [
+                    { device: "Plot", explanation: "This is the story's climax and cruel, ironic resolution. The devastating revelation renders Mathilde's decade of sacrifice completely pointless." },
+                    { device: "Symbolism", explanation: "The necklace is a symbol of wealth and social status. The fact that the original was fake symbolizes the deceptive nature of appearances and the vanity that led to Mathilde's ruin." }
+                ]
+            },
+            {
+                id: "magi-gift",
+                source: "The Gift of the Magi by O. Henry",
+                quote: "\"'You've cut off your hair?' asked Jim, laboriously... 'Cut it off and sold it,' said Della. 'Don't you like me just as well, anyhow? I'm me without my hair, ain't I?'\"",
+                analyses: [
+                    { device: "Indirect Characterization", explanation: "Della's action of selling her hair and her subsequent speech indirectly characterize her as selfless and deeply in love. Her words reveal that her identity is tied to Jim's love for her, not her physical appearance." },
+                    { device: "Symbolism", explanation: "Della's hair is a symbol of her beauty and her most prized possession. Sacrificing it symbolizes the depth of her love for Jim, which she values more than her own vanity." }
+                ]
+            },
+            {
+                id: "magi-gift",
+                source: "The Gift of the Magi by O. Henry",
+                quote: "\"But in a last word to the wise of these days let it be said that of all who give gifts these two were the wisest... They are the magi.\"",
+                analyses: [
+                    { device: "Direct Characterization", explanation: "The narrator uses direct characterization, explicitly stating that Della and Jim 'were the wisest' of all gift-givers, leaving no room for interpretation." },
+                    { device: "Metaphor", explanation: "The final line is a metaphor comparing Jim and Della to the biblical Magi. The narrator suggests that, like the Magi who brought gifts to the infant Jesus, their selfless, sacrificial love makes their seemingly foolish gifts the wisest of all." }
+                ]
+            },
+            {
+                id: "game-jungle",
+                source: "The Most Dangerous Game by Richard Connell",
+                quote: "\"'Hunting? General Zaroff, what you speak of is murder.'\"",
+                analyses: [
+                    { device: "External Conflict", explanation: "This line of dialogue establishes the story's primary external conflict: the clash between Rainsford's moral code and Zaroff's depraved 'game.'" },
+                    { device: "Indirect Characterization", explanation: "The contrast in their speech indirectly characterizes both men. Rainsford is shown to be civilized and moral, while Zaroff is revealed to be a cold, rational monster who sees no distinction between hunting animals and hunting humans." }
+                ]
+            },
+            {
+                id: "game-jungle",
+                source: "The Most Dangerous Game by Richard Connell",
+                quote: "\"He had never slept in a better bed, Rainsford decided.\"",
+                analyses: [
+                    { device: "Plot", explanation: "This is the final line and resolution of the story. It confirms that Rainsford has won the game and killed Zaroff, bringing the central conflict to a definitive close." },
+                    { device: "Indirect Characterization", explanation: "Through this final, chilling thought, Rainsford is indirectly characterized as a changed man. His ability to sleep soundly in his victim's bed suggests he has become as ruthless as the man he hunted, showing a resolution to his own internal conflict about killing." }
+                ]
+            },
+            {
+                id: "romeo-sun",
+                source: "Romeo & Juliet by Shakespeare",
+                quote: "\"But, soft! what light through yonder window breaks? / It is the east, and Juliet is the sun.\"",
+                analyses: [
+                    { device: "Metaphor", explanation: "This is a famous metaphor where Romeo compares Juliet to the sun. He isn't just saying she is beautiful; he is saying she is the center of his world, bringing light and life and banishing the darkness of his previous woes." },
+                    { device: "Indirect Characterization", explanation: "Through this poetic and passionate speech (a soliloquy revealing his thoughts), Romeo is indirectly characterized as intensely romantic and impulsive." }
+                ]
+            },
+            {
+                id: "romeo-plague",
+                source: "Romeo & Juliet by Shakespeare",
+                quote: "\"A plague o' both your houses! / They have made worms' meat of me.\"",
+                analyses: [
+                    { device: "Plot", explanation: "Mercutio's death is the crucial turning point of the plot. His curse marks the moment the play shifts from a romance with comedic elements to an inescapable tragedy." },
+                    { device: "External Conflict", explanation: "This line directly addresses the central external conflict—the feud between the Montagues and Capulets. Mercutio, a victim of their meaningless hatred, curses them both, foreshadowing the destruction that their conflict will bring upon them." }
+                ]
+            },
+            {
+                id: "romeo-dagger",
+                source: "Romeo & Juliet by Shakespeare",
+                quote: "\"O happy dagger! / This is thy sheath; there rust, and let me die.\"",
+                analyses: [
+                    { device: "Personification", explanation: "Juliet speaks to the dagger as if it were a welcome friend, using personification ('O happy dagger!') to express her relief that she has found a way to escape her grief and join Romeo in death." },
+                    { device: "Plot", explanation: "This is the tragic climax and resolution of the play. Juliet's final action—taking her own life—completes the tragedy that was set in motion by the family feud." }
+                ]
+            },
+            {
+                id: "mice-lonely",
+                source: "Of Mice and Men by Steinbeck",
+                quote: "\"A guy goes nuts if he ain't got nobody. Don't make no difference who the guy is, long's he's with you. I tell ya, a guy gets too lonely an' he gets sick.\"",
+                analyses: [
+                    { device: "Motif", explanation: "This quote directly states the novel's central motif of loneliness. Crooks, the most isolated character, understands its corrosive effects better than anyone." },
+                    { device: "Indirect Characterization", explanation: "Through this pained and insightful speech, Crooks is indirectly characterized as intelligent and deeply wounded by his solitude. His words reveal a desperate yearning for companionship that he is denied due to his race." }
+                ]
+            },
+            {
+                id: "mice-shot",
+                source: "Of Mice and Men by Steinbeck",
+                quote: "\"He pulled the trigger. The crash of the shot rolled up the hills and rolled down again. Lennie jarred, and then settled slowly forward to the sand, and he lay without quivering.\"",
+                analyses: [
+                    { device: "Plot", explanation: "This is the novel's tragic climax and resolution. George's final, merciful act of killing Lennie ends their shared dream and resolves George's terrible internal conflict." },
+                    { device: "Indirect Characterization", explanation: "George's final action, as horrific as it is, indirectly characterizes him as merciful and courageous. He chooses to kill Lennie himself, sparing him the brutal death that would have come from Curley's lynch mob." }
+                ]
+            },
+            {
+                id: "mice-puppy",
+                source: "Of Mice and Men by Steinbeck",
+                quote: "\"'Why do you got to get killed? You ain't so little as mice. I didn't bounce you hard.'\"",
+                analyses: [
+                    { device: "Symbolism", explanation: "The dead puppy is a symbol of Lennie's inability to control his own strength and his unintentional destructiveness. It serves as a grim omen for what will happen to Curley's wife." },
+                    { device: "Indirect Characterization", explanation: "Lennie's speech to the dead puppy indirectly characterizes him as childlike and morally innocent. He does not understand the consequences of his own power and is more worried about being punished by George than the fact that he has killed a living thing." }
+                ]
+            },
+            {
+                id: "mockingbird-shot",
+                source: "To Kill a Mockingbird by Harper Lee",
+                quote: "\"Atticus was the deadest shot in Maycomb County in his time.\"",
+                analyses: [
+                    { device: "Indirect Characterization", explanation: "This moment reveals a hidden aspect of Atticus's character through a surprising action (shooting the mad dog with perfect aim). The effect on other characters, namely his children, is profound, as they see for the first time that their quiet, intellectual father possesses a formidable, hidden strength." },
+                    { device: "Symbolism", explanation: "The mad dog is a symbol of the irrational prejudice and 'madness' of racism spreading through Maycomb. Atticus is the only one willing and able to stand against it, just as he is the only one who can put down the rabid dog." }
+                ]
+            },
+            {
+                id: "mockingbird-court",
+                source: "To Kill a Mockingbird by Harper Lee",
+                quote: "\"'But there is one way in this country in which all men are created equal—there is one human institution that makes a pauper the equal of a Rockefeller... That institution, gentlemen, is a court.'\"",
+                analyses: [
+                    { device: "External Conflict", explanation: "This quote comes from the climax of the novel's central external conflict: the trial of Tom Robinson, which pits Atticus's belief in justice against the town's deep-seated racism." },
+                    { device: "Indirect Characterization", explanation: "Through this powerful and idealistic speech, Atticus is indirectly characterized as a man of unwavering principle and integrity, who believes in the ideal of justice even when he knows he is likely to lose." }
+                ]
+            },
+            {
+                id: "mockingbird-porch",
+                source: "To Kill a Mockingbird by Harper Lee",
+                quote: "\"Atticus was right. One time he said you never really know a man until you stand in his shoes and walk around in them. Just standing on the Radley porch was enough.\"",
+                analyses: [
+                    { device: "Plot", explanation: "This is the resolution of Scout's character arc. This moment of quiet epiphany signifies her maturation from an innocent child into a person who understands empathy." },
+                    { device: "Indirect Characterization", explanation: "Scout's mature and reflective thoughts indirectly characterize her as having finally learned the central lesson of the novel. She is no longer a fearful child but a thoughtful young person capable of seeing the world from another's perspective." }
+                ]
+            },
+            // From 11R Quotes DOCX
+            {
+                id: "lottery-scream",
+                source: "The Lottery by Shirley Jackson",
+                quote: "\"'It isn't fair, it isn't right,' Mrs. Hutchinson screamed, and then they were upon her.\"",
+                analyses: [
+                    { device: "Plot", explanation: "This line marks the story's climax, the moment of highest tension where the rising action culminates in the horrifying 'winning' of the lottery." },
+                    { device: "External Conflict", explanation: "This quote is the final, desperate cry in the story's main external conflict—the individual (Tessie Hutchinson) versus the collective society (the villagers) and its brutal, unthinking tradition." }
+                ]
+            },
+            {
+                id: "lottery-stones",
+                source: "The Lottery by Shirley Jackson",
+                quote: "\"Although the villagers had forgotten the ritual and lost the original black box, they still remembered to use stones.\"",
+                analyses: [
+                    { device: "Symbolism", explanation: "The black box is a symbol of the tradition itself—old, decaying, and no longer understood, yet blindly followed. The stones are a symbol of the primitive violence at the heart of this tradition." },
+                    { device: "Indirect Characterization", explanation: "Through their actions—forgetting the ritual's purpose but remembering to use stones—the villagers are indirectly characterized as blindly adherent to violence, revealing that the brutal core of the tradition is more important to them than its meaning." }
+                ]
+            },
+            {
+                id: "monkey-paw-wish",
+                source: "The Monkey's Paw by W.W. Jacobs",
+                quote: "\"'Go and get it and wish,' she cried, and her voice was sharp with pain. 'Oh, my boy, my boy!'\"",
+                analyses: [
+                    { device: "Internal Conflict", explanation: "Mrs. White’s desperate demand reveals her intense internal conflict. Her grief and love for her son overpower her reason and her fear of the cursed paw, driving her to risk an unknown horror." },
+                    { device: "Indirect Characterization", explanation: "Through her desperate speech, Mrs. White is indirectly characterized as a mother overwhelmed by grief. Her words show that her character is driven by emotion rather than the caution her husband displays." }
+                ]
+            },
+            {
+                id: "monkey-paw-road",
+                source: "The Monkey's Paw by W.W. Jacobs",
+                quote: "\"The street lamp flickering opposite shone on a quiet and deserted road.\"",
+                analyses: [
+                    { device: "Imagery", explanation: "The final sentence provides a stark visual image of emptiness and silence. This contrasts sharply with the frantic knocking and emotional turmoil of the preceding moments, creating a haunting and desolate final impression." },
+                    { device: "Plot", explanation: "This is the story's resolution. The final wish has been made, the presumed horror at the door has vanished, and the characters are left with only their grief and the quiet emptiness, resolving the central conflict." }
+                ]
+            },
+            {
+                id: "hour-spring",
+                source: "Story of an Hour by Kate Chopin",
+                quote: "\"She could see in the open square before her house the tops of trees that were all aquiver with the new spring life. The delicious breath of rain was in the air...countless sparrows were twittering in the eaves.\"",
+                analyses: [
+                    { device: "Symbolism", explanation: "The 'new spring life' is a powerful symbol of Mrs. Mallard's own awakening and rebirth. As she processes the news of her husband's death, the vibrant world outside her window reflects her burgeoning sense of freedom." },
+                    { device: "Imagery", explanation: "The passage is rich with sensory imagery—the sight of the trembling trees, the smell of the 'delicious breath of rain,' and the sound of the twittering sparrows—that conveys her inner transformation from grief to a quiet, spreading joy." }
+                ]
+            },
+            {
+                id: "hour-joy",
+                source: "Story of an Hour by Kate Chopin",
+                quote: "\"When the doctors came they said she had died of heart disease—of the joy that kills.\"",
+                analyses: [
+                    { device: "Plot", explanation: "This line serves as the story's shocking and ironic resolution. The sudden reversal of her husband's reported death leads directly to her own, concluding the narrative." },
+                    { device: "Metaphor", explanation: "The phrase 'the joy that kills' is used by the doctors as a metaphor to explain her death as a result of overwhelming happiness. For the reader, however, it works as a different, tragic metaphor for the death of the joy she had just discovered in her freedom." }
+                ]
+            },
+            {
+                id: "heidegger-rose",
+                source: "Dr. Heidegger's Experiment by Nathaniel Hawthorne",
+                quote: "\"The crushed and dried rose symbolized his past life, withered and without fragrance.\"",
+                analyses: [
+                    { device: "Symbolism", explanation: "Hawthorne uses the rose as a direct symbol of Dr. Heidegger’s own past—specifically, his lost love and the passage of time. When the water revives it, it symbolizes the possibility of reviving youth itself." },
+                    { device: "Motif", explanation: "The rose is a motif that represents the central theme of the story: the fleeting and delicate nature of youth and beauty, and the question of whether past mistakes can be undone." }
+                ]
+            },
+            {
+                id: "heidegger-fountain",
+                source: "Dr. Heidegger's Experiment by Nathaniel Hawthorne",
+                quote: "\"They resolved forthwith to make a pilgrimage to Florida, and quaff at morning, noon, and night, from the Fountain of Youth.\"",
+                analyses: [
+                    { device: "Indirect Characterization", explanation: "The guests' final action—resolving to find the Fountain of Youth for themselves—indirectly characterizes them as foolish and incapable of learning from experience. This decision shows their character remains unchanged despite the lesson of the experiment." },
+                    { device: "Plot", explanation: "This sentence provides the story's resolution, confirming that the experiment, which formed the climax of the plot, ultimately had no positive effect on the guests' wisdom or character." }
+                ]
+            },
+            {
+                id: "old-man-luck",
+                source: "Old Man at the Bridge by Ernest Hemingway",
+                quote: "\"It was a gray overcast day with a low ceiling so there were no planes. That and the fact that cats know how to look after themselves was all the good luck that old man would ever have.\"",
+                analyses: [
+                    { device: "Imagery", explanation: "The description of the 'gray overcast day with a low ceiling' creates a visual image of a bleak, oppressive, and hopeless environment that mirrors the old man's situation." },
+                    { device: "Direct Characterization", explanation: "The narrator's blunt assessment of the old man's 'luck' is a form of direct characterization. It defines the old man by his utter helplessness and seals his fate in the reader's mind." }
+                ]
+            },
+            {
+                id: "old-man-animals",
+                source: "Old Man at the Bridge by Ernest Hemingway",
+                quote: "\"I was only taking care of animals.\"",
+                analyses: [
+                    { device: "Indirect Characterization", explanation: "Through his simple speech, the old man is indirectly characterized as a gentle and caring person whose identity is tied to the animals he looked after, not the war surrounding him." },
+                    { device: "Internal Conflict", explanation: "The line reveals the source of his internal conflict. He is not worried about the war or the enemy, but about the fate of the animals he was forced to abandon. His sense of duty to them is what causes his deepest pain." }
+                ]
+            },
+            {
+                id: "dragon-beast",
+                source: "The Dragon by Ray Bradbury",
+                quote: "\"'A beast of the soul, then, and we will kill it!'\"",
+                analyses: [
+                    { device: "External Conflict", explanation: "This quote establishes the story's central external conflict: the two knights versus the 'dragon.' It frames their quest in mythic, honorable terms, contrasting sharply with the true nature of their opponent." },
+                    { device: "Indirect Characterization", explanation: "Through their determined speech, the knights are indirectly characterized as brave and noble, yet tragically out of touch with the new reality they face. Their words reveal a worldview that is no longer equipped to survive." }
+                ]
+            },
+            {
+                id: "dragon-train",
+                source: "The Dragon by Ray Bradbury",
+                quote: "\"The train whistle screamed... It was gone. The land was empty. The dragon was gone.\"",
+                analyses: [
+                    { device: "Personification", explanation: "The train whistle is personified as screaming, giving the machine a monstrous, predatory quality that aligns with the knights' perception of it as a dragon." },
+                    { device: "Metaphor", explanation: "The train is consistently referred to as 'the dragon,' serving as the story's central metaphor. This compares the terrifying power of modern technology to the monsters of ancient legends." }
+                ]
+            },
+            {
+                id: "flies-conch",
+                source: "Lord of the Flies by William Golding",
+                quote: "\"The rock struck Piggy a glancing blow from chin to knee; the conch exploded into a thousand white fragments and ceased to exist.\"",
+                analyses: [
+                    { device: "Symbolism", explanation: "The conch is a symbol of civilization and order, and its destruction symbolizes the complete triumph of savagery over civilized behavior on the island." },
+                    { device: "Plot", explanation: "This moment is the story's climax, where the conflict between Ralph's and Jack's groups results in a brutal murder and the final loss of hope for a civil society." }
+                ]
+            },
+            {
+                id: "flies-mask",
+                source: "Lord of the Flies by William Golding",
+                quote: "\"He capered toward Bill, and the mask was a thing on its own, behind which Jack hid, liberated from shame and self-consciousness.\"",
+                analyses: [
+                    { device: "Symbolism", explanation: "The mask is a symbol of savagery and the loss of individual identity. By putting it on, Jack is freed from the constraints of his old self and the rules of society." },
+                    { device: "Indirect Characterization", explanation: "Through his actions (capering) and looks (wearing the mask), Jack is indirectly characterized as someone who is shedding his civilized identity and descending into savagery." }
+                ]
+            },
+            {
+                id: "flies-wept",
+                source: "Lord of the Flies by William Golding",
+                quote: "\"Ralph wept for the end of innocence, the darkness of man's heart, and the fall through the air of the true, wise friend called Piggy.\"",
+                analyses: [
+                    { device: "Metaphor", explanation: "'The darkness of man's heart' is a metaphor for the inherent evil and savagery that Golding suggests is a part of human nature." },
+                    { device: "Internal Conflict", explanation: "Ralph's weeping reveals his profound internal conflict as he grapples with the terrible realization of what he and the other boys are capable of, marking the tragic end of his childhood." }
+                ]
+            },
+            {
+                id: "animal-knacker",
+                source: "Animal Farm by George Orwell",
+                quote: "\"'They are taking Boxer to the knacker's!' cried Benjamin.\"",
+                analyses: [
+                    { device: "Plot", explanation: "This moment is a critical turning point in the plot, representing the ultimate betrayal of the farm's ideals. The pigs' decision to sell their most loyal worker for profit exposes the complete corruption of their leadership." },
+                    { device: "Indirect Characterization", explanation: "This event has a profound effect on other characters, particularly the normally stoic Benjamin. His panicked shouting reveals the depth of the pigs' cruelty and characterizes them as utterly ruthless." }
+                ]
+            },
+            {
+                id: "animal-legs",
+                source: "Animal Farm by George Orwell",
+                quote: "\"It was a pig walking on his hind legs.\"",
+                analyses: [
+                    { device: "Symbolism", explanation: "The act of walking on two legs is a powerful symbol of the pigs' ultimate transformation into their former oppressors. They have now openly adopted the ultimate characteristic of man, breaking the most fundamental rule of Animalism." },
+                    { device: "Imagery", explanation: "This simple declarative sentence creates a shocking and powerful visual image that signifies the final, undeniable death of the revolution." }
+                ]
+            },
+            {
+                id: "animal-which",
+                source: "Animal Farm by George Orwell",
+                quote: "\"The creatures outside looked from pig to man, and from man to pig, and from pig to man again; but already it was impossible to say which was which.\"",
+                analyses: [
+                    { device: "Plot", explanation: "This is the novel’s resolution, where the animals (and the reader) see that the cycle of tyranny is complete. The pigs have become indistinguishable from the humans." },
+                    { device: "Motif", explanation: "This scene concludes the recurring motif of the pigs gradually adopting human behaviors—sleeping in beds, drinking alcohol, and finally, walking on two legs—solidifying their total corruption." }
+                ]
+            },
+            {
+                id: "macbeth-dagger",
+                source: "Macbeth by Shakespeare",
+                quote: "\"Is this a dagger which I see before me, / The handle toward my hand? Come, let me clutch thee.\"",
+                analyses: [
+                    { device: "Symbolism", explanation: "The hallucinatory dagger is a symbol of both Macbeth's bloody ambition and his guilty conscience. It points the way to murder but cannot be touched, representing the horrific and unreal nature of his impending crime." },
+                    { device: "Internal Conflict", explanation: "This soliloquy is a powerful depiction of Macbeth's internal conflict. He is torn between his ambition to be king and his awareness that murdering Duncan is a terrible, immoral act." }
+                ]
+            },
+            {
+                id: "macbeth-spot",
+                source: "Macbeth by Shakespeare",
+                quote: "\"Out, damned spot! Out, I say! ...Here's the smell of the blood still. All the perfumes of Arabia will not sweeten this little hand.\"",
+                analyses: [
+                    { device: "Motif", explanation: "The recurring motif of blood throughout the play, representing guilt, culminates in this scene. Lady Macbeth, who once dismissed blood, is now psychologically haunted by an imaginary spot she cannot wash away." },
+                    { device: "Hyperbole", explanation: "The claim that 'all the perfumes of Arabia will not sweeten this little hand' is a hyperbole—a deliberate exaggeration used to express the immeasurable and eternal nature of her guilt." }
+                ]
+            },
+            {
+                id: "macbeth-shadow",
+                source: "Macbeth by Shakespeare",
+                quote: "\"Life’s but a walking shadow, a poor player / That struts and frets his hour upon the stage / And then is heard no more.\"",
+                analyses: [
+                    { device: "Metaphor", explanation: "Macbeth uses a series of powerful metaphors to express his despair. He compares life to a 'walking shadow' (something insubstantial and fleeting) and to a 'poor player' (an actor whose time on stage is brief and ultimately meaningless)." },
+                    { device: "Indirect Characterization", explanation: "Through the nihilistic thoughts expressed in this speech, Macbeth is indirectly characterized as a broken man who, after losing everything, now believes life itself is meaningless." }
+                ]
+            },
+            {
+                id: "frankenstein-clay",
+                source: "Frankenstein by Mary Shelley",
+                quote: "\"Did I request thee, Maker, from my clay / To mould Me man, did I solicit thee / From darkness to promote me?\"",
+                analyses: [
+                    { device: "Internal Conflict", explanation: "The Creature's questions reveal his deep internal conflict regarding his own existence. He is tormented by the fact that he was created only to be abandoned and left to suffer, questioning the justice of his own life." },
+                    { device: "Metaphor", explanation: "'From my clay / To mould Me man' is a metaphor that compares Victor's scientific creation to the divine act of God creating Adam, emphasizing the creator's responsibility for his creation." }
+                ]
+            },
+            {
+                id: "frankenstein-adam",
+                source: "Frankenstein by Mary Shelley",
+                quote: "\"I ought to be thy Adam, but I am rather the fallen angel, whom thou drivest from joy for no misdeed.\"",
+                analyses: [
+                    { device: "Indirect Characterization", explanation: "Through his eloquent and self-aware speech, the Creature is indirectly characterized as intelligent and deeply wounded, fully capable of understanding the injustice of his own existence and articulating his tragic transformation." },
+                    { device: "Metaphor", explanation: "The Creature uses the figures of Adam and 'the fallen angel' (Satan) as metaphors for his own identity, poignantly describing his fall from a state of potential innocence to one of vengeful misery." }
+                ]
+            },
+            {
+                id: "frankenstein-flames",
+                source: "Frankenstein by Mary Shelley",
+                quote: "\"Soon these burning miseries will be extinct. I shall ascend my funeral pile triumphantly and exult in the agony of the torturing flames.\"",
+                analyses: [
+                    { device: "Personification", explanation: "The Creature's 'miseries' are described as 'burning,' a use of personification that gives the abstract feeling of misery a physical, fiery quality, emphasizing how actively it has tormented him." },
+                    { device: "Plot", explanation: "This quote is part of the novel's resolution. With his creator dead, the Creature declares his own intention to die, thus ending the cycle of revenge and resolving the central external conflict between them." }
+                ]
+            },
+             // From 10R Faves PDF
+            {
+                id: "granny-dam",
+                source: "Granny Weatherwax in Wyrd Sisters by Terry Pratchett",
+                quote: "Granny Weatherwax was often angry. She considered it one of her strong points. Genuine anger was one of the world’s great creative forces, but you had to learn how to control it... Let it drown whole valleys of the mind, and then just when the whole structure was about to collapse, opened a tiny pipeline at the base, and let the iron hard stream of wrath power the turbines of revenge.",
+                analyses: [
+                    { device: "Metaphor", explanation: "The quote uses an extended metaphor, comparing anger to a powerful river. It isn't just a feeling; it's a force that is 'damned carefully' to build a 'working head' of pressure, which is then channeled through a 'pipeline' to 'power the turbines of revenge.'" },
+                    { device: "Indirect Characterization", explanation: "Through her thoughts about anger, Granny Weatherwax is indirectly characterized as intensely powerful, disciplined, and strategic. She doesn't suppress her anger but controls and weaponizes it, revealing a formidable and calculating personality." }
+                ]
+            },
+            {
+                id: "burroughs-virus",
+                source: "William S. Burroughs",
+                quote: "Most of the trouble in this world has been caused by folks who can’t mind their own business, because they have no business of their own to mind, any more than a smallpox virus has.",
+                analyses: [
+                    { device: "Simile", explanation: "The quote ends with a sharp simile, comparing people who cause trouble to a 'smallpox virus.' This comparison suggests they are not just annoying but are a mindless, destructive force of nature that exists only to propagate itself by harming others." },
+                    { device: "Indirect Characterization", explanation: "The speaker's cynical speech indirectly characterizes them as misanthropic and world-weary. Their tone reduces complex human behavior to a simple, pathological impulse." }
+                ]
+            },
+            {
+                id: "twain-modest",
+                source: "Mark Twain (Samuel Clemens)",
+                quote: "\"I was born modest, but it didn’t last.\"",
+                analyses: [
+                    { device: "Indirect Characterization", explanation: "Through this witty and concise speech, Mark Twain indirectly characterizes his persona as humorous, self-aware, and ironically immodest. The statement's humor comes from its candid admission of a traditionally negative trait." }
+                ]
+            },
+            {
+                id: "camus-push",
+                source: "Albert Camus",
+                quote: "No matter how hard the world pushes against me, within me, there’s something stronger – something better, pushing right back.",
+                analyses: [
+                    { device: "Metaphor", explanation: "The quote uses the metaphor of pushing and resistance to describe the struggle against adversity. The 'world' is a physical force pushing inward, while the human spirit is an opposing force 'pushing right back.'" },
+                    { device: "Internal Conflict", explanation: "This describes the resolution of an internal conflict. The speaker acknowledges the external pressures but finds a greater, winning force within themselves, showcasing resilience." }
+                ]
+            },
+             {
+                id: "no-fist",
+                source: "Shiprah & Puah, David, Spartacus, Leonidas, Socrates",
+                quote: "\"No.\"",
+                analyses: [
+                    { device: "Symbolism", explanation: "In this context, the word 'No' becomes a powerful symbol of defiance, courage, and the assertion of individual will against overwhelming authority or injustice." },
+                    { device: "Indirect Characterization", explanation: "As an act of speech, this single word indirectly characterizes the speakers as possessing immense courage and conviction. Their refusal is an action that defines their character in a pivotal moment." }
+                ]
+            },
+            {
+                id: "guards-crowd",
+                source: "Guards! Guards! by Terry Pratchett",
+                quote: "Down there…are people who will follow any dragon, worship any god, ignore any inequity. All out of a kind of humdrum, everyday badness... They accept evil not because they say yes, but because they don't say no.",
+                analyses: [
+                    { device: "Metaphor", explanation: "The quote uses the metaphor of 'mass-produced darkness of the soul' to describe the unthinking, passive evil of the masses. This suggests their badness is not unique or passionate but common and cheaply made, like a factory product." },
+                    { device: "Direct Characterization", explanation: "This passage is a direct characterization of a certain type of person: one who enables evil through apathy. The narrator explicitly defines their flaw as a failure to resist." }
+                ]
+            },
+            {
+                id: "lesmis-barricade",
+                source: "Les Miserables by Victor Hugo",
+                quote: "Give him a pike, he will produce the 10th of August; give him a gun, you will have Austerlitz... Beware! his hair filled with wrath, is epic; his blouse drapes itself like the folds of a chlamys... make him sing the Marseillaise, and he will free the world.",
+                analyses: [
+                    { device: "Hyperbole", explanation: "The claim that the Parisian's breath has 'enough wind to disarrange the folds of the Alps' is a clear hyperbole, an exaggeration used to emphasize the epic, revolutionary power contained within the common man." },
+                    { device: "Simile", explanation: "The description of a commoner's 'blouse' draping 'like the folds of a chlamys' (a Greek cloak) is a simile that elevates the working man to the status of a classical hero, ennobling his revolutionary fury." }
+                ]
+            },
+            {
+                id: "baldwin-humanity",
+                source: "Bruce Springsteen quoting James Baldwin",
+                quote: "\"In this world, there isn’t as much humanity as one would like. But, there is enough.\"",
+                analyses: [
+                    { device: "Direct Characterization", explanation: "This is a direct characterization of the state of the world. The speaker makes a clear, measured assessment of humanity, acknowledging its flaws while affirming its ultimate sufficiency." },
+                    { device: "Indirect Characterization", explanation: "Through this speech, the speaker is indirectly characterized as a hopeful realist—someone who sees the world clearly without falling into cynicism." }
+                ]
+            },
+            {
+                id: "twain-gears",
+                source: "A Connecticut Yankee in King Arthur's Court by Mark Twain",
+                quote: "Training—training is everything... We have no thoughts of our own, no opinions of our own; they are transmitted to us, trained into us.",
+                analyses: [
+                    { device: "Metaphor", explanation: "The quote uses the metaphor of transmission to describe how opinions are formed, suggesting that ideas are not created internally but are instead like signals 'transmitted to us' from an external source (society, upbringing)." },
+                    { device: "Indirect Characterization", explanation: "The speaker's dogmatic speech indirectly characterizes them as a determinist, someone who believes free will is an illusion and that human beings are fundamentally products of their environment and upbringing." }
+                ]
+            },
+            {
+                id: "quixote-sauce",
+                source: "Don Quixote by Miguel de Cervantes Saavedra",
+                quote: "\"Hunger is the best sauce in the world.\"",
+                analyses: [
+                    { device: "Metaphor", explanation: "This is a simple metaphor that compares the sensation of hunger to a 'sauce.' It implies that true need makes any simple provision seem delicious and satisfying, a piece of practical, worldly wisdom." }
+                ]
+            },
+            {
+                id: "quixote-brain",
+                source: "Don Quixote by Miguel de Cervantes Saavedra",
+                quote: "Finally, from so little sleeping and so much reading, his brain dried up and he went completely out of his mind.",
+                analyses: [
+                    { device: "Hyperbole", explanation: "The idea that Don Quixote's 'brain dried up' is a hyperbole, an exaggeration used to comically and vividly describe the cause of his madness." },
+                    { device: "Indirect Characterization", explanation: "This sentence describes the effects of Don Quixote's obsessive actions (reading chivalric novels nonstop). This indirectly characterizes him as someone prone to fantasy and obsession, setting up the entire premise of the novel." }
+                ]
+            },
+            {
+                id: "lotr-gate",
+                source: "The Return of the King by J.R.R. Tolkien",
+                quote: "In rode the Lord of the Nazgûl. A great black shape... grown to a vast menace of despair... There waiting... sat Gandalf upon Shadowfax... steadfast as a graven image... 'You cannot enter here,' said Gandalf... 'Do you not know Death when you see it?'... a cock crowed... Rohan had come at last.",
+                analyses: [
+                    { device: "Imagery", explanation: "The passage is filled with powerful contrasting imagery: the 'great black shape' of the Nazgûl against the 'red fires' versus the white image of Gandalf on Shadowfax, 'still in the space before the Gate.'" },
+                    { device: "Simile", explanation: "Gandalf's horse, Shadowfax, is described as 'steadfast as a graven image,' a simile that emphasizes its supernatural courage and stillness in the face of pure terror." },
+                    { device: "Symbolism", explanation: "The unexpected sound of the cock crowing is a powerful symbol of hope and the coming of dawn, a natural defiance against the unnatural darkness of the Nazgûl." },
+                    { device: "Plot", explanation: "This scene is a critical moment in the plot, representing the lowest point of the siege of Minas Tirith just before the tide turns. It is a direct confrontation that builds immense tension before the arrival of the Rohirrim provides the resolution." }
+                ]
+            },
+            {
+                id: "prince-stars",
+                source: "The Little Prince by Antoine de Saint-Exupéry",
+                quote: "\"You-You alone will have stars as no one else has them... In one of them I shall be living. In one of them I shall be laughing. And so it will be as if all the stars will be laughing when you look at the sky at night... It will be as if, in place of the stars, I had given you a great number of little bells that knew how to laugh.\"",
+                analyses: [
+                    { device: "Personification", explanation: "The quote gives stars the human ability to laugh, a use of personification that transforms them from distant celestial objects into personal, living reminders of the Prince's affection." },
+                    { device: "Symbolism", explanation: "The laughing stars become a symbol of the Prince's unique and enduring friendship. They represent a secret, joyous connection that only the narrator will have access to." },
+                    { device: "Simile", explanation: "The passage ends with a simile comparing the laughing stars to 'a great number of little bells that knew how to laugh,' connecting the visual image of stars with the joyful sound of bells." }
+                ]
+            },
+            {
+                id: "tower-hurricane",
+                source: "The Dark Tower by Stephen King",
+                quote: "Laughter, Susannah would later reflect, is like a hurricane: once it reaches a certain point, it becomes self-feeding, self-supporting. You laugh not because the jokes are funny but because your own condition is funny.",
+                analyses: [
+                    { device: "Simile", explanation: "Laughter is directly compared to a 'hurricane,' a powerful simile that explains its uncontrollable and 'self-feeding' nature once it gains momentum." },
+                    { device: "Indirect Characterization", explanation: "Through her introspective thought, Susannah is indirectly characterized as deeply analytical, capable of deconstructing even a primal emotion like laughter to understand its mechanics." }
+                ]
+            },
+            {
+                id: "tower-ending",
+                source: "The Dark Tower by Stephen King",
+                quote: "And will I tell you that these three lived happily ever after? I will not, for no one ever does. But there was happiness. And they did live.",
+                analyses: [
+                    { device: "Direct Characterization", explanation: "This is a direct characterization of the nature of happiness. The narrator explicitly rejects the fairy-tale ideal ('happily ever after') in favor of a more realistic and attainable state of being." },
+                    { device: "Indirect Characterization", explanation: "The narrator's speech indirectly characterizes them as a realist who values truth over comforting clichés, offering a poignant and honest assessment of life." }
+                ]
+            },
+            {
+                id: "dune-fear",
+                source: "Dune by Frank Herbert",
+                quote: "Fear is the mind-killer. Fear is the little death that brings total obliteration... Where the fear has gone there will be nothing. Only I will remain.",
+                analyses: [
+                    { device: "Metaphor", explanation: "The quote uses two powerful metaphors for fear: it is a 'mind-killer,' suggesting it destroys reason, and a 'little death,' implying that to succumb to fear is to lose one's self." },
+                    { device: "Internal Conflict", explanation: "The Litany Against Fear is a verbal tool for confronting and mastering the internal conflict between a person's will and their own fear. The process described is a mental battle for self-preservation." }
+                ]
+            },
+            {
+                id: "stark-phone",
+                source: "Firebreak by Richard Stark",
+                quote: "When the phone rang, Parker was in the garage, killing a man.",
+                analyses: [
+                    { device: "Plot", explanation: "This is a stark and effective opening line that immediately establishes plot and tone. It thrusts the reader directly into a moment of extreme action without any preamble." },
+                    { device: "Indirect Characterization", explanation: "The casual, matter-of-fact description of Parker's action—juxtaposing a mundane event (a phone ringing) with a violent one (killing a man)—indirectly characterizes him as ruthlessly professional, efficient, and completely detached from the violent nature of his work." }
+                ]
+            }
+        ];
+
+        let masterQuoteData = [...quotesData];
+        let shuffledQuoteData = [];
+        let slides = [];
+        let currentSlide = 0;
+        
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function buildSlides() {
+            slides = []; // Clear existing slides
+            // Title Slide
+            slides.push(`
+                <div class="slide title-slide">
+                    <div class="slide-content">
+                        <h1>The Devices of Literature</h1>
+                        <p>How to Find Them in the Wild!</p>
+                    </div>
+                </div>
+            `);
+
+            // Generate slides for each quote in the shuffled deck
+            shuffledQuoteData.forEach(item => {
+                slides.push(`
+                    <div class="slide" data-animation="${item.id}">
+                        <div class="slide-content">
+                            <div class="quote-text">${item.quote.replace(/\n/g, '<br>')}</div>
+                            <div class="quote-source">${item.source}</div>
+                        </div>
+                    </div>
+                `);
+
+                item.analyses.forEach(analysis => {
+                    slides.push(`
+                        <div class="slide">
+                             <div class="slide-content">
+                                <div class="quote-text">${item.quote.replace(/\n/g, '<br>')}</div>
+                                <div class="quote-source">${item.source}</div>
+                                <div class="device-card">
+                                    <h3 class="device-title">${analysis.device}</h3>
+                                    <p class="device-explanation">${analysis.explanation}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                });
+            });
+        }
+        
+        function fitText(slideElement) {
+            const container = slideElement.querySelector('.slide-content');
+            const textElements = slideElement.querySelectorAll('.quote-text, .device-explanation');
+            
+            textElements.forEach(el => {
+                // Reset font size to base
+                const baseSize = parseFloat(getComputedStyle(el).getPropertyValue('--base-font-size'));
+                let currentSize = baseSize;
+                el.style.fontSize = `calc(${currentSize} * 1vw)`;
+
+                // Shrink font size until it fits within the main slide content area
+                while ((el.scrollHeight > container.clientHeight || el.scrollWidth > container.clientWidth) && currentSize > 0.5) {
+                    currentSize -= 0.1;
+                    el.style.fontSize = `calc(${currentSize} * 1vw)`;
+                }
+            });
+        }
+
+
+        function showSlide(index) {
+            const slideContainer = document.getElementById('slide-container');
+            const slideCounter = document.getElementById('slide-counter');
+            
+            if (index >= slides.length) { currentSlide = 0; }
+            if (index < 0) { currentSlide = slides.length - 1; }
+            
+            slideContainer.innerHTML = slides[currentSlide];
+            const activeSlideElement = slideContainer.querySelector('.slide');
+            if(activeSlideElement) {
+                 activeSlideElement.classList.add('active');
+                 // Wait a moment for the slide to render, then fit the text
+                 requestAnimationFrame(() => fitText(activeSlideElement));
+            }
+           
+            slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+        }
+
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+
+        function shuffleAndRestart() {
+            shuffledQuoteData = [...masterQuoteData]; // Reset with all quotes
+            shuffleArray(shuffledQuoteData);
+            buildSlides();
+            currentSlide = 1; // Start after the title slide
+            showSlide(currentSlide);
+        }
+
+        // Initialize
+        shuffleAndRestart(); // Initial shuffle and build
+        currentSlide = 0; // Show title slide first
+        showSlide(currentSlide);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight') {
+                changeSlide(1);
+            } else if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            }
+        });
+
+    </script>
+
+</body>
+</html>
