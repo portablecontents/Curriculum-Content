@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English 11 Curriculum Engine (2026–2027)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { 50: '#f0f4f8', 100: '#d9e2ec', 700: '#102a43', 800: '#0b1b2b', 900: '#06101e' },
+                        crimson: { 600: '#9b111e', 700: '#7a0d18', 800: '#5c0812' },
+                        amber: { 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' }
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'Lora', 'Georgia', 'serif'],
+                        sans: ['"Inter"', 'system-ui', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- PapaParse is used to safely convert the raw CSV text from Google into JSON -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    
+    <style>
+        body { font-family: 'Times New Roman', Lora, Georgia, serif; background-color: #fafaf9; }
+        .mono-font { font-family: 'JetBrains Mono', monospace; }
+        
+        /* 
+         * ==========================================
+         * NUCLEAR CSS BLOCK FOR GOOGLE SITES IFRAME
+         * ==========================================
+         */
+        table { border-collapse: collapse !important; width: 100% !important; }
+        th, td { border: 1px solid #d6d3d1 !important; }
+        td[rowspan] { 
+            vertical-align: middle !important; 
+            text-align: center !important; 
+        }
+
+        th {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .avatar-hover:hover { transform: scale(1.05) rotate(-3deg); transition: all 0.3s ease; }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; color: black; }
+        }
+        
+        /* Loading animation for the live sync */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #f59e0b; /* amber-500 */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="text-slate-900 min-h-screen flex flex-col">
+    <div id="root" class="flex-1 flex flex-col w-full"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useMemo } = React;
+
+        // This is the specific English 11 CSV link
+        const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTAN_-egC1VPFaPPHoH-jwsU9Ssh9OpeKvd_6zz5zECWYqbFIRwP5Dq52NTBxEK9MIqgOXXPhO1r0Ic/pub?gid=0&single=true&output=csv';
+
+        const formatList = (text, type) => {
+            if (!text) return null;
+            
+            let items = text.split('\n');
+            items = items.map(item => item.replace(/^[-•*o]\s*/, '').replace(/^\d+[\.)]\s*/, '').trim()).filter(Boolean);
+
+            if (items.length === 0) return null;
+            
+            if (type === 'objective') {
+                return (
+                    <ul className="space-y-2">
+                        {items.map((item, idx) => (
+                            <li key={idx} className="flex items-start">
+                                <span className="text-amber-500 mr-2 text-sm mt-0.5 font-sans">★</span>
+                                <span className="flex-1 text-slate-800 leading-relaxed">{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                );
+            }
+            
+            if (type === 'agenda') {
+                return (
+                    <ul className="space-y-2">
+                        {items.map((item, idx) => (
+                            <li key={idx} className="flex items-start">
+                                <span className="text-slate-400 mr-2 text-lg leading-none mt-0 font-sans">•</span>
+                                <span className="flex-1 text-slate-700 leading-relaxed">{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                );
+            }
+            
+            if (type === 'todo') {
+                // Formatting for to-do items (no red underline)
+                return (
+                    <ul className="space-y-2 text-crimson-700 font-bold font-sans text-left inline-block">
+                        {items.map((item, idx) => (
+                            <li key={idx} className="flex items-start">
+                                <span className="text-crimson-600 mr-2 text-lg leading-none mt-0.5">☑</span>
+                                <span className="flex-1 leading-snug">{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                );
+            }
+
+            return <span className="block">{text}</span>;
+        };
+
+        function App() {
+            const [localData, setLocalData] = useState([]);
+            const [isLoading, setIsLoading] = useState(true);
+            const [error, setError] = useState(null);
+            
+            // Filters
+            const [selectedQuarter, setSelectedQuarter] = useState('ALL');
+            const [selectedTag, setSelectedTag] = useState('ALL');
+            const [searchQuery, setSearchQuery] = useState('');
+
+            useEffect(() => {
+                const fetchCSV = async () => {
+                    setIsLoading(true);
+                    setError(null);
+                    
+                    try {
+                        // The Cache Buster: Appends a unique timestamp to force download
+                        const cacheBuster = `&_t=${new Date().getTime()}`;
+                        const urlToFetch = `${CSV_URL}${cacheBuster}`;
+                        
+                        // Using native fetch with explicit no-cache instructions
+                        const response = await fetch(urlToFetch, {
+                            cache: 'no-store',
+                            headers: {
+                                'Pragma': 'no-cache',
+                                'Cache-Control': 'no-cache'
+                            }
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(`Failed to fetch data: ${response.statusText}`);
+                        }
+
+                        const csvText = await response.text();
+                        
+                        Papa.parse(csvText, {
+                            header: true,
+                            skipEmptyLines: true,
+                            complete: (results) => {
+                                if (results.errors.length > 0) {
+                                    console.error("CSV Parsing errors:", results.errors);
+                                }
+                                
+                                const parsedData = results.data;
+                                
+                                const mappedData = parsedData.map((row, index) => {
+                                    // This function searches all headers in the row for a keyword
+                                    // It allows for variations like "Objective HOOHOO" or "Period Notes"
+                                    const findKey = (searchStrings) => {
+                                        const key = Object.keys(row).find(k => 
+                                            searchStrings.some(searchStr => k.toLowerCase().includes(searchStr.toLowerCase()))
+                                        );
+                                        return key ? row[key] : "";
+                                    };
+
+                                    const dateVal = findKey(["date"]);
+                                    const dayVal = findKey(["day"]);
+                                    
+                                    // Skip rows without a date
+                                    if (!dateVal) return null;
+
+                                    return {
+                                        id: `row-${index}`,
+                                        date: dateVal,
+                                        displayDate: dateVal,
+                                        dayName: dayVal ? dayVal.substring(0, 3).toUpperCase() : "",
+                                        quarter: findKey(["quarter"]) || "Q1",
+                                        tag: findKey(["tag", "unit"]) || "",
+                                        objective: findKey(["objective"]), 
+                                        inClass: findKey(["in-class", "agenda"]),
+                                        toDo: findKey(["to-do", "homework"]),
+                                        periodNotes: findKey(["period notes", "notes"]) 
+                                    };
+                                }).filter(Boolean); // Remove null rows
+
+                                setLocalData(mappedData);
+                                setIsLoading(false);
+                            },
+                            error: (error) => {
+                                console.error("Error parsing CSV:", error);
+                                setError("Failed to parse curriculum data.");
+                                setIsLoading(false);
+                            }
+                        });
+                    } catch (err) {
+                        console.error("Fetch block error:", err);
+                        setError("An error occurred while fetching the live data. Please check your internet connection and published link.");
+                        setIsLoading(false);
+                    }
+                };
+
+                fetchCSV();
+            }, []);
+
+            const filteredData = useMemo(() => {
+                return localData.filter(row => {
+                    if (selectedQuarter !== 'ALL' && row.quarter !== selectedQuarter) return false;
+                    if (selectedTag !== 'ALL' && row.tag !== selectedTag) return false;
+                    if (searchQuery.trim() !== '') {
+                        const q = searchQuery.toLowerCase();
+                        return (row.date && row.date.toLowerCase().includes(q)) || 
+                               (row.tag && row.tag.toLowerCase().includes(q)) ||
+                               (row.objective && row.objective.toLowerCase().includes(q)) || 
+                               (row.inClass && row.inClass.toLowerCase().includes(q)) ||
+                               (row.toDo && row.toDo.toLowerCase().includes(q)) ||
+                               (row.periodNotes && row.periodNotes.toLowerCase().includes(q)); // Search notes!
+                    }
+                    return true;
+                });
+            }, [localData, selectedQuarter, selectedTag, searchQuery]);
+
+            const processedData = useMemo(() => {
+                let data = filteredData.map(item => ({ ...item, toDoRowSpan: 1 }));
+
+                for (let i = 0; i < data.length; i++) {
+                    if (data[i].toDoRowSpan === 0) continue; 
+                    if (data[i].tag && data[i].tag.toLowerCase().includes("school closed")) continue; 
+                    if (!data[i].toDo || data[i].toDo.trim() === "") continue; 
+
+                    let span = 1;
+                    for (let j = i + 1; j < data.length; j++) {
+                        if (data[j].tag && data[j].tag.toLowerCase().includes("school closed")) break; 
+                        
+                        // Precise match required for merging
+                        if (data[i].toDo === data[j].toDo) {
+                            span++;
+                            data[j].toDoRowSpan = 0; 
+                        } else {
+                            break; 
+                        }
+                    }
+                    data[i].toDoRowSpan = span;
+                }
+                return data;
+            }, [filteredData]);
+
+            const uniqueTags = useMemo(() => {
+                const tags = new Set(localData.map(d => d.tag).filter(t => t && t.trim() !== ""));
+                return ['ALL', ...Array.from(tags).sort()];
+            }, [localData]);
+
+            return (
+                <div className="flex flex-col min-h-screen">
+                    <header className="bg-gradient-to-r from-navy-900 to-indigo-900 border-b-4 border-amber-500 px-6 py-4 flex-shrink-0 relative z-30">
+                        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                            <div className="flex items-center space-x-4">
+                                <div className="w-16 h-16 rounded-full bg-white border-[3px] border-amber-400 shadow-[0_0_15px_rgba(251,191,36,0.5)] overflow-hidden flex items-center justify-center avatar-hover cursor-pointer relative group">
+                                    <span className="text-4xl">🧙‍♂️</span>
+                                </div>
+                                <div>
+                                    <h1 className="text-2xl font-bold tracking-tight text-white flex items-center space-x-2 font-serif">
+                                        <span>English 11 Curriculum Engine</span>
+                                        <span className="text-xs bg-amber-500 text-navy-900 px-2 py-0.5 rounded-full font-bold font-sans shadow">Live Sync</span>
+                                    </h1>
+                                    <p className="text-sm text-indigo-200 italic mt-0.5 font-serif tracking-wide">Mr. Lynch • Hauppauge High School • Periods 4, 5, & 9</p>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div className="bg-white border-b border-stone-300 px-6 py-3 shadow-sm font-sans relative z-20">
+                        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+                            <div className="flex flex-wrap items-center gap-3">
+                                <div className="flex items-center space-x-1 bg-stone-100 p-1 rounded-lg border border-stone-200 text-xs font-bold">
+                                    {['ALL', 'Q1', 'Q2', 'Q3', 'Q4'].map(q => (
+                                        <button key={q} onClick={() => setSelectedQuarter(q)} className={`px-3 py-1 rounded transition ${selectedQuarter === q ? 'bg-navy-800 text-white' : 'text-slate-600 hover:bg-white'}`}>{q === 'ALL' ? 'All Quarters' : q}</button>
+                                    ))}
+                                </div>
+                                <select value={selectedTag} onChange={(e) => setSelectedTag(e.target.value)} className="bg-white border border-stone-300 text-slate-700 text-sm font-bold rounded-lg px-3 py-1.5 focus:ring-2 focus:ring-amber-500 outline-none">
+                                    {uniqueTags.map(t => <option key={t} value={t}>{t === 'ALL' ? '🏷️ All Tags / Units' : t}</option>)}
+                                </select>
+                                <div className="relative">
+                                    <input 
+                                        type="text" 
+                                        placeholder="Search..." 
+                                        value={searchQuery}
+                                        onChange={(e) => setSearchQuery(e.target.value)}
+                                        className="bg-white border border-stone-300 text-slate-700 text-sm rounded-lg pl-8 pr-3 py-1.5 focus:ring-2 focus:ring-amber-500 outline-none w-48"
+                                    />
+                                    <span className="absolute left-2.5 top-1.5 text-slate-400">🔍</span>
+                                </div>
+                            </div>
+                            <div className="flex items-center text-xs text-slate-500 font-bold">
+                                {isLoading ? (
+                                    <span className="animate-pulse text-amber-500 flex items-center"><span className="mr-2">🔄</span> Syncing with Spreadsheet...</span>
+                                ) : (
+                                    <span className="text-emerald-600 flex items-center"><span className="mr-2">✅</span> Live Data Synced</span>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+
+                    {}
+                    <main className="flex-1 w-full max-w-[1400px] mx-auto p-4 md:p-6 font-serif flex flex-col">
+                        {error ? (
+                            <div className="bg-rose-50 border-2 border-rose-300 text-rose-800 p-6 rounded-xl flex flex-col items-center justify-center space-y-4 my-8 font-sans">
+                                <span className="text-4xl">⚠️</span>
+                                <h2 className="text-xl font-bold">Connection Error</h2>
+                                <p className="text-center">{error}</p>
+                            </div>
+                        ) : isLoading ? (
+                            <div className="flex-1 flex flex-col items-center justify-center p-12 space-y-6">
+                                <div className="loader"></div>
+                                <p className="text-slate-500 font-bold font-sans animate-pulse">Loading latest curriculum plan from Google Sheets...</p>
+                            </div>
+                        ) : (
+                            <div className="bg-white rounded-xl shadow-xl w-full border border-stone-300 overflow-x-auto">
+                                <table className="w-full text-left bg-white" style={{ borderCollapse: 'collapse', width: '100%', minWidth: '900px' }}>
+                                    <thead className="bg-navy-900 shadow-md">
+                                        <tr className="text-white text-[11px] uppercase font-bold tracking-wider font-sans">
+                                            <th style={{ border: '1px solid #d6d3d1' }} className="p-3.5 whitespace-nowrap bg-navy-900 rounded-tl-lg w-16">Date</th>
+                                            <th style={{ border: '1px solid #d6d3d1' }} className="p-3.5 whitespace-nowrap bg-navy-900 w-16">Day</th>
+                                            <th style={{ border: '1px solid #d6d3d1' }} className="p-3.5 whitespace-nowrap bg-navy-900 w-24">Tag / Unit</th>
+                                            <th style={{ border: '1px solid #d6d3d1' }} className="p-3.5 bg-navy-900 w-[20%]">Objective</th>
+                                            <th style={{ border: '1px solid #d6d3d1' }} className="p-3.5 bg-navy-900 w-[35%]">In-Class Agenda</th>
+                                            <th style={{ border: '1px solid #d6d3d1' }} className="p-3.5 bg-navy-900 w-[15%] text-center">To-Do / Homework</th>
+                                            {/* Period Notes column strictly hard-coded to ensure rendering */}
+                                            <th style={{ border: '1px solid #d6d3d1' }} className="p-3.5 bg-navy-900 w-[15%] text-center rounded-tr-lg">Period Notes</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="text-[15px]">
+                                        {processedData.length === 0 ? (
+                                            <tr><td colSpan="7" className="p-12 text-center text-slate-500 font-bold font-sans" style={{ border: '1px solid #d6d3d1' }}>No instructional days found matching criteria.</td></tr>
+                                        ) : (
+                                            processedData.map((row) => {
+                                                const isClosed = row.tag && row.tag.toLowerCase().includes("school closed");
+                                                
+                                                return (
+                                                    <tr key={row.id} className={`hover:bg-amber-50/60 transition duration-150 ${isClosed ? 'bg-rose-50/30' : 'bg-white'}`}>
+                                                        <td style={{ border: '1px solid #d6d3d1' }} className="p-4 font-bold mono-font text-slate-700 whitespace-nowrap align-top">{row.displayDate}</td>
+                                                        <td style={{ border: '1px solid #d6d3d1' }} className="p-4 text-slate-400 font-bold text-xs font-sans align-top pt-5">{row.dayName}</td>
+                                                        <td style={{ border: '1px solid #d6d3d1' }} className="p-4 align-top">
+                                                            {row.tag && (
+                                                                <span className={`inline-block px-2 py-1 rounded text-xs font-bold font-sans ${isClosed ? 'bg-rose-100 text-rose-800 border border-rose-300' : 'bg-stone-100 text-stone-700 border border-stone-200'}`}>
+                                                                    {row.tag}
+                                                                </span>
+                                                            )}
+                                                        </td>
+                                                        
+                                                        {isClosed ? (
+                                                            <td style={{ border: '1px solid #d6d3d1' }} colSpan="4" className="p-4 align-middle bg-rose-50/50">
+                                                                <div className="flex items-center justify-center space-x-3 text-rose-700 py-1">
+                                                                    <span className="text-2xl">🎉</span>
+                                                                    <span className="font-bold text-lg font-sans tracking-wide">
+                                                                        {row.objective || row.inClass || "School Closed"}
+                                                                    </span>
+                                                                    <span className="text-2xl">🎉</span>
+                                                                </div>
+                                                            </td>
+                                                        ) : (
+                                                            <React.Fragment>
+                                                                <td style={{ border: '1px solid #d6d3d1' }} className="p-4 align-top">{formatList(row.objective, 'objective')}</td>
+                                                                <td style={{ border: '1px solid #d6d3d1' }} className="p-4 align-top">{formatList(row.inClass, 'agenda')}</td>
+                                                                
+                                                                {row.toDoRowSpan > 0 && (
+                                                                    <td 
+                                                                        rowSpan={row.toDoRowSpan} 
+                                                                        style={{ border: '1px solid #d6d3d1', verticalAlign: 'middle', textAlign: 'center' }}
+                                                                        className={`p-4 transition-colors ${row.toDoRowSpan > 1 ? 'bg-rose-50/40 shadow-inner' : ''}`}
+                                                                    >
+                                                                        <div className="w-full flex justify-center items-center h-full">
+                                                                            {formatList(row.toDo, 'todo')}
+                                                                        </div>
+                                                                    </td>
+                                                                )}
+                                                                
+                                                                {/* Period Notes column rendered individually per day */}
+                                                                <td style={{ border: '1px solid #d6d3d1' }} className="p-4 align-top bg-stone-50/30">
+                                                                    <div className="text-sm text-slate-600 font-sans italic whitespace-pre-wrap">
+                                                                        {formatList(row.periodNotes, 'agenda') || ""}
+                                                                    </div>
+                                                                </td>
+                                                            </React.Fragment>
+                                                        )}
+                                                    </tr>
+                                                );
+                                            })
+                                        )}
+                                    </tbody>
+                                </table>
+                            </div>
+                        )}
+                    </main>
+
+                    {}
+                    <footer className="bg-stone-100 border-t border-stone-300 py-6 px-6 text-center text-sm font-bold text-slate-500 no-print font-sans tracking-wide mt-auto relative z-20">
+                        <p>English 11 Curriculum Engine • Hauppauge High School • Built for 2026–2027</p>
+                        <p className="mt-3 text-[13px] italic font-serif text-slate-600">"There are no passengers on spaceship earth. We are all crew."</p>
+                        <p className="text-[10px] uppercase font-bold text-slate-400 mt-1 tracking-widest">— Marshall McLuhan</p>
+                    </footer>
+                </div>
+            );
+        }
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+</body>
+</html>
