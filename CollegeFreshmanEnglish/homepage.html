@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Freshman English Hub</title>
+
+  <!-- Google Fonts: Share Tech Mono, MedievalSharp, and Orbitron -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=MedievalSharp&family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #050a07; /* Slightly greener dark tint */
+      --panel-bg: rgba(12, 26, 18, 0.85);
+      --card-bg: rgba(15, 30, 22, 0.9);
+      
+      --brass-gold: #e5a93c;
+      --brass-dark: #784e1b;
+      
+      --neon-cyan: #00f3ff;
+      --neon-violet: #d926ff;
+      --neon-amber: #ffaa00;
+      --neon-green: #00ff66; /* Main accent for this hub */
+      
+      --text-bright: #e2f1ff;
+      --text-muted: #8ba2c0;
+      
+      --border-brass: #b8860b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-dark);
+      color: var(--text-bright);
+      font-family: 'Share Tech Mono', monospace;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 50% 10%, rgba(0, 255, 102, 0.1), transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(0, 243, 255, 0.05), transparent 50%),
+        linear-gradient(rgba(5, 10, 7, 0.92), rgba(5, 10, 7, 0.92)),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 102, 0.02) 3px, rgba(0, 255, 102, 0.02) 4px);
+      background-attachment: fixed;
+      overflow-x: hidden;
+      padding-bottom: 90px;
+    }
+
+    #rune-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.35;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+    
+    .nav-bar {
+      margin-bottom: 20px;
+    }
+    
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--neon-green);
+      text-decoration: none;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.9rem;
+      border: 1px solid var(--neon-green);
+      padding: 8px 16px;
+      border-radius: 4px;
+      background: rgba(0, 255, 102, 0.1);
+      transition: all 0.2s ease;
+    }
+    
+    .nav-link:hover {
+      background: rgba(0, 255, 102, 0.2);
+      box-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
+      transform: translateX(-3px);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 35px;
+      position: relative;
+    }
+
+    .brass-plaque {
+      display: inline-block;
+      background: linear-gradient(180deg, #1f2a24 0%, #0c1611 50%, #132219 100%);
+      border: 3px solid var(--brass-gold);
+      border-radius: 12px;
+      padding: 20px 40px;
+      box-shadow: 
+        0 0 20px rgba(229, 169, 60, 0.3),
+        inset 0 0 15px rgba(0, 0, 0, 0.8),
+        0 0 0 6px #070d0a;
+      position: relative;
+    }
+
+    .brass-plaque::before, .brass-plaque::after {
+      content: '⚙';
+      position: absolute;
+      color: var(--brass-gold);
+      font-size: 1.2rem;
+      top: 8px;
+    }
+    .brass-plaque::before { left: 12px; }
+    .brass-plaque::after { right: 12px; }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin: 0 0 8px 0;
+      background: linear-gradient(90deg, var(--neon-green), #d4ffea, var(--neon-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(0, 255, 102, 0.5);
+    }
+
+    .subtitle {
+      font-family: 'MedievalSharp', cursive;
+      font-size: 1.15rem;
+      color: var(--brass-gold);
+      margin: 0;
+      letter-spacing: 0.05em;
+    }
+
+    .terminal-search-box {
+      background: rgba(10, 18, 14, 0.9);
+      border: 2px solid var(--neon-green);
+      border-radius: 8px;
+      padding: 12px 20px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 15px rgba(0, 255, 102, 0.2), inset 0 0 10px rgba(0, 255, 102, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .terminal-prompt {
+      color: var(--neon-green);
+      font-weight: bold;
+      font-size: 1.2rem;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .search-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text-bright);
+      font-family: 'Fira Code', monospace;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .search-input::placeholder {
+      color: rgba(226, 241, 255, 0.4);
+      font-style: italic;
+    }
+
+    .category-section {
+      margin-bottom: 45px;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid rgba(229, 169, 60, 0.3);
+      padding-bottom: 8px;
+    }
+
+    .category-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.3rem;
+      color: var(--brass-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .rune-divider {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, var(--brass-gold), transparent);
+      opacity: 0.5;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(20, 30, 25, 0.95), rgba(12, 20, 16, 0.95));
+      border: 2px solid var(--brass-dark);
+      border-radius: 10px;
+      padding: 22px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+      transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan));
+      opacity: 0.6;
+      transition: opacity 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px) scale(1.02);
+      border-color: var(--neon-green);
+      box-shadow: 
+        0 10px 25px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(0, 255, 102, 0.3);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+      height: 4px;
+    }
+
+    .card-badge {
+      display: inline-block;
+      align-self: flex-start;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+      border: 1px solid currentColor;
+    }
+
+    .badge-awards {
+      color: #ffd700;
+      background: rgba(255, 215, 0, 0.1);
+      border-color: rgba(255, 215, 0, 0.4);
+    }
+    
+    .badge-guide {
+      color: var(--neon-cyan);
+      background: rgba(0, 243, 255, 0.1);
+      border-color: rgba(0, 243, 255, 0.4);
+    }
+
+    .badge-utility {
+      color: var(--neon-violet);
+      background: rgba(217, 38, 255, 0.1);
+      border-color: rgba(217, 38, 255, 0.4);
+    }
+    
+    .badge-assessment {
+      color: var(--neon-amber);
+      background: rgba(255, 170, 0, 0.1);
+      border-color: rgba(255, 170, 0, 0.4);
+    }
+
+    .card h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.15rem;
+      margin: 0 0 8px 0;
+      color: var(--text-bright);
+      transition: color 0.2s ease;
+    }
+
+    .card:hover h3 {
+      color: var(--neon-green);
+    }
+
+    .card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin: 0 0 16px 0;
+      line-height: 1.5;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--brass-gold);
+      border-top: 1px dashed rgba(184, 134, 11, 0.3);
+      padding-top: 10px;
+      margin-top: auto;
+    }
+
+    .card-action {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--neon-green);
+      font-weight: bold;
+    }
+
+    .status-hud {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background: linear-gradient(180deg, #121a15 0%, #060a08 100%);
+      border-top: 2px solid var(--brass-gold);
+      box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 25px;
+      z-index: 10;
+      font-size: 0.85rem;
+    }
+
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+    }
+
+    .status-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--neon-green);
+      box-shadow: 0 0 8px var(--neon-green);
+    }
+
+    .hud-clock {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      color: var(--neon-green);
+      background: rgba(0, 255, 102, 0.1);
+      padding: 4px 12px;
+      border: 1px solid rgba(0, 255, 102, 0.3);
+      border-radius: 4px;
+      box-shadow: inset 0 0 6px rgba(0, 255, 102, 0.2);
+    }
+
+    #no-results {
+      display: none;
+      text-align: center;
+      padding: 50px 0;
+      color: var(--neon-green);
+      font-size: 1.2rem;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    @media (max-width: 600px) {
+      .brass-plaque { padding: 15px 20px; }
+      h1 { font-size: 1.5rem; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Canvas for background ambient magic glyphs -->
+  <canvas id="rune-canvas"></canvas>
+
+  <div class="container">
+    
+    <div class="nav-bar">
+      <!-- Link back to the root folder index.html -->
+      <a href="../index.html" class="nav-link">← RETURN TO MASTER DASHBOARD</a>
+    </div>
+
+    <header>
+      <div class="brass-plaque">
+        <h1>COLLEGE FRESHMAN ENGLISH</h1>
+        <p class="subtitle">⚙️ Central Command & Curriculum Matrix ⚙️</p>
+      </div>
+    </header>
+
+    <div class="terminal-search-box">
+      <span class="terminal-prompt">CFE_SYS_ACCESS&gt;</span>
+      <input 
+        type="text" 
+        id="search" 
+        class="search-input" 
+        placeholder="Search matrices, resources, quarters..." 
+        onkeyup="filterCards()"
+        autocomplete="off"
+      />
+    </div>
+
+    <main id="content-container">
+      
+      <section class="category-section">
+        <div class="category-header">
+          <h2 class="category-title">📂 Curriculum Matrices</h2>
+          <div class="rune-divider"></div>
+        </div>
+
+        <div class="grid">
+
+          <a href="ControlCenter.html" class="card">
+            <div>
+              <span class="card-badge badge-awards">Core</span>
+              <h3>CFE CONTROL CENTER</h3>
+              <p>Top-level administrative overview, syllabus, and master pacing guide.</p>
+            </div>
+            <div class="card-footer">
+              <span>STATUS: ONLINE</span>
+              <span class="card-action">ACCESS ➔</span>
+            </div>
+          </a>
+          
+          <a href="DayZero.html" class="card">
+            <div>
+              <span class="card-badge badge-guide">Initiation</span>
+              <h3>DAY ZERO ONBOARDING</h3>
+              <p>Course introduction, fundamental frameworks, and initial diagnostic protocols.</p>
+            </div>
+            <div class="card-footer">
+              <span>STATUS: ONLINE</span>
+              <span class="card-action">ACCESS ➔</span>
+            </div>
+          </a>
+
+          <a href="Quarter1.html" class="card">
+            <div>
+              <span class="card-badge badge-utility">Term 1</span>
+              <h3>QUARTER 1</h3>
+              <p>Unit outlines, deliverables, and instructional sequences for the first quarter.</p>
+            </div>
+            <div class="card-footer">
+              <span>STATUS: ONLINE</span>
+              <span class="card-action">ACCESS ➔</span>
+            </div>
+          </a>
+
+          <a href="Quarter2.html" class="card">
+            <div>
+              <span class="card-badge badge-utility">Term 2</span>
+              <h3>QUARTER 2</h3>
+              <p>Unit outlines, deliverables, and instructional sequences for the second quarter.</p>
+            </div>
+            <div class="card-footer">
+              <span>STATUS: ONLINE</span>
+              <span class="card-action">ACCESS ➔</span>
+            </div>
+          </a>
+          
+          <a href="Quarter3.html" class="card">
+            <div>
+              <span class="card-badge badge-utility">Term 3</span>
+              <h3>QUARTER 3</h3>
+              <p>Unit outlines, deliverables, and instructional sequences for the third quarter.</p>
+            </div>
+            <div class="card-footer">
+              <span>STATUS: ONLINE</span>
+              <span class="card-action">ACCESS ➔</span>
+            </div>
+          </a>
+          
+          <a href="Quarter4.html" class="card">
+            <div>
+              <span class="card-badge badge-utility">Term 4</span>
+              <h3>QUARTER 4</h3>
+              <p>Unit outlines, deliverables, and instructional sequences for the fourth quarter.</p>
+            </div>
+            <div class="card-footer">
+              <span>STATUS: ONLINE</span>
+              <span class="card-action">ACCESS ➔</span>
+            </div>
+          </a>
+
+          <a href="ResourceVault.html" class="card">
+            <div>
+              <span class="card-badge badge-guide">Database</span>
+              <h3>RESOURCE VAULT</h3>
+              <p>Master repository of printable handouts, rubrics, and supplemental reading.</p>
+            </div>
+            <div class="card-footer">
+              <span>STATUS: ONLINE</span>
+              <span class="card-action">ACCESS ➔</span>
+            </div>
+          </a>
+          
+          <a href="AICompanions.html" class="card">
+            <div>
+              <span class="card-badge badge-assessment">Integration</span>
+              <h3>AI COMPANIONS HUB</h3>
+              <p>Prompts, workflows, and protocols for specialized AI teaching assistants.</p>
+            </div>
+            <div class="card-footer">
+              <span>STATUS: ONLINE</span>
+              <span class="card-action">ACCESS ➔</span>
+            </div>
+          </a>
+          
+          <a href="FinalExam.html" class="card">
+            <div>
+              <span class="card-badge badge-awards">Milestone</span>
+              <h3>FINAL EXAM</h3>
+              <p>Culminating assessments, portfolios, and end-of-year review documentation.</p>
+            </div>
+            <div class="card-footer">
+              <span>STATUS: ONLINE</span>
+              <span class="card-action">ACCESS ➔</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+    </main>
+
+    <div id="no-results">⚡ NO MATRICES FOUND MATCHING QUERY ⚡</div>
+  </div>
+
+  <div class="status-hud">
+    <div class="status-item">
+      <div class="status-indicator"></div>
+      <span>SYSTEM: ONLINE | REPO: /CollegeFreshmanEnglish/homepage.html</span>
+    </div>
+    <div id="hud-time" class="hud-clock">00:00:00 PM</div>
+  </div>
+
+  <script>
+    function filterCards() {
+      const query = document.getElementById('search').value.toLowerCase();
+      const sections = document.querySelectorAll('.category-section');
+      let totalVisible = 0;
+
+      sections.forEach(section => {
+        const cards = section.querySelectorAll('.card');
+        let sectionVisibleCount = 0;
+
+        cards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          if (text.includes(query)) {
+            card.style.display = 'flex';
+            sectionVisibleCount++;
+            totalVisible++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        section.style.display = sectionVisibleCount > 0 ? 'block' : 'none';
+      });
+
+      document.getElementById('no-results').style.display = totalVisible === 0 ? 'block' : 'none';
+    }
+
+    function updateClock() {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      document.getElementById('hud-time').innerText = timeStr;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    const canvas = document.getElementById('rune-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // Using coding and structure symbols for the "Back End" vibe
+    const runes = '⚙{}[];:/>_\\✦✧⚡';
+    const particles = Array.from({ length: 45 }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      char: runes[Math.floor(Math.random() * runes.length)],
+      size: Math.random() * 12 + 10,
+      speedY: -(Math.random() * 0.7 + 0.3),
+      opacity: Math.random() * 0.7 + 0.2
+    }));
+
+    function animateRunes() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = '#00ff66'; // Matrix green for the CFE Hub
+      
+      particles.forEach(p => {
+        ctx.font = `${p.size}px 'Share Tech Mono', monospace`;
+        ctx.globalAlpha = p.opacity;
+        ctx.fillText(p.char, p.x, p.y);
+        
+        p.y += p.speedY;
+        if (p.y < -20) {
+          p.y = height + 20;
+          p.x = Math.random() * width;
+        }
+      });
+
+      requestAnimationFrame(animateRunes);
+    }
+    animateRunes();
+  </script>
+
+</body>
+</html>
