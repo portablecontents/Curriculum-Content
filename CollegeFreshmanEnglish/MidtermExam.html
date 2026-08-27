@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFE Midterm Exam: Portfolio Assessment</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepSpace: '#0B1120',
+                        panelBg: '#0F172A',
+                        midtermCyan: '#06B6D4', /* Cyan 500 */
+                        midtermLight: '#67E8F9', /* Cyan 300 */
+                        midtermBlue: '#3B82F6', /* Blue 500 */
+                        safeGreen: '#10B981',
+                        hudText: '#94A3B8'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                        display: ['Orbitron', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0B1120;
+            color: #E2E8F0;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.08), transparent 60%),
+                radial-gradient(circle at 50% 100%, rgba(59, 130, 246, 0.05), transparent 50%),
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+            background-attachment: fixed;
+        }
+        
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(6, 182, 212, 0.05);
+        }
+
+        .glow-cyan {
+            text-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
+        }
+
+        .quest-card {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(71, 85, 105, 0.5);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .quest-card:hover {
+            transform: translateY(-3px);
+            border-color: #06B6D4;
+            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.15);
+        }
+
+        .crt-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none; z-index: 9999; opacity: 0.25;
+        }
+        
+        ::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+
+<body class="font-sans antialiased min-h-screen overflow-x-hidden p-4 md:p-6 lg:p-8">
+    <div class="crt-overlay"></div>
+
+    <div class="max-w-[1400px] mx-auto space-y-8 relative z-10">
+        
+        <header class="text-center py-10 md:py-16 relative overflow-hidden glass-panel rounded-3xl border-t-4 border-t-midtermCyan">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-midtermCyan/20 rounded-full blur-[80px] pointer-events-none"></div>
+            
+            <div class="relative z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-900/30 border border-cyan-500/50 mb-6 shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+                    <i class="ph-fill ph-files text-midtermCyan animate-pulse"></i>
+                    <span class="font-mono text-xs text-midtermCyan uppercase tracking-widest font-bold">Semester 1 Checkpoint</span>
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-black text-white mb-4 glow-cyan tracking-tight uppercase">
+                    Portfolio Midterm
+                </h1>
+                
+                <p class="text-hudText font-mono uppercase tracking-[0.2em] text-sm md:text-base">
+                    Midterm Exam Protocol // CFE ENG101
+                </p>
+            </div>
+        </header>
+
+        <section class="glass-panel rounded-2xl p-6 md:p-8 border-l-4 border-l-midtermCyan">
+            <h2 class="font-display text-midtermCyan uppercase tracking-widest mb-4 flex items-center gap-2 text-lg font-bold">
+                <i class="ph-fill ph-target text-2xl"></i> Midterm Directive
+            </h2>
+            <p class="text-slate-300 leading-relaxed md:text-lg">
+                Engage in self-reflection and critical thinking about your growth as a writer. By selecting, revising, and presenting your best work, you will demonstrate your ability to analyze your writing and revise it thoughtfully based on feedback. The final portfolio should showcase your writing skills and growth over the first two quarters.
+            </p>
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Component 1: Selected Writing Pieces -->
+            <div class="space-y-6">
+                <div class="glass-panel p-6 rounded-2xl h-full flex flex-col">
+                    <div class="flex items-center gap-3 mb-6 border-b border-slate-700 pb-4">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-900/30 flex items-center justify-center border border-cyan-500/30">
+                            <i class="ph-fill ph-archive-tray text-xl text-midtermCyan"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-white font-display uppercase tracking-wider">Part 1: The Artifacts</h2>
+                    </div>
+                    
+                    <div class="space-y-4 flex-grow">
+                        <p class="text-sm text-slate-400 mb-4">Select <strong class="text-white">three original pieces of writing</strong> from Quarter 1 and Quarter 2 to serve as the foundation of your portfolio. Reflect different types of writing (essays, reader responses, creative writing, journals, etc.).</p>
+                        
+                        <div class="grid grid-cols-1 gap-3">
+                            <!-- Selections 1 to 3 -->
+                            <div class="quest-card p-3 rounded-xl border-l-4 border-l-midtermCyan flex items-center justify-between">
+                                <h3 class="font-bold text-white text-sm uppercase tracking-wider">Selection #1</h3>
+                                <i class="ph-fill ph-check-circle text-midtermCyan"></i>
+                            </div>
+                            <div class="quest-card p-3 rounded-xl border-l-4 border-l-midtermCyan flex items-center justify-between">
+                                <h3 class="font-bold text-white text-sm uppercase tracking-wider">Selection #2</h3>
+                                <i class="ph-fill ph-check-circle text-midtermCyan"></i>
+                            </div>
+                            <div class="quest-card p-3 rounded-xl border-l-4 border-l-midtermCyan flex items-center justify-between">
+                                <h3 class="font-bold text-white text-sm uppercase tracking-wider">Selection #3</h3>
+                                <i class="ph-fill ph-check-circle text-midtermCyan"></i>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-slate-800">
+                            <h4 class="font-mono text-[10px] text-midtermCyan uppercase tracking-widest mb-3">Required Elements for EACH Piece:</h4>
+                            <ul class="space-y-2 text-xs text-slate-300 font-mono">
+                                <li class="flex items-center gap-2"><i class="ph-fill ph-table text-midtermCyan"></i> <strong class="text-white">General Info Table:</strong> Title, Type of assignment, & Unit of Study.</li>
+                                <li class="flex items-center gap-2"><i class="ph-fill ph-file-text text-midtermCyan"></i> <strong class="text-white">Original Version:</strong> The text exactly as initially submitted.</li>
+                                <li class="flex items-center gap-2"><i class="ph-fill ph-wrench text-midtermCyan"></i> <strong class="text-white">Revised Version:</strong> A more evolved version based on feedback.*</li>
+                                <li class="flex items-start gap-2 mt-2 bg-slate-900/50 p-2 rounded border border-slate-700">
+                                    <i class="ph-fill ph-chat-centered-text text-midtermCyan mt-0.5"></i> 
+                                    <span><strong class="text-white">Revision Reflection:</strong> Detail the steps taken. What changed and why? How did feedback inform changes? What was challenging?</span>
+                                </li>
+                            </ul>
+                            <p class="text-[10px] text-slate-500 mt-2 italic">*Note: If including your college essay, it requires no additional revision, just the reflection.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Component 2: Final Reflection -->
+            <div class="space-y-6">
+                <div class="glass-panel p-6 rounded-2xl h-full flex flex-col">
+                    <div class="flex items-center gap-3 mb-6 border-b border-slate-700 pb-4">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-900/30 flex items-center justify-center border border-cyan-500/30">
+                            <i class="ph-fill ph-brain text-xl text-midtermCyan"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-white font-display uppercase tracking-wider">Part 2: Midterm Reflection</h2>
+                    </div>
+                    
+                    <div class="space-y-4 flex-grow">
+                        <p class="text-sm text-slate-400 mb-4">Write a thoughtful, well-organized 1–2 page reflection displaying your skills as a writer and editor. Ensure you structure your ideas into paragraphs and address the following 6 prompts:</p>
+                        
+                        <div class="grid grid-cols-1 gap-3">
+                            <div class="p-3 bg-slate-800/50 rounded-lg border border-slate-700 hover:border-midtermCyan/50 transition-colors">
+                                <h4 class="font-bold text-midtermLight text-xs mb-1 uppercase tracking-wide">1. Selection Process</h4>
+                                <p class="text-[11px] text-slate-300">Discuss the process of choosing each piece for the portfolio.</p>
+                            </div>
+                            <div class="p-3 bg-slate-800/50 rounded-lg border border-slate-700 hover:border-midtermCyan/50 transition-colors">
+                                <h4 class="font-bold text-midtermLight text-xs mb-1 uppercase tracking-wide">2. Point of Pride</h4>
+                                <p class="text-[11px] text-slate-300">Which writing piece are you most proud of and why?</p>
+                            </div>
+                            <div class="p-3 bg-slate-800/50 rounded-lg border border-slate-700 hover:border-midtermCyan/50 transition-colors">
+                                <h4 class="font-bold text-midtermLight text-xs mb-1 uppercase tracking-wide">3. The Power of Revision</h4>
+                                <p class="text-[11px] text-slate-300">How did the revision process help improve your writing?</p>
+                            </div>
+                            <div class="p-3 bg-slate-800/50 rounded-lg border border-slate-700 hover:border-midtermCyan/50 transition-colors">
+                                <h4 class="font-bold text-midtermLight text-xs mb-1 uppercase tracking-wide">4. Writer's Confidence</h4>
+                                <p class="text-[11px] text-slate-300">How has your confidence in writing changed since the start of the semester?</p>
+                            </div>
+                            <div class="p-3 bg-slate-800/50 rounded-lg border border-slate-700 hover:border-midtermCyan/50 transition-colors">
+                                <h4 class="font-bold text-midtermLight text-xs mb-1 uppercase tracking-wide">5. Strengths & Weaknesses</h4>
+                                <p class="text-[11px] text-slate-300">What have you learned about your strengths and weaknesses as a writer?</p>
+                            </div>
+                            <div class="p-3 bg-slate-800/50 rounded-lg border border-slate-700 hover:border-midtermCyan/50 transition-colors">
+                                <h4 class="font-bold text-midtermLight text-xs mb-1 uppercase tracking-wide">6. Strategies for Growth</h4>
+                                <p class="text-[11px] text-slate-300">What areas of writing do you still feel you need to improve in, and what strategies will you use to continue growing as a writer?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-panel p-6 md:p-8 rounded-2xl border border-midtermBlue/30 shadow-[0_0_30px_rgba(59,130,246,0.15)] bg-gradient-to-br from-slate-900 to-blue-950/20">
+            <h3 class="font-display text-midtermBlue uppercase tracking-widest mb-4 flex items-center gap-2 text-lg font-bold">
+                <i class="ph-fill ph-scales text-2xl"></i> Evaluation Criteria
+            </h3>
+            <p class="text-slate-300 mb-6 text-sm leading-relaxed">
+                By curating your work and reflecting on your progress, you can take pride in your achievements and see how far you've come. Ensure you work the processes of brainstorming, rough drafting, editing, and revision.
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+                <div class="p-4 bg-black/40 border border-slate-700 rounded-xl hover:border-midtermLight/50 transition-all">
+                    <i class="ph-fill ph-check-square-offset text-2xl text-midtermLight mb-2"></i>
+                    <h4 class="font-bold text-white text-[11px] uppercase tracking-wide">Completion</h4>
+                </div>
+                <div class="p-4 bg-black/40 border border-slate-700 rounded-xl hover:border-midtermLight/50 transition-all">
+                    <i class="ph-fill ph-brain text-2xl text-midtermLight mb-2"></i>
+                    <h4 class="font-bold text-white text-[11px] uppercase tracking-wide">Reflection</h4>
+                </div>
+                <div class="p-4 bg-black/40 border border-slate-700 rounded-xl hover:border-midtermLight/50 transition-all">
+                    <i class="ph-fill ph-wrench text-2xl text-midtermLight mb-2"></i>
+                    <h4 class="font-bold text-white text-[11px] uppercase tracking-wide">Revision</h4>
+                </div>
+                <div class="p-4 bg-black/40 border border-slate-700 rounded-xl hover:border-midtermLight/50 transition-all">
+                    <i class="ph-fill ph-medal text-2xl text-midtermLight mb-2"></i>
+                    <h4 class="font-bold text-white text-[11px] uppercase tracking-wide">Quality of Work</h4>
+                </div>
+                <div class="p-4 bg-black/40 border border-slate-700 rounded-xl hover:border-midtermLight/50 transition-all">
+                    <i class="ph-fill ph-presentation-chart text-2xl text-midtermLight mb-2"></i>
+                    <h4 class="font-bold text-white text-[11px] uppercase tracking-wide">Presentation</h4>
+                </div>
+            </div>
+            
+            <!-- Final Submission Action -->
+            <div class="mt-8 flex flex-col md:flex-row justify-center gap-4">
+                <button onclick="alert('Link this to the Period 1 Google Classroom Midterm Exam Intake Depot')" class="w-full md:w-1/3 py-4 bg-gradient-to-r from-midtermBlue to-midtermCyan hover:from-blue-500 hover:to-cyan-400 text-white font-display text-sm uppercase tracking-widest transition-all rounded-lg font-bold shadow-[0_0_20px_rgba(6,182,212,0.4)] flex items-center justify-center gap-2 group">
+                    Submit Period 1 <i class="ph-bold ph-upload-simple text-lg group-hover:-translate-y-1 transition-transform"></i>
+                </button>
+                <button onclick="alert('Link this to the Period 2 Google Classroom Midterm Exam Intake Depot')" class="w-full md:w-1/3 py-4 bg-gradient-to-r from-midtermBlue to-midtermCyan hover:from-blue-500 hover:to-cyan-400 text-white font-display text-sm uppercase tracking-widest transition-all rounded-lg font-bold shadow-[0_0_20px_rgba(6,182,212,0.4)] flex items-center justify-center gap-2 group">
+                    Submit Period 2 <i class="ph-bold ph-upload-simple text-lg group-hover:-translate-y-1 transition-transform"></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
