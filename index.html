@@ -237,7 +237,6 @@
       height: 4px;
     }
 
-    /* Leather Tome & Techno Badge Styling */
     .card-badge {
       display: inline-block;
       align-self: flex-start;
@@ -268,6 +267,13 @@
       color: var(--neon-violet);
       background: rgba(217, 38, 255, 0.1);
       border-color: rgba(217, 38, 255, 0.4);
+    }
+
+    /* Unique badge for The Back End */
+    .badge-backend {
+      color: var(--neon-green);
+      background: rgba(0, 255, 102, 0.1);
+      border-color: rgba(0, 255, 102, 0.4);
     }
 
     .card h3 {
@@ -371,6 +377,13 @@
       .grid {
         grid-template-columns: 1fr;
       }
+      .status-hud {
+        padding: 0 10px;
+        font-size: 0.7rem;
+      }
+      .hud-clock {
+        font-size: 0.85rem;
+      }
     }
   </style>
 </head>
@@ -458,30 +471,6 @@
             </div>
           </a>
 
-          <a href="LiteraryAnalysisExamplesSlideshow.html" class="card">
-            <div>
-              <span class="card-badge badge-guide">Analysis</span>
-              <h3>Literary Analysis Examples Slideshow</h3>
-              <p>Test yourself and learn more in this extensive adventure into literary analysis with great and fun examples!.</p>
-            </div>
-            <div class="card-footer">
-              <span>STATUS: ONLINE</span>
-              <span class="card-action">OPEN CODEX ➔</span>
-            </div>
-          </a>
-
-          <a href="AnimalFarmAnalysisEssayExplodedExemplar.html" class="card">
-            <div>
-              <span class="card-badge badge-guide">Analysis</span>
-              <h3>Animal Farm Analysis Essay Exploded Exemplar</h3>
-              <p>A fine example of a full analysis essay on Animal Farm.</p>
-            </div>
-            <div class="card-footer">
-              <span>STATUS: ONLINE</span>
-              <span class="card-action">OPEN CODEX ➔</span>
-            </div>
-          </a>
-
         </div>
       </section>
 
@@ -494,7 +483,6 @@
 
         <div class="grid">
 
-          <!-- NEW: The HAHA Awards -->
           <a href="TheHAHAAwards/homepage.html" class="card">
             <div>
               <span class="card-badge badge-assessment">Argument</span>
@@ -528,6 +516,30 @@
             <div class="card-footer">
               <span>STATUS: ONLINE</span>
               <span class="card-action">OPEN CODEX ➔</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- Category 4: The Back End -->
+      <section class="category-section">
+        <div class="category-header">
+          <h2 class="category-title">⚙️ The Back End</h2>
+          <div class="rune-divider"></div>
+        </div>
+
+        <div class="grid">
+
+          <a href="CollegeFreshmanEnglish/homepage.html" class="card">
+            <div>
+              <span class="card-badge badge-backend">Core Curriculum</span>
+              <h3>COLLEGE FRESHMAN ENGLISH</h3>
+              <p>Central command hub for CFE pacing, unit matrices, AI companions, and master resources.</p>
+            </div>
+            <div class="card-footer">
+              <span>STATUS: ONLINE</span>
+              <span class="card-action">ENTER HUB ➔</span>
             </div>
           </a>
 
@@ -609,7 +621,7 @@
 
     function animateRunes() {
       ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = '#00f3ff';
+      ctx.fillStyle = '#00f3ff'; // Cyan for root index
       
       particles.forEach(p => {
         ctx.font = `${p.size}px 'Share Tech Mono', monospace`;
