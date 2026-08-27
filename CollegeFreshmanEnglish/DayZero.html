@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day Zero: Systems Onboarding</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --terminal-bg: #000000;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --major-core: #ef4444;
+            --major-xp: #f59e0b;
+            --minor-core: #3b82f6;
+            --minor-xp: #10b981;
+            --terminal-green: #22c55e;
+            --border-color: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #f1f5f9;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        .section-title {
+            color: var(--major-xp);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        .economy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .bucket-card {
+            background-color: #1e293b;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+
+        .major-bucket { border-left-color: var(--major-core); }
+        .minor-bucket { border-left-color: var(--minor-core); }
+
+        .tag-legend {
+            background-color: #1e293b;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .tag-row {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            min-width: 120px;
+            text-align: center;
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+
+        .tag-major-core { background-color: rgba(239, 68, 68, 0.2); color: var(--major-core); border: 1px solid var(--major-core); }
+        .tag-major-xp   { background-color: rgba(245, 158, 11, 0.2); color: var(--major-xp); border: 1px solid var(--major-xp); }
+        .tag-minor-core { background-color: rgba(59, 130, 246, 0.2); color: var(--minor-core); border: 1px solid var(--minor-core); }
+        .tag-minor-xp   { background-color: rgba(16, 185, 129, 0.2); color: var(--minor-xp); border: 1px solid var(--minor-xp); }
+
+        /* Terminal Simulator Styles */
+        .terminal-container {
+            background-color: var(--terminal-bg);
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            color: var(--terminal-green);
+            margin-top: 40px;
+            min-height: 350px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .terminal-header {
+            border-bottom: 1px dashed var(--terminal-green);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .terminal-output {
+            white-space: pre-wrap;
+            margin-bottom: 20px;
+        }
+
+        .terminal-input-line {
+            display: flex;
+        }
+
+        .prompt-symbol {
+            margin-right: 10px;
+        }
+
+        .terminal-input {
+            background: transparent;
+            border: none;
+            color: var(--terminal-green);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            width: 100%;
+            outline: none;
+        }
+
+        .btn-captain {
+            background-color: var(--major-xp);
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+            cursor: pointer;
+            border-radius: 4px;
+            display: none; /* Hidden by default */
+            margin-top: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+        }
+
+        #ascii-wizard {
+            color: var(--major-xp);
+            font-size: 12px;
+            line-height: 1.1;
+            margin-top: 20px;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .economy-grid { grid-template-columns: 1fr; }
+            .tag-row { flex-direction: column; }
+            .tag { margin-bottom: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>CFE Grading Economy</h1>
+            <p>"There are no passengers on spaceship earth. We are all crew."</p>
+        </div>
+
+        <h2 class="section-title">PART 1: The Engine (90/10 Split)</h2>
+        <div class="economy-grid">
+            <div class="bucket-card major-bucket">
+                <h3>🟥 The MAJOR Bucket (90%)</h3>
+                <p>These are the non-negotiable anchors of the quarter. They are the heavy-lifters: Formal Essays, Midterm Portfolios, and Unit Mastery Tests.</p>
+                <p><em>Graded via standard 100-point rubric.</em></p>
+            </div>
+            <div class="bucket-card minor-bucket">
+                <h3>🟨 The MINOR Bucket (10%)</h3>
+                <p>This is the <strong>Daily Engine</strong>. This bucket is filled by your daily grind: Dial-ins, annotations, AI revision checks, and independent reading.</p>
+                <p><em>Graded via additive XP/points.</em></p>
+            </div>
+        </div>
+
+        <h2 class="section-title">PART 2: Decoding the HUD (Tags)</h2>
+        <div class="tag-legend">
+            <div class="tag-row">
+                <div class="tag tag-major-core">[MAJOR] [CORE]</div>
+                <div><strong>The Anchors (Mandatory).</strong> Essential mastery assessments. Every student must complete these to pass the course.</div>
+            </div>
+            <div class="tag-row">
+                <div class="tag tag-minor-core">[MINOR] [CORE]</div>
+                <div><strong>The Authenticators (Mandatory).</strong> The baseline daily check-ins, readings, and practice tasks that build the skills required for Major assessments.</div>
+            </div>
+            <div class="tag-row">
+                <div class="tag tag-minor-xp">[MINOR] [XP]</div>
+                <div><strong>The Side Quest Grind (Optional).</strong> Additive tasks to grind experience points and overcap your minor average.</div>
+            </div>
+            <div class="tag-row">
+                <div class="tag tag-major-xp">[MAJOR] [XP]</div>
+                <div><strong>Flexible Capstones (Optional).</strong> Boss Battles that replace a [MAJOR] [CORE] grade 1-to-1 upon approval via "The Pitch."</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">PART 3: Hierarchy Simulator</h2>
+        <p>Passing tests does not make you a good crewmate. Run the terminal simulator below to understand how you climb the ranks from Passenger to Captain based on your work ethic.</p>
+
+        <div class="terminal-container" id="terminal" onclick="document.getElementById('term-input').focus()">
+            <div class="terminal-header">
+                <span>HAUPPAUGE MAINFRAME v4.0</span>
+                <span>STATUS: ONLINE</span>
+            </div>
+            <div id="terminal-output" class="terminal-output">Welcome, recruit. Initializing trajectory simulation...
+Type [START] and press Enter to begin.</div>
+            <div class="terminal-input-line">
+                <span class="prompt-symbol">root@cfe:~#</span>
+                <input type="text" id="term-input" class="terminal-input" autocomplete="off" autofocus>
+            </div>
+            <button id="captain-btn" class="btn-captain" onclick="triggerWizard()">YOUR REWARD, CAPTAIN!</button>
+            <pre id="ascii-wizard"></pre>
+        </div>
+    </div>
+
+    <script>
+        const inputField = document.getElementById('term-input');
+        const outputDiv = document.getElementById('terminal-output');
+        const captainBtn = document.getElementById('captain-btn');
+        const wizardDiv = document.getElementById('ascii-wizard');
+        let state = 0;
+
+        const wizardFrames = [
+`
+    ,
+   / \\
+  /   \\
+ /_____\\
+  (o.o)   *
+  /| |\\  /
+  /   \\ *
+`,
+`
+    ,
+   / \\
+  /   \\
+ /_____\\
+  (o.o)   *
+  /| |\\  /
+  /   \\ *
+     *
+`,
+`
+    ,        *
+   / \\      *
+  /   \\    *
+ /_____\\  *
+  (^.^)__/
+  /| |\\ 
+  /   \\ 
+ LEVEL UP!
+`,
+`
+    ,     ***
+   / \\   *****
+  /   \\   ***
+ /_____\\   |
+  (^.^)____/
+  /| |\\ 
+  /   \\ 
+ CAPTAIN!
+`
+        ];
+
+        function printToTerminal(text) {
+            outputDiv.innerHTML += `\n${text}`;
+            outputDiv.scrollTop = outputDiv.scrollHeight;
+        }
+
+        inputField.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                const val = inputField.value.trim().toUpperCase();
+                printToTerminal(`root@cfe:~# ${val}`);
+                inputField.value = '';
+                processCommand(val);
+            }
+        });
+
+        function processCommand(cmd) {
+            if (state === 0 && cmd === 'START') {
+                printToTerminal("\nSYSTEM: Simulation running.\nQUESTION 1: Have you completed your non-negotiable [MAJOR] [CORE] anchors (The big tests/essays)? (Y/N)");
+                state = 1;
+            } else if (state === 1) {
+                if (cmd === 'Y') {
+                    printToTerminal("\nSYSTEM: Baseline achieved. You are a PASSENGER. But passengers just ride.");
+                    printToTerminal("QUESTION 2: Are you showing up and doing the daily [MINOR] [CORE] authenticators to maintain the ship? (Y/N)");
+                    state = 2;
+                } else if (cmd === 'N') {
+                    printToTerminal("\nSYSTEM: You have failed the baseline. You are adrift. SIMULATION TERMINATED. Type START to try again.");
+                    state = 0;
+                } else {
+                    printToTerminal("Invalid input. (Y/N)");
+                }
+            } else if (state === 2) {
+                if (cmd === 'Y') {
+                    printToTerminal("\nSYSTEM: Daily duties fulfilled. You are now CREW. You pull your weight.");
+                    printToTerminal("QUESTION 3: Are you ready to push further? Are you grinding [MINOR] [XP] side quests? (Y/N)");
+                    state = 3;
+                } else if (cmd === 'N') {
+                    printToTerminal("\nSYSTEM: You pass the tests, but you do no daily work. You are just a tourist on this ship. You remain a PASSENGER. SIMULATION TERMINATED. Type START to try again.");
+                    state = 0;
+                } else {
+                    printToTerminal("Invalid input. (Y/N)");
+                }
+            } else if (state === 3) {
+                if (cmd === 'Y') {
+                    printToTerminal("\nSYSTEM: Initiative detected. You overcap the system. You are an OFFICER.");
+                    printToTerminal("QUESTION 4: Do you want total control? Will you submit a pitch for a [MAJOR] [XP] Boss Battle to replace a core anchor? (Y/N)");
+                    state = 4;
+                } else if (cmd === 'N') {
+                    printToTerminal("\nSYSTEM: You do your daily job, nothing more. A solid B-tier worker. You remain CREW. SIMULATION TERMINATED. Type START to try again.");
+                    state = 0;
+                } else {
+                    printToTerminal("Invalid input. (Y/N)");
+                }
+            } else if (state === 4) {
+                if (cmd === 'Y') {
+                    printToTerminal("\nSYSTEM: MAXIMUM AGENCY ACHIEVED. You write your own destiny.");
+                    printToTerminal("RANK UNLOCKED: *** CAPTAIN ***");
+                    inputField.disabled = true;
+                    captainBtn.style.display = 'block';
+                } else if (cmd === 'N') {
+                    printToTerminal("\nSYSTEM: A highly respectable career. You remain an OFFICER. SIMULATION TERMINATED. Type START to try again.");
+                    state = 0;
+                } else {
+                    printToTerminal("Invalid input. (Y/N)");
+                }
+            } else {
+                if (state !== 4) {
+                    printToTerminal("Command not recognized. Type START to begin.");
+                }
+            }
+        }
+
+        async function triggerWizard() {
+            captainBtn.style.display = 'none';
+            wizardDiv.style.display = 'block';
+            
+            for (let i = 0; i < wizardFrames.length; i++) {
+                wizardDiv.innerHTML = wizardFrames[i];
+                if (i === 3) {
+                    wizardDiv.style.color = '#fbbf24'; // Flash gold
+                    setTimeout(() => { wizardDiv.style.color = 'var(--major-xp)'; }, 500);
+                }
+                await new Promise(r => setTimeout(r, 400));
+            }
+        }
+    </script>
+</body>
+</html>
