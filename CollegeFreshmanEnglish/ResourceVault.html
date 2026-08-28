@@ -1,1 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lore Vault - CFE Resource Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0B0F19; color: #E2E8F0; }
+        .font-mono { font-family: 'Space Mono', monospace; }
+        .glass-panel { background: rgba(17, 24, 39, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(6, 182, 212, 0.2); }
+        .glow-text { text-shadow: 0 0 10px rgba(6, 182, 212, 0.5); }
+        
+        .vault-item { border-bottom: 1px solid rgba(51, 65, 85, 0.5); transition: all 0.2s ease-in-out; }
+        .vault-item:last-child { border-bottom: none; }
+        .vault-item:hover { background-color: rgba(6, 182, 212, 0.05); padding-left: 0.75rem; border-left: 2px solid #06B6D4; }
 
+        ::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col p-4 md:p-6 lg:p-8 relative overflow-x-hidden">
+    <div class="fixed top-0 right-0 w-[600px] h-[600px] bg-cyan-900/10 rounded-full blur-[100px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-0 left-0 w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-[100px] pointer-events-none z-0"></div>
+
+    <div class="max-w-[1400px] mx-auto w-full relative z-10 flex flex-col flex-grow">
+        
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-cyan-500/30 pb-4">
+            <div>
+                <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-white flex items-center gap-3">
+                    <i class="ph-fill ph-books text-cyan-400"></i>
+                    THE LORE VAULT
+                </h1>
+                <p class="font-mono text-sm text-cyan-400 mt-2 uppercase tracking-wider glow-text">Core Documents & Resources // CFE ENG101</p>
+            </div>
+            <div class="mt-4 md:mt-0 flex gap-6 font-mono text-xs text-slate-400 bg-slate-800/50 p-3 rounded-lg border border-slate-700 shadow-inner">
+                <div class="flex items-center gap-2">
+                    <i class="ph-fill ph-lock-key text-cyan-400"></i>
+                    INVENTORY: SECURED
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="ph-fill ph-folder text-cyan-400"></i>
+                    INDEXED
+                </div>
+            </div>
+        </header>
+
+        <section class="glass-panel rounded-xl p-6 mb-8 border-l-4 border-l-cyan-500 shadow-lg">
+            <h2 class="font-mono text-sm text-cyan-400 uppercase tracking-widest mb-2 flex items-center gap-2 font-bold">
+                <i class="ph-fill ph-info"></i> Access Protocol
+            </h2>
+            <p class="text-slate-300 text-sm leading-relaxed max-w-5xl">
+                Welcome to the central Lore Vault. This is a read-only repository containing the unchangeable, foundational documents, rules, rubrics, and tomes required for your journey through the CFE SCCC Dual-Credit sequence. Do not request edit access. If you need a working copy of a checklist or guide for your personal inventory, select <strong>"File > Make a Copy"</strong> within the Google Doc interface.
+            </p>
+        </section>
+
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-8 flex-grow">
+
+            <!-- ARCHIVE I: Rules & Economics -->
+            <article class="glass-panel rounded-xl p-6 flex flex-col shadow-lg hover:border-cyan-500/50 transition-colors">
+                <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2 font-mono uppercase tracking-widest border-b border-slate-700 pb-3">
+                    <i class="ph-fill ph-scroll text-cyan-400 text-xl"></i> Archive I: Guild Rules
+                </h2>
+                <div class="flex-grow flex flex-col">
+                    <a href="#syllabus" class="vault-item flex items-center justify-between py-4 group block">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded bg-slate-800 flex items-center justify-center border border-slate-700 group-hover:border-cyan-500 transition-colors">
+                                <i class="ph-fill ph-file-pdf text-xl text-red-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-bold text-slate-200 group-hover:text-white transition-colors">CFE ENG101 Course Syllabus</div>
+                                <div class="text-[11px] text-slate-500 font-mono mt-0.5">SCCC Dual-Credit Policies</div>
+                            </div>
+                        </div>
+                        <i class="ph-bold ph-download-simple text-slate-600 group-hover:text-cyan-400 transition-colors"></i>
+                    </a>
+                    
+                    <a href="#economy" class="vault-item flex items-center justify-between py-4 group block">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded bg-slate-800 flex items-center justify-center border border-slate-700 group-hover:border-cyan-500 transition-colors">
+                                <i class="ph-fill ph-chart-polar text-xl text-emerald-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-bold text-slate-200 group-hover:text-white transition-colors">The Grading Economy Map</div>
+                                <div class="text-[11px] text-slate-500 font-mono mt-0.5">XP Flowchart & SCCC Conversions</div>
+                            </div>
+                        </div>
+                        <i class="ph-bold ph-arrow-square-out text-slate-600 group-hover:text-cyan-400 transition-colors"></i>
+                    </a>
+
+                    <a href="#aip" class="vault-item flex items-center justify-between py-4 group block mt-auto">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded bg-slate-800 flex items-center justify-center border border-slate-700 group-hover:border-cyan-500 transition-colors">
+                                <i class="ph-fill ph-shield-check text-xl text-blue-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-bold text-slate-200 group-hover:text-white transition-colors">Academic Integrity Policy</div>
+                                <div class="text-[11px] text-slate-500 font-mono mt-0.5">Plagiarism & AI Guidelines</div>
+                            </div>
+                        </div>
+                        <i class="ph-bold ph-download-simple text-slate-600 group-hover:text-cyan-400 transition-colors"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- ARCHIVE II: Master Rubrics & Checklists -->
+            <article class="glass-panel rounded-xl p-6 flex flex-col shadow-lg hover:border-purple-500/50 transition-colors">
+                <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2 font-mono uppercase tracking-widest border-b border-slate-700 pb-3">
+                    <i class="ph-fill ph-check-square-offset text-purple-400 text-xl"></i> Archive II: Rubrics
+                </h2>
+                <div class="flex-grow flex flex-col">
+                    <a href="#checklist" class="vault-item flex items-center justify-between py-4 group block">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded bg-slate-800 flex items-center justify-center border border-slate-700 group-hover:border-purple-500 transition-colors">
+                                <i class="ph-fill ph-wrench text-xl text-slate-300 group-hover:text-purple-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-bold text-slate-200 group-hover:text-white transition-colors">Editorial Gauntlet Checklist</div>
+                                <div class="text-[11px] text-slate-500 font-mono mt-0.5">College Essay Revision Targets</div>
+                            </div>
+                        </div>
+                        <i class="ph-bold ph-arrow-square-out text-slate-600 group-hover:text-purple-400 transition-colors"></i>
+                    </a>
+                    
+                    <a href="#essay-rubric" class="vault-item flex items-center justify-between py-4 group block">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded bg-slate-800 flex items-center justify-center border border-slate-700 group-hover:border-purple-500 transition-colors">
+                                <i class="ph-fill ph-file-text text-xl text-slate-300 group-hover:text-purple-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-bold text-slate-200 group-hover:text-white transition-colors">Formal Writing Rubric</div>
+                                <div class="text-[11px] text-slate-500 font-mono mt-0.5">Film Critiques & Lens Essays</div>
+                            </div>
+                        </div>
+                        <i class="ph-bold ph-arrow-square-out text-slate-600 group-hover:text-purple-400 transition-colors"></i>
+                    </a>
+
+                    <a href="#creative-rubric" class="vault-item flex items-center justify-between py-4 group block">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded bg-slate-800 flex items-center justify-center border border-slate-700 group-hover:border-purple-500 transition-colors">
+                                <i class="ph-fill ph-palette text-xl text-slate-300 group-hover:text-purple-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-bold text-slate-200 group-hover:text-white transition-colors">Creative Project Rubric</div>
+                                <div class="text-[11px] text-slate-500 font-mono mt-0.5">Artifact Studio & Hauppaganda</div>
+                            </div>
+                        </div>
+                        <i class="ph-bold ph-arrow-square-out text-slate-600 group-hover:text-purple-400 transition-colors"></i>
+                    </a>
+
+                    <a href="#poem-constraints" class="vault-item flex items-center justify-between py-4 group block mt-auto">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded bg-slate-800 flex items-center justify-center border border-slate-700 group-hover:border-purple-500 transition-colors">
+                                <i class="ph-fill ph-feather text-xl text-slate-300 group-hover:text-purple-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-bold text-slate-200 group-hover:text-white transition-colors">Legacy Verse Constraints</div>
+                                <div class="text-[11px] text-slate-500 font-mono mt-0.5">Senior Poem Rules of Engagement</div>
+                            </div>
+                        </div>
+                        <i class="ph-bold ph-arrow-square-out text-slate-600 group-hover:text-purple-400 transition-colors"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- ARCHIVE III: Training Manuals & Texts -->
+            <article class="glass-panel rounded-xl p-6 flex flex-col shadow-lg hover:border-amber-500/50 transition-colors">
+                <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2 font-mono uppercase tracking-widest border-b border-slate-700 pb-3">
+                    <i class="ph-fill ph-book-open text-amber-400 text-xl"></i> Archive III: Manuals
+                </h2>
+                <div class="flex-grow flex flex-col">
+                    <a href="#strunk" class="vault-item flex items-center justify-between py-4 group block">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded bg-slate-800 flex items-center justify-center border border-slate-700 group-hover:border-amber-500 transition-colors">
+                                <i class="ph-fill ph-book-bookmark text-xl text-amber-500"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-bold text-slate-200 group-hover:text-white transition-colors">Strunk & White’s Elements</div>
+                                <div class="text-[11px] text-slate-500 font-mono mt-0.5">Grammarian Gauntlet Master Rules</div>
+                            </div>
+                        </div>
+                        <i class="ph-bold ph-arrow-square-out text-slate-600 group-hover:text-amber-400 transition-colors"></i>
+                    </a>
+                    
+                    <a href="#sra" class="vault-item flex items-center justify-between py-4 group block">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded bg-slate-800 flex items-center justify-center border border-slate-700 group-hover:border-amber-500 transition-colors">
+                                <i class="ph-fill ph-sun text-xl text-amber-500"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-bold text-slate-200 group-hover:text-white transition-colors">SRA Memoir Reading Guide</div>
+                                <div class="text-[11px] text-slate-500 font-mono mt-0.5">Zinsser Annotation Reference</div>
+                            </div>
+                        </div>
+                        <i class="ph-bold ph-arrow-square-out text-slate-600 group-hover:text-amber-400 transition-colors"></i>
+                    </a>
+
+                    <a href="#duke" class="vault-item flex items-center justify-between py-4 group block mt-auto">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded bg-slate-800 flex items-center justify-center border border-slate-700 group-hover:border-amber-500 transition-colors">
+                                <i class="ph-fill ph-film-strip text-xl text-amber-500"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-bold text-slate-200 group-hover:text-white transition-colors">How to Write a Film Review</div>
+                                <div class="text-[11px] text-slate-500 font-mono mt-0.5">Duke University Official Guide</div>
+                            </div>
+                        </div>
+                        <i class="ph-bold ph-arrow-square-out text-slate-600 group-hover:text-amber-400 transition-colors"></i>
+                    </a>
+                </div>
+            </article>
+
+        </main>
+    </div>
+</body>
+</html>
