@@ -1,1 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFE Quarter 3 Campaign Board</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepSpace: '#0B1120',
+                        panelBg: '#151e2e',
+                        neonCyan: '#06B6D4',
+                        alertOrange: '#F97316',
+                        safeGreen: '#10B981',
+                        hudText: '#94A3B8',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #0B1120; color: #E2E8F0; }
+        .tab-content { display: none; animation: fadeIn 0.3s ease-in-out; }
+        .tab-content.active { display: block; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        ::-webkit-scrollbar { display: none; }
+
+        .quest-card {
+            background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6), 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        
+        .quest-card:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.7), 0 10px 15px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .tier-passenger { border-top: 4px solid #3B82F6; border-left: 1px solid #1e293b; border-right: 1px solid #1e293b; border-bottom: 1px solid #1e293b; }
+        .tier-crew { border-top: 4px solid #10B981; border-left: 1px solid #064e3b; border-right: 1px solid #064e3b; border-bottom: 1px solid #064e3b; }
+        .tier-officer { border-top: 4px solid #8B5CF6; border-left: 1px solid #4c1d95; border-right: 1px solid #4c1d95; border-bottom: 1px solid #4c1d95; }
+        .tier-captain { border-top: 4px solid #F97316; border-left: 1px solid #7c2d12; border-right: 1px solid #7c2d12; border-bottom: 1px solid #7c2d12; }
+
+        .btn-3d { position: relative; transition: all 0.1s ease; top: 0; display: inline-block; font-weight: 700; letter-spacing: 0.05em; }
+        .btn-passenger { background-color: #334155; box-shadow: 0 4px 0 #0f172a; }
+        .btn-passenger:active { top: 4px; box-shadow: 0 0px 0 #0f172a; }
+        .btn-crew { background-color: #065f46; box-shadow: 0 4px 0 #022c22; }
+        .btn-crew:active { top: 4px; box-shadow: 0 0px 0 #022c22; }
+        .btn-officer { background-color: #5b21b6; box-shadow: 0 4px 0 #2e1065; }
+        .btn-officer:active { top: 4px; box-shadow: 0 0px 0 #2e1065; }
+        .btn-captain { background-color: #c2410c; box-shadow: 0 4px 0 #7c2d12; }
+        .btn-captain:active { top: 4px; box-shadow: 0 0px 0 #7c2d12; }
+
+        .tab-btn { background: #1e293b; box-shadow: 0 4px 0 #0f172a; top: 0; position: relative; transition: all 0.1s ease; }
+        .tab-btn:active { top: 4px; box-shadow: 0 0px 0 #0f172a; }
+        .tab-btn.active { background: #10B981; color: #0B1120; box-shadow: 0 2px 0 #059669; top: 2px; }
+
+        .major-glow { animation: majorPulse 2s infinite alternate; }
+        @keyframes majorPulse {
+            from { text-shadow: 0 0 10px rgba(251, 191, 36, 0.6); box-shadow: 0 0 15px rgba(251, 191, 36, 0.1) inset; }
+            to { text-shadow: 0 0 20px rgba(251, 191, 36, 1); box-shadow: 0 0 25px rgba(251, 191, 36, 0.2) inset; }
+        }
+
+        .neon-sign {
+            font-family: 'Orbitron', sans-serif; color: #ffffff; text-transform: uppercase; letter-spacing: 0.3em; font-size: 1.125rem;
+            text-shadow: 0 0 2px #ffffff, 0 0 5px #ffffff, 0 0 10px #06B6D4, 0 0 20px #06B6D4, 0 0 30px #ec4899, 0 0 40px #ec4899;
+            animation: realistic-neon-flicker 4s infinite;
+        }
+        @keyframes realistic-neon-flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; text-shadow: 0 0 2px #ffffff, 0 0 5px #ffffff, 0 0 10px #06B6D4, 0 0 20px #06B6D4, 0 0 30px #ec4899, 0 0 40px #ec4899; }
+            20%, 24%, 55% { opacity: 0.4; text-shadow: 0 0 2px #06B6D4, 0 0 5px #ec4899; }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen p-4 md:p-6 lg:p-8 bg-deepSpace">
+    
+    <div class="max-w-[1400px] mx-auto space-y-6 relative z-10 w-full bg-[#0B1120] p-6 rounded-lg shadow-2xl">
+        
+        <div class="w-full text-center mt-4 mb-10 relative z-20">
+            <h1 class="neon-sign">College Freshman English</h1>
+        </div>
+
+        <div class="w-full max-w-5xl mx-auto mb-16 mt-4 px-4 relative flex items-center justify-center">
+            <div class="absolute top-0 w-full flex justify-between font-mono text-xs text-slate-500 mb-2 px-2 uppercase tracking-widest items-end -mt-6 z-10">
+                <span>Start</span>
+                <span>End of Year</span>
+            </div>
+            
+            <div class="relative w-full h-4 bg-slate-800 rounded-full shadow-inner border border-slate-700 overflow-visible z-10">
+                <div id="progress-fill" class="absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-blue-600 via-emerald-400 to-emerald-300 shadow-[0_0_15px_rgba(16,185,129,0.8)] transition-all duration-700 ease-in-out z-10" style="width: 54.54%;"></div>
+                
+                <div class="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-1 z-20 pointer-events-none">
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-500 border border-slate-300 shadow-[0_0_8px_rgba(255,255,255,0.8)]"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-500 border border-slate-300 shadow-[0_0_8px_rgba(255,255,255,0.8)]"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-500 border border-slate-300 shadow-[0_0_8px_rgba(255,255,255,0.8)]"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-500 border border-slate-300 shadow-[0_0_8px_rgba(255,255,255,0.8)]"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-500 border border-slate-300 shadow-[0_0_8px_rgba(255,255,255,0.8)]"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-500 border border-slate-300 shadow-[0_0_8px_rgba(255,255,255,0.8)]"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-900 border border-slate-600 shadow-md"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-900 border border-slate-600 shadow-md"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-900 border border-slate-600 shadow-md"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-900 border border-slate-600 shadow-md"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-900 border border-slate-600 shadow-md"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-900 border border-slate-600 shadow-md"></div>
+                </div>
+            </div>
+
+            <div id="progress-marker" class="absolute transition-all duration-700 ease-in-out z-30 flex flex-col items-center" style="left: 54.54%; margin-top: -6px; margin-left: -20px;">
+                <div class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-green-400 rounded-full border-2 border-white shadow-[0_0_20px_rgba(16,185,129,0.9)] -mt-12 flex items-center justify-center relative overflow-hidden transform hover:scale-110 transition-transform cursor-pointer">
+                    <div class="absolute inset-0 bg-white/20 animate-pulse"></div>
+                    <i id="marker-icon" class="ph-fill ph-eyeglasses text-white text-[32px] drop-shadow-md relative z-10"></i>
+                </div>
+                <div id="quest-label" class="absolute top-8 font-mono text-[11px] font-bold text-emerald-200 bg-slate-900 px-3 py-1 rounded border border-emerald-700 whitespace-nowrap shadow-[0_0_8px_rgba(16,185,129,0.4)]">QUEST 07</div>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap gap-4 justify-center md:justify-start mb-8 pb-4 border-b border-slate-800">
+            <button onclick="openQuest('quest7', 6, 'ph-eyeglasses')" id="btn-quest7" class="tab-btn active px-6 py-2.5 font-mono text-xs md:text-sm uppercase tracking-wider text-slate-300 rounded-lg">
+                <i class="ph-fill ph-eyeglasses mr-2"></i>Quest 07: Lens Shift
+            </button>
+            <button onclick="openQuest('quest8', 7, 'ph-flask')" id="btn-quest8" class="tab-btn px-6 py-2.5 font-mono text-xs md:text-sm uppercase tracking-wider text-slate-300 rounded-lg">
+                <i class="ph-fill ph-flask mr-2"></i>Quest 08: The Experiment
+            </button>
+            <button onclick="openQuest('quest9', 8, 'ph-feather')" id="btn-quest9" class="tab-btn px-6 py-2.5 font-mono text-xs md:text-sm uppercase tracking-wider text-slate-300 rounded-lg">
+                <i class="ph-fill ph-feather mr-2"></i>Quest 09: Condensed Lyrics
+            </button>
+        </div>
+
+        <!-- QUEST 7 -->
+        <div id="quest7" class="tab-content active space-y-6">
+            <div class="w-full border-l-4 border-l-emerald-500 bg-gradient-to-r from-slate-900 to-slate-800 rounded-r-lg p-5 mb-8 shadow-inner border-y border-r border-slate-700">
+                <h2 class="text-emerald-400 text-xs font-bold tracking-[0.2em] uppercase mb-2">⟡ Quest Lore: The Lens Shift</h2>
+                <p class="text-sm text-slate-300 leading-relaxed">You cannot truly understand a text until you learn to change your sunglasses. Equip Critical Theory lenses (Marxist, Feminist, Psychoanalytic) to deconstruct satire, surrealism, and science fiction.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- PASSENGER -->
+                <div class="flex flex-col gap-6">
+                    <div class="text-center pb-2 border-b-2 border-blue-500/50">
+                        <h3 class="text-blue-400 text-xs font-bold tracking-widest uppercase">Passenger Tier</h3>
+                    </div>
+                    
+                    <div class="quest-card tier-passenger p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-slate-700 text-slate-300 px-2 py-1 rounded font-bold tracking-wider shadow-inner">[MINOR] [CORE]</span>
+                                <span class="text-xs font-bold text-blue-400">+20 XP</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">7.1 Daily Dial-In</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Prepare and prove daily focus, attention, and effort during the opening minutes of class.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-passenger w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-passenger w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-slate-300 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+
+                    <div class="quest-card tier-passenger p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-slate-700 text-slate-300 px-2 py-1 rounded font-bold tracking-wider shadow-inner">[MINOR] [CORE]</span>
+                                <span class="text-xs font-bold text-blue-400">+10 XP</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">7.4 Through the Looking Glass</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Apply critical lenses to David Sedaris's modern satirical text.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-passenger w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-passenger w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-slate-300 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+
+                    <div class="quest-card tier-passenger p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-slate-700 text-slate-300 px-2 py-1 rounded font-bold tracking-wider shadow-inner">[MINOR] [CORE]</span>
+                                <span class="text-xs font-bold text-blue-400">+20 XP</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">7.7 Critical Lenses Formative</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Complete the Wayground assessments for our short stories, focusing on story contents and lens analysis.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-passenger w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-passenger w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-slate-300 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+
+                    <div class="quest-card tier-passenger p-5 flex flex-col justify-between border border-amber-500/50 major-glow">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-amber-900/80 text-amber-300 border border-amber-500/80 px-2 py-1 rounded font-bold tracking-wider shadow-[0_0_10px_rgba(251,191,36,0.6)]">[MAJOR] [CORE]</span>
+                                <span class="text-sm font-black text-amber-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] tracking-widest animate-pulse">100 Pts</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">7.3 The Satire Lab</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Synthesize Swift's "A Modest Proposal" using the Marxist/Economic lens and a specific satirical device.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-passenger w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-passenger w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-slate-300 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CREW -->
+                <div class="flex flex-col gap-6">
+                    <div class="text-center pb-2 border-b-2 border-emerald-500/50">
+                        <h3 class="text-emerald-400 text-xs font-bold tracking-widest uppercase">Crew Tier</h3>
+                    </div>
+
+                    <div class="quest-card tier-crew p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-[#064e3b] text-emerald-300 px-2 py-1 rounded font-bold tracking-wider shadow-inner">[MINOR] [XP]</span>
+                                <span class="text-xs font-bold text-emerald-400">20 XP MAX</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">7.2 The Slow Grind</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Build intellectual and mechanical stamina by engaging in self-selected, independent practice.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-crew w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-crew w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-emerald-100 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OFFICER -->
+                <div class="flex flex-col gap-6">
+                    <div class="text-center pb-2 border-b-2 border-purple-500/50">
+                        <h3 class="text-purple-400 text-xs font-bold tracking-widest uppercase">Officer Class</h3>
+                    </div>
+
+                    <div class="quest-card tier-officer p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-[#4c1d95] text-purple-300 px-2 py-1 rounded font-bold tracking-wider shadow-inner">[MINOR] [XP]</span>
+                                <span class="text-xs font-bold text-purple-400">+15 XP</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">7.5 The Unfinished Business</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Analyze Haruki Murakami's surrealist narrative through multiple critical lenses.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-officer w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-officer w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-purple-200 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+
+                    <div class="quest-card tier-officer p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-[#4c1d95] text-purple-300 px-2 py-1 rounded font-bold tracking-wider shadow-inner">[MINOR] [XP]</span>
+                                <span class="text-xs font-bold text-purple-400">+15 XP</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">7.6 The Dystopian Asset</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Conduct a close reading and annotation of Octavia Butler's genre fiction with a specific eye on critical lenses.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-officer w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-officer w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-purple-200 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+
+                    <div class="quest-card tier-officer p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-[#4c1d95] text-purple-300 px-2 py-1 rounded font-bold tracking-wider shadow-inner">[MINOR] [XP]</span>
+                                <span class="text-xs font-bold text-purple-400">+20 XP</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">The Revisionist Portal</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Run any graded Minor assignment through Editor-in-Chief AI, apply edits, and submit a polished version with reflection.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-officer w-1/2 py-2 text-[11px] text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-officer w-1/2 py-2 text-[11px] text-center text-purple-200 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CAPTAIN -->
+                <div class="flex flex-col gap-6">
+                    <div class="text-center pb-2 border-b-2 border-orange-500/50">
+                        <h3 class="text-orange-400 text-xs font-bold tracking-widest uppercase">Captain Tier</h3>
+                    </div>
+
+                    <div class="quest-card tier-captain p-5 flex flex-col justify-between border border-amber-500/50 major-glow shadow-[0_0_20px_rgba(249,115,22,0.3)]">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-orange-600 text-white px-2 py-1 rounded font-bold tracking-wider shadow-inner shadow-orange-900">[MAJOR] [XP]</span>
+                                <span class="text-sm font-black text-amber-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] tracking-widest animate-pulse">100 Pts</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">7.8 Open Contract</h4>
+                            <p class="text-xs text-orange-200/80 mb-5 line-clamp-3">Apply a lens to a specific video game, or write a Marxist critique of a school policy.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-captain w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-captain w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-orange-200 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUEST 8 -->
+        <div id="quest8" class="tab-content space-y-6">
+            <div class="w-full border-l-4 border-l-emerald-500 bg-gradient-to-r from-slate-900 to-slate-800 rounded-r-lg p-5 mb-8 shadow-inner border-y border-r border-slate-700">
+                <h2 class="text-emerald-400 text-xs font-bold tracking-[0.2em] uppercase mb-2">⟡ Quest Lore: The Experiment</h2>
+                <p class="text-sm text-slate-300 leading-relaxed">This is the ultimate test of your new analytical software. You must write two distinct essays on Ken Liu's "The Paper Menagerie" using two conflicting lenses, then objectively decide which is superior.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- PASSENGER -->
+                <div class="flex flex-col gap-6">
+                    <div class="text-center pb-2 border-b-2 border-blue-500/50">
+                        <h3 class="text-blue-400 text-xs font-bold tracking-widest uppercase">Passenger Tier</h3>
+                    </div>
+                    
+                    <div class="quest-card tier-passenger p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-slate-700 text-slate-300 px-2 py-1 rounded font-bold tracking-wider shadow-inner">[MINOR] [CORE]</span>
+                                <span class="text-xs font-bold text-blue-400">+20 XP</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">8.1 Daily Dial-In</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Prepare and prove daily focus, attention, and effort during the opening minutes of class.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-passenger w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-passenger w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-slate-300 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+
+                    <div class="quest-card tier-passenger p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-slate-700 text-slate-300 px-2 py-1 rounded font-bold tracking-wider shadow-inner">[MINOR] [CORE]</span>
+                                <span class="text-xs font-bold text-blue-400">+20 XP</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">8.3 Paper Menagerie Annotations</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Prepare textual evidence and outline dual-lens arguments.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-passenger w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-passenger w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-slate-300 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+
+                    <div class="quest-card tier-passenger p-5 flex flex-col justify-between border border-amber-500/50 major-glow">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-amber-900/80 text-amber-300 border border-amber-500/80 px-2 py-1 rounded font-bold tracking-wider shadow-[0_0_10px_rgba(251,191,36,0.6)]">[MAJOR] [CORE]</span>
+                                <span class="text-sm font-black text-amber-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] tracking-widest animate-pulse">100 Pts</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">8.5 Critical Lenses Final Draft</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Prove mastery of critical lens application in a formal, collegiate-level essay. Transcribe hand-written draft.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-passenger w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-passenger w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-slate-300 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CREW -->
+                <div class="flex flex-col gap-6">
+                    <div class="text-center pb-2 border-b-2 border-emerald-500/50">
+                        <h3 class="text-emerald-400 text-xs font-bold tracking-widest uppercase">Crew Tier</h3>
+                    </div>
+
+                    <div class="quest-card tier-crew p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-[#064e3b] text-emerald-300 px-2 py-1 rounded font-bold tracking-wider shadow-inner">[MINOR] [XP]</span>
+                                <span class="text-xs font-bold text-emerald-400">20 XP MAX</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">8.2 The Slow Grind</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Build intellectual and mechanical stamina by engaging in self-selected, independent practice.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-crew w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-crew w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-emerald-100 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OFFICER -->
+                <div class="flex flex-col gap-6">
+                    <div class="text-center pb-2 border-b-2 border-purple-500/50">
+                        <h3 class="text-purple-400 text-xs font-bold tracking-widest uppercase">Officer Class</h3>
+                    </div>
+
+                    <div class="quest-card tier-officer p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-[#4c1d95] text-purple-300 px-2 py-1 rounded font-bold tracking-wider shadow-inner">[MINOR] [XP]</span>
+                                <span class="text-xs font-bold text-purple-400">+25 XP</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">8.4 Editor-in-Chief AI Pass</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Evaluate your rough draft against a structural AI critique and log your revisions.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-officer w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-officer w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-purple-200 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+
+                    <div class="quest-card tier-officer p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-[#4c1d95] text-purple-300 px-2 py-1 rounded font-bold tracking-wider shadow-inner">[MINOR] [XP]</span>
+                                <span class="text-xs font-bold text-purple-400">+20 XP</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">The Revisionist Portal</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Run any graded Minor assignment through Editor-in-Chief AI, apply edits, and submit a polished version with reflection.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-officer w-1/2 py-2 text-[11px] text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-officer w-1/2 py-2 text-[11px] text-center text-purple-200 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CAPTAIN -->
+                <div class="flex flex-col gap-6">
+                    <div class="text-center pb-2 border-b-2 border-orange-500/50">
+                        <h3 class="text-orange-400 text-xs font-bold tracking-widest uppercase">Captain Tier</h3>
+                    </div>
+
+                    <div class="quest-card tier-captain p-5 flex flex-col justify-between border border-amber-500/50 major-glow shadow-[0_0_20px_rgba(249,115,22,0.3)]">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-orange-600 text-white px-2 py-1 rounded font-bold tracking-wider shadow-inner shadow-orange-900">[MAJOR] [XP]</span>
+                                <span class="text-sm font-black text-amber-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] tracking-widest animate-pulse">100 Pts</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">8.6 Open Contract</h4>
+                            <p class="text-xs text-orange-200/80 mb-5 line-clamp-3">Propose an alternate high-level assessment showcasing your mastery of Critical Theory synthesis.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-captain w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-captain w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-orange-200 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUEST 9 -->
+        <div id="quest9" class="tab-content space-y-6">
+            <div class="w-full border-l-4 border-l-emerald-500 bg-gradient-to-r from-slate-900 to-slate-800 rounded-r-lg p-5 mb-8 shadow-inner border-y border-r border-slate-700">
+                <h2 class="text-emerald-400 text-xs font-bold tracking-[0.2em] uppercase mb-2">⟡ Quest Lore: Condensed Lyrics</h2>
+                <p class="text-sm text-slate-300 leading-relaxed">Pack an entire world of emotion and logic into just a few lines. We study strict, classical forms to learn discipline, and intentionally break those rules to learn style.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- PASSENGER -->
+                <div class="flex flex-col gap-6">
+                    <div class="text-center pb-2 border-b-2 border-blue-500/50">
+                        <h3 class="text-blue-400 text-xs font-bold tracking-widest uppercase">Passenger Tier</h3>
+                    </div>
+                    
+                    <div class="quest-card tier-passenger p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-slate-700 text-slate-300 px-2 py-1 rounded font-bold tracking-wider shadow-inner">[MINOR] [CORE]</span>
+                                <span class="text-xs font-bold text-blue-400">+20 XP</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">9.1 Daily Dial-In</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Prepare and prove daily focus, attention, and effort during the opening minutes of class.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-passenger w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-passenger w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-slate-300 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+
+                    <div class="quest-card tier-passenger p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-slate-700 text-slate-300 px-2 py-1 rounded font-bold tracking-wider shadow-inner">[MINOR] [CORE]</span>
+                                <span class="text-xs font-bold text-blue-400">+50 XP MAX</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">9.3 Poetry Sampler Daily Drafts</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Master the rhythm, meter, and constraints of highly structured poetry.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-passenger w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-passenger w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-slate-300 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+
+                    <div class="quest-card tier-passenger p-5 flex flex-col justify-between border border-amber-500/50 major-glow">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-amber-900/80 text-amber-300 border border-amber-500/80 px-2 py-1 rounded font-bold tracking-wider shadow-[0_0_10px_rgba(251,191,36,0.6)]">[MAJOR] [CORE]</span>
+                                <span class="text-sm font-black text-amber-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] tracking-widest animate-pulse">100 Pts</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">9.6 The Poetry Capstone</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Prove objective mastery and curate a published anthology of original work.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-passenger w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-passenger w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-slate-300 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CREW -->
+                <div class="flex flex-col gap-6">
+                    <div class="text-center pb-2 border-b-2 border-emerald-500/50">
+                        <h3 class="text-emerald-400 text-xs font-bold tracking-widest uppercase">Crew Tier</h3>
+                    </div>
+
+                    <div class="quest-card tier-crew p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-[#064e3b] text-emerald-300 px-2 py-1 rounded font-bold tracking-wider shadow-inner">[MINOR] [XP]</span>
+                                <span class="text-xs font-bold text-emerald-400">20 XP MAX</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">9.2 The Slow Grind</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Build intellectual and mechanical stamina by engaging in self-selected, independent practice.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-crew w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-crew w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-emerald-100 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+
+                    <div class="quest-card tier-crew p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-[#064e3b] text-emerald-300 px-2 py-1 rounded font-bold tracking-wider shadow-inner">[MINOR] [XP]</span>
+                                <span class="text-xs font-bold text-emerald-400">+10 XP</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">9.4 Wayground Poetry Practice</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Verify your knowledge of poetic devices, meter, and vocabulary.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-crew w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-crew w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-emerald-100 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OFFICER -->
+                <div class="flex flex-col gap-6">
+                    <div class="text-center pb-2 border-b-2 border-purple-500/50">
+                        <h3 class="text-purple-400 text-xs font-bold tracking-widest uppercase">Officer Class</h3>
+                    </div>
+
+                    <div class="quest-card tier-officer p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-[#4c1d95] text-purple-300 px-2 py-1 rounded font-bold tracking-wider shadow-inner">[MINOR] [XP]</span>
+                                <span class="text-xs font-bold text-purple-400">+20 XP</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">The Revisionist Portal</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Run any graded Minor assignment through Editor-in-Chief AI, apply edits, and submit a polished version with reflection.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-officer w-1/2 py-2 text-[11px] text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-officer w-1/2 py-2 text-[11px] text-center text-purple-200 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CAPTAIN -->
+                <div class="flex flex-col gap-6">
+                    <div class="text-center pb-2 border-b-2 border-orange-500/50">
+                        <h3 class="text-orange-400 text-xs font-bold tracking-widest uppercase">Captain Tier</h3>
+                    </div>
+
+                    <div class="quest-card tier-captain p-5 flex flex-col justify-between border border-amber-500/50 major-glow shadow-[0_0_20px_rgba(249,115,22,0.3)]">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-orange-600 text-white px-2 py-1 rounded font-bold tracking-wider shadow-inner shadow-orange-900">[MAJOR] [XP]</span>
+                                <span class="text-sm font-black text-amber-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] tracking-widest animate-pulse">100 Pts</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">9.5 The Legacy Verse</h4>
+                            <p class="text-xs text-slate-400 mb-5 line-clamp-3">Compose a commemorative poem capturing the spirit of the graduating class.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-captain w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-captain w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-orange-200 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+
+                    <div class="quest-card tier-captain p-5 flex flex-col justify-between border border-amber-500/50 major-glow shadow-[0_0_20px_rgba(249,115,22,0.3)]">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[10px] bg-orange-600 text-white px-2 py-1 rounded font-bold tracking-wider shadow-inner shadow-orange-900">[MAJOR] [XP]</span>
+                                <span class="text-sm font-black text-amber-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] tracking-widest animate-pulse">100 Pts</span>
+                            </div>
+                            <h4 class="text-white font-bold text-sm mb-2">9.7 Open Contract</h4>
+                            <p class="text-xs text-orange-200/80 mb-5 line-clamp-3">Produce a spoken-word poetry performance track, or design an experimental visual poem format.</p>
+                        </div>
+                        <div class="flex gap-3 w-full">
+                            <a href="#" target="_blank" class="btn-3d btn-captain w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-white rounded">PERIOD 1</a>
+                            <a href="#" target="_blank" class="btn-3d btn-captain w-1/2 py-2 text-[11px] font-bold tracking-wider text-center text-orange-200 rounded">PERIOD 2</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function openQuest(questId, sprintIndex, iconName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(questId).classList.add('active');
+            document.getElementById('btn-' + questId).classList.add('active');
+
+            const positions = [0, 9.09, 18.18, 27.27, 36.36, 45.45, 54.54, 63.63, 72.72, 81.81, 90.90, 100];
+            const newPos = positions[sprintIndex];
+            
+            const marker = document.getElementById('progress-marker');
+            marker.style.left = `calc(${newPos}%)`;
+            
+            if(sprintIndex === 0) marker.style.marginLeft = '-10px';
+            else if (sprintIndex === 11) marker.style.marginLeft = '-40px';
+            else marker.style.marginLeft = '-20px';
+
+            const progressFill = document.getElementById('progress-fill');
+            if (progressFill) progressFill.style.width = `calc(${newPos}%)`;
+
+            let displayNum = sprintIndex + 1;
+            let displayStr = displayNum < 10 ? '0' + displayNum : displayNum;
+            document.getElementById('quest-label').innerText = `QUEST ${displayStr}`;
+
+            const markerIcon = document.getElementById('marker-icon');
+            if (markerIcon) markerIcon.className = `ph-fill ${iconName} text-white text-[32px] drop-shadow-md relative z-10`;
+        }
+    </script>
+</body>
+</html>
