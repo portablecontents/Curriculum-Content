@@ -1,1 +1,431 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026-27 CFE Control Center 2.0</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        void: '#020617', 
+                        bezel: '#1e293b', 
+                        screen: '#020617', 
+                        sysCyan: '#06B6D4',
+                        sysOrange: '#F97316',
+                        sysGreen: '#10B981',
+                        sysPurple: '#A855F7',
+                        sysText: '#94A3B8'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                        display: ['Orbitron', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'blink': 'blink 1s step-end infinite',
+                    },
+                    keyframes: {
+                        blink: {
+                            '0%, 100%': { opacity: 1 },
+                            '50%': { opacity: 0 }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #020617;
+            color: #e2e8f0;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-attachment: fixed;
+        }
+
+        ::-webkit-scrollbar { display: none; }
+
+        /* Screen Glare effect (Subtle) */
+        .screen-glare {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 40%, transparent 100%);
+            pointer-events: none;
+            z-index: 15;
+        }
+
+        /* Physical Monitor Frame Base - Popping 3D Effect */
+        .monitor-frame {
+            background: linear-gradient(135deg, #334155 0%, #0f172a 100%);
+            border-radius: 12px;
+            padding: 4px; /* Bezel thickness */
+            box-shadow: 
+                0 20px 40px -10px rgba(0,0,0,0.9), /* Outer heavy drop shadow */
+                inset 0 2px 2px rgba(255,255,255,0.15), /* Bezel top highlight */
+                inset 0 -2px 5px rgba(0,0,0,0.6); /* Bezel bottom shadow */
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Inner Monitor Screen */
+        .monitor-screen {
+            background: #020617;
+            background-image: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.03) 0%, transparent 70%);
+            border-radius: 9px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.9); /* Tube depth */
+            position: relative;
+            overflow: hidden;
+            flex-grow: 1;
+        }
+
+        .theme-cyan .monitor-screen { border: 1px solid rgba(6, 182, 212, 0.4); box-shadow: inset 0 0 20px rgba(6, 182, 212, 0.1), 0 0 15px rgba(6, 182, 212, 0.2), inset 0 0 20px rgba(0,0,0,0.9); }
+        .theme-cyan .ui-text { color: #06B6D4; text-shadow: 0 0 8px rgba(6, 182, 212, 0.6); }
+        .theme-cyan .ui-border { border-color: #06B6D4; }
+
+        .theme-orange .monitor-screen { border: 1px solid rgba(249, 115, 22, 0.4); box-shadow: inset 0 0 20px rgba(249, 115, 22, 0.1), 0 0 15px rgba(249, 115, 22, 0.2), inset 0 0 20px rgba(0,0,0,0.9); }
+        .theme-orange .ui-text { color: #F97316; text-shadow: 0 0 8px rgba(249, 115, 22, 0.6); }
+        .theme-orange .ui-border { border-color: #F97316; }
+
+        .theme-green .monitor-screen { border: 1px solid rgba(16, 185, 129, 0.4); box-shadow: inset 0 0 20px rgba(16, 185, 129, 0.1), 0 0 15px rgba(16, 185, 129, 0.2), inset 0 0 20px rgba(0,0,0,0.9); }
+        .theme-green .ui-text { color: #10B981; text-shadow: 0 0 8px rgba(16, 185, 129, 0.6); }
+        .theme-green .ui-border { border-color: #10B981; }
+
+        .theme-purple .monitor-screen { border: 1px solid rgba(168, 85, 247, 0.4); box-shadow: inset 0 0 20px rgba(168, 85, 247, 0.1), 0 0 15px rgba(168, 85, 247, 0.2), inset 0 0 20px rgba(0,0,0,0.9); }
+        .theme-purple .ui-text { color: #A855F7; text-shadow: 0 0 8px rgba(168, 85, 247, 0.6); }
+        .theme-purple .ui-border { border-color: #A855F7; }
+
+        /* The Neutral/Base Theme */
+        .theme-neutral .monitor-screen { border: 1px solid rgba(148, 163, 184, 0.3); }
+
+        .btn-material {
+            background: linear-gradient(180deg, #06b6d4 0%, #0891b2 100%);
+            border-radius: 8px;
+            border: none;
+            border-bottom: 4px solid #0f766e; /* 3D Edge */
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.75rem 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+            transition: all 0.1s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            cursor: pointer;
+            z-index: 30;
+            position: relative;
+        }
+
+        .btn-material:hover {
+            filter: brightness(1.1);
+        }
+
+        .btn-material:active {
+            transform: translateY(4px);
+            border-bottom-width: 0px;
+            box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+            margin-bottom: 4px; /* Prevents layout shift */
+        }
+
+        /* Decorative UI Lines */
+        .tech-line { background: repeating-linear-gradient(90deg, currentColor, currentColor 4px, transparent 4px, transparent 8px); height: 1px; width: 100%; opacity: 0.3; }
+    </style>
+</head>
+
+<body class="font-sans antialiased min-h-screen p-4 md:p-6 lg:p-8">
+
+    <div class="max-w-[1500px] mx-auto space-y-6">
+        
+        <!-- TOP ROW: Main HUD and Directive Alpha (Compact Size) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+            
+            <!-- MAIN HUD MONITOR (Cyan Theme - Compressed width to 9 columns) -->
+            <div class="lg:col-span-9 monitor-frame theme-cyan">
+                <div class="monitor-screen p-4 md:p-6 flex flex-col justify-center">
+                    <div class="screen-glare"></div>
+                    
+                    <div class="relative z-30 flex flex-col md:flex-row justify-between items-center md:items-start w-full gap-4">
+                        
+                        <!-- Left: Titles -->
+                        <div class="text-center md:text-left">
+                            <div class="inline-flex items-center gap-2 mb-1 opacity-80">
+                                <i class="ph-fill ph-radar ui-text"></i>
+                                <span class="font-mono text-[10px] ui-text tracking-[0.2em] uppercase">HHS Network // SCCC ENG101</span>
+                            </div>
+                            <h1 class="font-display text-2xl md:text-3xl lg:text-4xl text-white font-black uppercase tracking-tight" style="text-shadow: 0 0 10px rgba(255,255,255,0.2);">
+                                2026-27 CFE <span class="ui-text">Control Center</span>
+                            </h1>
+                        </div>
+                        
+                        <!-- Right: Mission Clock -->
+                        <div class="text-right border border-sysCyan/30 bg-sysCyan/10 px-4 py-2 rounded-lg shadow-inner">
+                            <div class="font-mono text-[10px] ui-text uppercase tracking-widest mb-0.5">LOCAL TIME_SYNC</div>
+                            <div id="clock" class="font-display text-xl md:text-2xl ui-text font-bold">00:00:00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIRECTIVE ALPHA MONITOR (Orange Theme - Reduced to 3 columns) -->
+            <div class="lg:col-span-3 monitor-frame theme-orange">
+                <div class="monitor-screen p-4 md:p-6 flex flex-col justify-center">
+                    <div class="screen-glare"></div>
+                    
+                    <div class="relative z-30 h-full flex flex-col justify-between">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="font-mono text-[10px] bg-black px-3 py-1 rounded border ui-border ui-text shadow-[0_0_10px_rgba(249,115,22,0.5)] font-bold uppercase tracking-widest self-start">Directive Alpha</span>
+                            <i class="ph-fill ph-warning-circle ui-text text-lg animate-pulse-slow"></i>
+                        </div>
+                        
+                        <div>
+                            <h2 class="text-sm font-medium leading-relaxed text-white font-sans italic">
+                                "There are no passengers on spaceship earth. <br/>
+                                <span class="ui-text font-bold tracking-wide block mt-1 not-italic">We are all crew."</span>
+                            </h2>
+                            <p class="font-mono text-[10px] text-sysText mt-3 text-right uppercase tracking-widest">— Marshall McLuhan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+            
+            <!-- ACTIVE QUEST TRACKER (Cyan Theme) -->
+            <div class="md:col-span-7 monitor-frame theme-cyan">
+                <div class="monitor-screen p-6 md:p-8 flex flex-col">
+                    <div class="screen-glare"></div>
+                    
+                    <div class="relative z-30 flex-grow flex flex-col">
+                        <!-- Glowing Active Indicator (Matches b54c99) -->
+                        <div class="mb-5 inline-flex items-center gap-2 bg-black px-3 py-1.5 rounded border ui-border ui-text font-mono text-[11px] font-bold uppercase tracking-widest shadow-[0_0_10px_rgba(6,182,212,0.5)] self-start">
+                            <div class="w-1.5 h-1.5 rounded-full bg-sysCyan animate-pulse"></div>
+                            Quest 01 Active
+                        </div>
+
+                        <h3 class="font-display font-bold text-white text-2xl tracking-wider uppercase mb-3 drop-shadow-md">
+                            Quest Board 1: The Portrait
+                        </h3>
+
+                        <p class="text-sm text-sysText mb-6 font-sans leading-relaxed flex-grow">Target objective: Execution of the college admissions personal statement and master-level syntax review. Leave the internal editor behind.</p>
+                        
+                        <!-- Telemetry Bars -->
+                        <div class="space-y-5 mb-8 font-mono">
+                            <div>
+                                <div class="flex justify-between text-[10px] text-sysText mb-1.5 uppercase tracking-widest">
+                                    <span>Time Elapsed (Sept 2 - Sept 18)</span>
+                                    <span class="ui-text">33%</span>
+                                </div>
+                                <div class="w-full bg-black border ui-border rounded-full h-2.5 overflow-hidden shadow-inner">
+                                    <div class="bg-sysCyan h-full shadow-[0_0_10px_rgba(6,182,212,0.8)]" style="width: 33%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-[10px] text-sysText mb-1.5 uppercase tracking-widest">
+                                    <span>Class XP Acquisition</span>
+                                    <span class="text-sysGreen">Optimal (78%)</span>
+                                </div>
+                                <div class="w-full bg-black border border-sysGreen/40 rounded-full h-2.5 overflow-hidden shadow-inner">
+                                    <div class="bg-sysGreen h-full shadow-[0_0_10px_rgba(16,185,129,0.8)]" style="width: 78%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tactile Material Button -->
+                        <div class="flex justify-end mt-auto">
+                            <a href="#quest-board-1" class="btn-material text-sm">
+                                Access Quest Board <i class="ph-bold ph-arrow-right text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRADE TIER MATRIX (Neutral Theme) -->
+            <div class="md:col-span-5 monitor-frame theme-neutral">
+                <div class="monitor-screen p-6 md:p-8 flex flex-col h-full">
+                    <div class="screen-glare"></div>
+                    
+                    <div class="relative z-30 h-full flex flex-col">
+                        <div class="flex justify-between items-center mb-6 border-b border-slate-700/50 pb-3">
+                            <h3 class="font-display font-bold text-white text-sm tracking-widest uppercase">
+                                Grade Tier Matrix
+                            </h3>
+                            <span class="font-mono text-[10px] bg-black px-3 py-1 rounded border border-slate-500 text-slate-400 shadow-[0_0_8px_rgba(100,116,139,0.5)] uppercase tracking-widest font-bold">[DB_SCAN: OK]</span>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4 flex-grow">
+                            <!-- Passenger -->
+                            <div class="bg-slate-900/50 border border-slate-700 rounded-lg p-4 flex flex-col items-center justify-start text-center group transition-all hover:border-blue-400 hover:bg-blue-900/20 hover:-translate-y-1 hover:shadow-[0_5px_15px_rgba(59,130,246,0.2)]">
+                                <i class="ph-fill ph-user text-3xl text-blue-500 mb-2 drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"></i>
+                                <div class="font-display text-white text-xs font-bold tracking-wider mb-1">PASSENGER</div>
+                                <div class="font-mono text-[10px] text-slate-400 font-bold mb-2">60-75% (C)</div>
+                                <p class="text-[10px] text-slate-400 mt-auto leading-tight px-1">Satisfactory completion of all mandatory Core Campaigns.</p>
+                            </div>
+                            <!-- Crew -->
+                            <div class="bg-slate-900/50 border border-slate-700 rounded-lg p-4 flex flex-col items-center justify-start text-center group transition-all hover:border-emerald-400 hover:bg-emerald-900/20 hover:-translate-y-1 hover:shadow-[0_5px_15px_rgba(16,185,129,0.2)]">
+                                <i class="ph-fill ph-users text-3xl text-emerald-500 mb-2 drop-shadow-[0_0_8px_rgba(16,185,129,0.6)]"></i>
+                                <div class="font-display text-white text-xs font-bold tracking-wider mb-1">CREW</div>
+                                <div class="font-mono text-[10px] text-emerald-400 font-bold mb-2">76-85% (B)</div>
+                                <p class="text-[10px] text-slate-400 mt-auto leading-tight px-1">100% Core completion plus a cumulative 100 XP from Side Quests.</p>
+                            </div>
+                            <!-- Officer -->
+                            <div class="bg-slate-900/50 border border-slate-700 rounded-lg p-4 flex flex-col items-center justify-start text-center group transition-all hover:border-purple-400 hover:bg-purple-900/20 hover:-translate-y-1 hover:shadow-[0_5px_15px_rgba(168,85,247,0.2)]">
+                                <i class="ph-fill ph-star text-3xl text-purple-500 mb-2 drop-shadow-[0_0_8px_rgba(168,85,247,0.6)]"></i>
+                                <div class="font-display text-white text-xs font-bold tracking-wider mb-1">OFFICER</div>
+                                <div class="font-mono text-[10px] text-purple-400 font-bold mb-2">90-95% (A)</div>
+                                <p class="text-[10px] text-slate-400 mt-auto leading-tight px-1">100% Core, 250 XP, plus successful completion of Revision Portfolios.</p>
+                            </div>
+                            <!-- Captain -->
+                            <div class="bg-slate-900/50 border border-slate-700 rounded-lg p-4 flex flex-col items-center justify-start text-center group transition-all hover:border-orange-400 hover:bg-orange-900/20 hover:-translate-y-1 hover:shadow-[0_5px_15px_rgba(249,115,22,0.2)]">
+                                <i class="ph-fill ph-crown text-3xl text-orange-500 mb-2 drop-shadow-[0_0_8px_rgba(249,115,22,0.6)]"></i>
+                                <div class="font-display text-white text-xs font-bold tracking-wider mb-1">CAPTAIN</div>
+                                <div class="font-mono text-[10px] text-orange-400 font-bold mb-2">96-100% (A+)</div>
+                                <p class="text-[10px] text-slate-400 mt-auto leading-tight px-1">100% Core, 350 XP, plus a successful Boss Level Oral Defense.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+            
+            <!-- AI COMPANIONS GUILD (Purple Theme) -->
+            <div class="md:col-span-6 monitor-frame theme-purple">
+                <div class="monitor-screen p-6 md:p-8">
+                    <div class="screen-glare"></div>
+                    
+                    <div class="relative z-30">
+                        <div class="flex justify-between items-center mb-6 border-b border-sysPurple/30 pb-3">
+                            <h3 class="font-display font-bold text-white text-sm tracking-widest uppercase flex items-center gap-2">
+                                <i class="ph-fill ph-robot ui-text text-lg"></i> AI Guild Co-Pilots
+                            </h3>
+                            <span class="font-mono text-[10px] bg-black px-3 py-1 rounded border ui-border ui-text shadow-[0_0_10px_rgba(168,85,247,0.5)] font-bold uppercase tracking-widest">[4_ENTITIES_ONLINE]</span>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono">
+                            <!-- Syntax Surgeon -->
+                            <a href="#syntax" class="block bg-slate-900/60 border border-slate-700 rounded-lg p-3 hover:border-sysPurple hover:bg-sysPurple/10 hover:-translate-y-0.5 transition-all group shadow-sm">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <i class="ph-fill ph-stethoscope ui-text text-2xl group-hover:scale-110 transition-transform drop-shadow-[0_0_5px_rgba(168,85,247,0.5)]"></i>
+                                    <div class="font-bold text-xs text-white">Syntax Surgeon</div>
+                                </div>
+                                <div class="text-[10px] text-sysText">Clause diagnostics & line-editing</div>
+                            </a>
+                            <!-- Argu-Bot 5000 -->
+                            <a href="#argubot" class="block bg-slate-900/60 border border-slate-700 rounded-lg p-3 hover:border-sysPurple hover:bg-sysPurple/10 hover:-translate-y-0.5 transition-all group shadow-sm">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <i class="ph-fill ph-scales ui-text text-2xl group-hover:scale-110 transition-transform drop-shadow-[0_0_5px_rgba(168,85,247,0.5)]"></i>
+                                    <div class="font-bold text-xs text-white">Argu-Bot 5000</div>
+                                </div>
+                                <div class="text-[10px] text-sysText">Logical stress-test & counter-claims</div>
+                            </a>
+                            <!-- Editor-in-Chief -->
+                            <a href="#editor" class="block bg-slate-900/60 border border-slate-700 rounded-lg p-3 hover:border-sysPurple hover:bg-sysPurple/10 hover:-translate-y-0.5 transition-all group shadow-sm">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <i class="ph-fill ph-books ui-text text-2xl group-hover:scale-110 transition-transform drop-shadow-[0_0_5px_rgba(168,85,247,0.5)]"></i>
+                                    <div class="font-bold text-xs text-white">Editor-in-Chief</div>
+                                </div>
+                                <div class="text-[10px] text-sysText">Macro-structural essay critique</div>
+                            </a>
+                            <!-- Hauppaganda -->
+                            <a href="#hauppaganda" class="block bg-slate-900/60 border border-slate-700 rounded-lg p-3 hover:border-sysPurple hover:bg-sysPurple/10 hover:-translate-y-0.5 transition-all group shadow-sm">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <i class="ph-fill ph-megaphone ui-text text-2xl group-hover:scale-110 transition-transform drop-shadow-[0_0_5px_rgba(168,85,247,0.5)]"></i>
+                                    <div class="font-bold text-xs text-white">Hauppaganda</div>
+                                </div>
+                                <div class="text-[10px] text-sysText">Creative trickster & ideation</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THE LORE VAULT (Green Theme) -->
+            <div class="md:col-span-6 monitor-frame theme-green">
+                <div class="monitor-screen p-6 md:p-8">
+                    <div class="screen-glare"></div>
+                    
+                    <div class="relative z-30">
+                        <div class="flex justify-between items-center mb-6 border-b border-sysGreen/30 pb-3">
+                            <h3 class="font-display font-bold text-white text-sm tracking-widest uppercase flex items-center gap-2">
+                                <i class="ph-fill ph-database ui-text text-lg"></i> The Lore Vault
+                            </h3>
+                            <span class="font-mono text-[10px] bg-black px-3 py-1 rounded border ui-border ui-text shadow-[0_0_10px_rgba(16,185,129,0.5)] font-bold uppercase tracking-widest">[DB_ACCESS_GRANTED]</span>
+                        </div>
+                        
+                        <ul class="space-y-3 font-mono text-xs">
+                            <li>
+                                <a href="#syllabus" class="flex justify-between items-center p-3.5 bg-slate-900/60 rounded-lg border border-slate-700 hover:border-sysGreen hover:bg-sysGreen/10 text-sysText hover:text-white transition-all group shadow-sm">
+                                    <span class="uppercase flex items-center gap-3">
+                                        <span class="ui-text font-bold">01</span> Syllabus & Policies
+                                    </span> 
+                                    <i class="ph-bold ph-arrow-up-right ui-text group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#sccc" class="flex justify-between items-center p-3.5 bg-slate-900/60 rounded-lg border border-slate-700 hover:border-sysGreen hover:bg-sysGreen/10 text-sysText hover:text-white transition-all group shadow-sm">
+                                    <span class="uppercase flex items-center gap-3">
+                                        <span class="ui-text font-bold">02</span> SCCC Credit Info
+                                    </span> 
+                                    <i class="ph-bold ph-arrow-up-right ui-text group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#wayground" class="flex justify-between items-center p-3.5 bg-slate-900/60 rounded-lg border border-slate-700 hover:border-sysGreen hover:bg-sysGreen/10 text-sysText hover:text-white transition-all group shadow-sm">
+                                    <span class="uppercase flex items-center gap-3">
+                                        <span class="ui-text font-bold">03</span> Wayground Terminal
+                                    </span> 
+                                    <i class="ph-bold ph-arrow-up-right ui-text group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            const hoursStr = String(hours).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            
+            const clockEl = document.getElementById('clock');
+            clockEl.textContent = `${hoursStr}:${minutes}:${seconds} ${ampm}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
